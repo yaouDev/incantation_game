@@ -1609,7 +1609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b7ca2ed116084d8e6af1b80b20177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: august
   maxMessages: 25
   chatPanel: {fileID: 765911980}
   textObject: {fileID: 3588471052908626396, guid: 6d17f0682b43ba44bbadac3266b23e5e, type: 3}
