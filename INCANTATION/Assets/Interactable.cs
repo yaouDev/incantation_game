@@ -5,7 +5,7 @@ public class Interactable : MonoBehaviour {
     //Might not need all the "focus" jizz jazz
 
     public float radius = 3f;
-    public Transform interactionTranform;
+    public Transform interactionTransform;
 
     private bool isFocus = false;
     [SerializeField] private Transform player;
@@ -20,7 +20,7 @@ public class Interactable : MonoBehaviour {
     void Update(){
         if(isFocus && !hasInteracted){
             float distance = Vector3.Distance(player.position, interactionTransform.position);
-            if(distance <= raidus){
+            if(distance <= radius){
                 Interact();
                 hasInteracted = true;
             }
@@ -29,19 +29,19 @@ public class Interactable : MonoBehaviour {
 
     public void OnFocused(Transform playerTransform){
         isFocus = true;
-        player = playerTransform
+        player = playerTransform;
         hasInteracted = false;
     }
 
     public void OnDefocused(){
         isFocus = false;
-        player = full;
+        player = null;
         hasInteracted = false;
     }
 
     void OnDrawGizmosSelected(){
-        if(interactionTranform == null){
-            interactionTranform = transform;
+        if(interactionTransform == null){
+            interactionTransform = transform;
         }
 
         Gizmos.color = Color.red;

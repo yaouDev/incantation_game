@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour {
 
     void Awake(){
         if(instance != null){
-            Debug.Warning("More than one instance of inventory!");
+            Debug.LogWarning("More than one instance of inventory!");
             return;
         }
 
