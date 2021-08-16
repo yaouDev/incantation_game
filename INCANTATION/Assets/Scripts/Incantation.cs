@@ -18,6 +18,7 @@ public class Incantation : MonoBehaviour
         AddIncantation("add blue");
         AddIncantation("remove red");
         AddIncantation("remove blue");
+        AddIncantation("die");
     }
 
     // Update is called once per frame
@@ -62,6 +63,9 @@ public class Incantation : MonoBehaviour
                 break;
             case "remove blue":
                 RemoveIncantation("blue");
+                break;
+            case "die":
+                gameObject.GetComponent<PlayerState>().TakeDamage(10);
                 break;
             default:
                 break;
