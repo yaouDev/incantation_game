@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,12 +19,18 @@ public class PlayerMovement : MonoBehaviour
 
     public Interactable focus;
 
-    void Start(){
+    void Start()
+    {
         cam = Camera.main;
     }
 
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         //Input
 
         if (!gameManager.chatBox.isFocused)
@@ -61,22 +68,25 @@ public class PlayerMovement : MonoBehaviour
             }
         }*/
 
-        //Input E
-        if (Input.GetKeyDown(KeyCode.E))
+        //Input E BROKEN!!! RECOGNIZES PLAYER COLLIDER
+        if (Input.GetButtonDown("Interact"))
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, pickupRadius);
+            foreach (Collider2D collider in colliders)
             {
-            Collider2D collider = Physics2D.OverlapCircle(gameObject.transform.position, pickupRadius);
-            if (collider.TryGetComponent<ItemPickup>(out ItemPickup item))
-            {
-                item.PickUp();
+                if (collider.gameObject.TryGetComponent<ItemPickup>(out ItemPickup item))
+                {
+                    item.Interact();
+                }
             }
         }
-        
+
     }
 
     private void FixedUpdate()
     {
         //Movement
-        if(movement.x != 0 && movement.y != 0)
+        if (movement.x != 0 && movement.y != 0)
         {
             rb.MovePosition(rb.position + movement * moveSpeed * 0.75f * Time.fixedDeltaTime);
         }
@@ -84,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
-        
+
 
 
     }

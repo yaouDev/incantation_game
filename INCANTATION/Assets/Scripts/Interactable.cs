@@ -16,7 +16,7 @@ public class Interactable : MonoBehaviour {
         //This method is meant to be overwritten
         Debug.Log("Interacted with " + transform.name);
     }
-
+    /*
     void Update(){
         if(!hasInteracted){
             float distance = Vector3.Distance(player.position, interactionTransform.position);
@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour {
                 hasInteracted = true;
             }
         }
-    }
+    }*/
 
     /*
     public void OnFocused(Transform playerTransform){
