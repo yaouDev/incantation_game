@@ -19,6 +19,7 @@ public class Incantation : MonoBehaviour
         AddIncantation("remove red");
         AddIncantation("remove blue");
         AddIncantation("die");
+        AddIncantation("ring");
     }
 
     // Update is called once per frame
@@ -67,10 +68,34 @@ public class Incantation : MonoBehaviour
             case "die":
                 gameObject.GetComponent<PlayerState>().TakeDamage(10);
                 break;
+            case "ring":
+                RingOfDeath();
+                break;
             default:
                 break;
 
         }
+    }
+
+    private void RingOfDeath()
+    {
+        float radius = 5f;
+
+        Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, radius);
+        foreach(Collider2D collider in colliderArray)
+        {
+            if(collider.TryGetComponent<EnemyState>(out EnemyState enemy))
+            {
+                enemy.TakeDamage(10);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, 5f);
     }
 
     public void AddIncantation(string incantation)

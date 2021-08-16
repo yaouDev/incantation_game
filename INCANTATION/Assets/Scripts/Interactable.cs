@@ -7,18 +7,18 @@ public class Interactable : MonoBehaviour {
     public float radius = 3f;
     public Transform interactionTransform;
 
-    private bool isFocus = false;
+    //private bool isFocus = false;
     [SerializeField] private Transform player;
 
     private bool hasInteracted = false;
 
     public virtual void Interact(){
         //This method is meant to be overwritten
-        Debug.Log("Interactive with " + transform.name);
+        Debug.Log("Interacted with " + transform.name);
     }
 
     void Update(){
-        if(isFocus && !hasInteracted){
+        if(!hasInteracted){
             float distance = Vector3.Distance(player.position, interactionTransform.position);
             if(distance <= radius){
                 Interact();
@@ -27,6 +27,7 @@ public class Interactable : MonoBehaviour {
         }
     }
 
+    /*
     public void OnFocused(Transform playerTransform){
         isFocus = true;
         player = playerTransform;
@@ -37,7 +38,7 @@ public class Interactable : MonoBehaviour {
         isFocus = false;
         player = null;
         hasInteracted = false;
-    }
+    }*/
 
     void OnDrawGizmosSelected(){
         if(interactionTransform == null){

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Animator animator;
+    public float pickupRadius = 5f;
 
     private Camera cam;
 
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
         //Input right mouse
-
+        /*
         if(Input.GetMouseButtonDown(1)){
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -58,7 +59,18 @@ public class PlayerMovement : MonoBehaviour
                     SetFocus(interactable);
                 }
             }
+        }*/
+
+        //Input E
+        if (Input.GetKeyDown(KeyCode.E))
+            {
+            Collider2D collider = Physics2D.OverlapCircle(gameObject.transform.position, pickupRadius);
+            if (collider.TryGetComponent<ItemPickup>(out ItemPickup item))
+            {
+                item.PickUp();
+            }
         }
+        
     }
 
     private void FixedUpdate()
@@ -77,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    /*
     private void SetFocus(Interactable newFocus){
         if(newFocus != focus){
 
@@ -96,5 +109,5 @@ public class PlayerMovement : MonoBehaviour
             focus.OnDefocused();
         }
         focus = null;
-    }
+    }*/
 }
