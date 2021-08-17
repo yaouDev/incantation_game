@@ -5,6 +5,24 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    #region Singleton
+
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.LogWarning("More than one game managers found");
+        }
+
+        instance = this;
+    }
+
+    #endregion
+
+    //public bool isInputEnabled = true;
+
     public int maxMessages = 25;
 
     public GameObject chatPanel;

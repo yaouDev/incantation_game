@@ -66,7 +66,7 @@ public class Incantation : MonoBehaviour
                 RemoveIncantation("blue");
                 break;
             case "die":
-                gameObject.GetComponent<PlayerState>().TakeDamage(10);
+                gameObject.GetComponent<PlayerStats>().TakeDamage(10);
                 break;
             case "ring":
                 RingOfDeath();
@@ -84,7 +84,7 @@ public class Incantation : MonoBehaviour
         Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach(Collider2D collider in colliderArray)
         {
-            if(collider.TryGetComponent<EnemyState>(out EnemyState enemy))
+            if(collider.TryGetComponent<EnemyStats>(out EnemyStats enemy))
             {
                 enemy.TakeDamage(10);
             }

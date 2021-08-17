@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
@@ -7,6 +8,8 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
     public Stat armor;
+    public Stat attackSpeed;
+    public Stat movementSpeed;
 
     private void Awake()
     {
@@ -19,6 +22,17 @@ public class CharacterStats : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            StartCoroutine(StatBoost(armor, 5, 5f));
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            StartCoroutine(StatDrain(armor, 5, 5f));
+        }
+
     }
 
     public void TakeDamage(int damage)
@@ -50,5 +64,33 @@ public class CharacterStats : MonoBehaviour
     public void SetCurrentHealth(int health)
     {
         currentHealth = health;
+    }
+
+    public IEnumerator StatBoost(Stat stat, int modifier, float duration)
+    {
+        stat.AddModifier(modifier);
+
+        float normalizedTime = 0f;
+        while(normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        stat.RemoveModifier(modifier);
+    }
+
+    public IEnumerator StatDrain(Stat stat, int modifier, float duration)
+    {
+        stat.AddModifier(-modifier);
+
+        float normalizedTime = 0f;
+        while (normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        stat.RemoveModifier(-modifier);
     }
 }

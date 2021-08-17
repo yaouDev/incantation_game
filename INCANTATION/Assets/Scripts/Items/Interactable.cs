@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
 
     private bool hasInteracted = false;
 
+
     public virtual void Interact()
     {
         //This method is meant to be overwritten
