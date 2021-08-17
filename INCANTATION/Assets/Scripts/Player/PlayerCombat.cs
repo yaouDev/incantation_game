@@ -37,7 +37,7 @@ public class PlayerCombat : MonoBehaviour
     //Change depending on melee/ranged
     private void FixedUpdate()
     {
-        //awkward box
+        //awkward box https://answers.unity.com/questions/764568/clamping-object-movement-in-circle.html
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         float attackX = Mathf.Clamp(lookDir.x, -attackRange, attackRange);
