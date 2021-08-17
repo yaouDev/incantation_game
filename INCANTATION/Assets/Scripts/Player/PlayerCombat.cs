@@ -37,14 +37,14 @@ public class PlayerCombat : MonoBehaviour
     //Change depending on melee/ranged
     private void FixedUpdate()
     {
+        //awkward box
         Vector2 lookDir = mousePos - rb.position;
-        //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        //attackPoint.localEulerAngles = new Vector3(attackPoint.localPosition.x, attackPoint.localPosition.y, angle);
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         float attackX = Mathf.Clamp(lookDir.x, -attackRange, attackRange);
         float attackY = Mathf.Clamp(lookDir.y, -attackRange, attackRange);
         attackPoint.localPosition = new Vector3(attackX, attackY);
 
-        //rb.rotation = angle;
+        attackPoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
     }
 
     private void Attack()
