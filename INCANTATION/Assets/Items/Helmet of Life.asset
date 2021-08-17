@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c73b80db2269d34d873531145838caa, type: 3}
+  m_Name: Helmet of Life
+  m_EditorClassIdentifier: 
+  name: Helmet of Life
+  icon: {fileID: 21300000, guid: d1c11f63e098b324ea94dea90912a3a0, type: 3}
+  sprite: {fileID: 21300000, guid: 98f98215f7564934190aa6f90ba06d47, type: 3}
+  isDefaultItem: 0
+  rarity: 0
+  equipSlot: 0
+  armorModifer: 3
+  damageModifier: 0
