@@ -30,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetButtonDown("Fire1"))
         {
             Attack();
         }
