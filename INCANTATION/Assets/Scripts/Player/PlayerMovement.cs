@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 75f;
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -16,8 +16,6 @@ public class PlayerMovement : MonoBehaviour
     public GameManager gameManager;
 
     private Vector2 movement;
-
-    public Interactable focus;
 
     void Start()
     {
@@ -65,11 +63,11 @@ public class PlayerMovement : MonoBehaviour
         //Movement
         if (movement.x != 0 && movement.y != 0)
         {
-            rb.MovePosition(rb.position + movement * moveSpeed * 0.75f * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement * (moveSpeed/10) * 0.75f * Time.fixedDeltaTime);
         }
         else
         {
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement * (moveSpeed/10) * Time.fixedDeltaTime);
         }
 
 

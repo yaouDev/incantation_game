@@ -4,7 +4,8 @@ using UnityEngine;
 public class ItemPickup : Interactable{
 
     public Item item;
-    public SpriteRenderer spriteRenderer;
+    //so that you can put something in there before the world spawns
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Start()
     {

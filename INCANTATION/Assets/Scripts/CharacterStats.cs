@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
@@ -6,6 +7,7 @@ public class CharacterStats : MonoBehaviour
     public Stat maxHealth;
     private int currentHealth;
 
+    private List<Stat> buffableStats = new List<Stat>();
     public Stat damage;
     public Stat armor;
     public Stat attackSpeed;
@@ -14,6 +16,11 @@ public class CharacterStats : MonoBehaviour
 
     private void Awake()
     {
+        buffableStats.Add(damage);
+        buffableStats.Add(armor);
+        buffableStats.Add(attackSpeed);
+        buffableStats.Add(movementSpeed);
+
         currentHealth = maxHealth.GetValue();
     }
 
@@ -33,7 +40,18 @@ public class CharacterStats : MonoBehaviour
         {
             StartCoroutine(StatDrain(armor, 5, 5f));
         }
+    }
 
+    private void LateUpdate()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            gameObject.GetComponent<PlayerMovement>().moveSpeed = movementSpeed.GetValue();
+        }
+        else if (gameObject.CompareTag("Enemy"))
+        {
+            //add enemymovement
+        }
     }
 
     public void TakeDamage(int damage)
@@ -62,7 +80,7 @@ public class CharacterStats : MonoBehaviour
         return currentHealth;
     }
 
-    public void SetCurrentHealth(int health)
+    public void Heal(int health)
     {
         currentHealth = health;
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class Enemy : Interactable
 {
-    PlayerManager playerManager;
+    public PlayerManager playerManager;
     CharacterStats myStats;
 
     private void Start()

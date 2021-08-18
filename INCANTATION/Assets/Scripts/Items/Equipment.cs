@@ -9,6 +9,8 @@ public class Equipment : Item
 
     public int armorModifer;
     public int damageModifier;
+    public int moveSpeedModifier;
+    public int attackSpeedModifier;
 
     public override void Use()
     {

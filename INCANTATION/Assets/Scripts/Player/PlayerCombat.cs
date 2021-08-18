@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [SerializeField] private AttackType attackType;
 
     public Animator animator;
 
@@ -14,8 +16,6 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers;
     public PlayerStats playerStats;
     private Rigidbody2D rb;
-
-    public bool isRanged = false;
 
     private Camera cam;
     Vector2 mousePos;
@@ -29,7 +29,7 @@ public class PlayerCombat : MonoBehaviour
     [Range(0, 10)]
     [SerializeField] private float chargePower;
 
-    [Range(0, 3)]
+    [Range(1, 4)]
     [SerializeField] private float maxCharge;
 
     private float currentCharge;
@@ -52,34 +52,43 @@ public class PlayerCombat : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            Attack();
-        }
-
-        //charged attack
-        if(Input.GetButton("Fire2") && canFire)
-        {
-            ChargeProjectile();
-        }
-        else if(Input.GetButtonUp("Fire2") && canFire)
-        {
-            FireProjectile();
-        }
-        else
-        {
-            if(currentCharge > 0f)
+            if (attackType == AttackType.range)
             {
-                //charge decay VVV
-                currentCharge -= 0.1f;
+                //charged attack
+                if (Input.GetButton("Fire1") && canFire)
+                {
+                    ChargeProjectile();
+                }
+                else if (Input.GetButtonUp("Fire1") && canFire)
+                {
+                    FireProjectile();
+                }
+                else
+                {
+                    if (currentCharge > 0f)
+                    {
+                        //charge decay VVV
+                        currentCharge -= 0.1f;
+                    }
+                    else
+                    {
+                        currentCharge = 0f;
+                        canFire = true;
+                    }
+
+                    chargeProjectileSlider.value = currentCharge;
+                }
             }
             else
             {
-                currentCharge = 0f;
-                canFire = true;
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    Attack();
+                }
             }
 
-            chargeProjectileSlider.value = currentCharge;
         }
     }
 
@@ -103,7 +112,7 @@ public class PlayerCombat : MonoBehaviour
 
         //Combat Modes
 
-        if (isRanged)
+        if (attackType == AttackType.freeRange)
         {
             //Ranged
             attackPoint.transform.parent = weapon.transform.parent;
@@ -127,14 +136,11 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack()
     {
-        //Play animation
         animator.SetTrigger("Attack");
-        //Detect enemies
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        //Damage them
         foreach (Collider2D hit in hitEnemies)
         {
-            if(hit.gameObject.TryGetComponent<CharacterStats>(out CharacterStats enemy))
+            if (hit.gameObject.TryGetComponent<CharacterStats>(out CharacterStats enemy))
             {
                 enemy.TakeDamage(playerStats.damage.GetValue());
             }
@@ -149,7 +155,7 @@ public class PlayerCombat : MonoBehaviour
 
         chargeProjectileSlider.value = currentCharge;
 
-        if(currentCharge > maxCharge)
+        if (currentCharge > maxCharge)
         {
             chargeProjectileSlider.value = maxCharge;
         }
@@ -157,12 +163,13 @@ public class PlayerCombat : MonoBehaviour
 
     private void FireProjectile()
     {
-        if(currentCharge > maxCharge)
+        if (currentCharge > maxCharge)
         {
             currentCharge = maxCharge;
         }
 
-        float projectileSpeed = currentCharge + chargePower;
+        //float projectileSpeed = currentCharge + chargePower;
+        float projectileSpeed = 10f;
 
         //rb.position -> weapon.position?
         Vector2 lookDir = mousePos - rb.position;
@@ -172,14 +179,28 @@ public class PlayerCombat : MonoBehaviour
 
         Projectile projectileInstance = Instantiate(projectile, weapon.position, rot).GetComponent<Projectile>();
         projectileInstance.projectileVelocity = projectileSpeed;
+        //Change to reflect charge
+        int projectileDamage = playerStats.damage.GetValue() * (int)currentCharge;
+        if (projectileDamage <= 0)
+        {
+            projectileDamage = playerStats.damage.GetValue();
+        }
+
+        projectileInstance.SetDamage(projectileDamage);
+        projectileInstance.transform.localScale = new Vector3(projectileInstance.transform.localScale.x + currentCharge, projectileInstance.transform.localScale.y + currentCharge, projectileInstance.transform.localScale.z);
 
         canFire = false;
         projectileGFX.enabled = false;
     }
 
+    public void SetAttackType(AttackType newAttackType)
+    {
+        attackType = newAttackType;
+    }
+
     private void OnDrawGizmosSelected()
     {
-        if(attackPoint == null)
+        if (attackPoint == null)
         {
             return;
         }
