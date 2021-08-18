@@ -69,6 +69,11 @@ public class EquipmentManager : MonoBehaviour
     {
         if (currentEquipment[slotIndex] != null)
         {
+            if(currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
+            {
+                player.GetComponent<PlayerCombat>().SetAttackType(AttackType.melee);
+            }
+
             if (equipmentRenderers[slotIndex].sprite != null)
             {
                 equipmentRenderers[slotIndex].sprite = null;
@@ -114,5 +119,11 @@ public class EquipmentManager : MonoBehaviour
         {
             UnequipAll();
         }
+    }
+
+    public Weapon GetWeapon()
+    {
+        Weapon getWeapon = (Weapon)currentEquipment[(int)EquipmentSlot.weapon];
+        return getWeapon;
     }
 }

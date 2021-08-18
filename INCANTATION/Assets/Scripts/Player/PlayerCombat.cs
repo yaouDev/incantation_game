@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private AttackType attackType;
+    private GameManager gameManager;
 
     public Animator animator;
 
@@ -41,6 +42,7 @@ public class PlayerCombat : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerStats = gameObject.GetComponent<PlayerStats>();
         cam = Camera.main;
+        gameManager = GameManager.instance;
 
         //---ranged weapon---
         chargeProjectileSlider.value = 0f;
@@ -186,6 +188,7 @@ public class PlayerCombat : MonoBehaviour
             projectileDamage = playerStats.damage.GetValue();
         }
 
+        projectileInstance.GetSpriteRenderer().sprite = gameManager.GetComponent<EquipmentManager>().GetWeapon().projectile;
         projectileInstance.SetDamage(projectileDamage);
         projectileInstance.transform.localScale = new Vector3(projectileInstance.transform.localScale.x + currentCharge, projectileInstance.transform.localScale.y + currentCharge, projectileInstance.transform.localScale.z);
 

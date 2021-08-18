@@ -7,13 +7,14 @@ public class Projectile : MonoBehaviour
     //change to a constant for no chargingVVV
     [HideInInspector] public float projectileVelocity;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
 
     private int damage = 0;
 
-    //should be awake??
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         //VVchange to be deleted on impact or duration
         Destroy(gameObject, 4f);
     }
@@ -43,5 +44,10 @@ public class Projectile : MonoBehaviour
 
         //projectile death animation
         Destroy(gameObject);
+    }
+
+    public SpriteRenderer GetSpriteRenderer()
+    {
+        return sr;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Weapon : Equipment
 {
     public AttackType attackType;
+    public Sprite projectile;
 }
 
 public enum AttackType
