@@ -8,10 +8,13 @@ public class PlayerCombat : MonoBehaviour
     public Animator animator;
 
     public Transform attackPoint;
+    public Transform weapon;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public PlayerStats playerStats;
     private Rigidbody2D rb;
+
+    public bool isRanged = false;
 
     private Camera cam;
     Vector2 mousePos;
@@ -34,17 +37,45 @@ public class PlayerCombat : MonoBehaviour
     }
 
 
-    //Change depending on melee/ranged
     private void FixedUpdate()
     {
-        //awkward box https://answers.unity.com/questions/764568/clamping-object-movement-in-circle.html
+        /*
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         float attackX = Mathf.Clamp(lookDir.x, -attackRange, attackRange);
         float attackY = Mathf.Clamp(lookDir.y, -attackRange, attackRange);
-        attackPoint.localPosition = new Vector3(attackX, attackY);
+        attackPoint.localPosition = new Vector3(attackX, attackY);*/
 
-        attackPoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
+        //Combat
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+
+        weapon.localPosition = new Vector3(lookDir.x, lookDir.y);
+        weapon.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
+        weapon.localPosition = Vector3.ClampMagnitude(new Vector3(lookDir.x, lookDir.y), attackRange);
+
+        //Combat Modes
+
+        if (isRanged)
+        {
+            //Ranged
+            attackPoint.transform.parent = weapon.transform.parent;
+            attackPoint.localPosition = new Vector3(lookDir.x, lookDir.y);
+            //Rotates attackPoint
+            attackPoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
+        }
+        else
+        {
+            //Melee (child of weapon)
+            attackPoint.transform.parent = weapon.transform;
+            if (attackPoint.transform.position != weapon.transform.position)
+            {
+                attackPoint.transform.position = weapon.transform.position;
+            }
+        }
+
+        //Rotate point (needed?)
+        //attackPoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
     }
 
     private void Attack()

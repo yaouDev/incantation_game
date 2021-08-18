@@ -10,6 +10,7 @@ public class CharacterStats : MonoBehaviour
     public Stat armor;
     public Stat attackSpeed;
     public Stat movementSpeed;
+    public Stat attackRangeMelee;
 
     private void Awake()
     {
