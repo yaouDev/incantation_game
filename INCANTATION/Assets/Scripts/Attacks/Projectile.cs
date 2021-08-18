@@ -37,8 +37,7 @@ public class Projectile : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            projectileVelocity *= 3f;
-            return;
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<CapsuleCollider2D>());
         }
         //make it do that they dont disappear with collision on player
 
