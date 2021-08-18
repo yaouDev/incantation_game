@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -19,11 +20,32 @@ public class PlayerCombat : MonoBehaviour
     private Camera cam;
     Vector2 mousePos;
 
+    //---Ranged weapon related---
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private SpriteRenderer projectileGFX;
+    [SerializeField] private Slider chargeProjectileSlider;
+    //reference to weapon
+
+    [Range(0, 10)]
+    [SerializeField] private float chargePower;
+
+    [Range(0, 3)]
+    [SerializeField] private float maxCharge;
+
+    private float currentCharge;
+    private bool canFire = true;
+    //---Ranged weapon end---
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerStats = gameObject.GetComponent<PlayerStats>();
         cam = Camera.main;
+
+        //---ranged weapon---
+        chargeProjectileSlider.value = 0f;
+        chargeProjectileSlider.maxValue = maxCharge;
+        //---ranged weapon end---
     }
 
     void Update()
@@ -33,6 +55,31 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Attack();
+        }
+
+        //charged attack
+        if(Input.GetButton("Fire2") && canFire)
+        {
+            ChargeProjectile();
+        }
+        else if(Input.GetButtonUp("Fire2") && canFire)
+        {
+            FireProjectile();
+        }
+        else
+        {
+            if(currentCharge > 0f)
+            {
+                //charge decay VVV
+                currentCharge -= 0.1f;
+            }
+            else
+            {
+                currentCharge = 0f;
+                canFire = true;
+            }
+
+            chargeProjectileSlider.value = currentCharge;
         }
     }
 
@@ -92,6 +139,42 @@ public class PlayerCombat : MonoBehaviour
                 enemy.TakeDamage(playerStats.damage.GetValue());
             }
         }
+    }
+
+    private void ChargeProjectile()
+    {
+        projectileGFX.enabled = true;
+        //increase charge VVV
+        currentCharge += Time.deltaTime;
+
+        chargeProjectileSlider.value = currentCharge;
+
+        if(currentCharge > maxCharge)
+        {
+            chargeProjectileSlider.value = maxCharge;
+        }
+    }
+
+    private void FireProjectile()
+    {
+        if(currentCharge > maxCharge)
+        {
+            currentCharge = maxCharge;
+        }
+
+        float projectileSpeed = currentCharge + chargePower;
+
+        //rb.position -> weapon.position?
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+
+        Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
+
+        Projectile projectileInstance = Instantiate(projectile, weapon.position, rot).GetComponent<Projectile>();
+        projectileInstance.projectileVelocity = projectileSpeed;
+
+        canFire = false;
+        projectileGFX.enabled = false;
     }
 
     private void OnDrawGizmosSelected()
