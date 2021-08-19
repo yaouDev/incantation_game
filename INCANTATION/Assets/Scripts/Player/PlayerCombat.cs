@@ -18,6 +18,8 @@ public class PlayerCombat : MonoBehaviour
 
     public float attackRange = 1f;
     public float baseAttackRange = 1f;
+    //space from body of playerVVV
+    [SerializeField] private float weaponPosition = 1.5f;
 
     public LayerMask enemyLayers;
     public PlayerStats playerStats;
@@ -142,7 +144,11 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log(essenceType + " essence!");
 
             //cooldown VVV currently leads to shared cooldown across all essences
-            essenceTimer = gameManager.GetComponent<EquipmentManager>().GetEssence().cooldown;
+            if (gameManager.GetComponent<EquipmentManager>().GetEssence() != null)
+            {
+                essenceTimer = gameManager.GetComponent<EquipmentManager>().GetEssence().cooldown;
+
+            }
         }
     }
 
@@ -175,9 +181,6 @@ public class PlayerCombat : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
-        //space from body of playerVVV
-        float weaponPosition = 1f;
-
         weapon.localPosition = new Vector3(lookDir.x, lookDir.y);
         weapon.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
         weapon.localPosition = Vector3.ClampMagnitude(new Vector3(lookDir.x, lookDir.y), weaponPosition);
@@ -200,6 +203,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 attackPoint.transform.position = weapon.transform.position;
             }
+            attackPoint.transform.localPosition = new Vector3(attackPoint.transform.localPosition.x, (attackRange * 0.85f) - baseAttackRange);
         }
 
         //Rotate point (needed?)

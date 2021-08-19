@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int maxMessages = 25;
 
     public GameObject chatPanel;
+    public GameObject mainPanel;
     public GameObject textObject;
     public InputField chatBox;
     public Incantation incantation;
@@ -53,6 +54,8 @@ public class GameManager : MonoBehaviour
                 chatBox.text = "";
                 chatBox.gameObject.SetActive(false);
                 incantation.checkMessages();
+                mainPanel.SetActive(true);
+                StartCoroutine(DisableObjectAfterDuration(mainPanel, 2f));
             }
         }
         else
@@ -118,6 +121,30 @@ public class GameManager : MonoBehaviour
     public Message GetLatestMessage()
     {
         return messages[messages.Count - 1];
+    }
+
+    public IEnumerator EnableObjectAfterDuration(GameObject go, float duration)
+    {
+        float normalizedTime = 0f;
+        while (normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        go.SetActive(true);
+    }
+
+    public IEnumerator DisableObjectAfterDuration(GameObject go, float duration)
+    {
+        float normalizedTime = 0f;
+        while (normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        go.SetActive(false);
     }
 }
 
