@@ -7,6 +7,7 @@ public class Incantation : MonoBehaviour
     private List<string> incantations = new List<string>();
     private Message message = new Message();
     public GameManager gameManager;
+    public GameObject enemy;
 
     //delete
     public Camera background;
@@ -20,6 +21,7 @@ public class Incantation : MonoBehaviour
         AddIncantation("remove blue");
         AddIncantation("die");
         AddIncantation("ring");
+        AddIncantation("spawn enemy");
     }
 
     // Update is called once per frame
@@ -71,6 +73,9 @@ public class Incantation : MonoBehaviour
             case "ring":
                 RingOfDeath();
                 break;
+            case "spawn enemy":
+                SpawnEnemy();
+                break;
             default:
                 break;
 
@@ -89,6 +94,11 @@ public class Incantation : MonoBehaviour
                 enemy.TakeDamage(10);
             }
         }
+    }
+
+    private void SpawnEnemy()
+    {
+        Instantiate(enemy, new Vector3(transform.position.x, transform.position.y + 3), transform.rotation);
     }
 
     private void OnDrawGizmosSelected()

@@ -14,18 +14,23 @@ public class CharacterStats : MonoBehaviour
     public Stat movementSpeed;
     public Stat attackRangeMelee;
 
+    private void Start()
+    {
+        print(maxHealth.GetValue());
+        currentHealth = maxHealth.GetValue();
+    }
+
     private void Awake()
     {
         buffableStats.Add(damage);
         buffableStats.Add(armor);
         buffableStats.Add(attackSpeed);
         buffableStats.Add(movementSpeed);
-
-        currentHealth = maxHealth.GetValue();
     }
 
     private void Update()
     {
+        //testing
         if (Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(10);

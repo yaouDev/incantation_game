@@ -21,6 +21,11 @@ public class PlayerCombat : MonoBehaviour
     private Camera cam;
     Vector2 mousePos;
 
+    //---Melee related---
+    private bool canAttack;
+    private float damageTimer = 0f;
+    //---Melee related end---   
+
     //---Ranged weapon related---
     [SerializeField] private GameObject projectile;
     [SerializeField] private SpriteRenderer projectileGFX;
@@ -47,6 +52,7 @@ public class PlayerCombat : MonoBehaviour
         //---ranged weapon---
         chargeProjectileSlider.value = 0f;
         chargeProjectileSlider.maxValue = maxCharge;
+        chargeProjectileSlider.gameObject.SetActive(false);
         //---ranged weapon end---
     }
 
@@ -54,11 +60,23 @@ public class PlayerCombat : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
+        //related to equipping
+        if(attackType == AttackType.range)
+        {
+            chargeProjectileSlider.gameObject.SetActive(true);
+        }
+        else
+        {
+            chargeProjectileSlider.gameObject.SetActive(false);
+        }
+
+        //related to attacking
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             if (attackType == AttackType.range)
             {
                 //charged attack
+
                 if (Input.GetButton("Fire1") && canFire)
                 {
                     ChargeProjectile();
@@ -87,10 +105,17 @@ public class PlayerCombat : MonoBehaviour
             {
                 if (Input.GetButtonDown("Fire1"))
                 {
-                    Attack();
+                    if (damageTimer <= 0f)
+                    {
+                        Attack();
+                        int attackSpeed = playerStats.attackSpeed.GetValue();
+                        //max attack time VVV
+                        float attackTime = 1f;
+                        float convertedAttackSpeed = attackTime - attackSpeed / 100f;
+                        damageTimer = convertedAttackSpeed;
+                    }
                 }
             }
-
         }
     }
 
@@ -103,6 +128,12 @@ public class PlayerCombat : MonoBehaviour
         float attackX = Mathf.Clamp(lookDir.x, -attackRange, attackRange);
         float attackY = Mathf.Clamp(lookDir.y, -attackRange, attackRange);
         attackPoint.localPosition = new Vector3(attackX, attackY);*/
+
+        //Attack speed timer
+        if (damageTimer > 0f)
+        {
+            damageTimer -= Time.deltaTime;
+        }
 
         //Combat
         Vector2 lookDir = mousePos - rb.position;

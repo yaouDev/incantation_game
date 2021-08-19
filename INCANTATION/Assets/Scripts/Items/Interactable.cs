@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
     public Transform interactionTransform;
 
     [SerializeField] private Transform player;
+    public PlayerManager playerManager;
 
     private bool hasInteracted = false;
 
@@ -14,6 +15,12 @@ public class Interactable : MonoBehaviour
     {
         //This method is meant to be overwritten
         Debug.Log("Interacted with " + transform.name);
+    }
+
+    private void Start()
+    {
+        playerManager = PlayerManager.instance;
+        player = playerManager.player.transform;
     }
 
     void Update()

@@ -7,6 +7,13 @@ public class PlayerStats : CharacterStats
     public Transform spawnPoint;
     private PlayerCombat playerCombat;
 
+    //constants
+    [SerializeField] private int baseDamage = 2;
+    [SerializeField] private int baseArmor = 0;
+    [SerializeField] private int baseAttackSpeed = 10;
+    [SerializeField] private int baseMovementSpeed = 75;
+    [SerializeField] private int baseMaxHealth = 200;
+
     void Start()
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
@@ -35,6 +42,40 @@ public class PlayerStats : CharacterStats
             damage.RemoveModifier(oldItem.damageModifier);
             movementSpeed.RemoveModifier(oldItem.moveSpeedModifier);
             attackSpeed.RemoveModifier(oldItem.attackSpeedModifier);
+        }
+    }
+
+    public void SetClassStats(ClassSpecialization classSpec)
+    {
+        damage.SetBaseValue(baseDamage);
+        armor.SetBaseValue(baseArmor);
+        attackSpeed.SetBaseValue(baseAttackSpeed);
+        movementSpeed.SetBaseValue(baseMovementSpeed);
+        //...and health
+        maxHealth.SetBaseValue(baseMaxHealth);
+
+        //sets basestats - reconsider if needed or just for spells
+        switch (classSpec)
+        {
+            case ClassSpecialization.mage:
+                //mage things
+                break;
+            case ClassSpecialization.warrior:
+                Debug.Log(maxHealth.GetBaseValue());
+                //warrior things
+                break;
+            case ClassSpecialization.archer:
+                movementSpeed.SetBaseValue(movementSpeed.GetBaseValue() + 50);
+                //archer things
+                break;
+            case ClassSpecialization.summoner:
+                //summoner things
+                break;
+            case ClassSpecialization.commoner:
+                //commoner things
+                break;
+            default:
+                break;
         }
     }
 

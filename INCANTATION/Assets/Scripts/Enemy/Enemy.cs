@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(EnemyStats))]
 public class Enemy : Interactable
 {
-    public PlayerManager playerManager;
+    //!!!!!! DEPRECATED !!!!!!
+    //if enemy is to be interacted with, this script needs to be fixed so that it can be instansiated
+
     CharacterStats myStats;
 
     private void Start()
     {
-        playerManager = PlayerManager.instance;
-        myStats = GetComponent<CharacterStats>();
+        myStats = GetComponent<EnemyStats>();
     }
 
     public override void Interact()
