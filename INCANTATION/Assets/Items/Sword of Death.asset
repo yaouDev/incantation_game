@@ -23,3 +23,5 @@ MonoBehaviour:
   moveSpeedModifier: 0
   attackSpeedModifier: 0
   attackType: 0
+  attackRange: 1
+  projectile: {fileID: 0}

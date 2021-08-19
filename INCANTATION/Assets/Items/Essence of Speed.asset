@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55276db12f68fd48bc948b6c695f96e, type: 3}
+  m_Name: Essence of Speed
+  m_EditorClassIdentifier: 
+  name: Essence of Speed
+  icon: {fileID: 21300000, guid: 03b3b03d94fe64ca991436d28accda10, type: 3}
+  sprite: {fileID: 21300000, guid: 03b3b03d94fe64ca991436d28accda10, type: 3}
+  isDefaultItem: 0
+  rarity: 0
+  equipSlot: 4
+  armorModifer: 0
+  damageModifier: 0
+  moveSpeedModifier: 0
+  attackSpeedModifier: 0
+  essenceType: 1

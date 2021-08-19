@@ -7,19 +7,26 @@ using UnityEngine.EventSystems;
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private AttackType attackType;
+    private EssenceType essenceType = EssenceType.none;
     private GameManager gameManager;
 
     public Animator animator;
 
     public Transform attackPoint;
+    public GameObject freeRangeTarget;
     public Transform weapon;
-    public float attackRange = 0.5f;
+
+    public float attackRange = 1f;
+    public float baseAttackRange = 1f;
+
     public LayerMask enemyLayers;
     public PlayerStats playerStats;
     private Rigidbody2D rb;
 
     private Camera cam;
     Vector2 mousePos;
+
+    private float essenceTimer = 0f;
 
     //---Melee related---
     private bool canAttack;
@@ -48,6 +55,7 @@ public class PlayerCombat : MonoBehaviour
         playerStats = gameObject.GetComponent<PlayerStats>();
         cam = Camera.main;
         gameManager = GameManager.instance;
+        freeRangeTarget.SetActive(false);
 
         //---ranged weapon---
         chargeProjectileSlider.value = 0f;
@@ -61,7 +69,7 @@ public class PlayerCombat : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         //related to equipping
-        if(attackType == AttackType.range)
+        if (attackType == AttackType.range)
         {
             chargeProjectileSlider.gameObject.SetActive(true);
         }
@@ -103,19 +111,38 @@ public class PlayerCombat : MonoBehaviour
             }
             else
             {
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButton("Fire1"))
                 {
+                    if (attackType == AttackType.freeRange)
+                    {
+                        //Sets target active and scales accordingly to attackRange
+                        freeRangeTarget.transform.localScale = new Vector3(attackRange, attackRange);
+                        freeRangeTarget.SetActive(true);
+                    }
+
                     if (damageTimer <= 0f)
                     {
                         Attack();
-                        int attackSpeed = playerStats.attackSpeed.GetValue();
-                        //max attack time VVV
-                        float attackTime = 1f;
-                        float convertedAttackSpeed = attackTime - attackSpeed / 100f;
-                        damageTimer = convertedAttackSpeed;
+                    }
+                }
+                else
+                {
+                    if (attackType == AttackType.freeRange)
+                    {
+                        freeRangeTarget.SetActive(false);
                     }
                 }
             }
+        }
+
+        //related to essence
+        if (Input.GetButtonDown("EssenceAction") && essenceTimer <= 0f)
+        {
+            EssenceAction();
+            Debug.Log(essenceType + " essence!");
+
+            //cooldown VVV currently leads to shared cooldown across all essences
+            essenceTimer = gameManager.GetComponent<EquipmentManager>().GetEssence().cooldown;
         }
     }
 
@@ -135,13 +162,25 @@ public class PlayerCombat : MonoBehaviour
             damageTimer -= Time.deltaTime;
         }
 
+        //Essence timer
+        {
+            if (essenceTimer > 0f)
+            {
+                essenceTimer -= Time.deltaTime;
+            }
+        }
+
+
         //Combat
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
+        //space from body of playerVVV
+        float weaponPosition = 1f;
+
         weapon.localPosition = new Vector3(lookDir.x, lookDir.y);
         weapon.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
-        weapon.localPosition = Vector3.ClampMagnitude(new Vector3(lookDir.x, lookDir.y), attackRange);
+        weapon.localPosition = Vector3.ClampMagnitude(new Vector3(lookDir.x, lookDir.y), weaponPosition);
 
         //Combat Modes
 
@@ -177,6 +216,32 @@ public class PlayerCombat : MonoBehaviour
             {
                 enemy.TakeDamage(playerStats.damage.GetValue());
             }
+        }
+
+        AttackDelay();
+    }
+
+    private void AttackDelay()
+    {
+        int attackSpeed = playerStats.attackSpeed.GetValue();
+        //max attack time VVV
+        float attackTime = 1f;
+        float convertedAttackSpeed = attackTime - attackSpeed / 100f;
+        damageTimer = convertedAttackSpeed;
+    }
+
+    private void EssenceAction()
+    {
+        switch (essenceType)
+        {
+            case EssenceType.none:
+                break;
+            case EssenceType.speed:
+                StartCoroutine(playerStats.StatBoost(playerStats.movementSpeed, 100, 5f));
+                Debug.Log("Speed up!");
+                break;
+            default:
+                break;
         }
     }
 
@@ -230,6 +295,11 @@ public class PlayerCombat : MonoBehaviour
     public void SetAttackType(AttackType newAttackType)
     {
         attackType = newAttackType;
+    }
+
+    public void SetEssenceType(EssenceType newEssence)
+    {
+        essenceType = newEssence;
     }
 
     private void OnDrawGizmosSelected()

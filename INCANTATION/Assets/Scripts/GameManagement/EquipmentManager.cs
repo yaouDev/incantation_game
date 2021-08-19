@@ -32,10 +32,12 @@ public class EquipmentManager : MonoBehaviour
 
     Inventory inventory;
     public GameObject player;
+    private PlayerCombat playerCombat;
 
     private void Start()
     {
         inventory = Inventory.instance;
+        playerCombat = player.GetComponent<PlayerCombat>();
 
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numSlots];
@@ -71,7 +73,12 @@ public class EquipmentManager : MonoBehaviour
         {
             if(currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
             {
-                player.GetComponent<PlayerCombat>().SetAttackType(AttackType.melee);
+                playerCombat.SetAttackType(AttackType.melee);
+                playerCombat.attackRange = playerCombat.baseAttackRange;
+            }
+            else if(currentEquipment[slotIndex].equipSlot == EquipmentSlot.essence)
+            {
+                playerCombat.SetEssenceType(EssenceType.none);
             }
 
             if (equipmentRenderers[slotIndex].sprite != null)
@@ -125,5 +132,11 @@ public class EquipmentManager : MonoBehaviour
     {
         Weapon getWeapon = (Weapon)currentEquipment[(int)EquipmentSlot.weapon];
         return getWeapon;
+    }
+
+    public Essence GetEssence()
+    {
+        Essence getEssence = (Essence)currentEquipment[(int)EquipmentSlot.essence];
+        return getEssence;
     }
 }

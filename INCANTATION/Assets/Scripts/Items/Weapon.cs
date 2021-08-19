@@ -6,7 +6,13 @@ using UnityEngine;
 public class Weapon : Equipment
 {
     public AttackType attackType;
+    public float attackRange;
     public Sprite projectile;
+
+    public Weapon()
+    {
+        equipSlot = EquipmentSlot.weapon;
+    }
 }
 
 public enum AttackType

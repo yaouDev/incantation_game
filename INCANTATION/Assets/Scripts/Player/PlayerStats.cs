@@ -22,12 +22,18 @@ public class PlayerStats : CharacterStats
 
     private void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
     {
-        if(newItem != null)
+        if (newItem != null)
         {
             if (newItem is Weapon)
             {
                 Weapon newWeapon = (Weapon)newItem;
                 playerCombat.SetAttackType(newWeapon.attackType);
+                playerCombat.attackRange = newWeapon.attackRange;
+            }
+            else if (newItem is Essence)
+            {
+                Essence newEssence = (Essence)newItem;
+                playerCombat.SetEssenceType(newEssence.essenceType);
             }
 
             armor.AddModifier(newItem.armorModifer);
@@ -35,8 +41,8 @@ public class PlayerStats : CharacterStats
             movementSpeed.AddModifier(newItem.moveSpeedModifier);
             attackSpeed.AddModifier(newItem.attackSpeedModifier);
         }
-        
-        if(oldItem != null)
+
+        if (oldItem != null)
         {
             armor.RemoveModifier(oldItem.armorModifer);
             damage.RemoveModifier(oldItem.damageModifier);

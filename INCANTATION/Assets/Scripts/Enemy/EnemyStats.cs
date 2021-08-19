@@ -10,14 +10,13 @@ public class EnemyStats : CharacterStats
     public int baseArmor = 0;
     public int baseAttackSpeed = 10;
     public int baseMovementSpeed = 50;
-    public int baseAttackRangeMelee = 3;
 
     private void Awake()
     {
         damage.SetBaseValue(baseDamage);
         armor.SetBaseValue(baseArmor);
         attackSpeed.SetBaseValue(baseAttackSpeed);
-        attackRangeMelee.SetBaseValue(baseAttackRangeMelee);
+        movementSpeed.SetBaseValue(baseMovementSpeed);
 
         maxHealth.SetBaseValue(baseMaxHealth);
     }
