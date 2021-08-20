@@ -29,27 +29,36 @@ public class PlayerCombat : MonoBehaviour
     Vector2 mousePos;
 
     private float essenceTimer = 0f;
-
-    //---Melee related---
-    private bool canAttack;
     private float damageTimer = 0f;
-    //---Melee related end---   
+
+    private Weapon currentWeapon;
 
     //---Ranged weapon related---
     [SerializeField] private GameObject projectile;
     [SerializeField] private SpriteRenderer projectileGFX;
     [SerializeField] private Slider chargeProjectileSlider;
-    //reference to weapon
+    //---Ranged weapon end---
 
+    //---Melee weapon related---
+    [SerializeField] private Slider chargeMeleeSlider;
+    //---Melee weapon end---
+
+    //---Charge related---
     [Range(0, 10)]
     [SerializeField] private float chargePower;
 
     [Range(1, 4)]
     [SerializeField] private float maxCharge;
 
+    private bool movePenaltyActive;
+    private int movePenalty;
+    public int chargeMoveDivider = 2;
+
     private float currentCharge;
+    private float baseCharge = 1f;
     private bool canFire = true;
-    //---Ranged weapon end---
+    //---charge end---
+
 
     private void Start()
     {
@@ -71,7 +80,7 @@ public class PlayerCombat : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         //related to equipping
-        if (attackType == AttackType.range)
+        if (attackType == AttackType.range && currentWeapon.isCharged)
         {
             chargeProjectileSlider.gameObject.SetActive(true);
         }
@@ -85,15 +94,37 @@ public class PlayerCombat : MonoBehaviour
         {
             if (attackType == AttackType.range)
             {
-                //charged attack
-
-                if (Input.GetButton("Fire1") && canFire)
+                if (Input.GetButton("Fire1") && canFire && damageTimer <= 0f)
                 {
-                    ChargeProjectile();
+                    if (currentWeapon.isCharged)
+                    {
+                        //CHARGING
+                        if (!movePenaltyActive)
+                        {
+                            movePenalty = -(playerStats.movementSpeed.GetValue() / chargeMoveDivider);
+                            playerStats.movementSpeed.AddModifier(movePenalty);
+                            movePenaltyActive = true;
+                            Debug.Log("Player charging");
+                        }
+                        ChargeProjectile();
+                    }
+                    else
+                    {
+                        //AUTOMATIC
+                        currentCharge = baseCharge;
+                        canFire = true;
+                        FireProjectile();
+                        AttackDelay();
+                    }
                 }
-                else if (Input.GetButtonUp("Fire1") && canFire)
+                else if (Input.GetButtonUp("Fire1") && canFire && currentWeapon.isCharged && damageTimer <= 0f)
                 {
+                    //CHARGING RELEASE
                     FireProjectile();
+                    //remove slowVVV
+                    playerStats.movementSpeed.RemoveModifier(movePenalty);
+                    movePenaltyActive = false;
+                    AttackDelay();
                 }
                 else
                 {
@@ -113,8 +144,10 @@ public class PlayerCombat : MonoBehaviour
             }
             else
             {
+                //Melee and free range
                 if (Input.GetButton("Fire1"))
                 {
+                    //Freerange
                     if (attackType == AttackType.freeRange)
                     {
                         //Sets target active and scales accordingly to attackRange
@@ -122,6 +155,7 @@ public class PlayerCombat : MonoBehaviour
                         freeRangeTarget.SetActive(true);
                     }
 
+                    //both
                     if (damageTimer <= 0f)
                     {
                         Attack();
@@ -129,6 +163,7 @@ public class PlayerCombat : MonoBehaviour
                 }
                 else
                 {
+                    //freerange
                     if (attackType == AttackType.freeRange)
                     {
                         freeRangeTarget.SetActive(false);
@@ -249,22 +284,33 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private void ChargeProjectile()
+    private void ChargeAttack(Slider slider)
     {
-        projectileGFX.enabled = true;
         //increase charge VVV
         currentCharge += Time.deltaTime;
 
-        chargeProjectileSlider.value = currentCharge;
+
+        slider.value = currentCharge;
 
         if (currentCharge > maxCharge)
         {
-            chargeProjectileSlider.value = maxCharge;
+            slider.value = maxCharge;
         }
+    }
+
+    private void ChargeProjectile()
+    {
+        projectileGFX.enabled = true;
+        ChargeAttack(chargeProjectileSlider);
     }
 
     private void FireProjectile()
     {
+        if (!currentWeapon.isCharged)
+        {
+            projectileGFX.enabled = true;
+        }
+
         if (currentCharge > maxCharge)
         {
             currentCharge = maxCharge;
@@ -288,12 +334,22 @@ public class PlayerCombat : MonoBehaviour
             projectileDamage = playerStats.damage.GetValue();
         }
 
-        projectileInstance.GetSpriteRenderer().sprite = gameManager.GetComponent<EquipmentManager>().GetWeapon().projectile;
+        RangedWeapon rangedWeapon = (RangedWeapon)gameManager.GetComponent<EquipmentManager>().GetWeapon();
+        projectileInstance.GetSpriteRenderer().sprite = rangedWeapon.projectile;
         projectileInstance.SetDamage(projectileDamage);
         projectileInstance.transform.localScale = new Vector3(projectileInstance.transform.localScale.x + currentCharge, projectileInstance.transform.localScale.y + currentCharge, projectileInstance.transform.localScale.z);
 
         canFire = false;
         projectileGFX.enabled = false;
+    }
+
+    public void SetCurrentWeapon(Weapon newWeapon)
+    {
+        currentWeapon = newWeapon;
+        if (currentWeapon != null)
+        {
+            SetAttackType(currentWeapon.attackType);
+        }
     }
 
     public void SetAttackType(AttackType newAttackType)

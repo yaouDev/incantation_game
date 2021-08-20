@@ -7,6 +7,9 @@ public class CharacterStats : MonoBehaviour
     public Stat maxHealth;
     private int currentHealth;
 
+    public bool isBoosted { get; private set; }
+    public bool isDrained { get; private set; }
+
     private List<Stat> buffableStats = new List<Stat>();
     public Stat damage;
     public Stat armor;
@@ -92,6 +95,7 @@ public class CharacterStats : MonoBehaviour
     public IEnumerator StatBoost(Stat stat, int modifier, float duration)
     {
         stat.AddModifier(modifier);
+        isBoosted = true;
 
         float normalizedTime = 0f;
         while(normalizedTime <= 1f)
@@ -101,11 +105,13 @@ public class CharacterStats : MonoBehaviour
         }
 
         stat.RemoveModifier(modifier);
+        isBoosted = false;
     }
 
     public IEnumerator StatDrain(Stat stat, int modifier, float duration)
     {
         stat.AddModifier(-modifier);
+        isDrained = true;
 
         float normalizedTime = 0f;
         while (normalizedTime <= 1f)
@@ -115,5 +121,6 @@ public class CharacterStats : MonoBehaviour
         }
 
         stat.RemoveModifier(-modifier);
+        isDrained = false;
     }
 }

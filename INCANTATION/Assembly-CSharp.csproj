@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Player\Incantation.cs" />
     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Items\Essence.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
@@ -79,7 +80,9 @@
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
-    <Compile Include="Assets\Scripts\Items\Essence.cs" />
+    <Compile Include="Assets\Scripts\Items\RangedWeapon.cs" />
+    <Compile Include="Assets\Scripts\Items\MeleeWeapon.cs" />
+    <Compile Include="Assets\Scripts\Items\FreeRangeWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

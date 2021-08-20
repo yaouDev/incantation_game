@@ -36,11 +36,11 @@ public class Projectile : MonoBehaviour
             enemy.TakeDamage(damage);
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("PlayerProjectile"))
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<CapsuleCollider2D>());
+            return;
         }
-        //make it do that they dont disappear with collision on player
 
         //projectile death animation
         Destroy(gameObject);

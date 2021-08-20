@@ -74,6 +74,8 @@ public class EquipmentManager : MonoBehaviour
             if(currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
             {
                 playerCombat.SetAttackType(AttackType.melee);
+                //change to default item? VVV
+                playerCombat.SetCurrentWeapon(null);
                 playerCombat.attackRange = playerCombat.baseAttackRange;
             }
             else if(currentEquipment[slotIndex].equipSlot == EquipmentSlot.essence)
