@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class Weapon : Equipment
 {
+    [HideInInspector]
     public AttackType attackType;
+
     public float attackRange;
+
+    [Header("Charge-related")]
+    //---Charge related---
     public bool isCharged;
+
+    [Range(0.1f, 10f)]
+    public float chargeMultiplier = 1f;
+
+    [Range(0.1f, 6f)]
+    public float chargeRate = 0.6f;
+    //---Charge related end---
 
     public Weapon()
     {

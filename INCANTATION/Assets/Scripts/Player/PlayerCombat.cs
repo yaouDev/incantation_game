@@ -16,6 +16,7 @@ public class PlayerCombat : MonoBehaviour
     public GameObject freeRangeTarget;
     public Transform weapon;
 
+    private float originalAttackRange;
     public float attackRange = 1f;
     public float baseAttackRange = 1f;
     //space from body of playerVVV
@@ -33,15 +34,16 @@ public class PlayerCombat : MonoBehaviour
 
     private Weapon currentWeapon;
 
+    [SerializeField] private Slider chargeMeleeSlider;
+    [SerializeField] private Slider chargeProjectileSlider;
+    [SerializeField] private Slider chargeFreeRangeSlider;
+
     //---Ranged weapon related---
     [SerializeField] private GameObject projectile;
     [SerializeField] private SpriteRenderer projectileGFX;
-    [SerializeField] private Slider chargeProjectileSlider;
     //---Ranged weapon end---
 
-    //---Melee weapon related---
-    [SerializeField] private Slider chargeMeleeSlider;
-    //---Melee weapon end---
+
 
     //---Charge related---
     [Range(0, 10)]
@@ -70,6 +72,7 @@ public class PlayerCombat : MonoBehaviour
         gameManager = GameManager.instance;
         freeRangeTarget.SetActive(false);
         currentWeapon = emptyWeapon;
+        originalAttackRange = attackRange;
 
         //---ranged weapon---
         chargeProjectileSlider.value = 0f;
@@ -82,6 +85,12 @@ public class PlayerCombat : MonoBehaviour
         chargeMeleeSlider.maxValue = maxCharge;
         chargeMeleeSlider.gameObject.SetActive(false);
         //---melee weapon end---
+
+        //---free range weapon---
+        chargeFreeRangeSlider.value = 0f;
+        chargeFreeRangeSlider.maxValue = maxCharge;
+        chargeFreeRangeSlider.gameObject.SetActive(false);
+        //---free range weapon end---
     }
 
     void Update()
@@ -93,7 +102,7 @@ public class PlayerCombat : MonoBehaviour
         {
             case AttackType.melee:
                 chargeProjectileSlider.gameObject.SetActive(false);
-                //freerange slider false
+                chargeFreeRangeSlider.gameObject.SetActive(false);
                 if (currentWeapon.isCharged)
                 {
                     chargeMeleeSlider.gameObject.SetActive(true);
@@ -104,7 +113,7 @@ public class PlayerCombat : MonoBehaviour
                 }
                 break;
             case AttackType.range:
-                //freerange slider false
+                chargeFreeRangeSlider.gameObject.SetActive(false);
                 chargeMeleeSlider.gameObject.SetActive(false);
                 if (currentWeapon.isCharged)
                 {
@@ -120,11 +129,12 @@ public class PlayerCombat : MonoBehaviour
                 chargeMeleeSlider.gameObject.SetActive(false);
                 if (currentWeapon.isCharged)
                 {
-                    //freerange slider true
+                    chargeFreeRangeSlider.gameObject.SetActive(true);
+                    originalAttackRange = currentWeapon.attackRange;
                 }
                 else
                 {
-                    //freerange slider false
+                    chargeFreeRangeSlider.gameObject.SetActive(false);
                 }
                 break;
             default:
@@ -158,6 +168,9 @@ public class PlayerCombat : MonoBehaviour
                             break;
                         case AttackType.freeRange:
                             //Free Range - more damage and attackrange
+                            freeRangeTarget.transform.localScale = new Vector3(attackRange, attackRange);
+                            freeRangeTarget.SetActive(true);
+                            ChargeAttack(chargeFreeRangeSlider);
                             break;
                         default:
                             break;
@@ -196,37 +209,39 @@ public class PlayerCombat : MonoBehaviour
                     AttackDelay();
                 }
             }
-            else if (Input.GetButtonUp("Fire1") && canFire && currentWeapon.isCharged && damageTimer <= 0f)
-            {
-                //CHARGE RELEASE
-
-                switch (attackType)
-                {
-                    case AttackType.melee:
-                        //Melee - more damage and knockback
-                        ReleaseMeleeAttack();
-                        break;
-                    case AttackType.range:
-                        //Range - more damage and knockback
-                        FireProjectile();
-                        //remove slowVVV
-                        playerStats.movementSpeed.RemoveModifier(movePenalty);
-                        movePenaltyActive = false;
-                        break;
-                    case AttackType.freeRange:
-                        //Free Range - more damage and attackrange
-                        //Free range charge
-                        break;
-                    default:
-                        break;
-                }
-
-                AttackDelay();
-            }
-            else
+            else if (Input.GetButtonUp("Fire1") && canFire)
             {
                 freeRangeTarget.SetActive(false);
 
+                //CHARGE RELEASE
+                if (currentWeapon.isCharged && damageTimer <= 0f)
+                {
+                    switch (attackType)
+                    {
+                        case AttackType.melee:
+                            //Melee - more damage and knockback
+                            ReleaseAttack();
+                            break;
+                        case AttackType.range:
+                            //Range - more damage and knockback
+                            FireProjectile();
+                            //remove slowVVV
+                            playerStats.movementSpeed.RemoveModifier(movePenalty);
+                            movePenaltyActive = false;
+                            break;
+                        case AttackType.freeRange:
+                            //Free Range - more damage and attackrange
+                            ReleaseAttack();
+                            break;
+                        default:
+                            break;
+                    }
+
+                    AttackDelay();
+                }
+            }
+            else
+            {
                 if (currentCharge > 0f)
                 {
                     //charge decay VVV
@@ -240,6 +255,7 @@ public class PlayerCombat : MonoBehaviour
 
                 chargeProjectileSlider.value = currentCharge;
                 chargeMeleeSlider.value = currentCharge;
+                chargeFreeRangeSlider.value = currentCharge;
             }
 
         }
@@ -359,15 +375,28 @@ public class PlayerCombat : MonoBehaviour
     private void ChargeAttack(Slider slider)
     {
         //increase charge VVV
-        currentCharge += Time.deltaTime;
+        //currentCharge += Time.deltaTime;
+        currentCharge += currentWeapon.chargeRate / 100;
 
+        float newAttackRange;
+        if(attackType == AttackType.freeRange)
+        {
+            if(currentCharge <= maxCharge)
+            {
+                newAttackRange = attackRange + (currentWeapon.chargeMultiplier) * currentCharge / 100;
+                attackRange = newAttackRange;
+            }
+        }
 
         slider.value = currentCharge;
 
         if (currentCharge > maxCharge)
         {
             slider.value = maxCharge;
+            currentCharge = maxCharge;
         }
+
+        //cap max attackrange charge for free range
     }
 
     private void ChargeProjectile()
@@ -394,7 +423,7 @@ public class PlayerCombat : MonoBehaviour
 
         Projectile projectileInstance = Instantiate(projectile, weapon.position, rot).GetComponent<Projectile>();
         projectileInstance.projectileVelocity = projectileSpeed;
-        //Change to reflect charge
+
         int projectileDamage = playerStats.damage.GetValue() * Mathf.RoundToInt(currentCharge);
         if (projectileDamage <= 0)
         {
@@ -407,26 +436,26 @@ public class PlayerCombat : MonoBehaviour
         projectileInstance.transform.localScale = new Vector3(projectileInstance.transform.localScale.x + currentCharge, projectileInstance.transform.localScale.y + currentCharge, projectileInstance.transform.localScale.z);
 
         canFire = false;
-        projectileGFX.enabled = false;
     }
 
-    private void ReleaseMeleeAttack()
+    private void ReleaseAttack()
     {
-        //Add knockback!
+        //Add knockback to melee
 
         if (currentCharge > maxCharge)
         {
             currentCharge = maxCharge;
         }
 
-        //Change to reflect charge
-        int chargeDamage = playerStats.damage.GetValue() * Mathf.RoundToInt(currentCharge);
+        int chargeDamage = playerStats.damage.GetValue() * Mathf.RoundToInt(currentCharge) * Mathf.RoundToInt(currentWeapon.chargeMultiplier);
         if (chargeDamage <= 0)
         {
             chargeDamage = playerStats.damage.GetValue();
         }
 
         Attack(chargeDamage);
+
+        attackRange = originalAttackRange;
 
         canFire = false;
     }

@@ -25,3 +25,5 @@ MonoBehaviour:
   attackType: 0
   attackRange: 1
   isCharged: 1
+  chargeMultiplier: 1
+  chargeRate: 0.6
