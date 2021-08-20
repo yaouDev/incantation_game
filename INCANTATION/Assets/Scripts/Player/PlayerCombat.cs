@@ -59,6 +59,8 @@ public class PlayerCombat : MonoBehaviour
     private bool canFire = true;
     //---charge end---
 
+    public Weapon emptyWeapon;
+
 
     private void Start()
     {
@@ -67,109 +69,179 @@ public class PlayerCombat : MonoBehaviour
         cam = Camera.main;
         gameManager = GameManager.instance;
         freeRangeTarget.SetActive(false);
+        currentWeapon = emptyWeapon;
 
         //---ranged weapon---
         chargeProjectileSlider.value = 0f;
         chargeProjectileSlider.maxValue = maxCharge;
         chargeProjectileSlider.gameObject.SetActive(false);
         //---ranged weapon end---
+
+        //---melee weapon---
+        chargeMeleeSlider.value = 0f;
+        chargeMeleeSlider.maxValue = maxCharge;
+        chargeMeleeSlider.gameObject.SetActive(false);
+        //---melee weapon end---
     }
 
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        //related to equipping
-        if (attackType == AttackType.range && currentWeapon.isCharged)
+        //EQUIPPING
+        switch (attackType)
         {
-            chargeProjectileSlider.gameObject.SetActive(true);
-        }
-        else
-        {
-            chargeProjectileSlider.gameObject.SetActive(false);
-        }
-
-        //related to attacking
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (attackType == AttackType.range)
-            {
-                if (Input.GetButton("Fire1") && canFire && damageTimer <= 0f)
+            case AttackType.melee:
+                chargeProjectileSlider.gameObject.SetActive(false);
+                //freerange slider false
+                if (currentWeapon.isCharged)
                 {
-                    if (currentWeapon.isCharged)
-                    {
-                        //CHARGING
-                        if (!movePenaltyActive)
-                        {
-                            movePenalty = -(playerStats.movementSpeed.GetValue() / chargeMoveDivider);
-                            playerStats.movementSpeed.AddModifier(movePenalty);
-                            movePenaltyActive = true;
-                            Debug.Log("Player charging");
-                        }
-                        ChargeProjectile();
-                    }
-                    else
-                    {
-                        //AUTOMATIC
-                        currentCharge = baseCharge;
-                        canFire = true;
-                        FireProjectile();
-                        AttackDelay();
-                    }
-                }
-                else if (Input.GetButtonUp("Fire1") && canFire && currentWeapon.isCharged && damageTimer <= 0f)
-                {
-                    //CHARGING RELEASE
-                    FireProjectile();
-                    //remove slowVVV
-                    playerStats.movementSpeed.RemoveModifier(movePenalty);
-                    movePenaltyActive = false;
-                    AttackDelay();
+                    chargeMeleeSlider.gameObject.SetActive(true);
                 }
                 else
                 {
-                    if (currentCharge > 0f)
+                    chargeMeleeSlider.gameObject.SetActive(false);
+                }
+                break;
+            case AttackType.range:
+                //freerange slider false
+                chargeMeleeSlider.gameObject.SetActive(false);
+                if (currentWeapon.isCharged)
+                {
+                    chargeProjectileSlider.gameObject.SetActive(true);
+                }
+                else
+                {
+                    chargeProjectileSlider.gameObject.SetActive(false);
+                }
+                break;
+            case AttackType.freeRange:
+                chargeProjectileSlider.gameObject.SetActive(false);
+                chargeMeleeSlider.gameObject.SetActive(false);
+                if (currentWeapon.isCharged)
+                {
+                    //freerange slider true
+                }
+                else
+                {
+                    //freerange slider false
+                }
+                break;
+            default:
+                break;
+        }
+
+        //ATTACKING
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (Input.GetButton("Fire1") && canFire && damageTimer <= 0f)
+            {
+                if (currentWeapon.isCharged)
+                {
+                    //CHARGE
+
+                    switch (attackType)
                     {
-                        //charge decay VVV
-                        currentCharge -= 0.1f;
-                    }
-                    else
-                    {
-                        currentCharge = 0f;
-                        canFire = true;
+                        case AttackType.melee:
+                            //Melee - more damage and knockback
+                            ChargeAttack(chargeMeleeSlider);
+                            break;
+                        case AttackType.range:
+                            //Range - more damage and knockback
+                            ChargeProjectile();
+                            if (!movePenaltyActive)
+                            {
+                                movePenalty = -(playerStats.movementSpeed.GetValue() / chargeMoveDivider);
+                                playerStats.movementSpeed.AddModifier(movePenalty);
+                                movePenaltyActive = true;
+                            }
+                            break;
+                        case AttackType.freeRange:
+                            //Free Range - more damage and attackrange
+                            break;
+                        default:
+                            break;
                     }
 
-                    chargeProjectileSlider.value = currentCharge;
+                    Debug.Log("Player charging");
                 }
+                else
+                {
+                    //AUTOMATIC
+
+                    switch (attackType)
+                    {
+                        case AttackType.melee:
+                            //Melee - more damage and knockback
+                            Attack(playerStats.damage.GetValue());
+                            break;
+                        case AttackType.range:
+                            //Range - more damage and speed
+                            //because of projectile code VVV
+                            currentCharge = baseCharge;
+                            canFire = true;
+                            FireProjectile();
+                            break;
+                        case AttackType.freeRange:
+                            //Free Range - more damage and attackrange
+                            //Sets target active and scales accordingly to attackRange
+                            freeRangeTarget.transform.localScale = new Vector3(attackRange, attackRange);
+                            freeRangeTarget.SetActive(true);
+                            Attack(playerStats.damage.GetValue());
+                            break;
+                        default:
+                            break;
+                    }
+
+                    AttackDelay();
+                }
+            }
+            else if (Input.GetButtonUp("Fire1") && canFire && currentWeapon.isCharged && damageTimer <= 0f)
+            {
+                //CHARGE RELEASE
+
+                switch (attackType)
+                {
+                    case AttackType.melee:
+                        //Melee - more damage and knockback
+                        ReleaseMeleeAttack();
+                        break;
+                    case AttackType.range:
+                        //Range - more damage and knockback
+                        FireProjectile();
+                        //remove slowVVV
+                        playerStats.movementSpeed.RemoveModifier(movePenalty);
+                        movePenaltyActive = false;
+                        break;
+                    case AttackType.freeRange:
+                        //Free Range - more damage and attackrange
+                        //Free range charge
+                        break;
+                    default:
+                        break;
+                }
+
+                AttackDelay();
             }
             else
             {
-                //Melee and free range
-                if (Input.GetButton("Fire1"))
-                {
-                    //Freerange
-                    if (attackType == AttackType.freeRange)
-                    {
-                        //Sets target active and scales accordingly to attackRange
-                        freeRangeTarget.transform.localScale = new Vector3(attackRange, attackRange);
-                        freeRangeTarget.SetActive(true);
-                    }
+                freeRangeTarget.SetActive(false);
 
-                    //both
-                    if (damageTimer <= 0f)
-                    {
-                        Attack();
-                    }
+                if (currentCharge > 0f)
+                {
+                    //charge decay VVV
+                    currentCharge -= 0.1f;
                 }
                 else
                 {
-                    //freerange
-                    if (attackType == AttackType.freeRange)
-                    {
-                        freeRangeTarget.SetActive(false);
-                    }
+                    currentCharge = 0f;
+                    canFire = true;
                 }
+
+                chargeProjectileSlider.value = currentCharge;
+                chargeMeleeSlider.value = currentCharge;
             }
+
         }
 
         //related to essence
@@ -245,7 +317,7 @@ public class PlayerCombat : MonoBehaviour
         //attackPoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
     }
 
-    private void Attack()
+    private void Attack(int damageToDeal)
     {
         animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -253,7 +325,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (hit.gameObject.TryGetComponent<CharacterStats>(out CharacterStats enemy))
             {
-                enemy.TakeDamage(playerStats.damage.GetValue());
+                enemy.TakeDamage(damageToDeal);
             }
         }
 
@@ -306,11 +378,6 @@ public class PlayerCombat : MonoBehaviour
 
     private void FireProjectile()
     {
-        if (!currentWeapon.isCharged)
-        {
-            projectileGFX.enabled = true;
-        }
-
         if (currentCharge > maxCharge)
         {
             currentCharge = maxCharge;
@@ -328,19 +395,40 @@ public class PlayerCombat : MonoBehaviour
         Projectile projectileInstance = Instantiate(projectile, weapon.position, rot).GetComponent<Projectile>();
         projectileInstance.projectileVelocity = projectileSpeed;
         //Change to reflect charge
-        int projectileDamage = playerStats.damage.GetValue() * (int)currentCharge;
+        int projectileDamage = playerStats.damage.GetValue() * Mathf.RoundToInt(currentCharge);
         if (projectileDamage <= 0)
         {
             projectileDamage = playerStats.damage.GetValue();
         }
 
-        RangedWeapon rangedWeapon = (RangedWeapon)gameManager.GetComponent<EquipmentManager>().GetWeapon();
+        RangedWeapon rangedWeapon = (RangedWeapon)currentWeapon;
         projectileInstance.GetSpriteRenderer().sprite = rangedWeapon.projectile;
         projectileInstance.SetDamage(projectileDamage);
         projectileInstance.transform.localScale = new Vector3(projectileInstance.transform.localScale.x + currentCharge, projectileInstance.transform.localScale.y + currentCharge, projectileInstance.transform.localScale.z);
 
         canFire = false;
         projectileGFX.enabled = false;
+    }
+
+    private void ReleaseMeleeAttack()
+    {
+        //Add knockback!
+
+        if (currentCharge > maxCharge)
+        {
+            currentCharge = maxCharge;
+        }
+
+        //Change to reflect charge
+        int chargeDamage = playerStats.damage.GetValue() * Mathf.RoundToInt(currentCharge);
+        if (chargeDamage <= 0)
+        {
+            chargeDamage = playerStats.damage.GetValue();
+        }
+
+        Attack(chargeDamage);
+
+        canFire = false;
     }
 
     public void SetCurrentWeapon(Weapon newWeapon)

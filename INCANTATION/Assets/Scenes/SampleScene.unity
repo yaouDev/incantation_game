@@ -885,7 +885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &256220611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5938,7 +5938,9 @@ MonoBehaviour:
   chargeProjectileSlider: {fileID: 524505331}
   chargeMeleeSlider: {fileID: 1181989967}
   chargePower: 10
-  maxCharge: 3
+  maxCharge: 4
+  chargeMoveDivider: 2
+  emptyWeapon: {fileID: 11400000, guid: 3cc15cd7312cd574b860bf833c4dc4f3, type: 2}
 --- !u!1 &1886475528
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,20 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ea0ba9e80463e4d9a6e9e906bcfb47, type: 3}
-  m_Name: Bow
+  m_Script: {fileID: 11500000, guid: 812de0bcc7aa10f498c57d7dda09d6b3, type: 3}
+  m_Name: EmptyMeleeWeapon
   m_EditorClassIdentifier: 
-  name: Bow
-  icon: {fileID: 21300000, guid: 56acb1bfd0b1049e89df9be859dc3615, type: 3}
-  sprite: {fileID: 21300000, guid: 56acb1bfd0b1049e89df9be859dc3615, type: 3}
+  name: EmptyMeleeWeapon
+  icon: {fileID: 0}
+  sprite: {fileID: 0}
   isDefaultItem: 0
   rarity: 0
   equipSlot: 3
   armorModifer: 0
-  damageModifier: 3
+  damageModifier: 0
   moveSpeedModifier: 0
   attackSpeedModifier: 0
-  attackType: 1
-  attackRange: 0
-  isCharged: 1
-  projectile: {fileID: 21300000, guid: 95406b6737b66479a80d172766f8bac5, type: 3}
+  attackType: 0
+  attackRange: 1.1
+  isCharged: 0

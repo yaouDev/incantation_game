@@ -7,7 +7,7 @@ public class FreeRangeWeapon : Weapon
 {
     public Sprite targetSprite;
 
-    public FreeRangeWeapon()
+    public FreeRangeWeapon(bool charge)
     {
         attackType = AttackType.freeRange;
         attackRange = 1f;

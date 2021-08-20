@@ -19,7 +19,7 @@ MonoBehaviour:
   rarity: 0
   equipSlot: 3
   armorModifer: 0
-  damageModifier: 1
+  damageModifier: 5
   moveSpeedModifier: 0
   attackSpeedModifier: 0
   attackType: 0
