@@ -34,7 +34,7 @@ public class PlayerStats : CharacterStats
                 {
                     FreeRangeWeapon frw = (FreeRangeWeapon)newWeapon;
                     //VVV will store the sprite until a new freerange weapon is equipped
-                    playerCombat.attackPoint.Find("FreeRangeTarget").GetComponent<SpriteRenderer>().sprite = frw.targetSprite;
+                    
                 }
             }
             else if (newItem is Essence)

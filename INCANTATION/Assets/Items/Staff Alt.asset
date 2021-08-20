@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9451a6a9371fa2d4f81b9f7b6c4278cd, type: 3}
+  m_Name: Staff Alt
+  m_EditorClassIdentifier: 
+  name: Staff Alt
+  icon: {fileID: 21300000, guid: 37a2d4b7807fb4089a452e9a68acc935, type: 3}
+  sprite: {fileID: 21300000, guid: 37a2d4b7807fb4089a452e9a68acc935, type: 3}
+  isDefaultItem: 0
+  rarity: 0
+  equipSlot: 3
+  armorModifer: 0
+  damageModifier: 1
+  moveSpeedModifier: 0
+  attackSpeedModifier: 0
+  attackType: 2
+  attackRange: 3
+  isCharged: 0
+  chargeMultiplier: 1
+  chargeRate: 0.6
+  targetOverrides: {fileID: 22100000, guid: df0d8b1f27e654f4e8fe51568a34dad9, type: 2}

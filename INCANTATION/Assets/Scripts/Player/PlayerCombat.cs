@@ -43,8 +43,6 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private SpriteRenderer projectileGFX;
     //---Ranged weapon end---
 
-
-
     //---Charge related---
     [Range(0, 10)]
     [SerializeField] private float chargePower;
@@ -136,6 +134,14 @@ public class PlayerCombat : MonoBehaviour
                 {
                     chargeFreeRangeSlider.gameObject.SetActive(false);
                 }
+                FreeRangeWeapon frw = (FreeRangeWeapon)currentWeapon;
+
+                if(frw.targetOverrides != null)
+                {
+                    freeRangeTarget.GetComponent<SetAnimations>().overrideControllers[0] = frw.targetOverrides;
+                    freeRangeTarget.GetComponent<SetAnimations>().Set(0);
+                }
+                
                 break;
             default:
                 break;

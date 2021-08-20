@@ -83,6 +83,8 @@
     <Compile Include="Assets\Scripts\Items\RangedWeapon.cs" />
     <Compile Include="Assets\Scripts\Items\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\Items\FreeRangeWeapon.cs" />
+    <Compile Include="Assets\Scripts\AnimationsOverrider.cs" />
+    <Compile Include="Assets\Scripts\SetAnimations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

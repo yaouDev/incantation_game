@@ -10,14 +10,14 @@ using UnityEngine;
 /// AttackRange: Depends on attack speed
 /// 
 /// Charge Rate: Slow/Medium
-/// Charge Multiplier: 0.05(cirka fixa snart)
+/// Charge Multiplier: 0.1 - 0.75 (given that the attackRange is baseAttackRange (1.1)
 /// </Notes>
 
 [CreateAssetMenu(fileName = "New Free Range Weapon", menuName = "Inventory/Weapon/Free Range Weapon")]
 public class FreeRangeWeapon : Weapon
 {
     [Header("Free Range")]
-    public Sprite targetSprite;
+    public AnimatorOverrideController targetOverrides;
 
     public FreeRangeWeapon()
     {
