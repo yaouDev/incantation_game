@@ -26,6 +26,7 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private Equipment[] currentEquipment;
 
     private SpriteRenderer[] equipmentRenderers;
+    private Animator weaponAnimator;
 
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
@@ -46,6 +47,7 @@ public class EquipmentManager : MonoBehaviour
         equipmentRenderers[(int)EquipmentSlot.head] = player.transform.Find("Head").GetComponent<SpriteRenderer>();
         equipmentRenderers[(int)EquipmentSlot.chest] = player.transform.Find("Chest").GetComponent<SpriteRenderer>();
         equipmentRenderers[(int)EquipmentSlot.weapon] = player.transform.Find("Weapon").GetComponent<SpriteRenderer>();
+        weaponAnimator = player.transform.Find("Weapon").GetComponent<Animator>();
         equipmentRenderers[(int)EquipmentSlot.legs] = player.transform.Find("Legs").GetComponent<SpriteRenderer>();
         equipmentRenderers[(int)EquipmentSlot.essence] = player.transform.Find("Essence").GetComponent<SpriteRenderer>();
 
@@ -65,6 +67,23 @@ public class EquipmentManager : MonoBehaviour
 
         currentEquipment[slotIndex] = newItem;
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
+
+        if(newItem is Weapon)
+        {
+            Weapon newWeapon = (Weapon)newItem;
+
+            if(newWeapon.animatorOverride == null)
+            {
+                weaponAnimator.enabled = false;
+            }
+            else
+            {
+                weaponAnimator.enabled = true;
+                weaponAnimator.gameObject.GetComponent<SetAnimations>().overrideControllers[0] = newWeapon.animatorOverride;
+                weaponAnimator.gameObject.GetComponent<SetAnimations>().Set(0);
+            }
+        }
+
     }
 
     public Equipment Unequip(int slotIndex)

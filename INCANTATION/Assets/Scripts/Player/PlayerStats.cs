@@ -29,13 +29,6 @@ public class PlayerStats : CharacterStats
                 Weapon newWeapon = (Weapon)newItem;
                 playerCombat.SetCurrentWeapon(newWeapon);
                 playerCombat.attackRange = newWeapon.attackRange;
-
-                if(newWeapon is FreeRangeWeapon)
-                {
-                    FreeRangeWeapon frw = (FreeRangeWeapon)newWeapon;
-                    //VVV will store the sprite until a new freerange weapon is equipped
-                    
-                }
             }
             else if (newItem is Essence)
             {

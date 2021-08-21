@@ -8,6 +8,7 @@ public class Weapon : Equipment
     public AttackType attackType;
 
     public float attackRange;
+    public AnimatorOverrideController animatorOverride;
 
     [Header("Charge-related")]
     //---Charge related---

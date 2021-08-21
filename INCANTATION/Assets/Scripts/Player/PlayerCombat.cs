@@ -11,6 +11,7 @@ public class PlayerCombat : MonoBehaviour
     private GameManager gameManager;
 
     public Animator animator;
+    private Animator weaponAnimator;
 
     public Transform attackPoint;
     public GameObject freeRangeTarget;
@@ -71,6 +72,7 @@ public class PlayerCombat : MonoBehaviour
         freeRangeTarget.SetActive(false);
         currentWeapon = emptyWeapon;
         originalAttackRange = attackRange;
+        weaponAnimator = weapon.GetComponent<Animator>();
 
         //---ranged weapon---
         chargeProjectileSlider.value = 0f;
@@ -136,12 +138,12 @@ public class PlayerCombat : MonoBehaviour
                 }
                 FreeRangeWeapon frw = (FreeRangeWeapon)currentWeapon;
 
-                if(frw.targetOverrides != null)
+                if (frw.targetOverrides != null)
                 {
                     freeRangeTarget.GetComponent<SetAnimations>().overrideControllers[0] = frw.targetOverrides;
                     freeRangeTarget.GetComponent<SetAnimations>().Set(0);
                 }
-                
+
                 break;
             default:
                 break;
@@ -342,6 +344,7 @@ public class PlayerCombat : MonoBehaviour
     private void Attack(int damageToDeal)
     {
         animator.SetTrigger("Attack");
+        weaponAnimator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D hit in hitEnemies)
         {
@@ -385,9 +388,9 @@ public class PlayerCombat : MonoBehaviour
         currentCharge += currentWeapon.chargeRate / 100;
 
         float newAttackRange;
-        if(attackType == AttackType.freeRange)
+        if (attackType == AttackType.freeRange)
         {
-            if(currentCharge <= maxCharge)
+            if (currentCharge <= maxCharge)
             {
                 newAttackRange = attackRange + (currentWeapon.chargeMultiplier) * currentCharge / 100;
                 attackRange = newAttackRange;
@@ -464,6 +467,23 @@ public class PlayerCombat : MonoBehaviour
         attackRange = originalAttackRange;
 
         canFire = false;
+    }
+
+    private void PlayMeleeAnimation()
+    {
+        
+
+
+    }
+
+    private void PrepareMeleeAnimation(Vector3 originalPos)
+    {
+
+    }
+
+    private void ResetMeleeAnimation(Vector3 originalPos)
+    {
+
     }
 
     public void SetCurrentWeapon(Weapon newWeapon)

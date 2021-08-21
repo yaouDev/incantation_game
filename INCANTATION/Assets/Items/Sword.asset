@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   name: Sword
-  icon: {fileID: 21300000, guid: 251925328a35b4b1f86bc7bfc46ba9a3, type: 3}
-  sprite: {fileID: 21300000, guid: 251925328a35b4b1f86bc7bfc46ba9a3, type: 3}
+  icon: {fileID: 21300000, guid: 8d67254e1d0716944860469e57d3462b, type: 3}
+  sprite: {fileID: 21300000, guid: 8d67254e1d0716944860469e57d3462b, type: 3}
   isDefaultItem: 0
   rarity: 0
   equipSlot: 3
@@ -24,4 +24,7 @@ MonoBehaviour:
   attackSpeedModifier: 0
   attackType: 0
   attackRange: 1
+  animatorOverride: {fileID: 22100000, guid: 44816fd4795e66642b5f4d7428e073e7, type: 2}
   isCharged: 0
+  chargeMultiplier: 1
+  chargeRate: 0.6
