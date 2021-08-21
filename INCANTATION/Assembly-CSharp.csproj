@@ -69,22 +69,22 @@
     <Compile Include="Assets\Scripts\Player\Incantation.cs" />
     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Items\FreeRangeWeapon.cs" />
     <Compile Include="Assets\Scripts\Items\Essence.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Items\RangedWeapon.cs" />
+    <Compile Include="Assets\Scripts\Items\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
+    <Compile Include="Assets\Scripts\Animations\SetAnimations.cs" />
     <Compile Include="Assets\Scripts\Items\ItemPickup.cs" />
+    <Compile Include="Assets\Scripts\Animations\AnimationsOverrider.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
-    <Compile Include="Assets\Scripts\Items\RangedWeapon.cs" />
-    <Compile Include="Assets\Scripts\Items\MeleeWeapon.cs" />
-    <Compile Include="Assets\Scripts\Items\FreeRangeWeapon.cs" />
-    <Compile Include="Assets\Scripts\AnimationsOverrider.cs" />
-    <Compile Include="Assets\Scripts\SetAnimations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

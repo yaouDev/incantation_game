@@ -12,6 +12,8 @@ public class Equipment : Item
     public int moveSpeedModifier;
     public int attackSpeedModifier;
 
+    public AnimatorOverrideController[] animatorOverride;
+
     public override void Use()
     {
         base.Use();

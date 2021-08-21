@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float pickupRadius = 5f;
 
     private Camera cam;
+    private Animator[] equipmentAnimators;
 
     public GameManager gameManager;
 
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        equipmentAnimators = new Animator[gameManager.GetComponent<EquipmentManager>().GetEquipmentAnimators().Length];
+        equipmentAnimators = gameManager.GetComponent<EquipmentManager>().GetEquipmentAnimators();
     }
 
     void Update()
@@ -47,9 +50,26 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
+            for (int i = 0; i < equipmentAnimators.Length; i++)
+            {
+                if(i == (int)EquipmentSlot.weapon)
+                {
+                    i++;
+                }
+                equipmentAnimators[i].SetFloat("Horizontal", movement.x);
+                equipmentAnimators[i].SetFloat("Vertical", movement.y);
+            }
         }
 
         animator.SetFloat("Speed", movement.sqrMagnitude);
+        for (int i = 0; i < equipmentAnimators.Length; i++)
+        {
+            if (i == (int)EquipmentSlot.weapon)
+            {
+                i++;
+            }
+            equipmentAnimators[i].SetFloat("Speed", movement.sqrMagnitude);
+        }
     }
 
     private void Stop()
@@ -69,8 +89,5 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.MovePosition(rb.position + movement * (moveSpeed/10) * Time.fixedDeltaTime);
         }
-
-
-
     }
 }

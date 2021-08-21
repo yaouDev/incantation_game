@@ -22,9 +22,10 @@ MonoBehaviour:
   damageModifier: 2
   moveSpeedModifier: 0
   attackSpeedModifier: 0
+  animatorOverride:
+  - {fileID: 22100000, guid: 44816fd4795e66642b5f4d7428e073e7, type: 2}
   attackType: 0
   attackRange: 1
-  animatorOverride: {fileID: 22100000, guid: 44816fd4795e66642b5f4d7428e073e7, type: 2}
   isCharged: 0
   chargeMultiplier: 1
   chargeRate: 0.6
