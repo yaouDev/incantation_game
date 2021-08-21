@@ -343,8 +343,9 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack(int damageToDeal)
     {
-        animator.SetTrigger("Attack");
         weaponAnimator.SetTrigger("Attack");
+        weaponAnimator.SetFloat("Speed", 0f);
+        animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D hit in hitEnemies)
         {
@@ -383,6 +384,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void ChargeAttack(Slider slider)
     {
+        weaponAnimator.SetTrigger("Attack");
+        weaponAnimator.SetFloat("Speed", 1f);
         //increase charge VVV
         //currentCharge += Time.deltaTime;
         currentCharge += currentWeapon.chargeRate / 100;
