@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
@@ -7,6 +8,20 @@ public class InventorySlot : MonoBehaviour
     public Button removeButton;
 
     Item item;
+
+    /*
+     * broken.. fix
+    private void Update()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            removeButton.enabled = true;
+        }
+        else
+        {
+            removeButton.enabled = false;
+        }
+    }*/
 
     public void AddItem(Item newItem)
     {

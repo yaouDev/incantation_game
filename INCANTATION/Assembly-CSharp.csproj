@@ -85,6 +85,9 @@
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Inventory\EquipmentUI.cs" />
+    <Compile Include="Assets\Scripts\Inventory\EquipmentInterfaceSlot.cs" />
+    <Compile Include="Assets\Scripts\ReadOnlyAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

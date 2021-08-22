@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private Transform player;
     public PlayerManager playerManager;
 
-    private bool hasInteracted = false;
+    //private bool hasInteracted = false;
 
 
     public virtual void Interact()
@@ -27,15 +27,15 @@ public class Interactable : MonoBehaviour
     {
 
         //currently picks up all items
-        if (!hasInteracted)
-        {
+        //if (!hasInteracted)
+        //{
             float distance = Vector3.Distance(player.position, interactionTransform.position);
             if (distance <= radius && Input.GetButtonDown("Interact"))
             {
                 Interact();
-                hasInteracted = true;
+                //hasInteracted = true;
             }
-        }
+        //}
     }
 
     void OnDrawGizmosSelected()

@@ -2,40 +2,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour {
+/// <summary>
+/// make it so that unequipping an item doesnt require an empty slot if the swapped item is of the same type
+/// unequipping with full inventory should be impossible
+/// </summary>
 
-    public List<Item> items = new List<Item>();
+public class Inventory : MonoBehaviour
+{
 
-    #region Singleton
+    public Item[] items;
+    private int filledSlots;
 
     public static Inventory instance;
 
-    void Awake(){
-        if(instance != null){
+    public int space = 20;
+    public bool isFull { get; private set; }
+
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
+
+    void Awake()
+    {
+
+        #region Singleton
+        if (instance != null)
+        {
             Debug.LogWarning("More than one instance of inventory!");
             return;
         }
 
         instance = this;
+        #endregion
+
+        items = new Item[space];
     }
 
-    #endregion
+    public bool Add(Item item)
+    {
+        if (isFull)
+        {
+            Debug.Log("Inventory is full.");
+            return false;
+        }
 
-    public int space = 20;
-
-    public delegate void OnItemChanged();
-    public OnItemChanged onItemChangedCallback;
-
-    public bool Add(Item item){
-        if(!item.isDefaultItem){
-            if(items.Count >= space){
-                Debug.Log("Not enough room.");
-                return false;
+        if (!item.isDefaultItem)
+        {
+            int invSpace;
+            for (invSpace = 0; invSpace < items.Length; invSpace++)
+            {
+                if (items[invSpace] == null)
+                {
+                    items[invSpace] = item;
+                    filledSlots++;
+                    if (filledSlots >= space)
+                    {
+                        isFull = true;
+                    }
+                    break;
+                }
             }
 
-            items.Add(item);
-
-            if(onItemChangedCallback != null){
+            if (onItemChangedCallback != null)
+            {
                 onItemChangedCallback.Invoke();
             }
         }
@@ -43,11 +71,27 @@ public class Inventory : MonoBehaviour {
         return true;
     }
 
-    public void Remove(Item item){
-        items.Remove(item);
-
-        if(onItemChangedCallback != null){
-                onItemChangedCallback.Invoke();
+    public void Remove(Item item)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == item)
+            {
+                items[i] = null;
+                filledSlots--;
+                isFull = false;
+                break;
             }
+        }
+
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
+    }
+
+    public int GetFilledSlots()
+    {
+        return filledSlots;
     }
 }

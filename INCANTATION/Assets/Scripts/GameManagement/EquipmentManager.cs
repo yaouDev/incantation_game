@@ -9,7 +9,10 @@ public class EquipmentManager : MonoBehaviour
 
     //look more into this laterVVV
     public Equipment[] defaultItems;
-    [SerializeField] private Equipment[] currentEquipment;
+    [ReadOnly]
+    public Equipment[] currentEquipment;
+
+    [SerializeField] private EquipmentUI equipmentUI;
 
     private SpriteRenderer[] equipmentRenderers;
     [HideInInspector]
@@ -80,12 +83,13 @@ public class EquipmentManager : MonoBehaviour
 
         currentEquipment[slotIndex] = newItem;
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
+        equipmentUI.slots[slotIndex].AddItem(newItem);
 
         if (newItem.animatorOverride == null)
         {
             equipmentAnimators[slotIndex].enabled = false;
         }
-        else if(newItem.animatorOverride.Length > 0)
+        else if (newItem.animatorOverride.Length > 0)
         {
             equipmentAnimators[slotIndex].enabled = true;
             equipmentAnimators[slotIndex].gameObject.GetComponent<SetAnimations>().overrideControllers = new AnimatorOverrideController[newItem.animatorOverride.Length];
@@ -95,7 +99,7 @@ public class EquipmentManager : MonoBehaviour
             }
             equipmentAnimators[slotIndex].gameObject.GetComponent<SetAnimations>().Set((int)AnimationVariation.none);
         }
-        else if(newItem.sprite == null)
+        else if (newItem.sprite == null)
         {
             Debug.LogWarning(newItem.name + " has no graphics!");
         }
@@ -103,16 +107,19 @@ public class EquipmentManager : MonoBehaviour
 
     public Equipment Unequip(int slotIndex)
     {
-        if (currentEquipment[slotIndex] != null)
+        if (currentEquipment[slotIndex] != null && !inventory.isFull)
         {
-            if(currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
+            Equipment oldItem = currentEquipment[slotIndex];
+            inventory.Add(oldItem);
+
+            if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
             {
                 playerCombat.SetAttackType(AttackType.melee);
                 //change to default item? VVV
                 playerCombat.SetCurrentWeapon(playerCombat.emptyWeapon);
                 playerCombat.attackRange = playerCombat.baseAttackRange;
             }
-            else if(currentEquipment[slotIndex].equipSlot == EquipmentSlot.essence)
+            else if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.essence)
             {
                 playerCombat.SetEssenceType(EssenceType.none);
             }
@@ -123,9 +130,7 @@ public class EquipmentManager : MonoBehaviour
             }
 
             equipmentAnimators[slotIndex].enabled = false;
-
-            Equipment oldItem = currentEquipment[slotIndex];
-            inventory.Add(oldItem);
+            equipmentUI.slots[slotIndex].ClearSlot();
 
             currentEquipment[slotIndex] = null;
 
@@ -135,6 +140,11 @@ public class EquipmentManager : MonoBehaviour
             }
 
             return oldItem;
+        }
+
+        if (inventory.isFull)
+        {
+            Debug.Log("Cannot uneqiup; inventory was full");
         }
         return null;
     }
@@ -151,7 +161,7 @@ public class EquipmentManager : MonoBehaviour
 
     private void EquipDefaultItems()
     {
-        foreach(Equipment e in defaultItems)
+        foreach (Equipment e in defaultItems)
         {
             Equip(e);
         }
