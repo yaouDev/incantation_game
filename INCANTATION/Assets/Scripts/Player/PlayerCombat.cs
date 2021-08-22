@@ -157,7 +157,6 @@ public class PlayerCombat : MonoBehaviour
                 if (currentWeapon.isCharged)
                 {
                     //CHARGE
-
                     switch (attackType)
                     {
                         case AttackType.melee:
@@ -183,8 +182,6 @@ public class PlayerCombat : MonoBehaviour
                         default:
                             break;
                     }
-
-                    Debug.Log("Player charging");
                 }
                 else
                 {
@@ -343,8 +340,9 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack(int damageToDeal)
     {
-        weaponAnimator.SetTrigger("Attack");
         weaponAnimator.SetFloat("Speed", 0f);
+        weaponAnimator.SetTrigger("Attack");
+
         animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D hit in hitEnemies)
@@ -384,11 +382,12 @@ public class PlayerCombat : MonoBehaviour
 
     private void ChargeAttack(Slider slider)
     {
-        weaponAnimator.SetTrigger("Attack");
-        weaponAnimator.SetFloat("Speed", 1f);
+        //weaponAnimator.SetTrigger("Attack");
+
         //increase charge VVV
         //currentCharge += Time.deltaTime;
         currentCharge += currentWeapon.chargeRate / 100;
+        weaponAnimator.SetFloat("Speed", currentCharge / maxCharge);
 
         float newAttackRange;
         if (attackType == AttackType.freeRange)
@@ -474,7 +473,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void PlayMeleeAnimation()
     {
-        
+
 
 
     }
