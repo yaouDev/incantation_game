@@ -18,6 +18,7 @@ public class Equipment : Item
     {
         base.Use();
 
+        EquipmentManager.instance.replace = true;
         EquipmentManager.instance.Equip(this);
         RemoveFromInventory();
     }

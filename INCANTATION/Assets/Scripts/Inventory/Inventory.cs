@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
 
     public Item[] items;
     private int filledSlots;
+    public int latestIndex;
 
     public static Inventory instance;
 
@@ -54,6 +55,7 @@ public class Inventory : MonoBehaviour
                 {
                     items[invSpace] = item;
                     filledSlots++;
+                    latestIndex = invSpace;
                     if (filledSlots >= space)
                     {
                         isFull = true;
@@ -71,6 +73,11 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public void AddOnIndexOf(int index, Item item)
+    {
+        items[index] = item;
+    }
+
     public void Remove(Item item)
     {
         for (int i = 0; i < items.Length; i++)
@@ -79,6 +86,7 @@ public class Inventory : MonoBehaviour
             {
                 items[i] = null;
                 filledSlots--;
+                //latestIndex = i;
                 isFull = false;
                 break;
             }

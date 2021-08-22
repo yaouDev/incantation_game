@@ -34,6 +34,7 @@ public class EquipmentInterfaceSlot : MonoBehaviour
         if (item != null)
         {
             print(item.name + " was clicked");
+            equipmentManager.replace = false;
             equipmentManager.Unequip((int)item.equipSlot);
         }
     }

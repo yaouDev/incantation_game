@@ -25,6 +25,9 @@ public class EquipmentManager : MonoBehaviour
     public GameObject player;
     private PlayerCombat playerCombat;
 
+    [HideInInspector]
+    public bool replace;
+
     private void Awake()
     {
         #region Singleton
@@ -74,6 +77,15 @@ public class EquipmentManager : MonoBehaviour
     {
         int slotIndex = (int)newItem.equipSlot;
 
+        if(currentEquipment[slotIndex] != null)
+        {
+            replace = true;
+        }
+        else
+        {
+            replace = false;
+        }
+
         Equipment oldItem = Unequip(slotIndex);
 
         if (onEquipmentChanged != null)
@@ -84,6 +96,12 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment[slotIndex] = newItem;
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
         equipmentUI.slots[slotIndex].AddItem(newItem);
+
+        if (replace)
+        {
+            print("enter");
+            inventory.AddOnIndexOf(inventory.latestIndex, oldItem);
+        }
 
         if (newItem.animatorOverride == null)
         {
@@ -110,7 +128,11 @@ public class EquipmentManager : MonoBehaviour
         if (currentEquipment[slotIndex] != null && !inventory.isFull)
         {
             Equipment oldItem = currentEquipment[slotIndex];
-            inventory.Add(oldItem);
+
+            if (!replace)
+            {
+                inventory.Add(oldItem);
+            }
 
             if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
             {
@@ -144,7 +166,7 @@ public class EquipmentManager : MonoBehaviour
 
         if (inventory.isFull)
         {
-            Debug.Log("Cannot uneqiup; inventory was full");
+            Debug.Log("Cannot unequip; inventory was full");
         }
         return null;
     }
