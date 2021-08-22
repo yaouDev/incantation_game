@@ -41,6 +41,17 @@ public class InventorySlot : MonoBehaviour
         removeButton.interactable = false;
     }
 
+    public void OnEquipmentClicked()
+    {
+        if (item != null)
+        {
+            print(item.name + " was clicked");
+            //equipmentManager.replace = false;
+            Equipment newItem = (Equipment)item;
+            EquipmentManager.instance.Unequip((int)newItem.equipSlot);
+        }
+    }
+
     public void OnRemoveButton()
     {
         Inventory.instance.Remove(item);

@@ -18,9 +18,30 @@ public class Equipment : Item
     {
         base.Use();
 
-        EquipmentManager.instance.replace = true;
-        EquipmentManager.instance.Equip(this);
-        RemoveFromInventory();
+        for (int i = 0; i < Inventory.instance.inventoryItems.Length; i++)
+        {
+            if (Inventory.instance.inventoryItems[i] == this)
+            {
+                //if you have two of the same item you wont swap item
+                int index = Inventory.instance.GetIndex(Inventory.instance.inventoryItems, this);
+                Inventory.instance.inventoryItems[index] = null;
+                Inventory.instance.equipment[(int)equipSlot] = this;
+                Inventory.instance.filledSlots--;
+                Inventory.instance.isFull = false;
+                EquipmentManager.instance.Equip(this);
+                return;
+            }
+        }
+
+        for (int i = 0; i < Inventory.instance.equipment.Length; i++)
+        {
+            if(Inventory.instance.equipment[i] == this && !Inventory.instance.isFull)
+            {
+                Inventory.instance.equipment[(int)equipSlot] = null;
+                EquipmentManager.instance.Unequip((int)equipSlot);
+                return;
+            }
+        }
     }
 }
 

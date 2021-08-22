@@ -12,8 +12,6 @@ public class EquipmentManager : MonoBehaviour
     [ReadOnly]
     public Equipment[] currentEquipment;
 
-    [SerializeField] private EquipmentUI equipmentUI;
-
     private SpriteRenderer[] equipmentRenderers;
     [HideInInspector]
     public Animator[] equipmentAnimators;
@@ -24,9 +22,6 @@ public class EquipmentManager : MonoBehaviour
     Inventory inventory;
     public GameObject player;
     private PlayerCombat playerCombat;
-
-    [HideInInspector]
-    public bool replace;
 
     private void Awake()
     {
@@ -77,15 +72,6 @@ public class EquipmentManager : MonoBehaviour
     {
         int slotIndex = (int)newItem.equipSlot;
 
-        if(currentEquipment[slotIndex] != null)
-        {
-            replace = true;
-        }
-        else
-        {
-            replace = false;
-        }
-
         Equipment oldItem = Unequip(slotIndex);
 
         if (onEquipmentChanged != null)
@@ -93,15 +79,13 @@ public class EquipmentManager : MonoBehaviour
             onEquipmentChanged.Invoke(newItem, oldItem);
         }
 
+        if (inventory.onItemChangedCallback != null)
+        {
+            inventory.onItemChangedCallback.Invoke();
+        }
+
         currentEquipment[slotIndex] = newItem;
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
-        equipmentUI.slots[slotIndex].AddItem(newItem);
-
-        if (replace)
-        {
-            print("enter");
-            inventory.AddOnIndexOf(inventory.latestIndex, oldItem);
-        }
 
         if (newItem.animatorOverride == null)
         {
@@ -128,11 +112,7 @@ public class EquipmentManager : MonoBehaviour
         if (currentEquipment[slotIndex] != null && !inventory.isFull)
         {
             Equipment oldItem = currentEquipment[slotIndex];
-
-            if (!replace)
-            {
-                inventory.Add(oldItem);
-            }
+            inventory.Add(oldItem);
 
             if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
             {
@@ -152,7 +132,6 @@ public class EquipmentManager : MonoBehaviour
             }
 
             equipmentAnimators[slotIndex].enabled = false;
-            equipmentUI.slots[slotIndex].ClearSlot();
 
             currentEquipment[slotIndex] = null;
 
@@ -171,7 +150,7 @@ public class EquipmentManager : MonoBehaviour
         return null;
     }
 
-    //obsolete?
+    //obsolete!!! doesnt updateUI
     public void UnequipAll()
     {
         for (int i = 0; i < currentEquipment.Length; i++)

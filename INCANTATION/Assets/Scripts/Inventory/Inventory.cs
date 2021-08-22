@@ -10,14 +10,18 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
-    public Item[] items;
-    private int filledSlots;
+    public Equipment[] equipment;
+    public Item[] inventoryItems;
+
+    public InventoryUI inventoryUI;
+
+    public int filledSlots;
     public int latestIndex;
 
     public static Inventory instance;
 
     public int space = 20;
-    public bool isFull { get; private set; }
+    public bool isFull;
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
@@ -35,7 +39,8 @@ public class Inventory : MonoBehaviour
         instance = this;
         #endregion
 
-        items = new Item[space];
+        equipment = new Equipment[inventoryUI.equipmentSlots.Length];
+        inventoryItems = new Item[inventoryUI.inventorySlots.Length];
     }
 
     public bool Add(Item item)
@@ -49,14 +54,13 @@ public class Inventory : MonoBehaviour
         if (!item.isDefaultItem)
         {
             int invSpace;
-            for (invSpace = 0; invSpace < items.Length; invSpace++)
+            for (invSpace = 0; invSpace < inventoryItems.Length; invSpace++)
             {
-                if (items[invSpace] == null)
+                if (inventoryItems[invSpace] == null)
                 {
-                    items[invSpace] = item;
+                    inventoryItems[invSpace] = item;
                     filledSlots++;
-                    latestIndex = invSpace;
-                    if (filledSlots >= space)
+                    if(filledSlots >= space)
                     {
                         isFull = true;
                     }
@@ -73,21 +77,18 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void AddOnIndexOf(int index, Item item)
-    {
-        items[index] = item;
-    }
-
     public void Remove(Item item)
     {
-        for (int i = 0; i < items.Length; i++)
+        for (int i = 0; i < inventoryItems.Length; i++)
         {
-            if (items[i] == item)
+            if (inventoryItems[i] == item)
             {
-                items[i] = null;
+                inventoryItems[i] = null;
                 filledSlots--;
-                //latestIndex = i;
-                isFull = false;
+                if(filledSlots < space)
+                {
+                    isFull = false;
+                }
                 break;
             }
         }
@@ -98,8 +99,17 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public int GetFilledSlots()
+    public int GetIndex(Item[] array, Item item)
     {
-        return filledSlots;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if(array[i] == item)
+            {
+                return i;
+            }
+        }
+
+        Debug.Log("Item not in array");
+        return 0;
     }
 }
