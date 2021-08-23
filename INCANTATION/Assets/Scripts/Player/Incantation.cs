@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Incantation : MonoBehaviour
 {
+    public static Incantation instance;
+
     public List<string> allIncantations = new List<string>()
     {
         "red",
@@ -38,6 +40,22 @@ public class Incantation : MonoBehaviour
         {
             print(str);
         }
+    }
+
+    private void Awake()
+    {
+        #region Singleton
+
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("More than one instance of Incantation exists");
+        }
+
+        #endregion
     }
 
     public void checkMessages()
@@ -135,6 +153,24 @@ public class Incantation : MonoBehaviour
     public List<string> GetIncantations()
     {
         return currentIncantations;
+    }
+
+    public List<string> GetPermanentIncantations()
+    {
+        List<string> knownIncantations = currentIncantations;
+
+        foreach (Equipment e in EquipmentManager.instance.currentEquipment)
+        {
+            if(e != null)
+            {
+                if (knownIncantations.Contains(e.specialIncantation))
+                {
+                    knownIncantations.Remove(e.specialIncantation);
+                }
+            }
+        }
+
+        return knownIncantations;
     }
 
     //-----INCANTATION METHODS-----
