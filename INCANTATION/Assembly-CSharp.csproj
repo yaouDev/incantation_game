@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Items\Consumable.cs" />
     <Compile Include="Assets\Scripts\Items\IncantationScroll.cs" />
     <Compile Include="Assets\Scripts\TextPopUp.cs" />
+    <Compile Include="Assets\Scripts\UIFollowGameObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
