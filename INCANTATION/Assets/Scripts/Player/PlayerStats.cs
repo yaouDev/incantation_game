@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : CharacterStats
 {
     public Transform spawnPoint;
     private PlayerCombat playerCombat;
+    [SerializeField] Slider healthbar;
 
     //constants
     [SerializeField] private int baseDamage = 2;
@@ -20,6 +22,13 @@ public class PlayerStats : CharacterStats
         playerCombat = GetComponent<PlayerCombat>();
     }
 
+    private void Update()
+    {
+        //put in delegate method?VVV
+        healthbar.maxValue = maxHealth.GetValue();
+        healthbar.value = currentHealth;
+    }
+
     private void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
     {
         if (newItem != null)
@@ -29,6 +38,14 @@ public class PlayerStats : CharacterStats
                 Weapon newWeapon = (Weapon)newItem;
                 playerCombat.SetCurrentWeapon(newWeapon);
                 playerCombat.attackRange = newWeapon.attackRange;
+                if(newWeapon.attackPointGFX != null)
+                {
+                    playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = newWeapon.attackPointGFX;
+                }
+                else
+                {
+                    playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = playerCombat.defaultAttackPointGFX;
+                }
             }
             else if (newItem is Essence)
             {

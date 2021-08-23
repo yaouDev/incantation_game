@@ -20,6 +20,7 @@ public class PlayerCombat : MonoBehaviour
     private bool isInputEnabled = true;
 
     public Transform attackPoint;
+    public Sprite defaultAttackPointGFX;
     public GameObject freeRangeTarget;
     public Transform weapon;
 
@@ -78,6 +79,7 @@ public class PlayerCombat : MonoBehaviour
         freeRangeTarget.SetActive(false);
         currentWeapon = emptyWeapon;
         originalAttackRange = attackRange;
+        attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = defaultAttackPointGFX;
         weaponAnimator = weapon.GetComponent<Animator>();
 
         //---ranged weapon---
@@ -336,7 +338,7 @@ public class PlayerCombat : MonoBehaviour
 
         //Combat Modes
 
-        if (attackType == AttackType.freeRange)
+        if (attackType == AttackType.freeRange || attackType == AttackType.range)
         {
             //Ranged
             attackPoint.transform.parent = weapon.transform.parent;

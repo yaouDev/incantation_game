@@ -90,7 +90,6 @@ public class EquipmentManager : MonoBehaviour
 
         currentEquipment[slotIndex] = newItem;
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
-
         
         if(newItem.specialIncantation != "")
         {
@@ -137,6 +136,7 @@ public class EquipmentManager : MonoBehaviour
                 //change to default item? VVV
                 playerCombat.SetCurrentWeapon(playerCombat.emptyWeapon);
                 playerCombat.attackRange = playerCombat.baseAttackRange;
+                playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = playerCombat.defaultAttackPointGFX;
             }
             else if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.essence)
             {

@@ -22,7 +22,12 @@ MonoBehaviour:
   damageModifier: 0
   moveSpeedModifier: 0
   attackSpeedModifier: 100
+  specialIncantation: 
+  animatorOverride: []
   attackType: 1
   attackRange: 0
+  attackPointGFX: {fileID: 21300000, guid: d1c1523651c71449cb32c2c7933acf8c, type: 3}
   isCharged: 0
+  chargeMultiplier: 1
+  chargeRate: 0.6
   projectile: {fileID: 21300000, guid: 03b3b03d94fe64ca991436d28accda10, type: 3}
