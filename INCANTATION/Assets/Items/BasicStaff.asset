@@ -22,6 +22,7 @@ MonoBehaviour:
   damageModifier: 0
   moveSpeedModifier: 0
   attackSpeedModifier: 0
+  specialIncantation: red
   animatorOverride:
   - {fileID: 22100000, guid: 8ce8b16a5bd86c842b995db50081f7a7, type: 2}
   attackType: 2

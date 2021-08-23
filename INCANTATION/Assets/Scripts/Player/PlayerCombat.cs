@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <bugs>
+/// - [FIXED] if a charged weapon hovers over UI it doesn't release but loses charge
+/// - [FIXED] If a player begins charge/attack on incantation text it doesn't register -> put canvas group on UI object and uncheck interactable and blocks raycast
+/// </bugs>
+
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private AttackType attackType;
@@ -12,6 +17,7 @@ public class PlayerCombat : MonoBehaviour
 
     public Animator animator;
     private Animator weaponAnimator;
+    private bool isInputEnabled = true;
 
     public Transform attackPoint;
     public GameObject freeRangeTarget;
@@ -149,8 +155,23 @@ public class PlayerCombat : MonoBehaviour
                 break;
         }
 
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                isInputEnabled = false;
+            }
+        }
+        else if (Input.GetButton("Fire1"))
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                isInputEnabled = true;
+            }
+        }
+
         //ATTACKING
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (isInputEnabled)
         {
             if (Input.GetButton("Fire1") && canFire && damageTimer <= 0f)
             {
@@ -266,7 +287,7 @@ public class PlayerCombat : MonoBehaviour
         }
 
         //related to essence
-        if (Input.GetButtonDown("EssenceAction") && essenceTimer <= 0f)
+        if (Input.GetButtonDown("EssenceAction") && essenceTimer <= 0f && !gameManager.chatBox.isFocused)
         {
             EssenceAction();
             Debug.Log(essenceType + " essence!");
@@ -469,23 +490,6 @@ public class PlayerCombat : MonoBehaviour
         attackRange = originalAttackRange;
 
         canFire = false;
-    }
-
-    private void PlayMeleeAnimation()
-    {
-
-
-
-    }
-
-    private void PrepareMeleeAnimation(Vector3 originalPos)
-    {
-
-    }
-
-    private void ResetMeleeAnimation(Vector3 originalPos)
-    {
-
     }
 
     public void SetCurrentWeapon(Weapon newWeapon)

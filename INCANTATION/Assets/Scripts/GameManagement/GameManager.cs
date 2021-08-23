@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     public GameObject textObject;
     public InputField chatBox;
     public Incantation incantation;
+    public Text playerIncantationText;
+    public float playerTextDuration = 2f;
+    public GameObject incantationPanel;
 
     public Color playerColor;
     public Color infoColor;
@@ -40,7 +43,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        playerIncantationText.color = playerColor;
+        playerIncantationText.text = "";
     }
 
 
@@ -66,14 +70,6 @@ public class GameManager : MonoBehaviour
                 chatBox.ActivateInputField();
             } 
         }
-
-        if (!chatBox.isFocused)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SendMessageToChat("Spacebar boiiii", Message.MessageType.lootInfo);
-            }
-        }
     }
 
     public void SendMessageToChat(string text, Message.MessageType messageType)
@@ -82,7 +78,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(messages[0].textObject.gameObject);
             messages.Remove(messages[0]);
-            //Debug.Log("space");
         }
 
         Message newMessage = new Message();
@@ -90,6 +85,15 @@ public class GameManager : MonoBehaviour
         newMessage.text = text;
 
         GameObject newText = Instantiate(textObject, chatPanel.transform);
+        if(messageType == Message.MessageType.playerInput && incantation.currentIncantations.Contains(newMessage.text))
+        {
+            //Sets the overhead text to playerInput and remove the text after a while if it's available
+            //if you type faster than the coroutine, the message will disappear with the previous timer
+            playerIncantationText.text = newMessage.text.ToUpper() + "!";
+            incantationPanel.SetActive(true);
+            StartCoroutine(SetTextEmptyAfterDuration(playerIncantationText, playerTextDuration));
+            StartCoroutine(DisableObjectAfterDuration(incantationPanel, playerTextDuration));
+        }
 
         newMessage.textObject = newText.GetComponent<Text>();
 
@@ -145,6 +149,18 @@ public class GameManager : MonoBehaviour
         }
 
         go.SetActive(false);
+    }
+
+    public IEnumerator SetTextEmptyAfterDuration(Text text, float duration)
+    {
+        float normalizedTime = 0f;
+        while (normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        text.text = "";
     }
 }
 

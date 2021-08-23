@@ -22,6 +22,7 @@ MonoBehaviour:
   damageModifier: 2
   moveSpeedModifier: 0
   attackSpeedModifier: 0
+  specialIncantation: blue
   animatorOverride:
   - {fileID: 22100000, guid: 44816fd4795e66642b5f4d7428e073e7, type: 2}
   attackType: 0

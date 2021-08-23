@@ -11,6 +11,7 @@ public class Equipment : Item
     public int damageModifier;
     public int moveSpeedModifier;
     public int attackSpeedModifier;
+    public string specialIncantation = "";
 
     public AnimatorOverrideController[] animatorOverride;
 

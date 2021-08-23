@@ -16,6 +16,8 @@ public class EquipmentManager : MonoBehaviour
     [HideInInspector]
     public Animator[] equipmentAnimators;
 
+    private Incantation incantation;
+
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
 
@@ -50,6 +52,8 @@ public class EquipmentManager : MonoBehaviour
         equipmentAnimators[(int)EquipmentSlot.weapon] = player.transform.Find("Weapon").GetComponent<Animator>();
         equipmentAnimators[(int)EquipmentSlot.legs] = player.transform.Find("Legs").GetComponent<Animator>();
         equipmentAnimators[(int)EquipmentSlot.essence] = player.transform.Find("Essence").GetComponent<Animator>();
+
+        incantation = player.GetComponent<Incantation>();
     }
 
     private void Start()
@@ -86,6 +90,19 @@ public class EquipmentManager : MonoBehaviour
 
         currentEquipment[slotIndex] = newItem;
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
+
+        
+        if(newItem.specialIncantation != "")
+        {
+            if (incantation.allIncantations.Contains(newItem.specialIncantation))
+            {
+                incantation.AddIncantation(newItem.specialIncantation);
+            }
+            else
+            {
+                Debug.LogWarning("Tried to add an incantation that doesn't exist");
+            }
+        }
 
         if (newItem.animatorOverride == null)
         {
@@ -132,9 +149,21 @@ public class EquipmentManager : MonoBehaviour
             }
 
             equipmentAnimators[slotIndex].enabled = false;
-
             currentEquipment[slotIndex] = null;
 
+            if(oldItem.specialIncantation != "")
+            {
+                //possible problem if the items have the same incantation
+                if (incantation.currentIncantations.Contains(oldItem.specialIncantation))
+                {
+                    incantation.RemoveIncantation(oldItem.specialIncantation);
+                }
+                else
+                {
+                    Debug.LogWarning("Tried to remove an incantation that wasn't in use");
+                }
+            }
+            
             if (onEquipmentChanged != null)
             {
                 onEquipmentChanged.Invoke(null, oldItem);
@@ -171,7 +200,7 @@ public class EquipmentManager : MonoBehaviour
     private void Update()
     {
         //Insert input for unequip all
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.U) && !GetComponent<GameManager>().chatBox.isFocused)
         {
             UnequipAll();
         }

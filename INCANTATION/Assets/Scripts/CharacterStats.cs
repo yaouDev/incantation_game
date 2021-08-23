@@ -18,7 +18,6 @@ public class CharacterStats : MonoBehaviour
 
     private void Start()
     {
-        print(maxHealth.GetValue());
         currentHealth = maxHealth.GetValue();
     }
 
