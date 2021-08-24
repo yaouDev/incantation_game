@@ -140,7 +140,7 @@ public class EquipmentManager : MonoBehaviour
             }
             else if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.essence)
             {
-                playerCombat.SetEssenceType(EssenceType.none);
+                player.GetComponent<PlayerStats>().SetEssenceType(EssenceType.none);
             }
 
             if (equipmentRenderers[slotIndex].sprite != null)

@@ -7,6 +7,9 @@ public class CharacterStats : MonoBehaviour
     public Stat maxHealth;
     protected int currentHealth;
 
+    public delegate void OnDamageTaken();
+    public OnDamageTaken onDamageTakenCallback;
+
     public bool isBoosted { get; private set; }
     public bool isDrained { get; private set; }
 
@@ -72,12 +75,20 @@ public class CharacterStats : MonoBehaviour
         {
             Die();
         }
+
+        //take damage animation
+
+        if (onDamageTakenCallback != null)
+        {
+            onDamageTakenCallback.Invoke();
+        }
     }
 
     public virtual void Die()
     {
         //Die in some way
         //overwritten
+        //death animation?
         Debug.Log(transform.name + " died.");
     }
 
