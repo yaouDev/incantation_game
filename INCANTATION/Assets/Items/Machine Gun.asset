@@ -21,7 +21,7 @@ MonoBehaviour:
   armorModifer: 0
   damageModifier: 0
   moveSpeedModifier: 0
-  attackSpeedModifier: 100
+  attackSpeedModifier: 85
   specialIncantation: 
   animatorOverride: []
   attackType: 1

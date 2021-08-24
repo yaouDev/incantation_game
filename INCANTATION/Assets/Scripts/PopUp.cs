@@ -4,17 +4,19 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextPopUp : MonoBehaviour
+public class PopUp : MonoBehaviour
 {
     //possible to add a list/queue that stores items until the timer is over and then pops that one
 
-    public Text text;
+    public GameObject target;
 
     [SerializeField] private Vector3 startSize;
     public Vector3 targetSize;
 
+    public bool useDuration = true;
+    private bool manualActivation;
     [SerializeField] private float duration;
-    private float timeRemaining;
+    [HideInInspector] public float timeRemaining;
 
     private void Start()
     {
@@ -34,15 +36,16 @@ public class TextPopUp : MonoBehaviour
             timeRemaining = 0f;
         }*/
 
-        if (timeRemaining > 0f)
+        //USE DURATION
+        if (timeRemaining > 0f && useDuration)
         {
             gameObject.transform.localScale += (targetSize - gameObject.transform.localScale) * 0.1f;
             timeRemaining -= Time.deltaTime;
         }
-        else
+        else if(useDuration)
         {
             //VVV spaghetti
-            if (gameObject.transform.localScale != new Vector3(0, 0, 0))
+            if (gameObject.transform.localScale != startSize)
             {
                 gameObject.transform.localScale += (startSize - gameObject.transform.localScale) * 0.1f;
             }
@@ -53,10 +56,32 @@ public class TextPopUp : MonoBehaviour
             }
         }
 
+        //MANUAL ACTIVATION
+        if (manualActivation && gameObject.transform.localScale != targetSize && !useDuration)
+        {
+            gameObject.transform.localScale += (targetSize - gameObject.transform.localScale) * 0.1f;
+        }
+        else if(!manualActivation && gameObject.transform.localScale != startSize && !useDuration)
+        {
+            gameObject.transform.localScale += (startSize - gameObject.transform.localScale) * 0.1f;
+        }
+
     }
 
-    public void PopUp()
+    public void Pop()
     {
-        timeRemaining = duration;
+        if (useDuration)
+        {
+            timeRemaining = duration;
+        }
+        else
+        {
+            manualActivation = true;
+        }
+    }
+
+    public void Return()
+    {
+        manualActivation = false;
     }
 }

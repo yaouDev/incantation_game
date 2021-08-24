@@ -6,7 +6,7 @@ using UnityEngine;
 /// Damage: Medium
 /// Armor: None-Low
 /// Move Speed: Low-Medium
-/// Attack Speed: Medium-High
+/// Attack Speed: Medium-High --- MAX 85!
 /// AttackRange: N/A
 /// 
 /// Charge Rate: Medium/Fast

@@ -63,7 +63,6 @@ public class PlayerCombat : MonoBehaviour
 
     private float currentCharge;
     private float baseCharge = 1f;
-    private bool canFire = true;
     //---charge end---
 
     public Weapon emptyWeapon;
@@ -126,9 +125,9 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
+                //Do things on fire1 hold
 
-
-                if(canFire && damageTimer <= 0f)
+                if(damageTimer <= 0f)
                 {
                     if (currentWeapon.isCharged)
                     {
@@ -173,7 +172,6 @@ public class PlayerCombat : MonoBehaviour
                                 //Range - more damage and speed
                                 //because of projectile code VVV
                                 currentCharge = baseCharge;
-                                canFire = true;
                                 FireProjectile();
                                 break;
                             case AttackType.freeRange:
@@ -192,7 +190,7 @@ public class PlayerCombat : MonoBehaviour
                 }
                 
             }
-            else if (Input.GetButtonUp("Fire1") && canFire)
+            else if (Input.GetButtonUp("Fire1"))
             {
                 freeRangeTarget.SetActive(false);
 
@@ -233,7 +231,6 @@ public class PlayerCombat : MonoBehaviour
                 else
                 {
                     currentCharge = 0f;
-                    canFire = true;
                 }
 
                 chargeProjectileSlider.value = currentCharge;
@@ -256,7 +253,6 @@ public class PlayerCombat : MonoBehaviour
         if (attackType == AttackType.freeRange || attackType == AttackType.range)
         {
             //Ranged
-            attackPoint.transform.parent = weapon.transform.parent;
             attackPoint.localPosition = new Vector3(lookDir.x, lookDir.y);
             //Rotates attackPoint
             //attackPoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
@@ -264,7 +260,6 @@ public class PlayerCombat : MonoBehaviour
         else
         {
             //Melee (child of weapon)
-            attackPoint.transform.parent = weapon.transform;
             if (attackPoint.transform.position != weapon.transform.position)
             {
                 attackPoint.transform.position = weapon.transform.position;
@@ -385,8 +380,6 @@ public class PlayerCombat : MonoBehaviour
         projectileInstance.GetSpriteRenderer().sprite = rangedWeapon.projectile;
         projectileInstance.SetDamage(projectileDamage);
         projectileInstance.transform.localScale = new Vector3(projectileInstance.transform.localScale.x + currentCharge, projectileInstance.transform.localScale.y + currentCharge, projectileInstance.transform.localScale.z);
-
-        canFire = false;
     }
 
     private void ReleaseAttack()
@@ -407,8 +400,6 @@ public class PlayerCombat : MonoBehaviour
         Attack(chargeDamage);
 
         attackRange = originalAttackRange;
-
-        canFire = false;
     }
 
     void UpdateAttackType(Item newItem, Item oldItem)
@@ -430,6 +421,10 @@ public class PlayerCombat : MonoBehaviour
             switch (newWeapon.attackType)
             {
                 case AttackType.melee:
+                    attackPoint.transform.parent = weapon.transform;
+                    attackPoint.GetComponent<Rotate>().isSpinning = false;
+                    attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+
                     chargeProjectileSlider.gameObject.SetActive(false);
                     chargeFreeRangeSlider.gameObject.SetActive(false);
                     if (currentWeapon.isCharged)
@@ -442,6 +437,9 @@ public class PlayerCombat : MonoBehaviour
                     }
                     break;
                 case AttackType.range:
+                    attackPoint.transform.parent = weapon.transform.parent;
+                    attackPoint.GetComponent<Rotate>().isSpinning = true;
+
                     chargeFreeRangeSlider.gameObject.SetActive(false);
                     chargeMeleeSlider.gameObject.SetActive(false);
                     if (currentWeapon.isCharged)
@@ -454,6 +452,10 @@ public class PlayerCombat : MonoBehaviour
                     }
                     break;
                 case AttackType.freeRange:
+                    attackPoint.transform.parent = weapon.transform.parent;
+                    attackPoint.GetComponent<Rotate>().isSpinning = false;
+                    attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+
                     chargeProjectileSlider.gameObject.SetActive(false);
                     chargeMeleeSlider.gameObject.SetActive(false);
                     if (currentWeapon.isCharged)

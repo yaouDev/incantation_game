@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
         popUpMainText.text = mainText.ToUpper();
         popUpSubText.text = subText.ToUpper();
         popUpParent.SetActive(true);
-        popUpParent.GetComponent<TextPopUp>().PopUp();
+        popUpParent.GetComponent<PopUp>().Pop();
     }
 
     private IEnumerator WaitDuration(float duration)

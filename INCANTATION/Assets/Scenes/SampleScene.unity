@@ -1519,10 +1519,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031067a4d16211e46a388b7b9089aeae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 714710678}
+  target: {fileID: 0}
   startSize: {x: 0, y: 0, z: 0}
   targetSize: {x: 1, y: 1, z: 1}
+  useDuration: 1
   duration: 2
+  timeRemaining: 0
 --- !u!1 &317953545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7148,6 +7150,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1178362764}
   - component: {fileID: 1178362765}
+  - component: {fileID: 1178362767}
+  - component: {fileID: 1178362766}
   m_Layer: 6
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -7221,6 +7225,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1178362766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178362763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404019417d9cdbd4ea3ce92d32b711de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  originalSpeed: 0
+  isSpinning: 0
+  isUsedForCombat: 1
+  combatSpeed: 4
+--- !u!114 &1178362767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178362763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031067a4d16211e46a388b7b9089aeae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  startSize: {x: 1, y: 1, z: 1}
+  targetSize: {x: 0.5, y: 0.5, z: 0.5}
+  useDuration: 0
+  duration: 1
+  timeRemaining: 0
 --- !u!1 &1181989965
 GameObject:
   m_ObjectHideFlags: 0
@@ -10625,7 +10664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c8d8ee649031146a403895173209f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultItems: []
+  defaultItems:
+  - {fileID: 11400000, guid: 0cd2c6e061e9ed441bf4e5881fc86b7e, type: 2}
   currentEquipment: []
   equipmentAnimators: []
   player: {fileID: 1875891585}

@@ -169,6 +169,8 @@ public class EquipmentManager : MonoBehaviour
                 onEquipmentChanged.Invoke(null, oldItem);
             }
 
+            EquipDefaultItems();
+
             return oldItem;
         }
 
@@ -193,7 +195,10 @@ public class EquipmentManager : MonoBehaviour
     {
         foreach (Equipment e in defaultItems)
         {
-            Equip(e);
+            if(currentEquipment[(int)e.equipSlot] == null)
+            {
+                Equip(e);
+            }
         }
     }
 
