@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     //public bool isInputEnabled = true;
 
+    public bool integrateCursor;
+
     public int maxMessages = 25;
 
     public GameObject chatPanel;
@@ -53,8 +55,11 @@ public class GameManager : MonoBehaviour
 
         //make custom cursor! (: build settings -> player settings
         //VVV cursor related
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        if (integrateCursor)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
 

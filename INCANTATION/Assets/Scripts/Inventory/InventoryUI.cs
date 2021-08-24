@@ -26,7 +26,10 @@ public class InventoryUI : MonoBehaviour
             inventoryUI.SetActive(!inventoryUI.activeSelf);
 
             //VVV cursor related
-            Cursor.visible = !Cursor.visible;
+            if (GameManager.instance.integrateCursor)
+            {
+                Cursor.visible = !Cursor.visible;
+            }
         }
     }
 

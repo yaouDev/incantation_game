@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //change to a constant for no chargingVVV
     [HideInInspector] public float projectileVelocity;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private LayerMask lm;
 
     private int damage = 0;
 
@@ -15,7 +15,10 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        //VVchange to be deleted on impact or duration
+        lm = gameObject.layer;
+
+        Physics2D.IgnoreLayerCollision(lm, lm);
+
         Destroy(gameObject, 4f);
     }
 
@@ -29,6 +32,14 @@ public class Projectile : MonoBehaviour
         rb.velocity = transform.up * projectileVelocity;
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (IgnoreCollision(collision))
+        {
+            return;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.TryGetComponent(out EnemyStats enemy))
@@ -36,14 +47,31 @@ public class Projectile : MonoBehaviour
             enemy.TakeDamage(damage);
         }
 
+        if (IgnoreCollision(collision))
+        {
+            return;
+        }
+        
+        //projectile death animation
+        Destroy(gameObject);
+    }
+
+    //VVV Excessive?
+    private bool IgnoreCollision(Collision2D collision)
+    {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("PlayerProjectile"))
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<CapsuleCollider2D>());
-            return;
+            return true;
         }
 
-        //projectile death animation
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<BoxCollider2D>());
+            return true;
+        }
+
+        return false;
     }
 
     public SpriteRenderer GetSpriteRenderer()
