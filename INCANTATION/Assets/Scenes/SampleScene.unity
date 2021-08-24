@@ -7213,7 +7213,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: dbc624f7b3a644dcf989e434e63d9a98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10603,6 +10603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b7ca2ed116084d8e6af1b80b20177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  integrateCursor: 0
   maxMessages: 25
   chatPanel: {fileID: 765911980}
   mainPanel: {fileID: 1092656028}

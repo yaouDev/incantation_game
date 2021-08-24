@@ -291,6 +291,8 @@ public class PlayerCombat : MonoBehaviour
         weaponAnimator.SetTrigger("Attack");
 
         animator.SetTrigger("Attack");
+
+        //VVV RECONSIDER??? use as default and make new scripts with custom attacks?
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D hit in hitEnemies)
         {
@@ -300,7 +302,22 @@ public class PlayerCombat : MonoBehaviour
             }
         }
 
+        //use method
+        //DefaultAttack(damageToDeal);
+
         AttackDelay();
+    }
+
+    private void DefaultAttack(int damageToDeal)
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        foreach (Collider2D hit in hitEnemies)
+        {
+            if (hit.gameObject.TryGetComponent<CharacterStats>(out CharacterStats enemy))
+            {
+                enemy.TakeDamage(damageToDeal);
+            }
+        }
     }
 
     private void AttackDelay()

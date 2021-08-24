@@ -203,7 +203,6 @@ public class GameManager : MonoBehaviour
             while (normalizedTime <= 1f)
             {
                 normalizedTime += Time.deltaTime / (popUpParent.GetComponent<PopUp>().timeRemaining + 2f);
-                print(normalizedTime);
                 yield return null;
             }
         }
