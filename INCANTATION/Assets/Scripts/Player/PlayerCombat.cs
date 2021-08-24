@@ -252,10 +252,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (attackType == AttackType.freeRange || attackType == AttackType.range)
         {
-            //Ranged
             attackPoint.localPosition = new Vector3(lookDir.x, lookDir.y);
-            //Rotates attackPoint
-            //attackPoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
         }
         else
         {
@@ -423,6 +420,7 @@ public class PlayerCombat : MonoBehaviour
                 case AttackType.melee:
                     attackPoint.transform.parent = weapon.transform;
                     attackPoint.GetComponent<Rotate>().isSpinning = false;
+                    attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
                     attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
 
                     chargeProjectileSlider.gameObject.SetActive(false);
@@ -439,6 +437,7 @@ public class PlayerCombat : MonoBehaviour
                 case AttackType.range:
                     attackPoint.transform.parent = weapon.transform.parent;
                     attackPoint.GetComponent<Rotate>().isSpinning = true;
+                    attackPoint.GetComponent<Rotate>().isUsedForCombat = true;
 
                     chargeFreeRangeSlider.gameObject.SetActive(false);
                     chargeMeleeSlider.gameObject.SetActive(false);
@@ -454,6 +453,8 @@ public class PlayerCombat : MonoBehaviour
                 case AttackType.freeRange:
                     attackPoint.transform.parent = weapon.transform.parent;
                     attackPoint.GetComponent<Rotate>().isSpinning = false;
+                    attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
+                    attackPoint.transform.localScale = attackPoint.GetComponent<PopUp>().startSize;
                     attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
 
                     chargeProjectileSlider.gameObject.SetActive(false);

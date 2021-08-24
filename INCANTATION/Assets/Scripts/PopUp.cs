@@ -8,7 +8,7 @@ public class PopUp : MonoBehaviour
 {
     public GameObject target;
 
-    [SerializeField] private Vector3 startSize;
+    public Vector3 startSize;
     public Vector3 targetSize;
 
     public bool useDuration = true;

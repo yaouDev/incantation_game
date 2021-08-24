@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,11 +50,17 @@ public class GameManager : MonoBehaviour
     {
         playerIncantationText.color = playerColor;
         playerIncantationText.text = "";
+
+        //make custom cursor! (: build settings -> player settings
+        //VVV cursor related
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
 
     void Update()
     {
+        //start new input
         if(chatBox.text != "")
         {
             if (Input.GetKeyDown(KeyCode.Return))
@@ -72,6 +79,16 @@ public class GameManager : MonoBehaviour
                 chatBox.ActivateInputField();
             } 
         }
+
+        /*
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }*/
     }
 
     public void SendMessageToChat(string text, Message.MessageType messageType)

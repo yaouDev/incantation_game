@@ -26,7 +26,7 @@ MonoBehaviour:
   animatorOverride: []
   attackType: 1
   attackRange: 0
-  attackPointGFX: {fileID: 21300000, guid: d1c1523651c71449cb32c2c7933acf8c, type: 3}
+  attackPointGFX: {fileID: 21300000, guid: dce8dd8b17100a042816bc48d4f6b54f, type: 3}
   isCharged: 0
   chargeMultiplier: 1
   chargeRate: 0.6

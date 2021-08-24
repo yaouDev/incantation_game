@@ -24,6 +24,9 @@ public class InventoryUI : MonoBehaviour
         if (Input.GetButtonDown("Inventory") && !GameManager.instance.chatBox.isFocused)
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
+
+            //VVV cursor related
+            Cursor.visible = !Cursor.visible;
         }
     }
 

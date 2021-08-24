@@ -29,23 +29,25 @@ public class Rotate : MonoBehaviour
         if (isSpinning)
         {
             gameObject.transform.Rotate(new Vector3(gameObject.transform.rotation.x, gameObject.transform.rotation.y, speed));
-
-            if (isUsedForCombat)
-            {
-                //scale speed up down?
-                if (Input.GetButton("Fire1"))
-                {
-                    pop.Pop();
-                    speed = combatSpeed;
-                }
-                else
-                {
-                    pop.Return();
-                    speed = originalSpeed;
-                }
-            }
         }
 
-        
+        if (isUsedForCombat)
+        {
+            //scale speed up down?
+            if (Input.GetButton("Fire1"))
+            {
+                pop.Pop();
+                speed = combatSpeed;
+            }
+            else
+            {
+                pop.Return();
+                speed = originalSpeed;
+            }
+        }
+        else
+        {
+            pop.Return();
+        }
     }
 }
