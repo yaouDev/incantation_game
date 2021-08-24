@@ -170,6 +170,21 @@ public class GameManager : MonoBehaviour
 
     public void TextPopUp(string mainText, string subText)
     {
+        StartCoroutine(TextPopUpIE(mainText, subText));
+    }
+
+    private IEnumerator TextPopUpIE(string mainText, string subText)
+    {
+        if (popUpParent.GetComponent<PopUp>().timeRemaining > 0f)
+        {
+            float normalizedTime = 0f;
+            while (normalizedTime <= 1f)
+            {
+                normalizedTime += Time.deltaTime / (popUpParent.GetComponent<PopUp>().timeRemaining + 2f);
+                print(normalizedTime);
+                yield return null;
+            }
+        }
         popUpMainText.text = mainText.ToUpper();
         popUpSubText.text = subText.ToUpper();
         popUpParent.SetActive(true);

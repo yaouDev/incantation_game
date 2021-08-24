@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PopUp : MonoBehaviour
 {
-    //possible to add a list/queue that stores items until the timer is over and then pops that one
-
     public GameObject target;
 
     [SerializeField] private Vector3 startSize;
@@ -65,7 +63,6 @@ public class PopUp : MonoBehaviour
         {
             gameObject.transform.localScale += (startSize - gameObject.transform.localScale) * 0.1f;
         }
-
     }
 
     public void Pop()
