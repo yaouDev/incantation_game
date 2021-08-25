@@ -392,7 +392,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.59
+  m_Intensity: 0.34
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -648,6 +648,7 @@ MonoBehaviour:
     baseValue: 0
     minValue: 0
     maxValue: 9999
+  damagePopUp: {fileID: 0}
   damage:
     baseValue: 0
     minValue: 0
@@ -1124,6 +1125,7 @@ MonoBehaviour:
     baseValue: 0
     minValue: 0
     maxValue: 9999
+  damagePopUp: {fileID: 0}
   damage:
     baseValue: 0
     minValue: 0
@@ -1525,6 +1527,7 @@ MonoBehaviour:
   useDuration: 1
   duration: 2
   timeRemaining: 0
+  targetSelf: 0
 --- !u!1 &317953545
 GameObject:
   m_ObjectHideFlags: 0
@@ -11825,6 +11828,7 @@ GameObject:
   - component: {fileID: 548799416}
   - component: {fileID: 548799417}
   - component: {fileID: 548799418}
+  - component: {fileID: 548799419}
   m_Layer: 5
   m_Name: IncantationPanel
   m_TagString: Untagged
@@ -11872,6 +11876,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &548799419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548799415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abcc8c3115b52140b8a867a8006bf5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1875891585}
+  offset: {x: 0, y: 1, z: 0}
 --- !u!224 &561589214 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7530713523788130650, guid: aaa8337f2aebd6048bf7494d4aa2badb, type: 3}
@@ -13514,6 +13532,7 @@ MonoBehaviour:
     baseValue: 0
     minValue: 0
     maxValue: 9999
+  damagePopUp: {fileID: 0}
   damage:
     baseValue: 0
     minValue: 0
@@ -15029,6 +15048,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1660236019095451820, guid: b460a3d9319d19847a82050069735c78, type: 3}
+      propertyPath: damagePopUp
+      value: 
+      objectReference: {fileID: 2769537800892936464, guid: c0f87d3f1325d1d4ca8fae8b5338e708, type: 3}
     - target: {fileID: 1660236019095451824, guid: b460a3d9319d19847a82050069735c78, type: 3}
       propertyPath: m_Name
       value: EnemyTest
@@ -15626,6 +15649,7 @@ MonoBehaviour:
   useDuration: 0
   duration: 1
   timeRemaining: 0
+  targetSelf: 0
 --- !u!1 &1181989965
 GameObject:
   m_ObjectHideFlags: 0
@@ -17480,6 +17504,7 @@ MonoBehaviour:
     baseValue: 0
     minValue: 0
     maxValue: 9999
+  damagePopUp: {fileID: 0}
   damage:
     baseValue: 0
     minValue: 0
@@ -18188,12 +18213,12 @@ GameObject:
   - component: {fileID: 1875891591}
   - component: {fileID: 1875891594}
   - component: {fileID: 1875891595}
-  - component: {fileID: 1875891593}
   - component: {fileID: 1875891592}
   - component: {fileID: 1875891596}
   - component: {fileID: 1875891590}
   - component: {fileID: 1875891586}
   - component: {fileID: 1875891589}
+  - component: {fileID: 1875891593}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -18366,8 +18391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f051085cea97748b1604d2bb65ae59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1875891593
-BoxCollider2D:
+--- !u!70 &1875891593
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18379,19 +18404,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: -0.2}
+  m_Size: {x: 0.0001, y: 1.5}
+  m_Direction: 1
 --- !u!114 &1875891594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18408,6 +18423,7 @@ MonoBehaviour:
     baseValue: 0
     minValue: 0
     maxValue: 9999
+  damagePopUp: {fileID: 0}
   damage:
     baseValue: 0
     minValue: 0

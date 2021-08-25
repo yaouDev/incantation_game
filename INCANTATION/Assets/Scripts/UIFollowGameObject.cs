@@ -16,7 +16,10 @@ public class UIFollowGameObject : MonoBehaviour
 
     private void Update()
     {
-        Vector3 relativePosition = cam.WorldToScreenPoint(target.transform.position + offset);
-        transform.position = relativePosition;
+        if(target != null)
+        {
+            Vector3 relativePosition = cam.WorldToScreenPoint(target.transform.position + offset);
+            transform.position = relativePosition;
+        }
     }
 }

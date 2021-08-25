@@ -16,6 +16,8 @@ public class PopUp : MonoBehaviour
     [SerializeField] private float duration;
     [HideInInspector] public float timeRemaining;
 
+    public bool targetSelf;
+
     private void Start()
     {
 
@@ -23,6 +25,10 @@ public class PopUp : MonoBehaviour
 
     void Awake()
     {
+        if (targetSelf)
+        {
+            target = gameObject;
+        }
         gameObject.transform.localScale = startSize;
     }
 

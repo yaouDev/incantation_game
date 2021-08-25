@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     public float playerTextDuration = 2f;
     public GameObject incantationPanel;
 
+    private float panelTimer = 0f;
+
     public Text popUpMainText;
     public Text popUpSubText;
     public GameObject popUpParent;
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
             {
                 chatBox.gameObject.SetActive(true);
                 chatBox.ActivateInputField();
-            } 
+            }
         }
 
         /*
@@ -94,6 +96,18 @@ public class GameManager : MonoBehaviour
         {
             Cursor.visible = false;
         }*/
+    }
+
+    private void FixedUpdate()
+    {
+        if(panelTimer > 0f)
+        {
+            panelTimer -= Time.deltaTime;
+        }
+        else
+        {
+            mainPanel.SetActive(false);
+        }
     }
 
     public void SendMessageToChat(string text, Message.MessageType messageType)
@@ -125,7 +139,7 @@ public class GameManager : MonoBehaviour
         newMessage.textObject.color = MessageTypeColor(messageType);
 
         mainPanel.SetActive(true);
-        StartCoroutine(DisableObjectAfterDuration(mainPanel, 2f));
+        panelTimer += playerTextDuration;
 
         messages.Add(newMessage);
     }

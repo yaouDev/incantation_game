@@ -7,6 +7,8 @@ public class CharacterStats : MonoBehaviour
     public Stat maxHealth;
     protected int currentHealth;
 
+    public GameObject damagePopUp;
+
     public delegate void OnDamageTaken();
     public OnDamageTaken onDamageTakenCallback;
 
@@ -71,7 +73,12 @@ public class CharacterStats : MonoBehaviour
         currentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
 
-        if(currentHealth <= 0)
+        //damage popup
+        damagePopUp.GetComponent<DamagePopUp>().text.text = "-" + damage;
+        DamagePopUp popUpInstance = Instantiate(damagePopUp, transform.position, transform.rotation).GetComponent<DamagePopUp>();
+        popUpInstance.text.gameObject.GetComponent<UIFollowGameObject>().target = gameObject;
+
+        if (currentHealth <= 0)
         {
             Die();
         }
