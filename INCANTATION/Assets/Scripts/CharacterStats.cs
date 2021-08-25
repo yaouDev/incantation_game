@@ -92,11 +92,6 @@ public class CharacterStats : MonoBehaviour
         Debug.Log(transform.name + " died.");
     }
 
-    public int GetCurrentHealth()
-    {
-        return currentHealth;
-    }
-
     public void Heal(int health)
     {
         currentHealth = health;
