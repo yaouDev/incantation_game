@@ -9,7 +9,6 @@ public class Weapon : Equipment
 
     public float attackRange;
 
-    //is this fine as a sprite or should it be an animation???
     public Sprite attackPointGFX;
 
     [Header("Charge-related")]
