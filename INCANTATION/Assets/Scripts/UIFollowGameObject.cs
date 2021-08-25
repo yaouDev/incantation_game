@@ -9,6 +9,8 @@ public class UIFollowGameObject : MonoBehaviour
     public Vector3 offset = new Vector3(0f, 0f, 0f);
     private Camera cam;
 
+    private float timeToDisable;
+
     private void Start()
     {
         cam = Camera.main;
@@ -20,6 +22,11 @@ public class UIFollowGameObject : MonoBehaviour
         {
             Vector3 relativePosition = cam.WorldToScreenPoint(target.transform.position + offset);
             transform.position = relativePosition;
+        }
+        else if(target == null)
+        {
+            //figure out a better solution
+            gameObject.SetActive(false);
         }
     }
 }

@@ -173,8 +173,11 @@ public class PlayerCombat : MonoBehaviour
                             //Range - more damage and knockback
                             FireProjectile();
                             //remove slowVVV
-                            playerStats.movementSpeed.RemoveModifier(movePenalty);
-                            movePenaltyActive = false;
+                            if (movePenaltyActive)
+                            {
+                                playerStats.movementSpeed.RemoveModifier(movePenalty);
+                                movePenaltyActive = false;
+                            }
                             break;
                         case AttackType.freeRange:
                             //Free Range - more damage and attackrange
@@ -419,6 +422,12 @@ public class PlayerCombat : MonoBehaviour
 
     void UpdateAttackType(Item newItem, Item oldItem)
     {
+        if (movePenaltyActive)
+        {
+            playerStats.movementSpeed.RemoveModifier(movePenalty);
+            movePenaltyActive = false;
+        }
+
         if (newItem is Weapon)
         {
             Weapon newWeapon = (Weapon)newItem;
@@ -441,8 +450,6 @@ public class PlayerCombat : MonoBehaviour
                     attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
                     attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
 
-                    movePenaltyActive = false;
-
                     chargeProjectileSlider.gameObject.SetActive(false);
                     chargeFreeRangeSlider.gameObject.SetActive(false);
                     if (currentWeapon.isCharged)
@@ -458,8 +465,6 @@ public class PlayerCombat : MonoBehaviour
                     attackPoint.transform.parent = weapon.transform.parent;
                     attackPoint.GetComponent<Rotate>().isSpinning = true;
                     attackPoint.GetComponent<Rotate>().isUsedForCombat = true;
-
-                    movePenaltyActive = false;
 
                     chargeFreeRangeSlider.gameObject.SetActive(false);
                     chargeMeleeSlider.gameObject.SetActive(false);
@@ -478,8 +483,6 @@ public class PlayerCombat : MonoBehaviour
                     attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
                     attackPoint.transform.localScale = attackPoint.GetComponent<PopUp>().startSize;
                     attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-
-                    movePenaltyActive = false;
 
                     chargeProjectileSlider.gameObject.SetActive(false);
                     chargeMeleeSlider.gameObject.SetActive(false);

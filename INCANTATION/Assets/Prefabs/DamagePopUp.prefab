@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 570660935607727752}
   duration: 2
+  UIFollow: {fileID: 4272802374883260926}
 --- !u!1 &7309762004367436265
 GameObject:
   m_ObjectHideFlags: 0

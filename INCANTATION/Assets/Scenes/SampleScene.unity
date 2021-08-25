@@ -15048,10 +15048,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1660236019095451820, guid: b460a3d9319d19847a82050069735c78, type: 3}
-      propertyPath: damagePopUp
-      value: 
-      objectReference: {fileID: 2769537800892936464, guid: c0f87d3f1325d1d4ca8fae8b5338e708, type: 3}
     - target: {fileID: 1660236019095451824, guid: b460a3d9319d19847a82050069735c78, type: 3}
       propertyPath: m_Name
       value: EnemyTest

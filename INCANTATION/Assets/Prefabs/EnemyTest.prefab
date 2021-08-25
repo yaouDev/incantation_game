@@ -126,6 +126,7 @@ MonoBehaviour:
     baseValue: 0
     minValue: 0
     maxValue: 9999
+  damagePopUp: {fileID: 2769537800892936464, guid: c0f87d3f1325d1d4ca8fae8b5338e708, type: 3}
   damage:
     baseValue: 0
     minValue: 0
