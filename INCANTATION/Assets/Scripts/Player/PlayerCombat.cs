@@ -7,7 +7,8 @@ using UnityEngine.EventSystems;
 /// <bugs>
 /// - [FIXED] if a charged weapon hovers over UI it doesn't release but loses charge
 /// - mouse follows weapon instead of attackpoint with melee
-/// - [FIXED] - (!!! might not be fixed !!!) - move anything time related to FixedUpdate as there is a frame difference on Max screen/computer
+/// - melee combat isnt satisfying as mouse is invisible - make melee pointer object?
+/// - [FIXED] - move anything time related to FixedUpdate as there is a frame difference on Max screen/computer
 /// - [FIXED] If a player begins charge/attack on incantation text it doesn't register -> put canvas group on UI object and uncheck interactable and blocks raycast
 /// </bugs>
 
