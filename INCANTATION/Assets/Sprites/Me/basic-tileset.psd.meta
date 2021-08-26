@@ -53,6 +53,18 @@ TextureImporter:
   - first:
       213: -4946813665599952531
     second: basic-tileset_16
+  - first:
+      213: 6761117959957282014
+    second: basic-tileset_17
+  - first:
+      213: -1546530719384931046
+    second: basic-tileset_18
+  - first:
+      213: -4434962682278603355
+    second: basic-tileset_19
+  - first:
+      213: -6081157689678073586
+    second: basic-tileset_20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -181,8 +193,8 @@ TextureImporter:
       name: basic-tileset_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 447
+        x: 32
+        y: 496
         width: 16
         height: 16
       alignment: 0
@@ -202,8 +214,8 @@ TextureImporter:
       name: basic-tileset_1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 447
+        x: 16
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -223,8 +235,8 @@ TextureImporter:
       name: basic-tileset_2
       rect:
         serializedVersion: 2
-        x: 120
-        y: 447
+        x: 32
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -244,8 +256,8 @@ TextureImporter:
       name: basic-tileset_3
       rect:
         serializedVersion: 2
-        x: 149
-        y: 447
+        x: 48
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -265,8 +277,8 @@ TextureImporter:
       name: basic-tileset_4
       rect:
         serializedVersion: 2
-        x: 178
-        y: 447
+        x: 96
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -286,8 +298,8 @@ TextureImporter:
       name: basic-tileset_5
       rect:
         serializedVersion: 2
-        x: 207
-        y: 447
+        x: 112
+        y: 480
         width: 16
         height: 16
       alignment: 0
@@ -307,8 +319,8 @@ TextureImporter:
       name: basic-tileset_6
       rect:
         serializedVersion: 2
-        x: 236
-        y: 447
+        x: 0
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -328,8 +340,8 @@ TextureImporter:
       name: basic-tileset_7
       rect:
         serializedVersion: 2
-        x: 265
-        y: 447
+        x: 16
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -349,8 +361,8 @@ TextureImporter:
       name: basic-tileset_8
       rect:
         serializedVersion: 2
-        x: 294
-        y: 447
+        x: 32
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -370,8 +382,8 @@ TextureImporter:
       name: basic-tileset_9
       rect:
         serializedVersion: 2
-        x: 323
-        y: 447
+        x: 48
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -391,8 +403,8 @@ TextureImporter:
       name: basic-tileset_10
       rect:
         serializedVersion: 2
-        x: 352
-        y: 447
+        x: 64
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -412,8 +424,8 @@ TextureImporter:
       name: basic-tileset_11
       rect:
         serializedVersion: 2
-        x: 381
-        y: 447
+        x: 96
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -433,8 +445,8 @@ TextureImporter:
       name: basic-tileset_12
       rect:
         serializedVersion: 2
-        x: 410
-        y: 447
+        x: 112
+        y: 464
         width: 16
         height: 16
       alignment: 0
@@ -454,8 +466,8 @@ TextureImporter:
       name: basic-tileset_13
       rect:
         serializedVersion: 2
-        x: 323
-        y: 418
+        x: 16
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -475,8 +487,8 @@ TextureImporter:
       name: basic-tileset_14
       rect:
         serializedVersion: 2
-        x: 352
-        y: 418
+        x: 32
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -496,8 +508,8 @@ TextureImporter:
       name: basic-tileset_15
       rect:
         serializedVersion: 2
-        x: 381
-        y: 418
+        x: 48
+        y: 448
         width: 16
         height: 16
       alignment: 0
@@ -517,8 +529,8 @@ TextureImporter:
       name: basic-tileset_16
       rect:
         serializedVersion: 2
-        x: 410
-        y: 418
+        x: 32
+        y: 432
         width: 16
         height: 16
       alignment: 0
@@ -530,6 +542,90 @@ TextureImporter:
       bones: []
       spriteID: d69edd33e23695bb0800000000000000
       internalID: -4946813665599952531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic-tileset_17
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc74cf66f054dd50800000000000000
+      internalID: 6761117959957282014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic-tileset_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15f4dc218e998ae0800000000000000
+      internalID: -1546530719384931046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic-tileset_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a59baa10f8d372c0800000000000000
+      internalID: -4434962682278603355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basic-tileset_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e017a93fc436b9ba0800000000000000
+      internalID: -6081157689678073586
       vertices: []
       indices: 
       edges: []
