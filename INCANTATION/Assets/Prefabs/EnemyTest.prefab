@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1660236019095451822}
   - component: {fileID: 1660236019095451825}
   - component: {fileID: 1660236019095451820}
+  - component: {fileID: 5376041502100428324}
   m_Layer: 3
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 0
+    baseValue: 100
     minValue: 0
     maxValue: 9999
   damagePopUp: {fileID: 2769537800892936464, guid: c0f87d3f1325d1d4ca8fae8b5338e708, type: 3}
@@ -148,3 +149,24 @@ MonoBehaviour:
   baseArmor: 0
   baseAttackSpeed: 10
   baseMovementSpeed: 50
+--- !u!50 &5376041502100428324
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660236019095451824}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

@@ -6,11 +6,14 @@ public class CharacterStats : MonoBehaviour
 {
     public Stat maxHealth;
     protected int currentHealth;
+    private Rigidbody2D rb;
 
     public GameObject damagePopUp;
 
     public delegate void OnDamageTaken();
     public OnDamageTaken onDamageTakenCallback;
+
+    private float knockBackTimer = 0f;
 
     public bool isBoosted { get; private set; }
     public bool isDrained { get; private set; }
@@ -24,6 +27,7 @@ public class CharacterStats : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth.GetValue();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Awake()
@@ -91,6 +95,15 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    //Overload with knockback float
+    public void TakeDamage(int damage, float power, Transform other)
+    {
+        TakeDamage(damage);
+
+        //knockback on damage
+        StartCoroutine(Knockback(2f, power, other));
+    }
+
     public virtual void Die()
     {
         //Die in some way
@@ -102,6 +115,22 @@ public class CharacterStats : MonoBehaviour
     public void Heal(int health)
     {
         currentHealth = health;
+    }
+
+    public IEnumerator Knockback(float duration, float power, Transform other)
+    {
+        while (duration > 0f)
+        {
+            rb.isKinematic = false;
+            duration -= Time.deltaTime;
+            Vector2 direction = (other.transform.position - transform.position).normalized;
+            rb.AddForce(-direction * power, ForceMode2D.Impulse);
+            rb.isKinematic = true;
+        }
+
+        rb.velocity = Vector2.zero;
+
+        yield return null;
     }
 
     public IEnumerator StatBoost(Stat stat, int modifier, float duration)

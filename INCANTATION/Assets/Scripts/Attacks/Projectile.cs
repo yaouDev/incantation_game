@@ -44,7 +44,8 @@ public class Projectile : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent(out EnemyStats enemy))
         {
-            enemy.TakeDamage(damage);
+            //enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, 1f, transform);
         }
 
         if (IgnoreCollision(collision))
