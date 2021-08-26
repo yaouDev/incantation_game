@@ -28,6 +28,7 @@ public class EnemyStats : CharacterStats
         //death animation
         //loot
 
-        Destroy(gameObject);
+        //VVV change later to instant
+        Destroy(gameObject, 1.5f);
     }
 }

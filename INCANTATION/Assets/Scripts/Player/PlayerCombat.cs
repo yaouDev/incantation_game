@@ -12,6 +12,8 @@ using UnityEngine.EventSystems;
 /// - [FIXED] If a player begins charge/attack on incantation text it doesn't register -> put canvas group on UI object and uncheck interactable and blocks raycast
 /// </bugs>
 
+//As it is right now, equipment modifiers will mainly impact charge weapons
+
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private AttackType attackType;
@@ -394,7 +396,7 @@ public class PlayerCombat : MonoBehaviour
         projectileSpeed = rangedWeapon.projectileSpeed;
 
         //rb.position -> weapon.position?
-        Vector2 lookDir = mousePos - rb.position;
+        Vector2 lookDir = mousePos - new Vector2(weapon.position.x, weapon.position.y);
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
         Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
@@ -402,13 +404,22 @@ public class PlayerCombat : MonoBehaviour
         Projectile projectileInstance = Instantiate(projectile, weapon.position, rot).GetComponent<Projectile>();
         projectileInstance.projectileVelocity = projectileSpeed;
 
-        int projectileDamage = playerStats.damage.GetValue() * Mathf.RoundToInt(currentCharge);
-        if (projectileDamage <= 0)
+        //VVV make sure its the same as the release attack calculation
+        int projectileDamage;
+        if (currentWeapon.isCharged)
+        {
+            projectileDamage = Mathf.RoundToInt(playerStats.damage.GetValue() * currentCharge / 2 * currentWeapon.chargeMultiplier);
+        }
+        else
         {
             projectileDamage = playerStats.damage.GetValue();
         }
 
-        //object is knocked back in the short space that it is dynamic bc of impact physics
+        //fail-safe
+        if (projectileDamage < playerStats.damage.GetValue())
+        {
+            projectileDamage = playerStats.damage.GetValue();
+        }
 
         projectileInstance.GetSpriteRenderer().sprite = rangedWeapon.projectile;
         projectileInstance.knockbackPower = rangedWeapon.knockbackPower;
@@ -425,8 +436,8 @@ public class PlayerCombat : MonoBehaviour
             currentCharge = maxCharge;
         }
 
-        int chargeDamage = playerStats.damage.GetValue() * Mathf.RoundToInt(currentCharge) * Mathf.RoundToInt(currentWeapon.chargeMultiplier);
-        if (chargeDamage <= 0)
+        int chargeDamage = Mathf.RoundToInt(playerStats.damage.GetValue() * currentCharge / 2 * currentWeapon.chargeMultiplier);
+        if (chargeDamage < playerStats.damage.GetValue())
         {
             chargeDamage = playerStats.damage.GetValue();
         }
