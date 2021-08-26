@@ -25,9 +25,17 @@ MonoBehaviour:
   specialIncantation: blue
   animatorOverride:
   - {fileID: 22100000, guid: 44816fd4795e66642b5f4d7428e073e7, type: 2}
+  turnOnLight: 0
+  lightIntensity: 1
+  lightInnerRange: 0
+  lightOuterRange: 1
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightOffset: {x: 0, y: 0, z: 0}
   attackType: 0
   attackRange: 1.1
   attackPointGFX: {fileID: 0}
+  attackPointSpin: 0
   isCharged: 0
   chargeMultiplier: 1
   chargeRate: 0.6
+  knockbackPower: 93.1

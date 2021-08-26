@@ -37,5 +37,6 @@ MonoBehaviour:
   isCharged: 1
   chargeMultiplier: 1
   chargeRate: 1.46
+  knockbackPower: 50
   projectile: {fileID: 21300000, guid: 95406b6737b66479a80d172766f8bac5, type: 3}
   projectileSpeed: 10

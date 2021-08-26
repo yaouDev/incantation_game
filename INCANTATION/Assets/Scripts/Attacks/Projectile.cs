@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [HideInInspector] public float projectileVelocity;
+    [HideInInspector] public float knockbackPower;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private LayerMask lm;
@@ -45,16 +46,25 @@ public class Projectile : MonoBehaviour
         if(collision.gameObject.TryGetComponent(out EnemyStats enemy))
         {
             //enemy.TakeDamage(damage);
-            enemy.TakeDamage(damage, 1f, transform);
+            if(knockbackPower > 0f)
+            {
+                enemy.TakeDamage(damage, knockbackPower, transform);
+            }
+            else
+            {
+                enemy.TakeDamage(damage);
+            }
         }
 
         if (IgnoreCollision(collision))
         {
             return;
         }
-        
+
         //projectile death animation
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        rb.velocity = Vector2.zero;
+        Destroy(gameObject, 1f);
     }
 
     //VVV Excessive?

@@ -13,8 +13,6 @@ public class CharacterStats : MonoBehaviour
     public delegate void OnDamageTaken();
     public OnDamageTaken onDamageTakenCallback;
 
-    private float knockBackTimer = 0f;
-
     public bool isBoosted { get; private set; }
     public bool isDrained { get; private set; }
 
@@ -100,8 +98,11 @@ public class CharacterStats : MonoBehaviour
     {
         TakeDamage(damage);
 
-        //knockback on damage
-        StartCoroutine(Knockback(2f, power, other));
+        //knockback on damage VVV hard coded duration
+        if(power > 0f)
+        {
+            StartCoroutine(Knockback(0.1f, power, other));
+        }
     }
 
     public virtual void Die()
@@ -119,18 +120,29 @@ public class CharacterStats : MonoBehaviour
 
     public IEnumerator Knockback(float duration, float power, Transform other)
     {
-        while (duration > 0f)
+        float normalizedTime = 0f;
+        while (normalizedTime <= 1f)
         {
             rb.isKinematic = false;
-            duration -= Time.deltaTime;
+            normalizedTime += Time.deltaTime / duration;
             Vector2 direction = (other.transform.position - transform.position).normalized;
-            rb.AddForce(-direction * power, ForceMode2D.Impulse);
-            rb.isKinematic = true;
+            rb.AddForce(-direction * power);
+            yield return null;
         }
 
+        /*
+        while (duration > 0f)
+        {
+            duration -= Time.deltaTime;
+            Vector2 direction = (other.transform.position - transform.position).normalized;
+            //rb.AddForce(-direction * power, ForceMode2D.Impulse);
+            rb.MovePosition(-direction * power);
+        }*/
+
+        rb.isKinematic = true;
         rb.velocity = Vector2.zero;
 
-        yield return null;
+        //yield return null;
     }
 
     public IEnumerator StatBoost(Stat stat, int modifier, float duration)

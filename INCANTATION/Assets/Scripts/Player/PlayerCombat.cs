@@ -331,7 +331,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (hit.gameObject.TryGetComponent<CharacterStats>(out CharacterStats enemy))
             {
-                enemy.TakeDamage(damageToDeal);
+                enemy.TakeDamage(damageToDeal, currentWeapon.knockbackPower, transform);
             }
         }
     }
@@ -390,13 +390,8 @@ public class PlayerCombat : MonoBehaviour
 
         float projectileSpeed = 10f;
         //float projectileSpeed = currentCharge + chargePower;
-        if (currentWeapon is RangedWeapon)
-        {
-            RangedWeapon projectileWeapon = (RangedWeapon)currentWeapon;
-            projectileSpeed = projectileWeapon.projectileSpeed;
-        }
-        
-        
+        RangedWeapon rangedWeapon = (RangedWeapon)currentWeapon;
+        projectileSpeed = rangedWeapon.projectileSpeed;
 
         //rb.position -> weapon.position?
         Vector2 lookDir = mousePos - rb.position;
@@ -413,8 +408,10 @@ public class PlayerCombat : MonoBehaviour
             projectileDamage = playerStats.damage.GetValue();
         }
 
-        RangedWeapon rangedWeapon = (RangedWeapon)currentWeapon;
+        //object is knocked back in the short space that it is dynamic bc of impact physics
+
         projectileInstance.GetSpriteRenderer().sprite = rangedWeapon.projectile;
+        projectileInstance.knockbackPower = rangedWeapon.knockbackPower;
         projectileInstance.SetDamage(projectileDamage);
         projectileInstance.transform.localScale = new Vector3(projectileInstance.transform.localScale.x + currentCharge, projectileInstance.transform.localScale.y + currentCharge, projectileInstance.transform.localScale.z);
     }

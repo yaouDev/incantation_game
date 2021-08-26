@@ -23,6 +23,10 @@ public class Weapon : Equipment
     public float chargeRate = 0.6f;
     //---Charge related end---
 
+    [Header("Knockback")]
+    //100-ish is fine
+    public float knockbackPower;
+
     public Weapon()
     {
         equipSlot = EquipmentSlot.weapon;
