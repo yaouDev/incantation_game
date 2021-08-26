@@ -18,6 +18,7 @@ public class RangedWeapon : Weapon
 {
     [Header("Ranged")]
     public Sprite projectile;
+    public float projectileSpeed = 10f;
 
     public RangedWeapon()
     {

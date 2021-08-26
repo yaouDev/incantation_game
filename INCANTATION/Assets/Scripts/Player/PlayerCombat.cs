@@ -107,6 +107,17 @@ public class PlayerCombat : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
+        //Flip weapon sprite when looking left/right
+        Vector2 relativePosition = mousePos - new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+        if (relativePosition.x < 0)
+        {
+            weapon.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            weapon.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             if (EventSystem.current.IsPointerOverGameObject())
@@ -377,8 +388,15 @@ public class PlayerCombat : MonoBehaviour
             currentCharge = maxCharge;
         }
 
-        //float projectileSpeed = currentCharge + chargePower;
         float projectileSpeed = 10f;
+        //float projectileSpeed = currentCharge + chargePower;
+        if (currentWeapon is RangedWeapon)
+        {
+            RangedWeapon projectileWeapon = (RangedWeapon)currentWeapon;
+            projectileSpeed = projectileWeapon.projectileSpeed;
+        }
+        
+        
 
         //rb.position -> weapon.position?
         Vector2 lookDir = mousePos - rb.position;
