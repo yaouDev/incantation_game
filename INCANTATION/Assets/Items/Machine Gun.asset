@@ -24,10 +24,18 @@ MonoBehaviour:
   attackSpeedModifier: 85
   specialIncantation: 
   animatorOverride: []
+  turnOnLight: 0
+  lightIntensity: 0
+  lightInnerRange: 0
+  lightOuterRange: 0
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightOffset: {x: 0, y: 0, z: 0}
   attackType: 1
   attackRange: 0
   attackPointGFX: {fileID: 21300000, guid: dce8dd8b17100a042816bc48d4f6b54f, type: 3}
+  attackPointSpin: 1
   isCharged: 0
   chargeMultiplier: 1
   chargeRate: 0.6
   projectile: {fileID: 21300000, guid: 03b3b03d94fe64ca991436d28accda10, type: 3}
+  projectileSpeed: 10

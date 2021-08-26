@@ -25,8 +25,16 @@ MonoBehaviour:
   specialIncantation: red
   animatorOverride:
   - {fileID: 22100000, guid: 8ce8b16a5bd86c842b995db50081f7a7, type: 2}
+  turnOnLight: 1
+  lightIntensity: 1.92
+  lightInnerRange: 0
+  lightOuterRange: 1
+  lightColor: {r: 0.020617366, g: 1, b: 0, a: 1}
+  lightOffset: {x: 0, y: 0.57, z: 0}
   attackType: 2
   attackRange: 1.1
+  attackPointGFX: {fileID: 0}
+  attackPointSpin: 0
   isCharged: 1
   chargeMultiplier: 1
   chargeRate: 0.6

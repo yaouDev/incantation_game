@@ -22,5 +22,12 @@ MonoBehaviour:
   damageModifier: 0
   moveSpeedModifier: 0
   attackSpeedModifier: 0
+  specialIncantation: 
   animatorOverride:
   - {fileID: 22100000, guid: e4911fa96b8da60428072c1d6cc3ee4d, type: 2}
+  turnOnLight: 1
+  lightIntensity: 1.92
+  lightInnerRange: 0
+  lightOuterRange: 1
+  lightColor: {r: 1, g: 0, b: 0, a: 1}
+  lightOffset: {x: 0, y: 0, z: 0}
