@@ -12,6 +12,8 @@ public class EquipmentManager : MonoBehaviour
     [ReadOnly]
     public Equipment[] currentEquipment;
 
+    public GameObject[] equipmentObjects;
+
     private SpriteRenderer[] equipmentRenderers;
     [HideInInspector]
     public Animator[] equipmentAnimators;
@@ -40,7 +42,21 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment = new Equipment[numSlots];
         equipmentRenderers = new SpriteRenderer[numSlots];
         equipmentAnimators = new Animator[numSlots];
+        equipmentObjects = new GameObject[numSlots];
 
+        equipmentObjects[(int)EquipmentSlot.head] = player.transform.Find("Head").gameObject;
+        equipmentObjects[(int)EquipmentSlot.chest] = player.transform.Find("Chest").gameObject;
+        equipmentObjects[(int)EquipmentSlot.weapon] = player.transform.Find("Weapon").gameObject;
+        equipmentObjects[(int)EquipmentSlot.legs] = player.transform.Find("Legs").gameObject;
+        equipmentObjects[(int)EquipmentSlot.essence] = player.transform.Find("Essence").gameObject;
+
+        for (int i = 0; i < equipmentObjects.Length; i++)
+        {
+            equipmentRenderers[i] = equipmentObjects[i].GetComponent<SpriteRenderer>();
+            equipmentAnimators[i] = equipmentObjects[i].GetComponent<Animator>();
+        }
+
+        /*
         equipmentRenderers[(int)EquipmentSlot.head] = player.transform.Find("Head").GetComponent<SpriteRenderer>();
         equipmentRenderers[(int)EquipmentSlot.chest] = player.transform.Find("Chest").GetComponent<SpriteRenderer>();
         equipmentRenderers[(int)EquipmentSlot.weapon] = player.transform.Find("Weapon").GetComponent<SpriteRenderer>();
@@ -51,7 +67,7 @@ public class EquipmentManager : MonoBehaviour
         equipmentAnimators[(int)EquipmentSlot.chest] = player.transform.Find("Chest").GetComponent<Animator>();
         equipmentAnimators[(int)EquipmentSlot.weapon] = player.transform.Find("Weapon").GetComponent<Animator>();
         equipmentAnimators[(int)EquipmentSlot.legs] = player.transform.Find("Legs").GetComponent<Animator>();
-        equipmentAnimators[(int)EquipmentSlot.essence] = player.transform.Find("Essence").GetComponent<Animator>();
+        equipmentAnimators[(int)EquipmentSlot.essence] = player.transform.Find("Essence").GetComponent<Animator>();*/
 
         incantation = player.GetComponent<Incantation>();
     }
@@ -88,9 +104,13 @@ public class EquipmentManager : MonoBehaviour
             inventory.onItemChangedCallback.Invoke();
         }
 
+        //Actual equip
         currentEquipment[slotIndex] = newItem;
+
+        //Set sprite
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
         
+        //Set incantation
         if(newItem.specialIncantation != "")
         {
             if (incantation.allIncantations.Contains(newItem.specialIncantation))
@@ -103,6 +123,7 @@ public class EquipmentManager : MonoBehaviour
             }
         }
 
+        //Set animation
         if (newItem.animatorOverride == null)
         {
             equipmentAnimators[slotIndex].enabled = false;

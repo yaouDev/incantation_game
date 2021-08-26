@@ -7,13 +7,25 @@ public class Equipment : Item
 {
     public EquipmentSlot equipSlot;
 
+    [Header("Stat modifiers")]
     public int armorModifer;
     public int damageModifier;
     public int moveSpeedModifier;
     public int attackSpeedModifier;
+
+    [Header("Incantation")]
     public string specialIncantation = "";
 
+    [Header("Animation")]
     public AnimatorOverrideController[] animatorOverride;
+
+    [Header("Light Information")]
+    public bool turnOnLight;
+    public float lightIntensity = 1f;
+    public float lightInnerRange = 0f;
+    public float lightOuterRange = 1f;
+    public Color lightColor = Color.white;
+    public Vector3 lightOffset;
 
     public override void Use()
     {

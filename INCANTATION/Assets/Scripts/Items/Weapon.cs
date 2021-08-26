@@ -10,6 +10,7 @@ public class Weapon : Equipment
     public float attackRange;
 
     public Sprite attackPointGFX;
+    public bool attackPointSpin;
 
     [Header("Charge-related")]
     //---Charge related---

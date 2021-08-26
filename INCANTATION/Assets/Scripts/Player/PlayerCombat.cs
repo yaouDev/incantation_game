@@ -443,13 +443,12 @@ public class PlayerCombat : MonoBehaviour
                 attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = defaultAttackPointGFX;
             }
 
+            
+
             switch (newWeapon.attackType)
             {
                 case AttackType.melee:
                     attackPoint.transform.parent = weapon.transform;
-                    attackPoint.GetComponent<Rotate>().isSpinning = false;
-                    attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
-                    attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
 
                     chargeProjectileSlider.gameObject.SetActive(false);
                     chargeFreeRangeSlider.gameObject.SetActive(false);
@@ -464,8 +463,6 @@ public class PlayerCombat : MonoBehaviour
                     break;
                 case AttackType.range:
                     attackPoint.transform.parent = weapon.transform.parent;
-                    attackPoint.GetComponent<Rotate>().isSpinning = true;
-                    attackPoint.GetComponent<Rotate>().isUsedForCombat = true;
 
                     chargeFreeRangeSlider.gameObject.SetActive(false);
                     chargeMeleeSlider.gameObject.SetActive(false);
@@ -480,10 +477,7 @@ public class PlayerCombat : MonoBehaviour
                     break;
                 case AttackType.freeRange:
                     attackPoint.transform.parent = weapon.transform.parent;
-                    attackPoint.GetComponent<Rotate>().isSpinning = false;
-                    attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
                     attackPoint.transform.localScale = attackPoint.GetComponent<PopUp>().startSize;
-                    attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
 
                     chargeProjectileSlider.gameObject.SetActive(false);
                     chargeMeleeSlider.gameObject.SetActive(false);
@@ -507,6 +501,19 @@ public class PlayerCombat : MonoBehaviour
                     break;
                 default:
                     break;
+            }
+
+            //Set attackPoint spin
+            if (newWeapon.attackPointSpin)
+            {
+                attackPoint.GetComponent<Rotate>().isSpinning = true;
+                attackPoint.GetComponent<Rotate>().isUsedForCombat = true;
+            }
+            else
+            {
+                attackPoint.GetComponent<Rotate>().isSpinning = false;
+                attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
+                attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             }
         }
         else
