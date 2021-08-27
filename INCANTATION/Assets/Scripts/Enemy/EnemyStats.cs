@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
-    public int baseMaxHealth = 100;
+    public int baseMaxHealth = 1000;
 
     public int baseDamage = 2;
     public int baseArmor = 0;
@@ -18,7 +18,8 @@ public class EnemyStats : CharacterStats
         attackSpeed.SetBaseValue(baseAttackSpeed);
         movementSpeed.SetBaseValue(baseMovementSpeed);
 
-        maxHealth.SetBaseValue(baseMaxHealth);
+        //VVV how tf does it work without this?
+        //maxHealth.SetBaseValue(baseMaxHealth);
     }
 
     public override void Die()

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BasicStaff
   m_EditorClassIdentifier: 
   name: Basic Staff
-  icon: {fileID: 21300000, guid: f059c378f7a49a1428c37ff70cd7790d, type: 3}
-  sprite: {fileID: 21300000, guid: f059c378f7a49a1428c37ff70cd7790d, type: 3}
+  icon: {fileID: -7776431598321580939, guid: 4a15cff51fdadc74186d312944a9524e, type: 3}
+  sprite: {fileID: -7776431598321580939, guid: 4a15cff51fdadc74186d312944a9524e, type: 3}
   isDefaultItem: 0
   rarity: 0
   equipSlot: 3
@@ -26,11 +26,11 @@ MonoBehaviour:
   animatorOverride:
   - {fileID: 22100000, guid: 8ce8b16a5bd86c842b995db50081f7a7, type: 2}
   turnOnLight: 1
-  lightIntensity: 1.92
+  lightIntensity: 0.15
   lightInnerRange: 0
-  lightOuterRange: 1
-  lightColor: {r: 0.020617366, g: 1, b: 0, a: 1}
-  lightOffset: {x: 0, y: 0.57, z: 0}
+  lightOuterRange: 2
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightOffset: {x: 0, y: 0.5, z: 0}
   attackType: 2
   attackRange: 1.1
   attackPointGFX: {fileID: 0}
@@ -38,4 +38,5 @@ MonoBehaviour:
   isCharged: 1
   chargeMultiplier: 1
   chargeRate: 0.6
+  knockbackPower: 0
   targetOverrides: {fileID: 22100000, guid: df0d8b1f27e654f4e8fe51568a34dad9, type: 2}
