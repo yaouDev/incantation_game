@@ -26,6 +26,7 @@ public class Weapon : Equipment
     [Header("Knockback")]
     //100-ish is fine
     public float knockbackPower;
+    public float knockbackPlayerPower;
 
     public Weapon()
     {

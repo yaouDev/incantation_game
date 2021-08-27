@@ -1429,3 +1429,144 @@ System memory in use after: 127.0 MB.
 Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3609.
 Total: 3.679300 ms (FindLiveObjects: 0.452200 ms CreateObjectMapping: 0.323300 ms MarkObjects: 2.875100 ms  DeleteObjects: 0.027300 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.013034 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.909 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2871 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 126.8 MB.
+System memory in use after: 127.0 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3613.
+Total: 3.558100 ms (FindLiveObjects: 0.407400 ms CreateObjectMapping: 0.276900 ms MarkObjects: 2.835900 ms  DeleteObjects: 0.037000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 3971.017432 seconds.
+  path: Assets/Items/Sniper.asset
+  artifactKey: Guid(a9e282ee0453385458b049622fc0523c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Items/Sniper.asset using Guid(a9e282ee0453385458b049622fc0523c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07ed4ac18d9217ba0f1c88f5eb676ebe') in 0.139696 seconds
+  Import took 0.213957 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001429 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.964 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.62 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2871 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 126.8 MB.
+System memory in use after: 127.0 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3617.
+Total: 2.919900 ms (FindLiveObjects: 0.337200 ms CreateObjectMapping: 0.165000 ms MarkObjects: 2.374800 ms  DeleteObjects: 0.041900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 197.565632 seconds.
+  path: Assets/Items/EmptyMeleeWeapon.asset
+  artifactKey: Guid(3cc15cd7312cd574b860bf833c4dc4f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Items/EmptyMeleeWeapon.asset using Guid(3cc15cd7312cd574b860bf833c4dc4f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a4fccbb198d6bb75aeb7925a4e4549f') in 0.031797 seconds
+  Import took 0.092794 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.347978 seconds.
+  path: Assets/Animation/Overrides/Weapon Overrides/BasicStaffOverride.overrideController
+  artifactKey: Guid(8ce8b16a5bd86c842b995db50081f7a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Overrides/Weapon Overrides/BasicStaffOverride.overrideController using Guid(8ce8b16a5bd86c842b995db50081f7a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dbee7c098cea582469c5cf8f09310c0') in 0.078936 seconds
+  Import took 0.097208 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.512812 seconds.
+  path: Assets/Animation/Animations/Weapon Animations/StaffIdle.anim
+  artifactKey: Guid(1fc0d45fcfe6f044f87e290ae2e2987c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Animations/Weapon Animations/StaffIdle.anim using Guid(1fc0d45fcfe6f044f87e290ae2e2987c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8656fecd1e99889505bd1f2947d3c3b') in 0.023636 seconds
+  Import took 0.032742 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.344287 seconds.
+  path: Assets/Animation/Animations/Weapon Animations/StaffCharge3.anim
+  artifactKey: Guid(7b6ecb6ecd8d10e47a7ad2686768ce9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Animations/Weapon Animations/StaffCharge3.anim using Guid(7b6ecb6ecd8d10e47a7ad2686768ce9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4f5cd6396fe320661fbd7649d4963b2') in 0.023241 seconds
+  Import took 0.033751 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001730 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.015 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2871 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 126.8 MB.
+System memory in use after: 127.0 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3621.
+Total: 3.073900 ms (FindLiveObjects: 0.397100 ms CreateObjectMapping: 0.251400 ms MarkObjects: 2.390100 ms  DeleteObjects: 0.034000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001568 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.981 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2871 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 126.8 MB.
+System memory in use after: 127.0 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3625.
+Total: 2.719200 ms (FindLiveObjects: 0.297500 ms CreateObjectMapping: 0.141900 ms MarkObjects: 2.262600 ms  DeleteObjects: 0.015700 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

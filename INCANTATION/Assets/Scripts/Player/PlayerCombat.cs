@@ -321,6 +321,8 @@ public class PlayerCombat : MonoBehaviour
         //else
         //{
         DefaultAttack(damageToDeal);
+        //VVV hard coded knockback duration FIX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //StartCoroutine(playerStats.Knockback(0.1f, currentWeapon.knockbackPlayerPower, weapon.transform));
         //}
 
         AttackDelay();
