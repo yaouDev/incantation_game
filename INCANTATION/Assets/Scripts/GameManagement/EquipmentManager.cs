@@ -14,6 +14,10 @@ public class EquipmentManager : MonoBehaviour
 
     public GameObject[] equipmentObjects;
 
+    public Material noColorMaterial;
+    public Material oneColorMaterial;
+    public Material threeColorMaterial;
+
     private SpriteRenderer[] equipmentRenderers;
     [HideInInspector]
     public Animator[] equipmentAnimators;
@@ -56,19 +60,6 @@ public class EquipmentManager : MonoBehaviour
             equipmentAnimators[i] = equipmentObjects[i].GetComponent<Animator>();
         }
 
-        /*
-        equipmentRenderers[(int)EquipmentSlot.head] = player.transform.Find("Head").GetComponent<SpriteRenderer>();
-        equipmentRenderers[(int)EquipmentSlot.chest] = player.transform.Find("Chest").GetComponent<SpriteRenderer>();
-        equipmentRenderers[(int)EquipmentSlot.weapon] = player.transform.Find("Weapon").GetComponent<SpriteRenderer>();
-        equipmentRenderers[(int)EquipmentSlot.legs] = player.transform.Find("Legs").GetComponent<SpriteRenderer>();
-        equipmentRenderers[(int)EquipmentSlot.essence] = player.transform.Find("Essence").GetComponent<SpriteRenderer>();
-
-        equipmentAnimators[(int)EquipmentSlot.head] = player.transform.Find("Head").GetComponent<Animator>();
-        equipmentAnimators[(int)EquipmentSlot.chest] = player.transform.Find("Chest").GetComponent<Animator>();
-        equipmentAnimators[(int)EquipmentSlot.weapon] = player.transform.Find("Weapon").GetComponent<Animator>();
-        equipmentAnimators[(int)EquipmentSlot.legs] = player.transform.Find("Legs").GetComponent<Animator>();
-        equipmentAnimators[(int)EquipmentSlot.essence] = player.transform.Find("Essence").GetComponent<Animator>();*/
-
         incantation = player.GetComponent<Incantation>();
     }
 
@@ -106,6 +97,27 @@ public class EquipmentManager : MonoBehaviour
 
         //Actual equip
         currentEquipment[slotIndex] = newItem;
+
+
+        //Set sprite material and properties
+        if (newItem.useSingleColor && !newItem.useTripleColor)
+        {
+            oneColorMaterial.SetColor("_Color", newItem.mainColor);
+            equipmentRenderers[slotIndex].material = oneColorMaterial;
+        }
+        else if (newItem.useTripleColor)
+        {
+            threeColorMaterial.SetColor("_Color", newItem.mainColor);
+            threeColorMaterial.SetColor("_Color2", newItem.secondaryColor);
+            threeColorMaterial.SetColor("_Color3", newItem.tertiaryColor);
+            equipmentRenderers[slotIndex].material = threeColorMaterial;
+        }
+        else
+        {
+            equipmentRenderers[slotIndex].material = noColorMaterial;
+        }
+
+        
 
         //Set sprite
         equipmentRenderers[slotIndex].sprite = newItem.sprite;

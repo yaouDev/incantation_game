@@ -27,6 +27,16 @@ public class Equipment : Item
     public Color lightColor = Color.white;
     public Vector3 lightOffset;
 
+    [Header("Shader Information")]
+    public bool useSingleColor;
+    public bool useTripleColor;
+    [ColorUsage(true, true)]
+    public Color mainColor = Color.white;
+    [ColorUsage(true, true)]
+    public Color secondaryColor = Color.white;
+    [ColorUsage(true, true)]
+    public Color tertiaryColor = Color.white;
+
     public override void Use()
     {
         base.Use();

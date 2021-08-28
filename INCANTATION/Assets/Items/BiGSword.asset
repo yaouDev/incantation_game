@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812de0bcc7aa10f498c57d7dda09d6b3, type: 3}
+  m_Name: BiGSword
+  m_EditorClassIdentifier: 
+  name: Big Sword
+  icon: {fileID: 21300000, guid: 2632190c5ea100d468fc44476404587f, type: 3}
+  sprite: {fileID: 21300000, guid: 2632190c5ea100d468fc44476404587f, type: 3}
+  isDefaultItem: 0
+  rarity: 0
+  equipSlot: 3
+  armorModifer: 0
+  damageModifier: 20
+  moveSpeedModifier: 0
+  attackSpeedModifier: 0
+  specialIncantation: 
+  animatorOverride: []
+  turnOnLight: 0
+  lightIntensity: 0.7
+  lightInnerRange: 0
+  lightOuterRange: 1.6
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightOffset: {x: 0, y: 0, z: 0}
+  useSingleColor: 0
+  useTripleColor: 1
+  mainColor: {r: 4.594794, g: 0, b: 1.171222, a: 1}
+  secondaryColor: {r: 0, g: 0.19663256, b: 1.319508, a: 1}
+  tertiaryColor: {r: 1.1642717, g: 1.319508, b: 0, a: 1}
+  attackType: 0
+  attackRange: 2.07
+  attackPointGFX: {fileID: 0}
+  attackPointSpin: 0
+  isCharged: 0
+  chargeMultiplier: 1
+  chargeRate: 0.6
+  knockbackPower: 100
+  knockbackPlayerPower: 0
