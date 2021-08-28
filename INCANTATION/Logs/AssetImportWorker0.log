@@ -1205,3 +1205,4 @@ Received Import Request.
 Start importing Assets/SpriteGlowLit.shadergraph using Guid(dd429cbf64ba66c4cb3e8f818bacd883) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43d83fe56c35dd539d1222ca15d50eb9') in 0.003170 seconds
   Import took 0.029118 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
