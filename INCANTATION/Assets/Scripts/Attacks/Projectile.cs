@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [HideInInspector] public float projectileVelocity;
     [HideInInspector] public float knockbackPower;
+    private List<GameObject> collidedEnemies = new List<GameObject>();
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private LayerMask lm;
@@ -43,7 +44,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent(out EnemyStats enemy))
+        if(collision.gameObject.TryGetComponent(out EnemyStats enemy) && !collidedEnemies.Contains(enemy.gameObject))
         {
             //enemy.TakeDamage(damage);
             if(knockbackPower > 0f)
@@ -54,6 +55,8 @@ public class Projectile : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
+
+            collidedEnemies.Add(enemy.gameObject);
         }
 
         if (IgnoreCollision(collision))

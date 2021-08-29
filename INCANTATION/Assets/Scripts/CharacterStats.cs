@@ -118,6 +118,7 @@ public class CharacterStats : MonoBehaviour
         currentHealth = health;
     }
 
+    //VVV set velocity to zero on collision with walls!
     public IEnumerator Knockback(float duration, float power, Transform other)
     {
         float normalizedTime = 0f;

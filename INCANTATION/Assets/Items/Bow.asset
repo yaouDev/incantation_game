@@ -30,6 +30,11 @@ MonoBehaviour:
   lightOuterRange: 0
   lightColor: {r: 1, g: 1, b: 1, a: 1}
   lightOffset: {x: 0, y: 0, z: 0}
+  useSingleColor: 0
+  useTripleColor: 0
+  mainColor: {r: 1, g: 1, b: 1, a: 1}
+  secondaryColor: {r: 1, g: 1, b: 1, a: 1}
+  tertiaryColor: {r: 1, g: 1, b: 1, a: 1}
   attackType: 1
   attackRange: 0
   attackPointGFX: {fileID: 0}
@@ -37,6 +42,7 @@ MonoBehaviour:
   isCharged: 1
   chargeMultiplier: 1
   chargeRate: 1.46
-  knockbackPower: 50
+  knockbackPower: 200
+  knockbackPlayerPower: 0
   projectile: {fileID: 21300000, guid: 95406b6737b66479a80d172766f8bac5, type: 3}
   projectileSpeed: 10
