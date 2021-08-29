@@ -124,7 +124,7 @@ public class CharacterStats : MonoBehaviour
         float normalizedTime = 0f;
         while (normalizedTime <= 1f)
         {
-            rb.isKinematic = false;
+           // rb.isKinematic = false;
             normalizedTime += Time.deltaTime / duration;
             Vector2 direction = (other.transform.position - transform.position).normalized;
             rb.AddForce(-direction * power);
@@ -140,7 +140,7 @@ public class CharacterStats : MonoBehaviour
             rb.MovePosition(-direction * power);
         }*/
 
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
         rb.velocity = Vector2.zero;
 
         //yield return null;
@@ -176,5 +176,10 @@ public class CharacterStats : MonoBehaviour
 
         stat.RemoveModifier(-modifier);
         isDrained = false;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
     }
 }

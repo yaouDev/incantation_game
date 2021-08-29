@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Player\EnemyMeleeAttack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -791,13 +792,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{4BD05085-BBE6-A4F6-846B-71FD6565ADCE}</Project>
-      <Name>AstarPathfindingProject</Name>
-    </ProjectReference>
     <ProjectReference Include="PackageToolsEditor.csproj">
       <Project>{0A5077EF-A9E7-E86F-19C9-0ACCEBB88F29}</Project>
       <Name>PackageToolsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{4BD05085-BBE6-A4F6-846B-71FD6565ADCE}</Project>
+      <Name>AstarPathfindingProject</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
       <Project>{1D3FBEF9-0114-303C-F6FF-B472B241E01B}</Project>
