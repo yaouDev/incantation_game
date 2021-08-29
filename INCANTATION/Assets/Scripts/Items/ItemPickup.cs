@@ -9,6 +9,8 @@ public class ItemPickup : Interactable{
 
     private void Start()
     {
+        InitializeInteractable();
+
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = item.sprite;
     }
