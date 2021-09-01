@@ -95,6 +95,9 @@
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Player\EnemyMeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\Archive\DetectReflection.cs" />
+    <Compile Include="Assets\Scripts\Archive\SetReflection.cs" />
+    <Compile Include="Assets\DetectSplash.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

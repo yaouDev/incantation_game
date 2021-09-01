@@ -20,6 +20,6 @@ public class DamagePopUp : MonoBehaviour
     private void Update()
     {
         text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - 0.002f);
-        UIFollow.offset = new Vector3(UIFollow.offset.x, UIFollow.offset.y + 0.003f);
+        UIFollow.offset = new Vector3(UIFollow.offset.x, UIFollow.offset.y + 0.01f);
     }
 }
