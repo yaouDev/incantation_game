@@ -39,6 +39,7 @@ MonoBehaviour:
   attackRange: 2.07
   attackPointGFX: {fileID: 0}
   attackPointSpin: 0
+  specialWeapon: {fileID: 6077345683980715743, guid: aaccdbcbec5c10249ad415470cc8f2a5, type: 3}
   isCharged: 0
   chargeMultiplier: 1
   chargeRate: 0.6

@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\DamagePopUp.cs" />
     <Compile Include="Assets\Scripts\Items\Consumable.cs" />
     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Archive\DetectReflection.cs" />
     <Compile Include="Assets\Scripts\Items\Essence.cs" />
     <Compile Include="Assets\Scripts\Items\RangedWeapon.cs" />
     <Compile Include="Assets\Scripts\EquipmentLight.cs" />
@@ -88,16 +89,17 @@
     <Compile Include="Assets\Scripts\UIFollowGameObject.cs" />
     <Compile Include="Assets\Scripts\Items\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStats.cs" />
+    <Compile Include="Assets\Scripts\Archive\SetReflection.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
     <Compile Include="Assets\Scripts\Animations\SetAnimations.cs" />
     <Compile Include="Assets\Scripts\Items\ItemPickup.cs" />
+    <Compile Include="Assets\DetectSplash.cs" />
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Player\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\Archive\DetectReflection.cs" />
-    <Compile Include="Assets\Scripts\Archive\SetReflection.cs" />
-    <Compile Include="Assets\DetectSplash.cs" />
+    <Compile Include="Assets\Scripts\SpecialWeapon.cs" />
+    <Compile Include="Assets\Scripts\SpecialWeapons\TestWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

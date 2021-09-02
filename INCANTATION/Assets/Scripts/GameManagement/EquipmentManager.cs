@@ -11,6 +11,7 @@ public class EquipmentManager : MonoBehaviour
     public Equipment[] defaultItems;
     [ReadOnly]
     public Equipment[] currentEquipment;
+    public GameObject currentSpecialWeapon;
 
     public GameObject[] equipmentObjects;
 
@@ -98,6 +99,19 @@ public class EquipmentManager : MonoBehaviour
         //Actual equip
         currentEquipment[slotIndex] = newItem;
 
+        //Special equip
+        if(newItem is Weapon)
+        {
+            Weapon newWeapon = (Weapon)newItem;
+            if(newWeapon.specialWeapon != null)
+            {
+                GameObject weaponInstance = Instantiate(newWeapon.specialWeapon);
+                weaponInstance.transform.parent = equipmentObjects[(int)EquipmentSlot.weapon].transform;
+                weaponInstance.transform.localPosition = Vector3.zero;
+                weaponInstance = currentSpecialWeapon;
+            }
+        }
+
 
         //Set sprite material and properties
         if (newItem.useSingleColor && !newItem.useTripleColor)
@@ -170,6 +184,18 @@ public class EquipmentManager : MonoBehaviour
                 playerCombat.SetCurrentWeapon(playerCombat.emptyWeapon);
                 playerCombat.attackRange = playerCombat.baseAttackRange;
                 playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = playerCombat.defaultAttackPointGFX;
+
+                //destroy scripted weapon
+                if (currentEquipment[slotIndex] is Weapon)
+                {
+                    Weapon oldWeapon = (Weapon)currentEquipment[slotIndex];
+
+                    if(oldWeapon.specialWeapon != null)
+                    {
+                        Destroy(equipmentObjects[slotIndex].GetComponentInChildren<SpecialWeapon>().gameObject);
+                        currentSpecialWeapon = null;
+                    }
+                }
             }
             else if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.essence)
             {
@@ -181,7 +207,10 @@ public class EquipmentManager : MonoBehaviour
                 equipmentRenderers[slotIndex].sprite = null;
             }
 
+            //turn off animation
             equipmentAnimators[slotIndex].enabled = false;
+
+            //remove eqipment
             currentEquipment[slotIndex] = null;
 
             if(oldItem.specialIncantation != "")

@@ -12,6 +12,9 @@ public class Weapon : Equipment
     public Sprite attackPointGFX;
     public bool attackPointSpin;
 
+    [Header("Weapon Script")]
+    public GameObject specialWeapon;
+
     [Header("Charge-related")]
     //---Charge related---
     public bool isCharged;

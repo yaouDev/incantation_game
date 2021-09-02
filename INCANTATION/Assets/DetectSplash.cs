@@ -12,7 +12,10 @@ public class DetectSplash : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        particles.Play();
-        //splash audio
+        if (collision.CompareTag("Footing"))
+        {
+            particles.Play();
+            //splash audio
+        }
     }
 }
