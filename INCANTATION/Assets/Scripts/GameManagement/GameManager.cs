@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject mainPanel;
     public GameObject textObject;
     public InputField chatBox;
-    public Incantation incantation;
+    private IncantationManager incantationManager;
     public Text playerIncantationText;
     public float playerTextDuration = 2f;
     public GameObject incantationPanel;
@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        incantationManager = IncantationManager.instance;
+
         playerIncantationText.color = playerColor;
         playerIncantationText.text = "";
 
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour
                 SendMessageToChat(chatBox.text, Message.MessageType.playerInput);
                 chatBox.text = "";
                 chatBox.gameObject.SetActive(false);
-                incantation.checkMessages();
+                incantationManager.checkMessages();
             }
         }
         else
@@ -123,7 +125,7 @@ public class GameManager : MonoBehaviour
         newMessage.text = text;
 
         GameObject newText = Instantiate(textObject, chatPanel.transform);
-        if(messageType == Message.MessageType.playerInput && incantation.currentIncantations.Contains(newMessage.text))
+        if(messageType == Message.MessageType.playerInput && incantationManager.unlockedIncantations.ContainsKey(text) || messageType == Message.MessageType.playerInput && incantationManager.equipmentIncantations.ContainsKey(text))
         {
             //Sets the overhead text to playerInput and remove the text after a while if it's available
             //if you type faster than the coroutine, the message will disappear with the previous timer

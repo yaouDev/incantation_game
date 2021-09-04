@@ -57,8 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Items\Equipment.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttack.cs" />
     <Compile Include="Assets\Scripts\GameManagement\EquipmentManager.cs" />
-    <Compile Include="Assets\Scripts\Player\Incantation.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\IncantationManager.cs" />
     <Compile Include="Assets\Scripts\SetRelativeLayer.cs" />
     <Compile Include="Assets\Scripts\DamagePopUp.cs" />
     <Compile Include="Assets\Scripts\Items\Consumable.cs" />
@@ -90,16 +91,23 @@
     <Compile Include="Assets\Scripts\Items\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Archive\SetReflection.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
+    <Compile Include="Assets\Scripts\Player\Attacking\PlayerCombat.cs" />
     <Compile Include="Assets\Scripts\Animations\SetAnimations.cs" />
     <Compile Include="Assets\Scripts\Items\ItemPickup.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\TestWeapon.cs" />
     <Compile Include="Assets\DetectSplash.cs" />
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Player\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\SpecialWeapon.cs" />
-    <Compile Include="Assets\Scripts\SpecialWeapons\TestWeapon.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantation.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_TestRed.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
+    <Compile Include="Assets\Scripts\Player\Attacking\LockedCombat.cs" />
+    <Compile Include="Assets\Scripts\Player\Attacking\UnlockedCombat.cs" />
+    <Compile Include="Assets\Scripts\Player\Attacking\ProjectileCombat.cs" />
+    <Compile Include="Assets\Scripts\Player\Attacking\ChargeCombat.cs" />
+    <Compile Include="Assets\Scripts\Player\Attacking\AutomaticProjectileCombat.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

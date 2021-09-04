@@ -5,17 +5,26 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Incantation Scroll", menuName = "Inventory/Consumable/Incantation Scroll")]
 public class IncantationScroll : Consumable
 {
-    public string incantation;
+    public GameObject incantationObject;
+    private Incantation incantation;
     public override void Use()
     {
-        //add cool text popup
-        if (!Incantation.instance.GetPermanentIncantations().Contains(incantation))
+        if(incantationObject == null)
         {
-            Incantation.instance.AddIncantation(incantation);
-            GameManager.instance.TextPopUp("You learnt a new Incantation!", incantation);
+            Debug.Log("Empty Incantation Scroll!");
+            return;
+        }
+
+        incantation = incantationObject.GetComponent<Incantation>();
+
+        //add cool text popup
+        if (!IncantationManager.instance.GetUnlockedIncantations().ContainsValue(incantation))
+        {
+            IncantationManager.instance.AddIncantation(incantation);
+            GameManager.instance.TextPopUp("You learnt a new Incantation!", incantation.name);
             base.Use();
         }
-        else if (Incantation.instance.GetPermanentIncantations().Contains(incantation))
+        else if (IncantationManager.instance.GetUnlockedIncantations().ContainsValue(incantation))
         {
             GameManager.instance.SendMessageToChat("You already know that incantation", Message.MessageType.info);
         }

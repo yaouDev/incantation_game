@@ -11,7 +11,7 @@ public class EquipmentManager : MonoBehaviour
     public Equipment[] defaultItems;
     [ReadOnly]
     public Equipment[] currentEquipment;
-    public GameObject currentSpecialWeapon;
+    public GameObject currentWeaponAttack;
 
     public GameObject[] equipmentObjects;
 
@@ -23,7 +23,7 @@ public class EquipmentManager : MonoBehaviour
     [HideInInspector]
     public Animator[] equipmentAnimators;
 
-    private Incantation incantation;
+    private IncantationManager incantationManager;
 
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
@@ -61,7 +61,7 @@ public class EquipmentManager : MonoBehaviour
             equipmentAnimators[i] = equipmentObjects[i].GetComponent<Animator>();
         }
 
-        incantation = player.GetComponent<Incantation>();
+        incantationManager = IncantationManager.instance;
     }
 
     private void Start()
@@ -103,12 +103,12 @@ public class EquipmentManager : MonoBehaviour
         if(newItem is Weapon)
         {
             Weapon newWeapon = (Weapon)newItem;
-            if(newWeapon.specialWeapon != null)
+            if(newWeapon.weaponAttack != null)
             {
-                GameObject weaponInstance = Instantiate(newWeapon.specialWeapon);
+                GameObject weaponInstance = Instantiate(newWeapon.weaponAttack);
                 weaponInstance.transform.parent = equipmentObjects[(int)EquipmentSlot.weapon].transform;
                 weaponInstance.transform.localPosition = Vector3.zero;
-                weaponInstance = currentSpecialWeapon;
+                weaponInstance = currentWeaponAttack;
             }
         }
 
@@ -136,12 +136,12 @@ public class EquipmentManager : MonoBehaviour
         //Set sprite
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
         
-        //Set incantation
+        //Add temporary incantation
         if(newItem.specialIncantation != "")
         {
-            if (incantation.allIncantations.Contains(newItem.specialIncantation))
+            if (incantationManager.FindTrigger(newItem.specialIncantation))
             {
-                incantation.AddIncantation(newItem.specialIncantation);
+                incantationManager.AddEquipmentIncantation(newItem.specialIncantation);
             }
             else
             {
@@ -179,7 +179,6 @@ public class EquipmentManager : MonoBehaviour
 
             if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
             {
-                playerCombat.SetAttackType(AttackType.melee);
                 //change to default item? VVV
                 playerCombat.SetCurrentWeapon(playerCombat.emptyWeapon);
                 playerCombat.attackRange = playerCombat.baseAttackRange;
@@ -190,10 +189,11 @@ public class EquipmentManager : MonoBehaviour
                 {
                     Weapon oldWeapon = (Weapon)currentEquipment[slotIndex];
 
-                    if(oldWeapon.specialWeapon != null)
+                    if(oldWeapon.weaponAttack != null)
                     {
-                        Destroy(equipmentObjects[slotIndex].GetComponentInChildren<SpecialWeapon>().gameObject);
-                        currentSpecialWeapon = null;
+                        //Destroy(equipmentObjects[slotIndex].GetComponentInChildren<WeaponAttack>().gameObject);
+                        Destroy(WeaponAttack.instance.gameObject);
+                        currentWeaponAttack = null;
                     }
                 }
             }
@@ -216,9 +216,9 @@ public class EquipmentManager : MonoBehaviour
             if(oldItem.specialIncantation != "")
             {
                 //possible problem if the items have the same incantation
-                if (incantation.currentIncantations.Contains(oldItem.specialIncantation))
+                if (incantationManager.equipmentIncantations.ContainsKey(oldItem.specialIncantation))
                 {
-                    incantation.RemoveIncantation(oldItem.specialIncantation);
+                    incantationManager.RemoveEquipmentIncantation(oldItem.specialIncantation);
                 }
                 else
                 {

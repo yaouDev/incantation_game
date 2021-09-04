@@ -13,7 +13,7 @@ public class Weapon : Equipment
     public bool attackPointSpin;
 
     [Header("Weapon Script")]
-    public GameObject specialWeapon;
+    public GameObject weaponAttack;
 
     [Header("Charge-related")]
     //---Charge related---
