@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    //public bool isInputEnabled = true;
+    public bool isInputEnabled = true;
 
     public bool integrateCursor;
 

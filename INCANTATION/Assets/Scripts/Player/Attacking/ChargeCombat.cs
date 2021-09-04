@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ChargeCombat : UnlockedCombat
-{
+{/*
     [Range(0, 10)]
     [SerializeField] private float chargePower;
 
@@ -93,7 +93,7 @@ public class ChargeCombat : UnlockedCombat
             newAttackRange = attackRange + (currentWeapon.chargeMultiplier) * currentCharge / 100;
             attackRange = newAttackRange;
         }*/
-
+    /*
         slider.value = currentCharge;
 
         if (currentCharge > maxCharge)
@@ -128,5 +128,5 @@ public class ChargeCombat : UnlockedCombat
             playerCombat.playerStats.movementSpeed.RemoveModifier(movePenalty);
             movePenaltyActive = false;
         }
-    }
+    }*/
 }

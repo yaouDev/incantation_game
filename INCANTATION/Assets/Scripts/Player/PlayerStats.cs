@@ -91,7 +91,7 @@ public class PlayerStats : CharacterStats
         }
     }
 
-    public void SetClassStats(ClassSpecialization classSpec)
+    public void SetBaseStats()
     {
         damage.SetBaseValue(baseDamage);
         armor.SetBaseValue(baseArmor);
@@ -99,30 +99,6 @@ public class PlayerStats : CharacterStats
         movementSpeed.SetBaseValue(baseMovementSpeed);
         //...and health
         maxHealth.SetBaseValue(baseMaxHealth);
-
-        //sets basestats - reconsider if needed or just for spells
-        switch (classSpec)
-        {
-            case ClassSpecialization.mage:
-                //mage things
-                break;
-            case ClassSpecialization.warrior:
-                Debug.Log(maxHealth.GetBaseValue());
-                //warrior things
-                break;
-            case ClassSpecialization.archer:
-                movementSpeed.SetBaseValue(movementSpeed.GetBaseValue() + 50);
-                //archer things
-                break;
-            case ClassSpecialization.summoner:
-                //summoner things
-                break;
-            case ClassSpecialization.commoner:
-                //commoner things
-                break;
-            default:
-                break;
-        }
     }
 
     public void SetEssenceType(EssenceType newEssence)

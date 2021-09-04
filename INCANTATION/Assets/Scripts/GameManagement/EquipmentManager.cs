@@ -29,8 +29,9 @@ public class EquipmentManager : MonoBehaviour
     public OnEquipmentChanged onEquipmentChanged;
 
     Inventory inventory;
+
     public GameObject player;
-    private PlayerCombat playerCombat;
+    public Transform attackPoint;
 
     private void Awake()
     {
@@ -67,7 +68,7 @@ public class EquipmentManager : MonoBehaviour
     private void Start()
     {
         inventory = Inventory.instance;
-        playerCombat = player.GetComponent<PlayerCombat>();
+        //playerCombat = player.GetComponent<PlayerCombat>();
 
         for (int i = 0; i < equipmentAnimators.Length; i++)
         {
@@ -110,8 +111,12 @@ public class EquipmentManager : MonoBehaviour
                 weaponInstance.transform.localPosition = Vector3.zero;
                 weaponInstance = currentWeaponAttack;
             }
+
+            //Set the attack point rotation and attack range
+            SetAttackPoint(newWeapon);
         }
 
+        
 
         //Set sprite material and properties
         if (newItem.useSingleColor && !newItem.useTripleColor)
@@ -130,8 +135,6 @@ public class EquipmentManager : MonoBehaviour
         {
             equipmentRenderers[slotIndex].material = noColorMaterial;
         }
-
-        
 
         //Set sprite
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
@@ -180,9 +183,10 @@ public class EquipmentManager : MonoBehaviour
             if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
             {
                 //change to default item? VVV
+                /* Set current weapon to an empty weapon
                 playerCombat.SetCurrentWeapon(playerCombat.emptyWeapon);
                 playerCombat.attackRange = playerCombat.baseAttackRange;
-                playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = playerCombat.defaultAttackPointGFX;
+                playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = playerCombat.defaultAttackPointGFX;*/
 
                 //destroy scripted weapon
                 if (currentEquipment[slotIndex] is Weapon)
@@ -283,6 +287,41 @@ public class EquipmentManager : MonoBehaviour
     {
         Essence getEssence = (Essence)currentEquipment[(int)EquipmentSlot.essence];
         return getEssence;
+    }
+
+    public void SetAttackPoint(Equipment newItem)
+    {
+        //Handle attack range and attackpoint rotation VVV
+        if (newItem is Weapon)
+        {
+            Weapon newWeapon = (Weapon)newItem;
+            PlayerCombatManager.instance.attackRange = newWeapon.attackRange;
+            if (newWeapon.attackPointGFX != null)
+            {
+                attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = newWeapon.attackPointGFX;
+            }
+            else
+            {
+                attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = PlayerCombatManager.instance.defaultAttackPointGFX;
+            }
+
+            //Set attackPoint spin
+            if (newWeapon.attackPointSpin)
+            {
+                attackPoint.GetComponent<Rotate>().isSpinning = true;
+                attackPoint.GetComponent<Rotate>().isUsedForCombat = true;
+            }
+            else
+            {
+                attackPoint.GetComponent<Rotate>().isSpinning = false;
+                attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
+                attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+            }
+        }
+        else
+        {
+            return;
+        }
     }
 
     public Animator[] GetEquipmentAnimators()
