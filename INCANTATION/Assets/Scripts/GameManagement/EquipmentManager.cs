@@ -103,9 +103,11 @@ public class EquipmentManager : MonoBehaviour
         //Special equip
         if(newItem is Weapon)
         {
+            print("enter");
             Weapon newWeapon = (Weapon)newItem;
             if(newWeapon.weaponAttack != null)
             {
+                print("enter2");
                 GameObject weaponInstance = Instantiate(newWeapon.weaponAttack);
                 weaponInstance.transform.parent = equipmentObjects[(int)EquipmentSlot.weapon].transform;
                 weaponInstance.transform.localPosition = Vector3.zero;
@@ -187,6 +189,8 @@ public class EquipmentManager : MonoBehaviour
                 playerCombat.SetCurrentWeapon(playerCombat.emptyWeapon);
                 playerCombat.attackRange = playerCombat.baseAttackRange;
                 playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = playerCombat.defaultAttackPointGFX;*/
+
+                //MAKE ATTACKPOINT STOP SPINNING
 
                 //destroy scripted weapon
                 if (currentEquipment[slotIndex] is Weapon)

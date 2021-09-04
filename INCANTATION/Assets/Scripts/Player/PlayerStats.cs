@@ -22,6 +22,8 @@ public class PlayerStats : CharacterStats
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
         this.onDamageTakenCallback += UpdateHealth;
+
+        SetBaseStats();
     }
 
     private void Update()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChargeCombat : UnlockedCombat
+public class ChargeCombat : MonoBehaviour
 {/*
     [Range(0, 10)]
     [SerializeField] private float chargePower;

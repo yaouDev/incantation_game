@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCombatManager : MonoBehaviour
 {
+    //Use this script to bounce references to attack scripts
+
     public static PlayerCombatManager instance;
 
     public Weapon emptyWeapon;
@@ -12,7 +14,8 @@ public class PlayerCombatManager : MonoBehaviour
     private Animator playerAnimator;
     public Animator weaponAnimator;
 
-    [SerializeField] private LayerMask enemyLayers;
+    public Transform weapon;
+
     public Transform attackPoint;
     public Sprite defaultAttackPointGFX;
     private GameObject player;

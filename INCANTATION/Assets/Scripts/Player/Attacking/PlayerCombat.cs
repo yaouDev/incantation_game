@@ -14,21 +14,24 @@ using UnityEngine.EventSystems;
 
 //As it is right now, equipment modifiers will mainly impact charge weapons
 
-// this script:
-// handle basic things such as whether or not attacking is possible
-
 public class PlayerCombat : MonoBehaviour
 {
-    public Transform attackPoint;
-    
-    public PlayerStats playerStats;
-    private PlayerCombatManager playerCombatManager;
 
+    /*
+    public Transform attackPoint;
+    [SerializeField] protected LayerMask enemyLayers;
+
+    protected Weapon currentWeapon;
+    protected PlayerStats playerStats;
+    protected PlayerCombatManager playerCombatManager;
 
     private void Start()
     {
+        playerCombatManager = PlayerCombatManager.instance;
         playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-        
+        currentWeapon = EquipmentManager.instance.GetWeapon();
+
+        MouseManager.instance.lockedCombat = currentWeapon.lockedCombat;
     }
 
     public virtual void Attack(int damageToDeal)
@@ -38,5 +41,5 @@ public class PlayerCombat : MonoBehaviour
         //Deal damage
 
         playerCombatManager.AttackDelay();
-    }
+    }*/
 }

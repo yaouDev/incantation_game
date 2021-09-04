@@ -2,30 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ProjectileCombat : UnlockedCombat
+public class ProjectileCombat : WeaponAttack
 {
-    /*
     [SerializeField] private GameObject projectile;
-    [SerializeField] private SpriteRenderer projectileGFX;
+    [SerializeField] private Sprite projectileGFX;
+    public float projectileSpeed;
 
-    // Start is called before the first frame update
+    private Vector2 mousePos;
+    private Camera cam;
+
+    //general
+    private float knockbackPower;
+    private Transform weapon;
+    private PlayerStats playerStats;
+    private float damageTimer;
+
     void Start()
     {
+        cam = Camera.main;
 
+        //general
+        playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+        weapon = PlayerCombatManager.instance.weapon;
+        Weapon currentWeapon = (Weapon)EquipmentManager.instance.currentEquipment[(int)EquipmentSlot.weapon];
+        knockbackPower = currentWeapon.knockbackPower;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if(GameManager.instance.isInputEnabled && Input.GetButton("Fire1") && damageTimer <= 0f)
+        {
+            FireProjectile();
+            PlayerCombatManager.instance.PlayerAttackAnimation();
+        }
     }
 
     protected void FireProjectile()
     {
         //VVV change to scale with something
-        float projectileSpeed = 10f;
-        RangedWeapon rangedWeapon = (RangedWeapon)currentWeapon;
-        projectileSpeed = rangedWeapon.projectileSpeed;
+        projectileSpeed = 10f;
 
         //rb.position -> weapon.position?
         Vector2 lookDir = mousePos - new Vector2(weapon.position.x, weapon.position.y);
@@ -45,14 +62,36 @@ public abstract class ProjectileCombat : UnlockedCombat
             projectileDamage = playerStats.damage.GetValue();
         }
 
-        projectileInstance.GetSpriteRenderer().sprite = rangedWeapon.projectile;
-        projectileInstance.knockbackPower = rangedWeapon.knockbackPower;
+        projectileInstance.GetSpriteRenderer().sprite = projectileGFX;
+        projectileInstance.knockbackPower = knockbackPower;
         projectileInstance.SetDamage(projectileDamage);
 
         //Change to scale with something?VVV
         //projectileInstance.transform.localScale = new Vector3(projectileInstance.transform.localScale.x + currentCharge, projectileInstance.transform.localScale.y + currentCharge, projectileInstance.transform.localScale.z);
 
         AttackDelay();
-        
-    }*/
+    }
+
+
+    //general
+    private void FixedUpdate()
+    {
+        //Attack speed timer
+        if (damageTimer > 0f)
+        {
+            damageTimer -= Time.deltaTime;
+        }
+    }
+
+
+    //general
+    public void AttackDelay()
+    {
+        int attackSpeed = playerStats.attackSpeed.GetValue();
+        //max attack time VVV
+        float attackTime = 1f;
+        float convertedAttackSpeed = attackTime - attackSpeed / 100f;
+        damageTimer = convertedAttackSpeed;
+    }
+
 }

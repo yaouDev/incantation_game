@@ -3,6 +3,8 @@ using UnityEngine.EventSystems;
 
 public class MouseManager : MonoBehaviour
 {
+    public static MouseManager instance;
+
     public Transform weapon;
     public Transform attackPoint;
     public bool lockedCombat;
@@ -12,6 +14,20 @@ public class MouseManager : MonoBehaviour
     private GameObject player;
     private GameManager gameManager;
     private Camera cam;
+
+    private Vector2 mousePos;
+    private Vector2 lookDir;
+
+    private void Awake()
+    {
+        #region Singleton
+        if(instance != null)
+        {
+            Debug.LogWarning("More than one Mouse Managers found");
+        }
+        instance = this;
+        #endregion
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +42,7 @@ public class MouseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         //Flip weapon sprite when looking left/right
         Vector2 relativePosition = mousePos - new Vector2(player.transform.position.x, player.transform.position.y);
@@ -54,7 +70,7 @@ public class MouseManager : MonoBehaviour
             }
         }
 
-        Vector2 lookDir = mousePos - rb.position;
+        lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
         weapon.localPosition = new Vector3(lookDir.x, lookDir.y);
@@ -80,6 +96,11 @@ public class MouseManager : MonoBehaviour
 
             attackPoint.position = mousePos;
         }
+    }
+
+    public Vector2 GetLookDir()
+    {
+        return lookDir;
     }
 
     private void OnDrawGizmosSelected()

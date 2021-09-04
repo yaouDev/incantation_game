@@ -59,19 +59,17 @@
     <Compile Include="Assets\Scripts\Items\Equipment.cs" />
     <Compile Include="Assets\Scripts\WeaponAttack.cs" />
     <Compile Include="Assets\Scripts\GameManagement\EquipmentManager.cs" />
-    <Compile Include="Assets\Scripts\Player\Attacking\UnlockedCombat.cs" />
     <Compile Include="Assets\Scripts\GameManagement\IncantationManager.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_TestRed.cs" />
     <Compile Include="Assets\Scripts\SetRelativeLayer.cs" />
     <Compile Include="Assets\Scripts\DamagePopUp.cs" />
     <Compile Include="Assets\Scripts\Items\Consumable.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\ChargeCombat.cs" />
-    <Compile Include="Assets\Scripts\Player\Attacking\LockedCombat.cs" />
     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
     <Compile Include="Assets\Scripts\Archive\DetectReflection.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\AutomaticProjectileCombat.cs" />
     <Compile Include="Assets\Scripts\Items\Essence.cs" />
-    <Compile Include="Assets\Scripts\Items\RangedWeapon.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\PlayerCombatManager.cs" />
     <Compile Include="Assets\Scripts\EquipmentLight.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\ProjectileCombat.cs" />
@@ -90,10 +88,9 @@
     <Compile Include="Assets\Scripts\Inventory\EquipmentInterfaceSlot.cs" />
     <Compile Include="Assets\Scripts\PopUp.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
-    <Compile Include="Assets\Scripts\Items\FreeRangeWeapon.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\UIFollowGameObject.cs" />
-    <Compile Include="Assets\Scripts\Items\MeleeWeapon.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\MouseManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Archive\SetReflection.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\PlayerCombat.cs" />
@@ -107,8 +104,6 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Player\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\GameManagement\MouseManager.cs" />
-    <Compile Include="Assets\Scripts\GameManagement\PlayerCombatManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
