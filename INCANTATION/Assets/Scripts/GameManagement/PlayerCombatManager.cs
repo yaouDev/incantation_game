@@ -16,6 +16,8 @@ public class PlayerCombatManager : MonoBehaviour
 
     public Transform weapon;
 
+    public LayerMask enemyLayers;
+
     public Transform attackPoint;
     public Sprite defaultAttackPointGFX;
     private GameObject player;

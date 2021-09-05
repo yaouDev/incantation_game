@@ -14,7 +14,6 @@ public class ProjectileCombat : WeaponAttack
     //general
     private float knockbackPower;
     private Transform weapon;
-    private PlayerStats playerStats;
     private float damageTimer;
 
     void Start()
@@ -22,7 +21,6 @@ public class ProjectileCombat : WeaponAttack
         cam = Camera.main;
 
         //general
-        playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
         weapon = PlayerCombatManager.instance.weapon;
         Weapon currentWeapon = (Weapon)EquipmentManager.instance.currentEquipment[(int)EquipmentSlot.weapon];
         knockbackPower = currentWeapon.knockbackPower;
@@ -32,10 +30,10 @@ public class ProjectileCombat : WeaponAttack
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if(GameManager.instance.isInputEnabled && Input.GetButton("Fire1") && damageTimer <= 0f)
+        if(canAttack && Input.GetButton("Fire1") && damageTimer <= 0f)
         {
             FireProjectile();
-            PlayerCombatManager.instance.PlayerAttackAnimation();
+            pcm.PlayerAttackAnimation();
         }
     }
 

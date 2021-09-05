@@ -19,7 +19,7 @@ public class PlayerCombat : MonoBehaviour
 
     /*
     public Transform attackPoint;
-    [SerializeField] protected LayerMask enemyLayers;
+    
 
     protected Weapon currentWeapon;
     protected PlayerStats playerStats;

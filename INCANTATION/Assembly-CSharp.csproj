@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Player\EnemyMeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\Player\Attacking\ScanCombat.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

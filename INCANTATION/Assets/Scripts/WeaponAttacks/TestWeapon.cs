@@ -8,7 +8,7 @@ public class TestWeapon : WeaponAttack
     // Update is called once per frame
     void Update()
     {
-        if (inputEnable && Input.GetButtonDown("Fire1"))
+        if (GameManager.instance.isInputEnabled && Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Click!");
         }
