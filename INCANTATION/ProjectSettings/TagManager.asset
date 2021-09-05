@@ -50,3 +50,6 @@ TagManager:
   - name: Reflection
     uniqueID: 59500173
     locked: 0
+  - name: Spinning Weapon
+    uniqueID: 754158753
+    locked: 0

@@ -101,6 +101,8 @@ public class PlayerStats : CharacterStats
         movementSpeed.SetBaseValue(baseMovementSpeed);
         //...and health
         maxHealth.SetBaseValue(baseMaxHealth);
+
+        currentHealth = maxHealth.GetValue();
     }
 
     public void SetEssenceType(EssenceType newEssence)

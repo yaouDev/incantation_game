@@ -8,11 +8,11 @@ public class MouseManager : MonoBehaviour
     public Transform weapon;
     public Transform attackPoint;
     public bool lockedCombat;
-    [SerializeField] private float weaponOffset;
 
     private Rigidbody2D rb;
     private GameObject player;
     private GameManager gameManager;
+    private PlayerCombatManager pcm;
     private Camera cam;
 
     private Vector2 mousePos;
@@ -33,6 +33,7 @@ public class MouseManager : MonoBehaviour
     void Start()
     {
         player = PlayerManager.instance.player;
+        pcm = PlayerCombatManager.instance;
 
         cam = Camera.main;
         gameManager = GameManager.instance;
@@ -55,6 +56,7 @@ public class MouseManager : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().flipX = false;
         }
 
+        /*
         if (Input.GetButtonDown("Fire1"))
         {
             if (EventSystem.current.IsPointerOverGameObject())
@@ -68,6 +70,15 @@ public class MouseManager : MonoBehaviour
             {
                 gameManager.isInputEnabled = true;
             }
+        }*/
+
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            gameManager.isInputEnabled = false;
+        }
+        else
+        {
+            gameManager.isInputEnabled = true;
         }
 
         lookDir = mousePos - rb.position;
@@ -75,25 +86,17 @@ public class MouseManager : MonoBehaviour
 
         weapon.localPosition = new Vector3(lookDir.x, lookDir.y);
         weapon.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
-        weapon.localPosition = Vector3.ClampMagnitude(new Vector3(lookDir.x, lookDir.y), weaponOffset);
+        weapon.localPosition = Vector3.ClampMagnitude(new Vector3(lookDir.x, lookDir.y), pcm.currentWeaponOffset);
 
         if (lockedCombat)
         {
-            attackPoint.parent = weapon.transform;
-
             if (attackPoint.transform.position != weapon.transform.position)
             {
                 attackPoint.transform.position = weapon.transform.position;
             }
-            attackPoint.transform.localPosition = new Vector3(attackPoint.transform.localPosition.x, (PlayerCombatManager.instance.attackRange * 0.85f) - PlayerCombatManager.instance.baseAttackRange);
         }
         else
         {
-            if(attackPoint.parent == weapon.transform)
-            {
-                attackPoint.parent = player.transform;
-            }
-
             attackPoint.position = mousePos;
         }
     }
@@ -111,6 +114,6 @@ public class MouseManager : MonoBehaviour
         }
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(attackPoint.position, PlayerCombatManager.instance.attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, 1f);
     }
 }

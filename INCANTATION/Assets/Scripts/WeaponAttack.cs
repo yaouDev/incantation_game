@@ -1,57 +1,84 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public abstract class WeaponAttack : MonoBehaviour
 {
     public static WeaponAttack instance;
-    //public bool inputEnable = true;
 
     protected PlayerCombatManager pcm;
-    protected bool canAttack;
     protected Transform attackPoint;
+    protected Transform weapon;
     protected LayerMask enemyLayers;
     protected PlayerStats playerStats;
+    protected float damageTimer;
 
     private void Awake()
+    {
+        Singleton();
+    }
+
+    private void Start()
+    {
+        InitializeWeapon();
+    }
+
+    protected void Singleton()
     {
         #region Singleton
         if (instance != null)
         {
-            Debug.LogWarning("Found more than one special weapon");
+            Debug.Log("Found more than one special weapon, might be temporary");
         }
         instance = this;
         #endregion
     }
 
-    private void Start()
+    protected void InitializeWeapon()
     {
         pcm = PlayerCombatManager.instance;
         attackPoint = pcm.attackPoint;
+        weapon = pcm.weapon;
         enemyLayers = pcm.enemyLayers;
-        playerStats = playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+        playerStats = pcm.playerStats;
+    }
+
+    protected bool canAttack()
+    {
+        //VV insert more conditions
+        if (GameManager.instance.isInputEnabled && damageTimer <= 0f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void Update()
     {
-        //VVV insert things like damagetimer
-        if (GameManager.instance.isInputEnabled)
-        {
-            canAttack = true;
-        }
-        else
-        {
-            canAttack = false;
-        }
+        canAttack();
+    }
 
-        //VVV Already exists in MouseManager?
-        /*
-        if (EventSystem.current.IsPointerOverGameObject())
+    private void FixedUpdate()
+    {
+        attackSpeedTimer();
+    }
+
+    protected void attackSpeedTimer()
+    {
+        //put in fixed update
+        if (damageTimer > 0f)
         {
-            inputEnable = true;
+            damageTimer -= Time.deltaTime;
         }
-        else
-        {
-            inputEnable = false;
-        }*/
+    }
+
+    protected void AttackDelay()
+    {
+        int attackSpeed = playerStats.attackSpeed.GetValue();
+        //max attack time VVV
+        float attackTime = 1f;
+        float convertedAttackSpeed = attackTime - attackSpeed / 100f;
+        damageTimer = convertedAttackSpeed;
     }
 }

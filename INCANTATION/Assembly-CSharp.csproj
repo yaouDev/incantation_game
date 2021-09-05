@@ -72,7 +72,7 @@
     <Compile Include="Assets\Scripts\GameManagement\PlayerCombatManager.cs" />
     <Compile Include="Assets\Scripts\EquipmentLight.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
-    <Compile Include="Assets\Scripts\Player\Attacking\ProjectileCombat.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\ProjectileCombat.cs" />
     <Compile Include="Assets\Scripts\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\Animations\AnimationsOverrider.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
@@ -103,8 +103,10 @@
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
-    <Compile Include="Assets\Scripts\Player\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\Player\Attacking\ScanCombat.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\ScanCombat.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Spin.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\ColliderTriggerAttack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

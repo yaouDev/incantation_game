@@ -101,24 +101,24 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment[slotIndex] = newItem;
 
         //Special equip
-        if(newItem is Weapon)
+        if (newItem is Weapon)
         {
-            print("enter");
             Weapon newWeapon = (Weapon)newItem;
-            if(newWeapon.weaponAttack != null)
+
+            //Locked combat?
+            MouseManager.instance.lockedCombat = newWeapon.lockedCombat;
+
+            if (newWeapon.weaponAttack != null)
             {
-                print("enter2");
                 GameObject weaponInstance = Instantiate(newWeapon.weaponAttack);
                 weaponInstance.transform.parent = equipmentObjects[(int)EquipmentSlot.weapon].transform;
                 weaponInstance.transform.localPosition = Vector3.zero;
                 weaponInstance = currentWeaponAttack;
             }
 
-            //Set the attack point rotation and attack range
+            //Set the attack point rotation
             SetAttackPoint(newWeapon);
         }
-
-        
 
         //Set sprite material and properties
         if (newItem.useSingleColor && !newItem.useTripleColor)
@@ -140,9 +140,9 @@ public class EquipmentManager : MonoBehaviour
 
         //Set sprite
         equipmentRenderers[slotIndex].sprite = newItem.sprite;
-        
+
         //Add temporary incantation
-        if(newItem.specialIncantation != "")
+        if (newItem.specialIncantation != "")
         {
             if (incantationManager.FindTrigger(newItem.specialIncantation))
             {
@@ -190,14 +190,15 @@ public class EquipmentManager : MonoBehaviour
                 playerCombat.attackRange = playerCombat.baseAttackRange;
                 playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = playerCombat.defaultAttackPointGFX;*/
 
-                //MAKE ATTACKPOINT STOP SPINNING
+                //reset attack range
+                PlayerCombatManager.instance.currentWeaponOffset = PlayerCombatManager.instance.baseWeaponOffset;
 
                 //destroy scripted weapon
                 if (currentEquipment[slotIndex] is Weapon)
                 {
                     Weapon oldWeapon = (Weapon)currentEquipment[slotIndex];
 
-                    if(oldWeapon.weaponAttack != null)
+                    if (oldWeapon.weaponAttack != null)
                     {
                         //Destroy(equipmentObjects[slotIndex].GetComponentInChildren<WeaponAttack>().gameObject);
                         Destroy(WeaponAttack.instance.gameObject);
@@ -221,7 +222,7 @@ public class EquipmentManager : MonoBehaviour
             //remove eqipment
             currentEquipment[slotIndex] = null;
 
-            if(oldItem.specialIncantation != "")
+            if (oldItem.specialIncantation != "")
             {
                 //possible problem if the items have the same incantation
                 if (incantationManager.equipmentIncantations.ContainsKey(oldItem.specialIncantation))
@@ -233,7 +234,7 @@ public class EquipmentManager : MonoBehaviour
                     Debug.LogWarning("Tried to remove an incantation that wasn't in use");
                 }
             }
-            
+
             if (onEquipmentChanged != null)
             {
                 onEquipmentChanged.Invoke(null, oldItem);
@@ -265,7 +266,7 @@ public class EquipmentManager : MonoBehaviour
     {
         foreach (Equipment e in defaultItems)
         {
-            if(currentEquipment[(int)e.equipSlot] == null)
+            if (currentEquipment[(int)e.equipSlot] == null)
             {
                 Equip(e);
             }
@@ -293,38 +294,29 @@ public class EquipmentManager : MonoBehaviour
         return getEssence;
     }
 
-    public void SetAttackPoint(Equipment newItem)
+    public void SetAttackPoint(Weapon newWeapon)
     {
-        //Handle attack range and attackpoint rotation VVV
-        if (newItem is Weapon)
+        //Handle attackpoint rotation VVV
+        if (newWeapon.attackPointGFX != null)
         {
-            Weapon newWeapon = (Weapon)newItem;
-            PlayerCombatManager.instance.attackRange = newWeapon.attackRange;
-            if (newWeapon.attackPointGFX != null)
-            {
-                attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = newWeapon.attackPointGFX;
-            }
-            else
-            {
-                attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = PlayerCombatManager.instance.defaultAttackPointGFX;
-            }
-
-            //Set attackPoint spin
-            if (newWeapon.attackPointSpin)
-            {
-                attackPoint.GetComponent<Rotate>().isSpinning = true;
-                attackPoint.GetComponent<Rotate>().isUsedForCombat = true;
-            }
-            else
-            {
-                attackPoint.GetComponent<Rotate>().isSpinning = false;
-                attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
-                attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-            }
+            attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = newWeapon.attackPointGFX;
         }
         else
         {
-            return;
+            attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = PlayerCombatManager.instance.defaultAttackPointGFX;
+        }
+
+        //Set attackPoint spin
+        if (newWeapon.attackPointSpin)
+        {
+            attackPoint.GetComponent<Rotate>().isSpinning = true;
+            attackPoint.GetComponent<Rotate>().isUsedForCombat = true;
+        }
+        else
+        {
+            attackPoint.GetComponent<Rotate>().isSpinning = false;
+            attackPoint.GetComponent<Rotate>().isUsedForCombat = false;
+            attackPoint.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         }
     }
 

@@ -9,23 +9,22 @@ public class PlayerCombatManager : MonoBehaviour
     public static PlayerCombatManager instance;
 
     public Weapon emptyWeapon;
-    private float damageTimer;
+    public float damageTimer;
 
-    private Animator playerAnimator;
+    public Animator playerAnimator;
     public Animator weaponAnimator;
 
     public Transform weapon;
 
     public LayerMask enemyLayers;
 
+    public float baseWeaponOffset = 1.5f;
+    [ReadOnly] public float currentWeaponOffset;
+
     public Transform attackPoint;
     public Sprite defaultAttackPointGFX;
-    private GameObject player;
-    private PlayerStats playerStats;
-
-    private float originalAttackRange;
-    public float attackRange = 1f;
-    [HideInInspector] public float baseAttackRange = 1f;
+    public GameObject player;
+    public PlayerStats playerStats;
 
     private void Awake()
     {
@@ -42,8 +41,8 @@ public class PlayerCombatManager : MonoBehaviour
     {
         player = PlayerManager.instance.player;
         playerStats = player.GetComponent<PlayerStats>();
+        currentWeaponOffset = baseWeaponOffset;
 
-        originalAttackRange = attackRange;
         playerAnimator = player.GetComponent<Animator>();
     }
     private void FixedUpdate()
