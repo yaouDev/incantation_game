@@ -24,6 +24,7 @@ public class PlayerStats : CharacterStats
         this.onDamageTakenCallback += UpdateHealth;
 
         SetBaseStats();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -50,6 +51,25 @@ public class PlayerStats : CharacterStats
             {
                 essenceTimer -= Time.deltaTime;
             }
+        }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        //reduce health
+        ReduceHealth(damage);
+
+        //damage popup
+        DamagePopUp(Color.red, damage);
+
+        //die
+        CheckIfDead();
+
+        //take damage animation
+
+        if (onDamageTakenCallback != null)
+        {
+            onDamageTakenCallback.Invoke();
         }
     }
 

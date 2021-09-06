@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 570660935607727752}
+  textOutline: {fileID: 7357251156135907699}
   duration: 2
   UIFollow: {fileID: 4272802374883260926}
 --- !u!1 &7309762004367436265
@@ -186,6 +187,7 @@ GameObject:
   - component: {fileID: 6659001241072338076}
   - component: {fileID: 4272802374883260926}
   - component: {fileID: 570660935607727752}
+  - component: {fileID: 7357251156135907699}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -268,3 +270,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: -64
+--- !u!114 &7357251156135907699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7309762004367436265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 3, y: 3}
+  m_UseGraphicAlpha: 1

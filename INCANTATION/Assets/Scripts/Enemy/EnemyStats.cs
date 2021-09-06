@@ -22,6 +22,20 @@ public class EnemyStats : CharacterStats
         //maxHealth.SetBaseValue(baseMaxHealth);
     }
 
+    public override void TakeDamage(int damage)
+    {
+        //reduce health
+        ReduceHealth(damage);
+
+        //damage popup
+        DamagePopUp(Color.yellow, damage);
+
+        //die
+        CheckIfDead();
+
+        //take damage animation
+    }
+
     public override void Die()
     {
         base.Die();

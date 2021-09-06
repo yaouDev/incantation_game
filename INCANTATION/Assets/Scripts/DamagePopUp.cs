@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DamagePopUp : MonoBehaviour
 {
     public Text text;
+    public Outline textOutline;
     public float duration = 2f;
     public UIFollowGameObject UIFollow;
 
@@ -20,6 +21,7 @@ public class DamagePopUp : MonoBehaviour
     private void Update()
     {
         text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - 0.002f);
+        textOutline.effectColor = new Color(textOutline.effectColor.r, textOutline.effectColor.g, textOutline.effectColor.b, text.color.a - 0.002f);
         UIFollow.offset = new Vector3(UIFollow.offset.x, UIFollow.offset.y + 0.01f);
     }
 }

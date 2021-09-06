@@ -210,7 +210,7 @@ MonoBehaviour:
   attackOffset: 1.5
   lag: 0.5
   wakeUpTime: 1
-  knockbackPower: 0
+  knockbackPower: 10
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

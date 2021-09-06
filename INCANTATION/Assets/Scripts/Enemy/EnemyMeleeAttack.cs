@@ -89,7 +89,7 @@ public class EnemyMeleeAttack : MonoBehaviour
             return;
         }
 
-        if (hitPlayer.gameObject.TryGetComponent<PlayerStats>(out PlayerStats player))
+        if (hitPlayer.gameObject.TryGetComponent(out PlayerStats player))
         {
             player.TakeDamage(stats.damage.GetValue(), knockbackPower, transform);
             Debug.Log(gameObject.name + " hit player");

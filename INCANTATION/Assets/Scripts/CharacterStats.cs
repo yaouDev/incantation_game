@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+public abstract class CharacterStats : MonoBehaviour
 {
     public Stat maxHealth;
     protected int currentHealth;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     public GameObject damagePopUp;
 
@@ -16,7 +16,7 @@ public class CharacterStats : MonoBehaviour
     public bool isBoosted { get; private set; }
     public bool isDrained { get; private set; }
 
-    private List<Stat> buffableStats = new List<Stat>();
+    protected List<Stat> buffableStats = new List<Stat>();
     public Stat damage;
     public Stat armor;
     public Stat attackSpeed;
@@ -54,30 +54,31 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public abstract void TakeDamage(int damage);
+
+    protected void ReduceHealth(int damage)
     {
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
+    }
 
-        //damage popup
-        damagePopUp.GetComponent<DamagePopUp>().text.text = "-" + damage;
-        DamagePopUp popUpInstance = Instantiate(damagePopUp, transform.position, transform.rotation).GetComponent<DamagePopUp>();
-        popUpInstance.text.gameObject.GetComponent<UIFollowGameObject>().target = gameObject;
-
+    protected void CheckIfDead()
+    {
         if (currentHealth <= 0)
         {
             Die();
         }
+    }
 
-        //take damage animation
-
-        if (onDamageTakenCallback != null)
-        {
-            onDamageTakenCallback.Invoke();
-        }
+    public void DamagePopUp(Color color, int damage)
+    {
+        damagePopUp.GetComponent<DamagePopUp>().text.text = "-" + damage;
+        DamagePopUp popUpInstance = Instantiate(damagePopUp, transform.position, transform.rotation).GetComponent<DamagePopUp>();
+        popUpInstance.text.gameObject.GetComponent<UIFollowGameObject>().target = gameObject;
+        popUpInstance.text.color = color;
     }
 
     //Overload with knockback float
