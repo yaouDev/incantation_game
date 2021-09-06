@@ -41,15 +41,30 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3892648705
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: PlayerWeapon
+  - name: BehindPlayer
+    uniqueID: 6412357
+    locked: 0
+  - name: Player
+    uniqueID: 4128958675
+    locked: 0
+  - name: PlayerEquipment
     uniqueID: 718528107
+    locked: 0
+  - name: InfrontPlayer
+    uniqueID: 4192126099
     locked: 0
   - name: Reflection
     uniqueID: 59500173
     locked: 0
   - name: Spinning Weapon
     uniqueID: 754158753
+    locked: 0
+  - name: Foreground
+    uniqueID: 1315101725
     locked: 0

@@ -6,8 +6,10 @@ public class IncantationManager : MonoBehaviour
 {
     public static IncantationManager instance;
 
-    public List<GameObject> incantationContainers = new List<GameObject>();
+    public List<GameObject> startingIncantations = new List<GameObject>();
 
+    //Same thing basically VVV
+    public List<GameObject> incantationContainers = new List<GameObject>();
     public List<Incantation> allIncantations = new List<Incantation>();
 
     public Dictionary<string, Incantation> unlockedIncantations = new Dictionary<string, Incantation>();
@@ -21,10 +23,22 @@ public class IncantationManager : MonoBehaviour
     {
         gameManager = GameManager.instance;
 
-        //Messy VVV
+        foreach (GameObject go in startingIncantations)
+        {
+            if (go.TryGetComponent(out Incantation i) && !allIncantations.Contains(i))
+            {
+                allIncantations.Add(i);
+            }
+        }
+
+        foreach (Incantation i in allIncantations)
+        {
+            AddIncantation(i);
+        }
+
         foreach (GameObject go in incantationContainers)
         {
-            if (go.TryGetComponent(out Incantation i))
+            if (go.TryGetComponent(out Incantation i) && !allIncantations.Contains(i))
             {
                 allIncantations.Add(i);
             }

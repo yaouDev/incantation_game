@@ -29,5 +29,5 @@ public class Item : ScriptableObject{
 
 public enum Rarity{
     //Subject to change names
-    common, uncommon, rare, mythic, legendary
+    common, uncommon, rare, mythic, legendary, special
 }

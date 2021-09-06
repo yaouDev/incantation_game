@@ -38,21 +38,8 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-        //testing
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            StartCoroutine(StatBoost(armor, 5, 5f));
-        }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            StartCoroutine(StatDrain(armor, 5, 5f));
-        }
     }
 
     private void LateUpdate()

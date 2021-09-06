@@ -23,7 +23,7 @@ public class Attack_Spin : WeaponAttack
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && canAttack())
         {
             //spawn animation
             hitbox.SetActive(true);
@@ -31,7 +31,6 @@ public class Attack_Spin : WeaponAttack
 
         if (Input.GetButton("Fire1"))
         {
-            //hitbox.transform.localPosition = new Vector3(hitbox.transform.localPosition.x, attackRange);
             Spin();
         }
 

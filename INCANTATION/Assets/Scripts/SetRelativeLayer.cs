@@ -1,31 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SetRelativeLayer : MonoBehaviour
 {
-    private GameObject player;
+    public Transform occlusionTrigger;
+    public Transform occlusionPoint;
     private SpriteRenderer sr;
-    private bool isInfront;
-    public float offsetY;
 
     private void Start()
     {
-        player = PlayerManager.instance.player;
         sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if(player.transform.Find("Footing").transform.position.y > gameObject.transform.position.y + offsetY && !isInfront)
+        if(occlusionTrigger.position.y > occlusionPoint.position.y)
         {
-            sr.sortingOrder = player.GetComponent<SpriteRenderer>().sortingOrder + 1;
-            isInfront = true;
+            sr.sortingLayerName = "InfrontPlayer";
         }
-        else if (player.transform.position.y <= gameObject.transform.position.y + offsetY)
+        else
         {
-            sr.sortingOrder = player.GetComponent<SpriteRenderer>().sortingOrder - 1;
-            isInfront = false;
+            sr.sortingLayerName = "BehindPlayer";
         }
     }
 }
