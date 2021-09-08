@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
             equipmentAnimators[i].SetFloat("Speed", movement.sqrMagnitude);
         }
     }
-
     
     private void Stop()
     {

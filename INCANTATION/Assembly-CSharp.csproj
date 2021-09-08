@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\GameManagement\PlayerCombatManager.cs" />
     <Compile Include="Assets\Scripts\EquipmentLight.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\Loot\LootCalculator.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\ProjectileCombat.cs" />
     <Compile Include="Assets\Scripts\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\Animations\AnimationsOverrider.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInterfaceSlot.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_DropTable.cs" />
     <Compile Include="Assets\Scripts\PopUp.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraFollow.cs" />
@@ -100,15 +102,14 @@
     <Compile Include="Assets\Scripts\Items\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\TestWeapon.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Spin.cs" />
-    <Compile Include="Assets\DetectSplash.cs" />
+    <Compile Include="Assets\Scripts\DetectSplash.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantation.cs" />
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\GameManagement\Loot\LootCalculator.cs" />
-    <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_DropTable.cs" />
+    <Compile Include="Assets\Scripts\SetHeadBehindChest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
