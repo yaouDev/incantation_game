@@ -15,11 +15,11 @@ D:/GitHub/INCANTATION_GAME/INCANTATION
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62700
+63542
 Successfully changed project path to: D:/GitHub/INCANTATION_GAME/INCANTATION
 D:/GitHub/INCANTATION_GAME/INCANTATION
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 72.86 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 75.83 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.0f1 (c7b5465681fb)
 [Subsystems] Discovering subsystems at path D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
@@ -36,21 +36,191 @@ Initialize mono
 Mono path[0] = 'D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56484
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56836
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.079468 seconds.
+Registered in 0.001345 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 59.08 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 61.07 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in 22.893 seconds
+- Completed reload, in  1.741 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.049161 seconds.
+Registered in 0.001856 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 60.76 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.118 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
+Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3136 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 138.8 MB.
+System memory in use after: 139.0 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3588.
+Total: 2.927100 ms (FindLiveObjects: 0.487200 ms CreateObjectMapping: 0.216800 ms MarkObjects: 2.185100 ms  DeleteObjects: 0.036900 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Sprites/Tiles
+  artifactKey: Guid(b6d5d7b0abb3cef41aa3ac5fc6c46fea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles using Guid(b6d5d7b0abb3cef41aa3ac5fc6c46fea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '258a42cd6adfa027fa3eb862095d1de7') in 0.076687 seconds
+  Import took 0.108145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.582681 seconds.
+  path: Assets/Sprites/Tiles/Ground
+  artifactKey: Guid(26ab330ab8eae23429926ecb1f53d9b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles/Ground using Guid(26ab330ab8eae23429926ecb1f53d9b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ac83d8dcf7ce9225c2b77b73740fd0a') in 0.014629 seconds
+  Import took 0.037740 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 77.258594 seconds.
+  path: Assets/Tilemaps/Ground Tiles.prefab
+  artifactKey: Guid(9a89eaf515824ce4bae1db6861b5c9ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/Ground Tiles.prefab using Guid(9a89eaf515824ce4bae1db6861b5c9ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a667ff8db9cdd2f276e3fa64d7b4eb8d') in 0.084499 seconds
+  Import took 0.109798 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.245932 seconds.
+  path: Assets/Sprites/Tiles/Ground/broken-tiles.psd
+  artifactKey: Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles/Ground/broken-tiles.psd using Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a5e75d85cd46a6565141379a3f60d9f') in 0.135550 seconds
+  Import took 0.159002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.056993 seconds.
+  path: Assets/Sprites/Tiles/Ground/broken-tiles.psd
+  artifactKey: Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles/Ground/broken-tiles.psd using Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee92af78156e2977c8e2de0f06899dbe') in 0.010458 seconds
+  Import took 0.023452 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.675356 seconds.
+  path: Assets/Sprites/Tiles/Ground/broken-tiles.psd
+  artifactKey: Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles/Ground/broken-tiles.psd using Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbd366c3d42eb73c050a6b424154a2ca') in 0.030845 seconds
+  Import took 0.084549 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.700836 seconds.
+  path: Assets/Tilemaps/Paths.prefab
+  artifactKey: Guid(579d2e92a0a24cf4d828578c35af242c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/Paths.prefab using Guid(579d2e92a0a24cf4d828578c35af242c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9fd105de87c992e8c03d6a2b2f6afe6') in 0.009197 seconds
+  Import took 0.018140 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.053515 seconds.
+  path: Assets/Tilemaps/Paths.prefab
+  artifactKey: Guid(579d2e92a0a24cf4d828578c35af242c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/Paths.prefab using Guid(579d2e92a0a24cf4d828578c35af242c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a15c92fa46cdd2bcab6899b609b0bbf') in 0.003466 seconds
+  Import took 0.011265 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001727 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.60 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.939 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3015 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 135.0 MB.
+System memory in use after: 135.2 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3600.
+Total: 3.000300 ms (FindLiveObjects: 0.328000 ms CreateObjectMapping: 0.139700 ms MarkObjects: 2.474500 ms  DeleteObjects: 0.056900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 309.306318 seconds.
+  path: Assets/Sprites/Tiles/Ground/Paths
+  artifactKey: Guid(c415b029508865546b6520f5b44906c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles/Ground/Paths using Guid(c415b029508865546b6520f5b44906c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a0fb5a30582b39f60bfe8234bb8b535') in 0.010315 seconds
+  Import took 0.017895 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.384085 seconds.
+  path: Assets/Sprites/Tiles/Ground/Paths/broken-tiles.psd
+  artifactKey: Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles/Ground/Paths/broken-tiles.psd using Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a978a94a3ab31c3944b4795cb8fc890a') in 0.055023 seconds
+  Import took 0.073011 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.847027 seconds.
+  path: Assets/Sprites/Tiles/Ground/Paths/broken-tiles.psd
+  artifactKey: Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles/Ground/Paths/broken-tiles.psd using Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '954954432d590e8ceae650c8721e399d') in 0.010238 seconds
+  Import took 0.038615 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.423041 seconds.
+  path: Assets/Sprites/Tiles/Ground/Paths/broken-tiles.psd
+  artifactKey: Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tiles/Ground/Paths/broken-tiles.psd using Guid(8abb208523285f8488deef4cf06fd707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33f373d3646c606f6e6b73eacbfd1c73') in 0.028613 seconds
+  Import took 0.053923 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001748 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.998 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.65 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3015 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 135.0 MB.
+System memory in use after: 135.3 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3605.
+Total: 2.744600 ms (FindLiveObjects: 0.286500 ms CreateObjectMapping: 0.127900 ms MarkObjects: 2.305400 ms  DeleteObjects: 0.023700 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
