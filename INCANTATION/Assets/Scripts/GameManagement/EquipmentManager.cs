@@ -107,6 +107,15 @@ public class EquipmentManager : MonoBehaviour
 
             //Locked combat?
             MouseManager.instance.lockedCombat = newWeapon.lockedCombat;
+            if (newWeapon.lockedCombat)
+            {
+                PlayerCombatManager.instance.currentWeaponOffset = newWeapon.attackRange;
+            }
+            else
+            {
+                PlayerCombatManager.instance.currentWeaponOffset = PlayerCombatManager.instance.baseWeaponOffset;
+            }
+
 
             if (newWeapon.weaponAttack != null)
             {

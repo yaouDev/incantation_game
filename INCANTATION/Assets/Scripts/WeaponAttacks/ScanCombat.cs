@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScanCombat : WeaponAttack
 {
     public float attackRange = 1.1f;
+    public float offset;
 
     private void Start()
     {

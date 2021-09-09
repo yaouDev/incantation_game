@@ -94,6 +94,7 @@ public class MouseManager : MonoBehaviour
             {
                 attackPoint.transform.position = weapon.transform.position;
             }
+            attackPoint.rotation = weapon.rotation;
         }
         else
         {
