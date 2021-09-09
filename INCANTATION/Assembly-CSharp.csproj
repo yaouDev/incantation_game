@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInterfaceSlot.cs" />
+    <Compile Include="Assets\Scripts\SetHeadBehindChest.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_DropTable.cs" />
     <Compile Include="Assets\Scripts\PopUp.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
@@ -109,7 +110,7 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\SetHeadBehindChest.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Swing.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

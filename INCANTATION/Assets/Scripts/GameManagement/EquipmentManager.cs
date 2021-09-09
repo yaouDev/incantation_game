@@ -119,9 +119,7 @@ public class EquipmentManager : MonoBehaviour
 
             if (newWeapon.weaponAttack != null)
             {
-                GameObject weaponInstance = Instantiate(newWeapon.weaponAttack);
-                weaponInstance.transform.parent = equipmentObjects[(int)EquipmentSlot.weapon].transform;
-                weaponInstance.transform.localPosition = Vector3.zero;
+                GameObject weaponInstance = Instantiate(newWeapon.weaponAttack, equipmentObjects[(int)EquipmentSlot.weapon].transform);
                 weaponInstance = currentWeaponAttack;
             }
 

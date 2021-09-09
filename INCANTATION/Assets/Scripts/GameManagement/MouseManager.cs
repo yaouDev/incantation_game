@@ -107,6 +107,18 @@ public class MouseManager : MonoBehaviour
         return lookDir;
     }
 
+    public bool IsLookingRight()
+    {
+        if(lookDir.x >= 0f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
