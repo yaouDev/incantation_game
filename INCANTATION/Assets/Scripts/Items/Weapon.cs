@@ -10,6 +10,7 @@ public class Weapon : Equipment
     public Sprite attackPointGFX;
     public bool attackPointSpin;
     public bool lockedCombat;
+    public bool inverseAttackPoint;
 
     [Header("Weapon Script")]
     public GameObject weaponAttack;

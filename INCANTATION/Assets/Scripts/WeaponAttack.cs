@@ -10,6 +10,7 @@ public abstract class WeaponAttack : MonoBehaviour
     protected LayerMask enemyLayers;
     protected PlayerStats playerStats;
     protected float damageTimer;
+    protected float knockbackPower;
 
     private void Awake()
     {
@@ -39,6 +40,9 @@ public abstract class WeaponAttack : MonoBehaviour
         weapon = pcm.weapon;
         enemyLayers = pcm.enemyLayers;
         playerStats = pcm.playerStats;
+
+        Weapon currentWeapon = (Weapon)EquipmentManager.instance.currentEquipment[(int)EquipmentSlot.weapon];
+        knockbackPower = currentWeapon.knockbackPower;
     }
 
     protected bool canAttack()

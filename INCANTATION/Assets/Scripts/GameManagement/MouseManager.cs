@@ -17,6 +17,10 @@ public class MouseManager : MonoBehaviour
 
     private Vector2 mousePos;
     private Vector2 lookDir;
+    private float angle;
+
+    public bool lockPos;
+    public bool inverseLookDir;
 
     private void Awake()
     {
@@ -81,12 +85,22 @@ public class MouseManager : MonoBehaviour
             gameManager.isInputEnabled = true;
         }
 
-        lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        if (!lockPos)
+        {
+            
 
-        weapon.localPosition = new Vector3(lookDir.x, lookDir.y);
-        weapon.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
-        weapon.localPosition = Vector3.ClampMagnitude(new Vector3(lookDir.x, lookDir.y), pcm.currentWeaponOffset);
+            lookDir = mousePos - rb.position;
+            angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+
+            if (inverseLookDir)
+            {
+                lookDir = -lookDir;
+            }
+
+            weapon.localPosition = new Vector3(lookDir.x, lookDir.y);
+            weapon.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
+            weapon.localPosition = Vector3.ClampMagnitude(new Vector3(lookDir.x, lookDir.y), pcm.currentWeaponOffset);
+        }
 
         if (lockedCombat)
         {
@@ -105,6 +119,11 @@ public class MouseManager : MonoBehaviour
     public Vector2 GetLookDir()
     {
         return lookDir;
+    }
+
+    public float GetAngle()
+    {
+        return angle;
     }
 
     public bool IsLookingRight()

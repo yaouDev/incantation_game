@@ -125,6 +125,16 @@ public class EquipmentManager : MonoBehaviour
 
             //Set the attack point rotation
             SetAttackPoint(newWeapon);
+
+            //check attack rotation
+            if (newWeapon.inverseAttackPoint)
+            {
+                MouseManager.instance.inverseLookDir = true;
+            }
+            else
+            {
+                MouseManager.instance.inverseLookDir = false;
+            }
         }
 
         //Set sprite material and properties
