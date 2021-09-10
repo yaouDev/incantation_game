@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Bow.cs" />
+    <Compile Include="Assets\Scripts\Healthbar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

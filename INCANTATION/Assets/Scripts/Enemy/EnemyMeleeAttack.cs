@@ -37,25 +37,40 @@ public class EnemyMeleeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        if (distance <= attackRange && !isAttacking)
+        if (!stats.isDead)
         {
-            StartCoroutine(PrepareAttack());
-        }
-        else if(distance <= noticeRange && !isAwake || stats.GetCurrentHealth() != stats.maxHealth.GetValue() && !isAwake)
-        {
-            StartCoroutine(WakeUp());
-        }
+            float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
+            if (distance <= attackRange && !isAttacking)
+            {
+                StartCoroutine(PrepareAttack());
+            }
+            else if (distance <= noticeRange && !isAwake || stats.GetCurrentHealth() != stats.maxHealth.GetValue() && !isAwake)
+            {
+                StartCoroutine(WakeUp());
+            }
 
-        if (isAwake)
-        {
-            Vector2 direction = new Vector2(player.transform.position.x, player.transform.position.y) - rb.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            if (isAwake)
+            {
+                Vector2 direction = new Vector2(player.transform.position.x, player.transform.position.y) - rb.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            attackPoint.transform.localPosition = player.transform.position;
-            attackPoint.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
-            attackPoint.transform.localPosition = Vector3.ClampMagnitude(direction, attackOffset);
+                attackPoint.transform.localPosition = player.transform.position;
+                attackPoint.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
+                attackPoint.transform.localPosition = Vector3.ClampMagnitude(direction, attackOffset);
+            }
         }
+        else
+        {
+            Stop();
+        }
+        
+    }
+
+    private void Stop()
+    {
+        rb.velocity = Vector3.zero;
+        aipath.canMove = false;
+        aipath.canSearch = false;
     }
 
     private IEnumerator PrepareAttack()

@@ -54,7 +54,31 @@ public abstract class CharacterStats : MonoBehaviour
         }
     }
 
-    public abstract void TakeDamage(int damage);
+    public virtual void TakeDamage(int damage)
+    {
+        ReduceHealth(damage);
+
+        Color color;
+        if (gameObject.CompareTag("Player"))
+        {
+            color = Color.red;
+        }
+        else
+        {
+            color = Color.yellow;
+        }
+
+        DamagePopUp(color, damage);
+
+        CheckIfDead();
+
+        //take damage animation
+
+        if (onDamageTakenCallback != null)
+        {
+            onDamageTakenCallback.Invoke();
+        }
+    }
 
     protected void ReduceHealth(int damage)
     {

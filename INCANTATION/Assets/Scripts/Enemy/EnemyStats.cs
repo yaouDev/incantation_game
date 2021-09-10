@@ -11,34 +11,32 @@ public class EnemyStats : CharacterStats
     public int baseAttackSpeed = 10;
     public int baseMovementSpeed = 50;
 
+    [ReadOnly] public bool isDead;
+
     private void Awake()
     {
         damage.SetBaseValue(baseDamage);
         armor.SetBaseValue(baseArmor);
         attackSpeed.SetBaseValue(baseAttackSpeed);
         movementSpeed.SetBaseValue(baseMovementSpeed);
-
-        //VVV how tf does it work without this?
-        //maxHealth.SetBaseValue(baseMaxHealth);
     }
 
     public override void TakeDamage(int damage)
     {
-        //reduce health
-        ReduceHealth(damage);
+        if (isDead)
+        {
+            return;
+        }
 
-        //damage popup
-        DamagePopUp(Color.yellow, damage);
-
-        //die
-        CheckIfDead();
-
-        //take damage animation
+        base.TakeDamage(damage);
     }
 
     public override void Die()
     {
+        //VVV remove later
         base.Die();
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        isDead = true;
 
         //death animation
         //loot
