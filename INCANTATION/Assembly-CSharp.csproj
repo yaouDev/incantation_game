@@ -115,6 +115,8 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\SpriteFlash.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ChargeProjectile.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ScorchGround.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Scorch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -47,3 +47,9 @@ MonoBehaviour:
   description: CHAAARGE!!!
   faction: 0
   trigger: charge
+  projectile: {fileID: 7511610303203880294, guid: b9738f29c129eaa429391077d3db6418, type: 3}
+  projectileGFX: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  timeToFullCharge: 1
+  scaleMultiplier: 2
+  speedMultiplier: 2
+  damageMultiplier: 100

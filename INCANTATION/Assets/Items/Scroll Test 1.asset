@@ -17,4 +17,4 @@ MonoBehaviour:
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   isDefaultItem: 0
   rarity: 0
-  incantation: red
+  incantationObject: {fileID: 3303643837167093076, guid: 944b4c0240232ac4280e9b0856ac3e92, type: 3}

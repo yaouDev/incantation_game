@@ -22,6 +22,8 @@ public class Attack_Bow : ProjectileCombat
     public LineRenderer gfx;
     public LineRenderer indicator;
 
+    protected Vector2 mousePos;
+
     void Start()
     {
         InitializeWeapon();

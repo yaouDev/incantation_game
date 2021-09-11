@@ -8,7 +8,6 @@ public class ProjectileCombat : WeaponAttack
     [SerializeField] protected Sprite projectileGFX;
     public float projectileSpeed = 10f;
 
-    protected Vector2 mousePos;
     protected Camera cam;
 
     protected Vector2 lookDir;
@@ -24,8 +23,6 @@ public class ProjectileCombat : WeaponAttack
 
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
         if(canAttack() && Input.GetButton("Fire1"))
         {
             FireProjectile(playerStats.damage.GetValue());
