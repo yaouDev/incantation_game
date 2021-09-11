@@ -4777,7 +4777,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 754158753
-  m_SortingLayer: 3
+  m_SortingLayer: -2
   m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0
@@ -4879,8 +4879,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 754158753
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4944,7 +4944,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 754158753
-  m_SortingLayer: 3
+  m_SortingLayer: -2
   m_SortingOrder: 5
   m_Time: 0.25
   m_Parameters:
@@ -9757,7 +9757,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 754158753
-  m_SortingLayer: 3
+  m_SortingLayer: -2
   m_SortingOrder: 4
   m_RenderMode: 0
   m_SortMode: 0
@@ -9844,6 +9844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2197fb3711cc22c42a296816fec0cfc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manualAttackFreeze: 0
   radius: 1.5
   hitbox: {fileID: 5944582023827808540}
 --- !u!1 &6649310067077540317

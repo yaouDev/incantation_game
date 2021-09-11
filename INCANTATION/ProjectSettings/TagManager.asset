@@ -18,7 +18,7 @@ TagManager:
   - PlayerProjectile
   - Obstacle
   - PlayerEquipment
-  - Test
+  - WhiteHit
   - 
   - 
   - 
@@ -65,10 +65,7 @@ TagManager:
   - name: InfrontPlayer
     uniqueID: 4192126099
     locked: 0
-  - name: Reflection
-    uniqueID: 59500173
-    locked: 0
-  - name: Spinning Weapon
+  - name: PlayerAttack
     uniqueID: 754158753
     locked: 0
   - name: Foreground
