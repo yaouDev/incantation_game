@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Items\Equipment.cs" />
-    <Compile Include="Assets\Scripts\WeaponAttack.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\WeaponAttack.cs" />
     <Compile Include="Assets\Scripts\GameManagement\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\GameManagement\IncantationManager.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_TestRed.cs" />
@@ -87,6 +87,8 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\Healthbar.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Bow.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInterfaceSlot.cs" />
     <Compile Include="Assets\Scripts\SetHeadBehindChest.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_DropTable.cs" />
@@ -111,8 +113,8 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Bow.cs" />
-    <Compile Include="Assets\Scripts\Healthbar.cs" />
+    <Compile Include="Assets\Scripts\Enemy\SpriteFlash.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ChargeProjectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

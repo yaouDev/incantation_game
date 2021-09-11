@@ -21,7 +21,7 @@ MonoBehaviour:
   armorModifer: 0
   damageModifier: 0
   moveSpeedModifier: 0
-  attackSpeedModifier: 50
+  attackSpeedModifier: 0
   specialIncantation: 
   animatorOverride: []
   turnOnLight: 0
@@ -39,6 +39,7 @@ MonoBehaviour:
   attackPointGFX: {fileID: 0}
   attackPointSpin: 0
   lockedCombat: 1
+  inverseAttackPoint: 0
   weaponAttack: {fileID: 5944582024077921919, guid: 09c5bfb1b9723634ebe33fb1ef0cc841, type: 3}
   knockbackPower: 0
   knockbackPlayerPower: 0

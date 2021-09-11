@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class CharacterStats : MonoBehaviour
 {
+    public ParticleSystem onHitParticles;
+
     public Stat maxHealth;
     protected int currentHealth;
     protected Rigidbody2D rb;
@@ -73,6 +75,9 @@ public abstract class CharacterStats : MonoBehaviour
         CheckIfDead();
 
         //take damage animation
+        //take damage visual representation
+        onHitParticles.Play();
+        //add whitehit here?
 
         if (onDamageTakenCallback != null)
         {

@@ -56,6 +56,9 @@ TagManager:
   - name: PlayerEquipment
     uniqueID: 718528107
     locked: 0
+  - name: Enemy
+    uniqueID: 2007905131
+    locked: 0
   - name: InfrontPlayer
     uniqueID: 4192126099
     locked: 0

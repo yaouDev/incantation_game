@@ -11,6 +11,7 @@ public class EnemyStats : CharacterStats
     public int baseAttackSpeed = 10;
     public int baseMovementSpeed = 50;
 
+    public SpriteFlash whiteHit;
     [ReadOnly] public bool isDead;
 
     private void Awake()
@@ -29,6 +30,7 @@ public class EnemyStats : CharacterStats
         }
 
         base.TakeDamage(damage);
+        whiteHit.Play();
     }
 
     public override void Die()
