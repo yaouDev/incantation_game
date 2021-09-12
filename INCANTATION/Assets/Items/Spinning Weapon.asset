@@ -19,9 +19,9 @@ MonoBehaviour:
   rarity: 0
   equipSlot: 3
   armorModifer: 0
-  damageModifier: 0
+  damageModifier: 40
   moveSpeedModifier: 0
-  attackSpeedModifier: 0
+  attackSpeedModifier: 5
   specialIncantation: 
   animatorOverride: []
   turnOnLight: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
   mainColor: {r: 0.7490196, g: 0, b: 0, a: 1}
   secondaryColor: {r: 0, g: 0.039215688, b: 0.7490196, a: 1}
   tertiaryColor: {r: 0.7490196, g: 0.72156864, b: 0, a: 1}
-  attackRange: 0
+  attackRange: 2
   attackPointGFX: {fileID: 0}
   attackPointSpin: 0
   lockedCombat: 1

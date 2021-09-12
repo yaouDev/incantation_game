@@ -2,24 +2,37 @@ using UnityEngine;
 
 public class SetRelativeLayer : MonoBehaviour
 {
-    public Transform occlusionTrigger;
-    public Transform occlusionPoint;
+    [SerializeField] private int sortingOrderBase = 5000;
     private SpriteRenderer sr;
+    [SerializeField] private int offset = 0;
+    [SerializeField] private bool runOnlyOnce = false;
+    [SerializeField] private bool isParticleSystem;
 
-    private void Start()
+    private ParticleSystemRenderer pr;
+
+    private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
+        if (isParticleSystem)
+        {
+            pr = gameObject.GetComponent<ParticleSystemRenderer>();
+        }
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        if(occlusionTrigger.position.y > occlusionPoint.position.y)
+        if (isParticleSystem)
         {
-            sr.sortingLayerName = "InfrontPlayer";
+            pr.sortingOrder = (int)(sortingOrderBase - transform.position.y - offset);
         }
         else
         {
-            sr.sortingLayerName = "BehindPlayer";
+            sr.sortingOrder = (int)(sortingOrderBase - transform.position.y - offset);
+        }
+        if (runOnlyOnce)
+        {
+            Destroy(this);
         }
     }
+
 }

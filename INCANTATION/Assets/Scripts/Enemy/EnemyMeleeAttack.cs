@@ -37,16 +37,14 @@ public class EnemyMeleeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isAwake = GetComponent<EnemySleep>().isAwake;
+
         if (!stats.isDead)
         {
             float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
             if (distance <= attackRange && !isAttacking)
             {
                 StartCoroutine(PrepareAttack());
-            }
-            else if (distance <= noticeRange && !isAwake || stats.GetCurrentHealth() != stats.maxHealth.GetValue() && !isAwake)
-            {
-                StartCoroutine(WakeUp());
             }
 
             if (isAwake)
@@ -109,32 +107,5 @@ public class EnemyMeleeAttack : MonoBehaviour
             player.TakeDamage(stats.damage.GetValue(), knockbackPower, transform);
             Debug.Log(gameObject.name + " hit player");
         }
-    }
-
-    private IEnumerator WakeUp()
-    {
-        //wake up animation
-
-        float normalizedTime = 0f;
-        while (normalizedTime <= 1f)
-        {
-            normalizedTime += Time.deltaTime / wakeUpTime;
-            yield return null;
-        }
-
-        aipath.canMove = true;
-        aipath.canSearch = true;
-        isAwake = true;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-        {
-            return;
-        }
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(attackPoint.transform.position, attackRange);
     }
 }

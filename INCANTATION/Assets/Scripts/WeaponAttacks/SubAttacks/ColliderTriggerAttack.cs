@@ -5,6 +5,7 @@ using UnityEngine;
 public class ColliderTriggerAttack : MonoBehaviour
 {
     private PlayerStats playerStats;
+    public bool canDestroyProjectiles;
 
     private void Start()
     {
@@ -16,6 +17,11 @@ public class ColliderTriggerAttack : MonoBehaviour
         if(collision.gameObject.TryGetComponent(out EnemyStats enemy))
         {
             enemy.TakeDamage(playerStats.damage.GetValue());
+        }
+
+        if (collision.gameObject.CompareTag("EnemyProjectile") && canDestroyProjectiles)
+        {
+            Destroy(collision.gameObject);
         }
     }
 }

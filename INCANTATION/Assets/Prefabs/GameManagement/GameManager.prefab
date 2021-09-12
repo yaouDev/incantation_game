@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1576452121499353992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1576452121499353994}
+  - component: {fileID: 1576452121499354032}
+  - component: {fileID: 1576452121499353993}
+  - component: {fileID: 1576452121499353995}
+  - component: {fileID: 1576452121499353996}
+  - component: {fileID: 1576452121499353998}
+  - component: {fileID: 1576452121499353997}
+  - component: {fileID: 1576452121499353999}
+  - component: {fileID: 1576452121499354034}
+  - component: {fileID: 1576452121499354033}
+  - component: {fileID: 1576452121499354035}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1576452121499353994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576452121499354032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edf320f1ea8b4f4d92848038074a5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1576452121499353993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579b7ca2ed116084d8e6af1b80b20177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInputEnabled: 1
+  integrateCursor: 0
+  maxMessages: 25
+  chatPanel: {fileID: 0}
+  mainPanel: {fileID: 0}
+  textObject: {fileID: 3588471052908626396, guid: 6d17f0682b43ba44bbadac3266b23e5e, type: 3}
+  chatBox: {fileID: 0}
+  playerIncantationText: {fileID: 0}
+  playerTextDuration: 2
+  incantationPanel: {fileID: 0}
+  popUpMainText: {fileID: 0}
+  popUpSubText: {fileID: 0}
+  popUpParent: {fileID: 0}
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
+  infoColor: {r: 0.7169812, g: 0.55202425, b: 0.1318975, a: 1}
+  lootInfoColor: {r: 1, g: 0, b: 0, a: 1}
+  messages: []
+--- !u!114 &1576452121499353995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f46df1b24c912b4586ec44ce83e5c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: []
+  inventoryItems: []
+  inventoryUI: {fileID: 0}
+  filledSlots: 0
+  latestIndex: 0
+  space: 20
+  isFull: 0
+--- !u!114 &1576452121499353996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c8d8ee649031146a403895173209f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultItems:
+  - {fileID: 11400000, guid: b92d3b0f637189641909b34652d08bd1, type: 2}
+  - {fileID: 11400000, guid: 919a827c561f60f448afaf3e44ece688, type: 2}
+  - {fileID: 11400000, guid: 97fb54f4959c6c5498428843974c4391, type: 2}
+  currentEquipment: []
+  currentWeaponAttack: {fileID: 0}
+  equipmentObjects: []
+  noColorMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  oneColorMaterial: {fileID: 2100000, guid: 407630f6d82390848913ff17f96fc685, type: 2}
+  threeColorMaterial: {fileID: 2100000, guid: 1a9b4dcdb80f6604f8cf5e73a9b74ee8, type: 2}
+  equipmentAnimators: []
+  player: {fileID: 0}
+  attackPoint: {fileID: 0}
+--- !u!114 &1576452121499353998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0406bfbba91974ba91cf9ae8f79e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights: []
+  originalPositions: []
+--- !u!114 &1576452121499353997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7eaf34f48d2d3841880954f70be2ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &1576452121499353999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32179cca6295b96418432c10da884c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingIncantations:
+  - {fileID: 3497115700781578034, guid: fae49d5bd5fdc6748b3d83ade866bd59, type: 3}
+  - {fileID: 4360552227474703886, guid: a5f97e4957963a94c85508eb841d633f, type: 3}
+  incantationContainers:
+  - {fileID: 5753115103359473330, guid: a0693824f3065f14e8997adf235a29e4, type: 3}
+  - {fileID: 3497115700781578034, guid: fae49d5bd5fdc6748b3d83ade866bd59, type: 3}
+  - {fileID: 3303643837167093076, guid: 944b4c0240232ac4280e9b0856ac3e92, type: 3}
+  - {fileID: 4360552227474703886, guid: a5f97e4957963a94c85508eb841d633f, type: 3}
+  allIncantations: []
+--- !u!114 &1576452121499354034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce16cc9e43e953f40ad159fb8d6edef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyWeapon: {fileID: 0}
+  damageTimer: 0
+  playerAnimator: {fileID: 0}
+  weaponAnimator: {fileID: 0}
+  weapon: {fileID: 0}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  baseWeaponOffset: 1.5
+  currentWeaponOffset: 0
+  attackPoint: {fileID: 0}
+  defaultAttackPointGFX: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  player: {fileID: 0}
+  playerStats: {fileID: 0}
+--- !u!114 &1576452121499354033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ae5efd12664bf468c9e3a8857d2874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  attackPoint: {fileID: 0}
+  lockedCombat: 0
+  lockPos: 0
+  inverseLookDir: 0
+--- !u!114 &1576452121499354035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576452121499353992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af8523a5a6393042b3cb0bcf81755ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

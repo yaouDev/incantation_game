@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f1de72946687b48910b107cd8787b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manualAttackFreeze: 0
   hitbox: {fileID: 99036098196231703}
   swingRadius: 2
   speed: 0.85
@@ -92,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7aeb373b3077941a15a4e3dc440b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDestroyProjectiles: 0
 --- !u!61 &99036098196231701
 BoxCollider2D:
   m_ObjectHideFlags: 0

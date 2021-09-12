@@ -40,6 +40,7 @@ MonoBehaviour:
   attackPointGFX: {fileID: 0}
   attackPointSpin: 0
   lockedCombat: 1
+  inverseAttackPoint: 0
   weaponAttack: {fileID: 1166542820942056943, guid: 78c5bb6ed4d901843aa8bf216fc30eef, type: 3}
   knockbackPower: 0
   knockbackPlayerPower: 0

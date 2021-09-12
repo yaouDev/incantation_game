@@ -33,6 +33,8 @@ public class EquipmentManager : MonoBehaviour
     public GameObject player;
     public Transform attackPoint;
 
+    private PlayerCombatManager pcm;
+
     private void Awake()
     {
         #region Singleton
@@ -63,6 +65,7 @@ public class EquipmentManager : MonoBehaviour
         }
 
         incantationManager = IncantationManager.instance;
+        pcm = PlayerCombatManager.instance;
     }
 
     private void Start()
@@ -201,14 +204,11 @@ public class EquipmentManager : MonoBehaviour
 
             if (currentEquipment[slotIndex].equipSlot == EquipmentSlot.weapon)
             {
-                //change to default item? VVV
-                /* Set current weapon to an empty weapon
-                playerCombat.SetCurrentWeapon(playerCombat.emptyWeapon);
-                playerCombat.attackRange = playerCombat.baseAttackRange;
-                playerCombat.attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = playerCombat.defaultAttackPointGFX;*/
+                //reset attack point gfx
+                attackPoint.gameObject.GetComponent<SpriteRenderer>().sprite = pcm.defaultAttackPointGFX;
 
                 //reset attack range
-                PlayerCombatManager.instance.currentWeaponOffset = PlayerCombatManager.instance.baseWeaponOffset;
+                pcm.currentWeaponOffset = pcm.baseWeaponOffset;
 
                 //destroy scripted weapon
                 if (currentEquipment[slotIndex] is Weapon)

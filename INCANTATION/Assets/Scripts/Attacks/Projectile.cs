@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(lm, lm);
 
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 15f);
     }
 
     public void SetDamage(int newDamage)

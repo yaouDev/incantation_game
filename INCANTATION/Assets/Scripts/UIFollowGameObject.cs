@@ -8,8 +8,7 @@ public class UIFollowGameObject : MonoBehaviour
     public GameObject target;
     public Vector3 offset = new Vector3(0f, 0f, 0f);
     private Camera cam;
-
-    private float timeToDisable;
+    [SerializeField] private bool isStaticOnScreen;
 
     private void Start()
     {
@@ -27,6 +26,11 @@ public class UIFollowGameObject : MonoBehaviour
         {
             //figure out a better solution
             gameObject.SetActive(false);
+        }
+
+        if (isStaticOnScreen)
+        {
+            Destroy(this);
         }
     }
 }

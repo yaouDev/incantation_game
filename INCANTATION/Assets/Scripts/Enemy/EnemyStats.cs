@@ -14,12 +14,16 @@ public class EnemyStats : CharacterStats
     public SpriteFlash whiteHit;
     [ReadOnly] public bool isDead;
 
+    private DropLoot loot;
+
     private void Awake()
     {
         damage.SetBaseValue(baseDamage);
         armor.SetBaseValue(baseArmor);
         attackSpeed.SetBaseValue(baseAttackSpeed);
         movementSpeed.SetBaseValue(baseMovementSpeed);
+
+        loot = GetComponent<DropLoot>();
     }
 
     public override void TakeDamage(int damage)
@@ -41,7 +45,10 @@ public class EnemyStats : CharacterStats
         isDead = true;
 
         //death animation
-        //loot
+        if(loot != null)
+        {
+            loot.Drop(gameObject.transform.position);
+        }
 
         //VVV change later to instant
         Destroy(gameObject, 1.5f);
