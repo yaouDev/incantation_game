@@ -5,6 +5,7 @@ public abstract class WeaponAttack : MonoBehaviour
     public static WeaponAttack instance;
 
     protected PlayerCombatManager pcm;
+    protected MouseManager mm;
     protected Transform attackPoint;
     protected Transform weapon;
     protected LayerMask enemyLayers;
@@ -38,6 +39,7 @@ public abstract class WeaponAttack : MonoBehaviour
     protected void InitializeWeapon()
     {
         pcm = PlayerCombatManager.instance;
+        mm = MouseManager.instance;
         attackPoint = pcm.attackPoint;
         weapon = pcm.weapon;
         enemyLayers = pcm.enemyLayers;

@@ -6,12 +6,13 @@ public class Projectile : MonoBehaviour
 {
     [HideInInspector] public float projectileVelocity;
     [HideInInspector] public float knockbackPower;
-    private List<GameObject> collidedEnemies = new List<GameObject>();
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
-    private LayerMask lm;
+    public float deathTimer = 15f;
+    protected List<GameObject> collidedEnemies = new List<GameObject>();
+    protected Rigidbody2D rb;
+    protected SpriteRenderer sr;
+    protected LayerMask lm;
 
-    private int damage = 0;
+    public int damage = 0;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class Projectile : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(lm, lm);
 
-        Destroy(gameObject, 15f);
+        Destroy(gameObject, deathTimer);
     }
 
     public void SetDamage(int newDamage)
@@ -46,7 +47,6 @@ public class Projectile : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent(out EnemyStats enemy) && !collidedEnemies.Contains(enemy.gameObject))
         {
-            //enemy.TakeDamage(damage);
             if(knockbackPower > 0f)
             {
                 enemy.TakeDamage(damage, knockbackPower, transform);

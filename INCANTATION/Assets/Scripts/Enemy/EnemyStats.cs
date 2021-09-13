@@ -47,7 +47,8 @@ public class EnemyStats : CharacterStats
         //death animation
         if(loot != null)
         {
-            loot.Drop(gameObject.transform.position);
+            Item drop = loot.Drop(gameObject.transform.position);
+            Debug.Log("You got a " + drop.rarity + "!" + " " + drop.name);
         }
 
         //VVV change later to instant

@@ -58,8 +58,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Items\Equipment.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\WeaponAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyProjectile.cs" />
     <Compile Include="Assets\Scripts\GameManagement\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\GameManagement\IncantationManager.cs" />
+    <Compile Include="Assets\Scripts\HeadHitbox.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_TestRed.cs" />
     <Compile Include="Assets\Scripts\SetRelativeLayer.cs" />
     <Compile Include="Assets\Scripts\DamagePopUp.cs" />
@@ -83,7 +85,9 @@
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Items\Interactable.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\Loot\DropLoot.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Boss01\Boss01.cs" />
     <Compile Include="Assets\Scripts\Items\IncantationScroll.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\ColliderTriggerAttack.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ChargeProjectile.cs" />
@@ -94,6 +98,7 @@
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Bow.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInterfaceSlot.cs" />
     <Compile Include="Assets\Scripts\SetHeadBehindChest.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemySleep.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_DropTable.cs" />
     <Compile Include="Assets\Scripts\PopUp.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
@@ -117,11 +122,8 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\Enemy\Boss01\Boss01.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyProjectile.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemySleep.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerHeadHitbox.cs" />
-    <Compile Include="Assets\Scripts\GameManagement\Loot\DropLoot.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Grab.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\Hook.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

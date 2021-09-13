@@ -90,4 +90,9 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(rb.position + movement * (moveSpeed/10) * Time.fixedDeltaTime);
         }
     }
+
+    public Vector2 GetMovement()
+    {
+        return movement;
+    }
 }

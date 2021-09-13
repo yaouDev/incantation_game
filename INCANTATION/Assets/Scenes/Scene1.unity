@@ -5420,10 +5420,6 @@ PrefabInstance:
       propertyPath: offset
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3116311463272568131, guid: 2969c7ac8af589943a8cedee95eed5af, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2969c7ac8af589943a8cedee95eed5af, type: 3}
 --- !u!1001 &1847492048
@@ -5506,7 +5502,7 @@ PrefabInstance:
     - target: {fileID: 5027343805390852263, guid: f1303bb02d1b48343bdc3c8f82af9193, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 1e976f900f06feb45afd2b4e0ca1903f, type: 2}
+      objectReference: {fileID: 11400000, guid: 4ee0debd2e117c34892a82757f19fe08, type: 2}
     - target: {fileID: 8439445758342977215, guid: f1303bb02d1b48343bdc3c8f82af9193, type: 3}
       propertyPath: m_RootOrder
       value: 1

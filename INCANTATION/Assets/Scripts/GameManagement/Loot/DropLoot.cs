@@ -12,12 +12,12 @@ public class DropLoot : MonoBehaviour
     public Item[] mythicLoot = new Item[0];
     public Item[] legendaryLoot = new Item[0];
 
-    public void Drop(Vector3 location)
+    public Item Drop(Vector3 location)
     {
         if(commonLoot.Length == 0 && uncommonLoot.Length == 0 && rareLoot.Length == 0 && mythicLoot.Length == 0 && legendaryLoot.Length == 0)
         {
             Debug.LogWarning("No loot set for " + gameObject.name);
-            return;
+            return null;
         }
 
         Rarity rarity = LootCalculator.instance.Calculcate();
@@ -83,6 +83,8 @@ public class DropLoot : MonoBehaviour
             default:
                 break;
         }
+
+        return lootInstance.item;
     }
 
     private Item FindLoot(Item[] array)

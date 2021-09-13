@@ -38,12 +38,6 @@ public abstract class CharacterStats : MonoBehaviour
         buffableStats.Add(movementSpeed);
     }
 
-    private void Update()
-    {
-
-
-    }
-
     private void LateUpdate()
     {
         if (gameObject.CompareTag("Player"))
@@ -141,26 +135,13 @@ public abstract class CharacterStats : MonoBehaviour
         float normalizedTime = 0f;
         while (normalizedTime <= 1f)
         {
-           // rb.isKinematic = false;
             normalizedTime += Time.deltaTime / duration;
             Vector2 direction = (other.transform.position - transform.position).normalized;
             rb.AddForce(-direction * power);
             yield return null;
         }
 
-        /*
-        while (duration > 0f)
-        {
-            duration -= Time.deltaTime;
-            Vector2 direction = (other.transform.position - transform.position).normalized;
-            //rb.AddForce(-direction * power, ForceMode2D.Impulse);
-            rb.MovePosition(-direction * power);
-        }*/
-
-        //rb.isKinematic = true;
         rb.velocity = Vector2.zero;
-
-        //yield return null;
     }
 
     public IEnumerator StatBoost(Stat stat, int modifier, float duration)
