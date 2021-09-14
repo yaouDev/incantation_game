@@ -12,69 +12,51 @@ public class DropLoot : MonoBehaviour
     public Item[] mythicLoot = new Item[0];
     public Item[] legendaryLoot = new Item[0];
 
+    private Dictionary<Rarity, Item[]> drops = new Dictionary<Rarity, Item[]>();
+
+    private void Start()
+    {
+        AddToDrops(Rarity.common, commonLoot);
+        AddToDrops(Rarity.uncommon, uncommonLoot);
+        AddToDrops(Rarity.rare, rareLoot);
+        AddToDrops(Rarity.mythic, mythicLoot);
+        AddToDrops(Rarity.legendary, legendaryLoot);
+    }
+
     public Item Drop(Vector3 location)
     {
-        if(commonLoot.Length == 0 && uncommonLoot.Length == 0 && rareLoot.Length == 0 && mythicLoot.Length == 0 && legendaryLoot.Length == 0)
+        if (commonLoot.Length == 0 && uncommonLoot.Length == 0 && rareLoot.Length == 0 && mythicLoot.Length == 0 && legendaryLoot.Length == 0)
         {
             Debug.LogWarning("No loot set for " + gameObject.name);
             return null;
         }
 
-        Rarity rarity = LootCalculator.instance.Calculcate();
+        Rarity rarity;
+
+        do
+        {
+            rarity = LootCalculator.instance.Calculcate();
+        }
+        while (!drops.ContainsKey(rarity));
 
         ItemPickup lootInstance = Instantiate(itemPickup, location, itemPickup.transform.localRotation).GetComponent<ItemPickup>();
 
         switch (rarity)
         {
             case Rarity.common:
-                if (commonLoot.Length > 0)
-                {
-                    lootInstance.item = FindLoot(commonLoot);
-                }
-                else
-                {
-                    lootInstance.item = FindLoot(legendaryLoot);
-                }
+                lootInstance.item = FindLoot(commonLoot);
                 break;
             case Rarity.uncommon:
-                if (uncommonLoot.Length > 0)
-                {
-                    lootInstance.item = FindLoot(uncommonLoot);
-                }
-                else
-                {
-                    lootInstance.item = FindLoot(commonLoot);
-                }
+                lootInstance.item = FindLoot(uncommonLoot);
                 break;
             case Rarity.rare:
-                if (rareLoot.Length > 0)
-                {
-                    lootInstance.item = FindLoot(rareLoot);
-                }
-                else
-                {
-                    lootInstance.item = FindLoot(uncommonLoot);
-                }
+                lootInstance.item = FindLoot(rareLoot);
                 break;
             case Rarity.mythic:
-                if (mythicLoot.Length > 0)
-                {
-                    lootInstance.item = FindLoot(mythicLoot);
-                }
-                else
-                {
-                    lootInstance.item = FindLoot(rareLoot);
-                }
+                lootInstance.item = FindLoot(mythicLoot);
                 break;
             case Rarity.legendary:
-                if (legendaryLoot.Length > 0)
-                {
-                    lootInstance.item = FindLoot(legendaryLoot);
-                }
-                else
-                {
-                    lootInstance.item = FindLoot(mythicLoot);
-                }
+                lootInstance.item = FindLoot(legendaryLoot);
                 break;
             case Rarity.special:
                 lootInstance.item = FindLoot(commonLoot);
@@ -89,7 +71,15 @@ public class DropLoot : MonoBehaviour
 
     private Item FindLoot(Item[] array)
     {
-        int index = Random.Range(0, array.Length - 1);
+        int index = Random.Range(0, array.Length);
         return array[index];
+    }
+
+    private void AddToDrops(Rarity rarity, Item[] table)
+    {
+        if (table.Length > 0)
+        {
+            drops.Add(rarity, table);
+        }
     }
 }

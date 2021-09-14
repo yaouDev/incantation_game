@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hook : Projectile
 {
+    //Currently collides with enemy projectiles!
+
     private GameObject hookedObject;
     public bool fetch;
     public float killDistance = 3f;
@@ -17,9 +19,12 @@ public class Hook : Projectile
     private float distanceCheck2;
     [SerializeField] private float stuckTimer = 1f;
 
+    private LineRenderer lr;
+
     private void Start()
     {
         player = PlayerManager.instance.player;
+        lr = GetComponent<LineRenderer>();
     }
 
     private void FixedUpdate()
@@ -60,6 +65,10 @@ public class Hook : Projectile
         {
             rb.velocity = transform.up * projectileVelocity;
         }
+
+        //LineRenderer
+        lr.SetPosition(0, PlayerCombatManager.instance.weapon.transform.position);
+        lr.SetPosition(1, gameObject.transform.position);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

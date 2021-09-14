@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movement;
 
+    private bool frozen;
+
     void Start()
     {
         cam = Camera.main;
@@ -34,8 +36,13 @@ public class PlayerMovement : MonoBehaviour
             return;
         }*/
 
-        //Input
+        if (frozen)
+        {
+            Stop();
+            return;
+        }
 
+        //Input
         if (!gameManager.chatBox.isFocused)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -94,5 +101,10 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 GetMovement()
     {
         return movement;
+    }
+
+    public void Freeze(bool freeze)
+    {
+        frozen = freeze;
     }
 }

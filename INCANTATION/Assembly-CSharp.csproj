@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\GameManagement\Loot\DropLoot.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Grab.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss01\Boss01.cs" />
     <Compile Include="Assets\Scripts\Items\IncantationScroll.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\ColliderTriggerAttack.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Assets\Scripts\UIFollowGameObject.cs" />
     <Compile Include="Assets\Scripts\Incantation\Scorch.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Swing.cs" />
+    <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\Hook.cs" />
     <Compile Include="Assets\Scripts\GameManagement\MouseManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Archive\SetReflection.cs" />
@@ -122,8 +124,8 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Grab.cs" />
-    <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\Hook.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_Recall.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\RecallPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

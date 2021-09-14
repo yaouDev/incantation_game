@@ -12,6 +12,9 @@ public class Attack_Spin : WeaponAttack
     private Vector2 center;
     private float angle;
 
+    private int direction;
+    private bool isAttacking;
+
     private void Start()
     {
         InitializeWeapon();
@@ -20,31 +23,47 @@ public class Attack_Spin : WeaponAttack
         rotateSpeed = playerStats.attackSpeed.GetValue() / 2f;
     }
 
-    // Update is called once per frame
+    //A litte bit messy
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && canAttack())
+        if (canAttack())
         {
-            //spawn animation
-            hitbox.SetActive(true);
+            if (Input.GetButtonDown("Fire1"))
+            {
+                ActivateHitbox();
+                direction = -1;
+            }
+            else if (Input.GetButtonDown("Fire2"))
+            {
+                ActivateHitbox();
+                direction = 1;
+            }
         }
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonUp("Fire1") && !Input.GetButton("Fire2") || Input.GetButtonUp("Fire2") && !Input.GetButton("Fire1"))
         {
-            Spin();
+            hitbox.gameObject.SetActive(false);
+            isAttacking = false;
+            direction = 0;
         }
 
-        if (Input.GetButtonUp("Fire1"))
+        if (isAttacking)
         {
-            //despawn animation
-            hitbox.SetActive(false);
+            Spin(direction);
         }
     }
 
-    private void Spin()
+    private void ActivateHitbox()
+    {
+        hitbox.gameObject.SetActive(true);
+        AttackDelay();
+        isAttacking = true;
+    }
+
+    private void Spin(int clockwise)
     {
         center = pcm.player.transform.position;
-        angle += rotateSpeed * Time.deltaTime;
+        angle += (rotateSpeed * clockwise) * Time.deltaTime;
 
         var offset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * radius;
         hitbox.transform.position = center + offset;

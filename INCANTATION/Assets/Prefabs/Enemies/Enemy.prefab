@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 166092471}
   - component: {fileID: 166092472}
   - component: {fileID: 8524776830909271718}
+  - component: {fileID: 8171276725013307346}
   - component: {fileID: 2532824683328772002}
   m_Layer: 3
   m_Name: Enemy
@@ -371,6 +372,26 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &8171276725013307346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660236019095451824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5e694c221d99f4c98d8834d30aeb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPickup: {fileID: 2990571061493820872, guid: f1303bb02d1b48343bdc3c8f82af9193, type: 3}
+  commonLoot:
+  - {fileID: 11400000, guid: c6583ebd5d795cb46b5a0f5a26800225, type: 2}
+  uncommonLoot: []
+  rareLoot: []
+  mythicLoot: []
+  legendaryLoot:
+  - {fileID: 11400000, guid: aac2ab4d810db9346a561599b6926575, type: 2}
 --- !u!114 &2532824683328772002
 MonoBehaviour:
   m_ObjectHideFlags: 0
