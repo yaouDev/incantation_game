@@ -102,6 +102,9 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   interactTextObject: {fileID: 5154586549400581866}
   interactText: TALK
+  thisCharacter: {fileID: 0}
+  dialog: []
+  interactInterval: 0
 --- !u!1001 &187169187331237419
 PrefabInstance:
   m_ObjectHideFlags: 0

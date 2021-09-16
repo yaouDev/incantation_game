@@ -9,9 +9,10 @@ public class Interactable : MonoBehaviour
     [SerializeField] protected Transform player;
     public PlayerManager playerManager;
 
+    private static Interactable closest;
+
     public Text interactTextObject;
     public string interactText = "INTERACT";
-
 
     public virtual void Interact()
     {
@@ -36,14 +37,16 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    
     void Update()
     {
         //poor performance???
 
         //currently picks up all items
         float distance = Vector3.Distance(player.position, interactionTransform.position);
-        if (distance <= radius)
+        if (distance <= radius && closest == null)
         {
+            closest = this;
 
             if(interactTextObject != null)
             {
@@ -53,6 +56,13 @@ public class Interactable : MonoBehaviour
             if (Input.GetButtonDown("Interact") && !GameManager.instance.chatBox.isFocused)
             {
                 Interact();
+
+                if(closest is NPCInteractable)
+                {
+                    return;
+                }
+
+                closest = null;
             }
         }
         else
@@ -61,6 +71,8 @@ public class Interactable : MonoBehaviour
             {
                 interactTextObject.enabled = false;
             }
+
+            closest = null;
         }
     }
 
@@ -74,5 +86,4 @@ public class Interactable : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
-
 }

@@ -43,6 +43,7 @@ public class EnemyStats : CharacterStats
         base.Die();
         gameObject.GetComponent<Collider2D>().enabled = false;
         isDead = true;
+        rb.velocity = Vector2.zero;
 
         //death animation
         if(loot != null)
