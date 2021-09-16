@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = 0f;
         movement.y = 0f;
+        animator.SetFloat("Speed", 0);
     }
 
     private void FixedUpdate()

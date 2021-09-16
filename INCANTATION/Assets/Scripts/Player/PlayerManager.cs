@@ -21,4 +21,5 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     public GameObject player;
+    public Character character;
 }

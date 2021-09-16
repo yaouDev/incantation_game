@@ -12,8 +12,6 @@ public class Interactable : MonoBehaviour
     public Text interactTextObject;
     public string interactText = "INTERACT";
 
-    //private bool hasInteracted = false;
-
 
     public virtual void Interact()
     {
@@ -55,7 +53,6 @@ public class Interactable : MonoBehaviour
             if (Input.GetButtonDown("Interact") && !GameManager.instance.chatBox.isFocused)
             {
                 Interact();
-                //hasInteracted = true;
             }
         }
         else

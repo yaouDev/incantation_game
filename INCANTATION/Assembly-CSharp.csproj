@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Items\Equipment.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\WeaponAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyProjectile.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_Recall.cs" />
     <Compile Include="Assets\Scripts\GameManagement\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\GameManagement\IncantationManager.cs" />
     <Compile Include="Assets\Scripts\HeadHitbox.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\Scripts\Items\Consumable.cs" />
     <Compile Include="Assets\Scripts\Enemy\SpriteFlash.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\ChargeCombat.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\RecallPoint.cs" />
     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
     <Compile Include="Assets\Scripts\Archive\DetectReflection.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\AutomaticProjectileCombat.cs" />
@@ -124,8 +126,12 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_Recall.cs" />
-    <Compile Include="Assets\Scripts\Incantation\Incantations\RecallPoint.cs" />
+    <Compile Include="Assets\Scripts\Conversation\CharacterClassification.cs" />
+    <Compile Include="Assets\Scripts\Conversation\NPCInteractable.cs" />
+    <Compile Include="Assets\Scripts\NPC\NPC.cs" />
+    <Compile Include="Assets\Scripts\NPC\Character.cs" />
+    <Compile Include="Assets\Scripts\Conversation\DialogManager.cs" />
+    <Compile Include="Assets\Scripts\Conversation\Dialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
