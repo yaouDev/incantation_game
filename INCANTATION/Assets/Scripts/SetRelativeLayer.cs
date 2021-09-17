@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SetRelativeLayer : MonoBehaviour
 {
+    //make this take a renderer array
+
     [SerializeField] private int sortingOrderBase = 5000;
     private SpriteRenderer sr;
     [SerializeField] private int offset = 0;
