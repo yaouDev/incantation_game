@@ -30719,6 +30719,10 @@ PrefabInstance:
       propertyPath: effectState
       value: 
       objectReference: {fileID: 2039301241}
+    - target: {fileID: 7731899624787563154, guid: 6333407546111cc428d42d1109c5d240, type: 3}
+      propertyPath: baseMovementSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7731899624787563156, guid: 6333407546111cc428d42d1109c5d240, type: 3}
       propertyPath: m_RootOrder
       value: 11

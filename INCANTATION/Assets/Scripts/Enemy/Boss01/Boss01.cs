@@ -16,9 +16,6 @@ public class Boss01 : MonoBehaviour
     public int projectileDamage = 1;
     public float projectileSpace = 10f;
 
-    [Header("Move")]
-    public float moveSpeed = 5f;
-
     private bool isAwake;
     private bool isAttacking;
     private GameObject player;
@@ -87,7 +84,7 @@ public class Boss01 : MonoBehaviour
             {
                 //Move
                 Vector2 distance = player.transform.position - gameObject.transform.position;
-                rb.MovePosition(rb.position + distance * (moveSpeed / 10f) * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + distance * (stats.movementSpeed.GetValue() / 10f) * Time.fixedDeltaTime);
 
                 if (normalizedTimer <= 1f)
                 {

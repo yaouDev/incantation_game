@@ -46,18 +46,18 @@ public class EffectState : MonoBehaviour
         }
     }
 
-    public void ApplyEffect(Effect effect, float duration, int damage)
+    public void ApplyEffect(Effect effect, float duration, int modifier)
     {
         switch (effect)
         {
             case Effect.bleed:
                 bleedTimer = duration;
-                bleedDamage = damage;
+                bleedDamage = modifier;
                 SetBleed();
                 break;
             case Effect.burn:
                 burnTimer = duration;
-                burnDamage = damage;
+                burnDamage = modifier;
                 SetBurn();
                 break;
             case Effect.freeze:
@@ -65,7 +65,7 @@ public class EffectState : MonoBehaviour
                 SetFreeze();
                 break;
             case Effect.slow:
-                SetSlow(duration);
+                SetSlow(duration, modifier);
                 break;
             default:
                 break;
@@ -148,9 +148,9 @@ public class EffectState : MonoBehaviour
         }
     }
 
-    private void SetSlow(float duration)
+    private void SetSlow(float duration, int m)
     {
-        int modifier = stats.movementSpeed.GetValue() / 2;
+        int modifier = stats.movementSpeed.GetValue() / m;
         stats.StartCoroutine(stats.StatDrain(stats.movementSpeed, modifier, duration));
     }
 
