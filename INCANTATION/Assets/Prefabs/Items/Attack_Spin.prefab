@@ -4777,8 +4777,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 754158753
-  m_SortingLayer: -2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0
@@ -4818,9 +4818,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
+  renderers: []
   offset: 0
   runOnlyOnce: 0
-  isParticleSystem: 1
+  hasParticles: 1
 --- !u!1 &5944582023827808540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4924,6 +4925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDestroyProjectiles: 0
+  isFire: 1
 --- !u!96 &7408879207667451748
 TrailRenderer:
   serializedVersion: 2
@@ -9775,8 +9777,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 754158753
-  m_SortingLayer: -2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 4
   m_RenderMode: 0
   m_SortMode: 0
@@ -9832,9 +9834,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
-  offset: 0
+  renderers:
+  - {fileID: 5944582023827808543}
+  - {fileID: 7408879207667451748}
+  offset: -1
   runOnlyOnce: 0
-  isParticleSystem: 1
+  hasParticles: 1
 --- !u!1 &5944582024077921919
 GameObject:
   m_ObjectHideFlags: 0
@@ -9931,7 +9936,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.37213933, b: 0.15566039, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000003562f26609a4747f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

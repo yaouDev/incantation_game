@@ -6,6 +6,8 @@ public abstract class CharacterStats : MonoBehaviour
 {
     public ParticleSystem onHitParticles;
 
+    public EffectState effectState;
+
     public Stat maxHealth;
     protected int currentHealth;
     protected Rigidbody2D rb;
@@ -99,9 +101,12 @@ public abstract class CharacterStats : MonoBehaviour
     public void DamagePopUp(Color color, int damage)
     {
         damagePopUp.GetComponent<DamagePopUp>().text.text = "-" + damage;
+        //damagePopUp.GetComponent<DamagePopUp>().text.enabled = false;
         DamagePopUp popUpInstance = Instantiate(damagePopUp, transform.position, transform.rotation).GetComponent<DamagePopUp>();
         popUpInstance.text.gameObject.GetComponent<UIFollowGameObject>().target = gameObject;
         popUpInstance.text.color = color;
+        //VVV excessive??
+        popUpInstance.text.enabled = true;
     }
 
     //Overload with knockback float

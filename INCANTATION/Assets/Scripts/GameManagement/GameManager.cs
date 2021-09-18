@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public bool isInputEnabled = true;
-
     public bool integrateCursor;
 
     public int maxMessages = 25;
@@ -130,9 +129,7 @@ public class GameManager : MonoBehaviour
             //Sets the overhead text to playerInput and remove the text after a while if it's available
             //if you type faster than the coroutine, the message will disappear with the previous timer
             playerIncantationText.text = newMessage.text.ToUpper() + "!";
-            incantationPanel.SetActive(true);
-            StartCoroutine(SetTextEmptyAfterDuration(playerIncantationText, playerTextDuration));
-            StartCoroutine(DisableObjectAfterDuration(incantationPanel, playerTextDuration));
+            incantationPanel.GetComponent<PopUp>().Pop();
         }
 
         newMessage.textObject = newText.GetComponent<Text>();

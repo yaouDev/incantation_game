@@ -260,9 +260,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
+  renderers:
+  - {fileID: 123265710246203154}
   offset: -1
   runOnlyOnce: 0
-  isParticleSystem: 0
+  hasParticles: 0
 --- !u!61 &2656320494007118869
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -500,6 +502,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
-  offset: -1
+  renderers:
+  - {fileID: 452230569616119711}
+  offset: -2
   runOnlyOnce: 0
-  isParticleSystem: 0
+  hasParticles: 0

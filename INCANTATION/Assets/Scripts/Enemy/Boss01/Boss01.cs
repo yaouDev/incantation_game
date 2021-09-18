@@ -24,6 +24,7 @@ public class Boss01 : MonoBehaviour
     private GameObject player;
     private EnemyStats stats;
     private Collider2D col;
+    private EffectState es;
 
     private float spinTimer;
     private float spinCircle;
@@ -39,11 +40,12 @@ public class Boss01 : MonoBehaviour
         player = PlayerManager.instance.player;
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
+        es = stats.effectState;
     }
 
     private void FixedUpdate()
     {
-        if (!stats.isDead)
+        if (!stats.isDead && !es.isFrozen)
         {
             //SpinCircle
             if (spinTimer > 0f)

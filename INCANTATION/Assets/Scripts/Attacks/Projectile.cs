@@ -56,6 +56,8 @@ public class Projectile : MonoBehaviour
                 enemy.TakeDamage(damage);
             }
 
+            enemy.effectState.ApplyEffect(Effect.bleed, 10f, damage / 10);
+
             collidedEnemies.Add(enemy.gameObject);
         }
 

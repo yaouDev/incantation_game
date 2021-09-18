@@ -6,6 +6,7 @@ public class ColliderTriggerAttack : MonoBehaviour
 {
     private PlayerStats playerStats;
     public bool canDestroyProjectiles;
+    public bool isFire;
 
     private void Start()
     {
@@ -17,6 +18,11 @@ public class ColliderTriggerAttack : MonoBehaviour
         if(collision.gameObject.TryGetComponent(out EnemyStats enemy))
         {
             enemy.TakeDamage(playerStats.damage.GetValue());
+
+            if (isFire)
+            {
+                enemy.effectState.ApplyEffect(Effect.burn, 2f, playerStats.damage.GetValue() / 10);
+            }
         }
 
         if (collision.gameObject.CompareTag("EnemyProjectile") && canDestroyProjectiles)

@@ -139,9 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
+  renderers:
+  - {fileID: 3267885162307209197}
   offset: 0
   runOnlyOnce: 0
-  isParticleSystem: 0
 --- !u!1001 &187169187331237419
 PrefabInstance:
   m_ObjectHideFlags: 0

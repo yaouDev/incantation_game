@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_TestRed.cs" />
     <Compile Include="Assets\Scripts\SetRelativeLayer.cs" />
     <Compile Include="Assets\Scripts\DamagePopUp.cs" />
+    <Compile Include="Assets\Scripts\Conversation\NPCInteractable.cs" />
     <Compile Include="Assets\Scripts\Items\Consumable.cs" />
     <Compile Include="Assets\Scripts\Enemy\SpriteFlash.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\ChargeCombat.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Scripts\Player\Attacking\AutomaticProjectileCombat.cs" />
     <Compile Include="Assets\Scripts\Items\Essence.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ScorchGround.cs" />
+    <Compile Include="Assets\Scripts\Conversation\Dialog.cs" />
     <Compile Include="Assets\Scripts\GameManagement\PlayerCombatManager.cs" />
     <Compile Include="Assets\Scripts\EquipmentLight.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
@@ -85,7 +87,9 @@
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Conversation\DialogManager.cs" />
     <Compile Include="Assets\Scripts\Items\Interactable.cs" />
+    <Compile Include="Assets\Scripts\NPC\NPC.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\GameManagement\Loot\DropLoot.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />
@@ -93,21 +97,22 @@
     <Compile Include="Assets\Scripts\Enemy\Boss01\Boss01.cs" />
     <Compile Include="Assets\Scripts\Items\IncantationScroll.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\ColliderTriggerAttack.cs" />
+    <Compile Include="Assets\Scripts\Conversation\CharacterClassification.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ChargeProjectile.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
-    <Compile Include="Assets\Scripts\Healthbar.cs" />
+    <Compile Include="Assets\Scripts\UI\Healthbar.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Bow.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInterfaceSlot.cs" />
     <Compile Include="Assets\Scripts\SetHeadBehindChest.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySleep.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_DropTable.cs" />
-    <Compile Include="Assets\Scripts\PopUp.cs" />
+    <Compile Include="Assets\Scripts\UI\PopUp.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\ScanCombat.cs" />
-    <Compile Include="Assets\Scripts\UIFollowGameObject.cs" />
+    <Compile Include="Assets\Scripts\UI\UIFollowGameObject.cs" />
     <Compile Include="Assets\Scripts\Incantation\Scorch.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Swing.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\Hook.cs" />
@@ -120,18 +125,14 @@
     <Compile Include="Assets\Scripts\WeaponAttacks\TestWeapon.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Spin.cs" />
     <Compile Include="Assets\Scripts\DetectSplash.cs" />
+    <Compile Include="Assets\Scripts\NPC\Character.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantation.cs" />
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\Conversation\CharacterClassification.cs" />
-    <Compile Include="Assets\Scripts\Conversation\NPCInteractable.cs" />
-    <Compile Include="Assets\Scripts\NPC\NPC.cs" />
-    <Compile Include="Assets\Scripts\NPC\Character.cs" />
-    <Compile Include="Assets\Scripts\Conversation\DialogManager.cs" />
-    <Compile Include="Assets\Scripts\Conversation\Dialog.cs" />
+    <Compile Include="Assets\Scripts\EffectState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
