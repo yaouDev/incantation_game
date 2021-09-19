@@ -1,6 +1,8 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class Interactable : MonoBehaviour
 {
     public float radius = 3f;
@@ -9,7 +11,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] protected Transform player;
     public PlayerManager playerManager;
 
-    private static Interactable closest;
+    private static GameObject closest;
 
     public Text interactTextObject;
     public string interactText = "INTERACT";
@@ -23,6 +25,8 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
         InitializeInteractable();
+
+        radius *= 2;
     }
 
     protected void InitializeInteractable()
@@ -40,13 +44,25 @@ public class Interactable : MonoBehaviour
     
     void Update()
     {
-        //poor performance???
 
+        //poor performance???
         //currently picks up all items
-        float distance = Vector3.Distance(player.position, interactionTransform.position);
-        if (distance <= radius && closest == null)
+        //float distance = (player.transform.position - interactionTransform.position).sqrMagnitude;
+        float distance = Vector3.Distance(player.transform.position, interactionTransform.position);
+        if(distance <= radius && closest == null)
         {
-            closest = this;
+            closest = gameObject;
+        }
+        else if (distance > radius)
+        {
+            if (closest == gameObject)
+            {
+                closest = null;
+            }
+        }
+
+        if (closest == gameObject)
+        {
 
             if(interactTextObject != null)
             {
@@ -57,7 +73,7 @@ public class Interactable : MonoBehaviour
             {
                 Interact();
 
-                if(closest is NPCInteractable)
+                if(TryGetComponent(out NPCInteractable npc))
                 {
                     return;
                 }
@@ -71,8 +87,6 @@ public class Interactable : MonoBehaviour
             {
                 interactTextObject.enabled = false;
             }
-
-            closest = null;
         }
     }
 

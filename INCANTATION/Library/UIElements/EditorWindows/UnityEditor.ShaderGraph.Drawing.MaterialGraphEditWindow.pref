@@ -23,6 +23,12 @@ MonoBehaviour:
   - __PanelContainer__rootVisualContainer__74c3678f450ba064c8247986951a48da__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
   - __PanelContainer__rootVisualContainer__088f33d8243a8904a8c0c8ec7e0af0e6__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
   - __PanelContainer__rootVisualContainer__088f33d8243a8904a8c0c8ec7e0af0e6__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
+  - __PanelContainer__rootVisualContainer__d795c48c3e322ae44bd548d5e2c3b859__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
+  - __PanelContainer__rootVisualContainer__d795c48c3e322ae44bd548d5e2c3b859__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
+  - __PanelContainer__rootVisualContainer__4656789f954b80443841ef97833c7127__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
+  - __PanelContainer__rootVisualContainer__4656789f954b80443841ef97833c7127__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
+  - __PanelContainer__rootVisualContainer__dc9fa605c1bd9e749bb31d53bd156c9a__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
+  - __PanelContainer__rootVisualContainer__dc9fa605c1bd9e749bb31d53bd156c9a__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
   m_Values:
   - '{}'
   - '{}'
@@ -32,5 +38,11 @@ MonoBehaviour:
   - '{}'
   - '{}'
   - '{}'
-  - '{"position":{"x":744.0,"y":174.0,"z":0.0},"scale":{"x":0.6575162410736084,"y":0.6575162410736084,"z":1.0}}'
-  - '{"m_Version":19,"m_SelectedElementsArray":["48b9bbf8-4876-49b3-ac9d-361624a07dfd"]}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{"position":{"x":1346.0,"y":208.0,"z":0.0},"scale":{"x":0.32690176367759707,"y":0.32690176367759707,"z":1.0}}'
+  - '{"m_Version":221,"m_SelectedElementsArray":["d96dcb375b414bfb9c5c728990a2bd52"]}'

@@ -1,0 +1,571 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.0f1 (c7b5465681fb) revision 13088070'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.1237; Version 2009; 64bit' Language: 'sv' Physical Memory: 8132 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\Unity\Unity Engine\2020.3.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+D:/GitHub/INCANTATION_GAME/INCANTATION
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+65417
+Successfully changed project path to: D:/GitHub/INCANTATION_GAME/INCANTATION
+D:/GitHub/INCANTATION_GAME/INCANTATION
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 61.62 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.0f1 (c7b5465681fb)
+[Subsystems] Discovering subsystems at path D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/GitHub/INCANTATION_GAME/INCANTATION/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   
+    VRAM:     4043 MB
+    Driver:   27.21.14.6611
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = 'D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56420
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001319 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 59.24 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.605 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001600 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 63.92 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.084 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 1.54 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 139.8 MB.
+System memory in use after: 140.1 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3614.
+Total: 3.352100 ms (FindLiveObjects: 0.506700 ms CreateObjectMapping: 0.359000 ms MarkObjects: 2.453900 ms  DeleteObjects: 0.031000 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton_active@2x.png
+  artifactKey: Guid(19e49615b2c8540fd8a11acd2a26c335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton_active@2x.png using Guid(19e49615b2c8540fd8a11acd2a26c335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac731f464bc74d499e0aafcf0524eae7') in 0.118615 seconds
+  Import took 0.144932 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton@1x.png
+  artifactKey: Guid(1986ec06d68774254928f44b896a3913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton@1x.png using Guid(1986ec06d68774254928f44b896a3913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b451d217861e8f2ab7da526f7d1ed1e2') in 0.021468 seconds
+  Import took 0.028054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton@1x.png
+  artifactKey: Guid(71ef598858974450ead310c33f29d5d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton@1x.png using Guid(71ef598858974450ead310c33f29d5d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfb7e39a69e6269fbf406136cc2209a7') in 0.032923 seconds
+  Import took 0.066743 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton_active@2x.png
+  artifactKey: Guid(9b266e42522c048f6b62832985be51ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton_active@2x.png using Guid(9b266e42522c048f6b62832985be51ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4246ee53b4cba0e87fb603129647fa74') in 0.034422 seconds
+  Import took 0.060313 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton_active@1x.png
+  artifactKey: Guid(7604699b5bc8f4343b03cc4d0b603403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton_active@1x.png using Guid(7604699b5bc8f4343b03cc4d0b603403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7995da2aea53a0850ed7dec90e35f357') in 0.028140 seconds
+  Import took 0.060694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/reset_on.png
+  artifactKey: Guid(990963b32226c440fb1a72e47e0ad7a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/reset_on.png using Guid(990963b32226c440fb1a72e47e0ad7a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34cff81cbfcdb0beb66915b2b19a81be') in 0.032234 seconds
+  Import took 0.038615 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000401 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton_active@2x.png
+  artifactKey: Guid(f6a4baf90a7bb4e4a92abe07f1a0a9d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton_active@2x.png using Guid(f6a4baf90a7bb4e4a92abe07f1a0a9d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2de38aa3fb23670b05d59d609e83f767') in 0.025322 seconds
+  Import took 0.055493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000382 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/scene_box@1x.png
+  artifactKey: Guid(a4bb5812f98bf40a68d9c1a69ad860cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/scene_box@1x.png using Guid(a4bb5812f98bf40a68d9c1a69ad860cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '542f7cf4e3cad77f469f34cbada2e7b0') in 0.053395 seconds
+  Import took 0.059776 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_diameter@2x.png
+  artifactKey: Guid(36094f49ffe31443eb5e8ea185115a1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_diameter@2x.png using Guid(36094f49ffe31443eb5e8ea185115a1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '413fe9abf5379885fca3a915137d7a46') in 0.040193 seconds
+  Import took 0.057226 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton@2x.png
+  artifactKey: Guid(7ef0e648811f14f65b69c2df3f27de11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton@2x.png using Guid(7ef0e648811f14f65b69c2df3f27de11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ebfa936c51cc853e837d069416c664f') in 0.031963 seconds
+  Import took 0.044922 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/ExampleScenes/Prefabs/MineBot/Materials/Minebot_NRM.tif
+  artifactKey: Guid(7cec4fc9f20c5e145941cf016d68ff64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/ExampleScenes/Prefabs/MineBot/Materials/Minebot_NRM.tif using Guid(7cec4fc9f20c5e145941cf016d68ff64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebecda73a0cf07254be5d264e8eaf2fb') in 0.059234 seconds
+  Import took 0.082699 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/pixelBox3@2x.png
+  artifactKey: Guid(5ed56a3e069cd4b5aa4360154acc026a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/pixelBox3@2x.png using Guid(5ed56a3e069cd4b5aa4360154acc026a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55c6085a070e20babe73004131d78246') in 0.020819 seconds
+  Import took 0.038760 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000483 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_open@2x.png
+  artifactKey: Guid(d04d4a88875f842c88825d3d5b2b529c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_open@2x.png using Guid(d04d4a88875f842c88825d3d5b2b529c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3eb5e03c67fd16bde673b73dba30784f') in 0.015760 seconds
+  Import took 0.026642 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton_active@2x.png
+  artifactKey: Guid(f7ae6f90d33d043c684812513307ec16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton_active@2x.png using Guid(f7ae6f90d33d043c684812513307ec16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b01c9cf74af772cb35970172207dc257') in 0.015114 seconds
+  Import took 0.026286 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton_active@1x.png
+  artifactKey: Guid(e0cb3cc51f25a48bf8b0c647452b09b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton_active@1x.png using Guid(e0cb3cc51f25a48bf8b0c647452b09b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '989e1e2b911b807e8b1aea285f0e41c5') in 0.024030 seconds
+  Import took 0.030819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/colorInterpolationBox.png
+  artifactKey: Guid(9bf4f8f9d8795455bb87213dd56ed793) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/colorInterpolationBox.png using Guid(9bf4f8f9d8795455bb87213dd56ed793) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0228f7e2a533cb435235561b703b19c2') in 0.026893 seconds
+  Import took 0.045951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 457.131574 seconds.
+  path: Assets/Shaders/TilableTexture.shadergraph
+  artifactKey: Guid(d795c48c3e322ae44bd548d5e2c3b859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TilableTexture.shadergraph using Guid(d795c48c3e322ae44bd548d5e2c3b859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9492233287c6b9ffd50de2e040c8647c') in 0.008384 seconds
+  Import took 0.054655 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001619 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.974 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3039 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 135.9 MB.
+System memory in use after: 136.2 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3629.
+Total: 2.586000 ms (FindLiveObjects: 0.292700 ms CreateObjectMapping: 0.128300 ms MarkObjects: 2.138500 ms  DeleteObjects: 0.025400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 183.306768 seconds.
+  path: Assets/Shaders/TilableTexture.shadergraph
+  artifactKey: Guid(d795c48c3e322ae44bd548d5e2c3b859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TilableTexture.shadergraph using Guid(d795c48c3e322ae44bd548d5e2c3b859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6cd8f960db92f109d212e086f4026c0') in 0.018038 seconds
+  Import took 0.091156 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 368.780711 seconds.
+  path: Assets/Shaders/TilableTexture.shadergraph
+  artifactKey: Guid(d795c48c3e322ae44bd548d5e2c3b859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TilableTexture.shadergraph using Guid(d795c48c3e322ae44bd548d5e2c3b859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1776e54198e9d9e1ad5c175a06d2a20') in 0.008227 seconds
+  Import took 0.032496 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000515 seconds.
+  path: Assets/Shaders/TilableTexture.shadergraph
+  artifactKey: Guid(d795c48c3e322ae44bd548d5e2c3b859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TilableTexture.shadergraph using Guid(d795c48c3e322ae44bd548d5e2c3b859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1776e54198e9d9e1ad5c175a06d2a20') in 0.002387 seconds
+  Import took 0.009744 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.874735 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton_active@1x.png
+  artifactKey: Guid(c051ffc737cd54d909137d2937e82930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton_active@1x.png using Guid(c051ffc737cd54d909137d2937e82930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96886fbec56d6fd0d676b9f4a6bb54db') in 0.045170 seconds
+  Import took 0.080552 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@1x.png
+  artifactKey: Guid(d0f7738d6b5b2420b9a77bfef3926e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@1x.png using Guid(d0f7738d6b5b2420b9a77bfef3926e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c139b62d7484de37414bb741dcd69f57') in 0.036624 seconds
+  Import took 0.048668 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001150 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@1x.png
+  artifactKey: Guid(d0f7738d6b5b2420b9a77bfef3926e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@1x.png using Guid(d0f7738d6b5b2420b9a77bfef3926e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c139b62d7484de37414bb741dcd69f57') in 0.004978 seconds
+  Import took 0.011032 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.307349 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@2x.png
+  artifactKey: Guid(b9d7d6d7befb34b9c889e6195746c452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@2x.png using Guid(b9d7d6d7befb34b9c889e6195746c452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82c15a57f531037c726ddf39d97cac44') in 0.039178 seconds
+  Import took 0.071059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.062445 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_off@1x.png
+  artifactKey: Guid(c780955fc9d0f458abc0de8f2f9cedb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_off@1x.png using Guid(c780955fc9d0f458abc0de8f2f9cedb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd322b487c70f96b3ba3586dfa17e5a1e') in 0.024493 seconds
+  Import took 0.061223 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_on@1x.png
+  artifactKey: Guid(54ad5f6eb8a9349568e58cd1204388a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_on@1x.png using Guid(54ad5f6eb8a9349568e58cd1204388a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50a28960d4a43a56e08e66cd5d6c902b') in 0.057074 seconds
+  Import took 0.064610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect_Normal.png
+  artifactKey: Guid(9de7a15ab4e1d48da9861247bc34226d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect_Normal.png using Guid(9de7a15ab4e1d48da9861247bc34226d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8903daebb026b05316b9052b1a14ec8c') in 0.047429 seconds
+  Import took 0.079361 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect_Normal.png
+  artifactKey: Guid(37972c32346084c13bfddb8c3dbed143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect_Normal.png using Guid(37972c32346084c13bfddb8c3dbed143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32af50d7d5c4a7bd9996f8ee21a02145') in 0.076852 seconds
+  Import took 0.109702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect.png
+  artifactKey: Guid(b593db43606434498a7200f8281297d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect.png using Guid(b593db43606434498a7200f8281297d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec82bc7ef6a7f47284b999da02054981') in 0.045368 seconds
+  Import took 0.066437 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/linkButton_normal.png
+  artifactKey: Guid(53ee29e7cbeb545bcb1ca238a2736fb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/linkButton_normal.png using Guid(53ee29e7cbeb545bcb1ca238a2736fb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2894d82b64751f789e3b706d772bedbe') in 0.060205 seconds
+  Import took 0.068063 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_closed@2x.png
+  artifactKey: Guid(6c38830c1556942fcb6ce893085d1daa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_closed@2x.png using Guid(6c38830c1556942fcb6ce893085d1daa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5fe8cb15742e03405ae8a08f3b75175') in 0.030448 seconds
+  Import took 0.038818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_closed@2x.png
+  artifactKey: Guid(7b229d059f89d49918aec1466c0c5819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_closed@2x.png using Guid(7b229d059f89d49918aec1466c0c5819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8af4b83114a80f260a32431da20b53bd') in 0.028702 seconds
+  Import took 0.066417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_closed@1x.png
+  artifactKey: Guid(5e0cd84e9d84642ac883c25ca8d667ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_closed@1x.png using Guid(5e0cd84e9d84642ac883c25ca8d667ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4d7672b14584a18c70a05be24b68c30') in 0.018434 seconds
+  Import took 0.042028 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_on@1x.png
+  artifactKey: Guid(455f4fe795672465c8a4e8db3c6b9ccb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_on@1x.png using Guid(455f4fe795672465c8a4e8db3c6b9ccb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57ee6856c07408bca83e207a8dfa39e2') in 0.035531 seconds
+  Import took 0.070285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_off@2x.png
+  artifactKey: Guid(deb2afb942c3b42fbba8823da7f05894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_off@2x.png using Guid(deb2afb942c3b42fbba8823da7f05894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7133103df8615323b948c051facd733') in 0.028067 seconds
+  Import took 0.058056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect.png
+  artifactKey: Guid(5006aa4ede39e49198b851d98e267b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect.png using Guid(5006aa4ede39e49198b851d98e267b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c360e63dcede27cfcbdaf2482e522b2d') in 0.034913 seconds
+  Import took 0.040905 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect-03.png
+  artifactKey: Guid(0758c9e42111d4aec99694c875e9badc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect-03.png using Guid(0758c9e42111d4aec99694c875e9badc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62d62f7a2153d0c1d8a3f7b2f6463279') in 0.062348 seconds
+  Import took 0.100972 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000358 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_closed@1x.png
+  artifactKey: Guid(aaae516f9c5404f77a3e586cdd59695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_closed@1x.png using Guid(aaae516f9c5404f77a3e586cdd59695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9f38de5a6782eb95d9db0eee09ef06c') in 0.032257 seconds
+  Import took 0.040579 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/linkButton_active.png
+  artifactKey: Guid(1066e2a70f10b481984312db993dadc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/linkButton_active.png using Guid(1066e2a70f10b481984312db993dadc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ab6a6b22f41949a7d8a6f3fd9901063') in 0.049697 seconds
+  Import took 0.075770 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_off@2x.png
+  artifactKey: Guid(3772050cdbd2a472789aa76d6de5b270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_off@2x.png using Guid(3772050cdbd2a472789aa76d6de5b270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c213873d54046d23a5841135dc82aad8') in 0.013997 seconds
+  Import took 0.021474 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000297 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_on@2x.png
+  artifactKey: Guid(731ce0beec302410299a12fa1da2dc54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_on@2x.png using Guid(731ce0beec302410299a12fa1da2dc54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ad3f9b2faca1ad426f682c5d361731f') in 0.033784 seconds
+  Import took 0.069550 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/grid.psd
+  artifactKey: Guid(527965173b00f43f9a1b8fc9e8c2e64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/grid.psd using Guid(527965173b00f43f9a1b8fc9e8c2e64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1974e9c80cd9035b7312084c19b07bff') in 0.036697 seconds
+  Import took 0.080166 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gridPivotSelect.png
+  artifactKey: Guid(11b8d44fcb3cf4c048a576df708e0ec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gridPivotSelect.png using Guid(11b8d44fcb3cf4c048a576df708e0ec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6ce9c5221e5917efa79076156d22dd1') in 0.028622 seconds
+  Import took 0.036457 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_on@2x.png
+  artifactKey: Guid(a454b67ef7bd04780aca99e364202679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_on@2x.png using Guid(a454b67ef7bd04780aca99e364202679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fcb180c418704762ea338cbc7a184e6') in 0.037114 seconds
+  Import took 0.061477 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/headerBackground.png
+  artifactKey: Guid(db5b85df63e094a1c96f11019bccc577) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/headerBackground.png using Guid(db5b85df63e094a1c96f11019bccc577) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed241c439fd95e47391c84522d83a5d8') in 0.020539 seconds
+  Import took 0.026627 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/ExampleScenes/Example5_PointGraph/ground.psd
+  artifactKey: Guid(b0749c40ee03a46eaa0401867a08b963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/ExampleScenes/Example5_PointGraph/ground.psd using Guid(b0749c40ee03a46eaa0401867a08b963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31a20c075457b39ae7aab1c461098974') in 0.048912 seconds
+  Import took 0.055833 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/headerBackground.png
+  artifactKey: Guid(620f088d04c284b21939ce24996fdbee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/headerBackground.png using Guid(620f088d04c284b21939ce24996fdbee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16fceb47ac593bbd3bc262e7b727c67c') in 0.039107 seconds
+  Import took 0.045889 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect_On.png
+  artifactKey: Guid(7ea4fc739ffbb4af1a466f655bf1d178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect_On.png using Guid(7ea4fc739ffbb4af1a466f655bf1d178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8a2657d9dfd4d965cc06261a62b1a89') in 0.035251 seconds
+  Import took 0.055922 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect_On.png
+  artifactKey: Guid(3d11311e97436432e897a4bd0b5fbfac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect_On.png using Guid(3d11311e97436432e897a4bd0b5fbfac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ef54c1717d1b1282e67f97d7da23a49') in 0.027581 seconds
+  Import took 0.052242 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.775602 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_open@1x.png
+  artifactKey: Guid(c43744025f7024e20b5fe880600d19a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_open@1x.png using Guid(c43744025f7024e20b5fe880600d19a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac1955e797a1dfa4f1f39d29f67e3e44') in 0.030412 seconds
+  Import took 0.038153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_width@2x.png
+  artifactKey: Guid(321a1fe2502bc493d87337a3a4429cf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_width@2x.png using Guid(321a1fe2502bc493d87337a3a4429cf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd648c466fdbf5952cfb7d33c2dee128f') in 0.057593 seconds
+  Import took 0.071229 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_width@1x.png
+  artifactKey: Guid(c3f63c474ba404e88a6a16a074cced39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_width@1x.png using Guid(c3f63c474ba404e88a6a16a074cced39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1860f9649892968f9e780f8c5d975e16') in 0.086723 seconds
+  Import took 0.122402 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_width@1x.png
+  artifactKey: Guid(43a4af66a8c594a2daa4744ed77da2dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_width@1x.png using Guid(43a4af66a8c594a2daa4744ed77da2dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b94b25f8962453fd4a00185ca84ac35a') in 0.030078 seconds
+  Import took 0.072009 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_width@2x.png
+  artifactKey: Guid(6010a63a238ef4899872fe5bd998dbb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_width@2x.png using Guid(6010a63a238ef4899872fe5bd998dbb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62c5847582be77271b8595c099a2ed96') in 0.030280 seconds
+  Import took 0.036306 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.412567 seconds.
+  path: Assets/A-Star/AstarPathfindingProject/ExampleScenes/Example2_Terrain/Pathfinding_Terrain.asset
+  artifactKey: Guid(ce970816794dc4a6c8b5acdbc5953551) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/A-Star/AstarPathfindingProject/ExampleScenes/Example2_Terrain/Pathfinding_Terrain.asset using Guid(ce970816794dc4a6c8b5acdbc5953551) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Received signal SIGSEGV
+Stack trace:
+0x00007ff6f22425da (Unity) CreateAssetToGUIDMappingV2
+0x00007ff6f21b1b20 (Unity) AssetDatabase::CreateAssetToGUIDMapping
+0x00007ff6f0fd5945 (Unity) SplatDatabase::CreateTerrainLayerAsset
+0x00007ff6f0fd4600 (Unity) SplatDatabase::ConvertSplatsToTerrainLayers
+0x00007ff6f0fd15ac (Unity) SplatDatabase::AwakeFromLoad
+0x00007ff6f101c016 (Unity) TerrainData::AwakeFromLoad
+0x00007ff6f0b8ea1f (Unity) AwakeFromLoadQueue::InvokePersistentManagerAwake
+0x00007ff6f0b8f372 (Unity) AwakeFromLoadQueue::PersistentManagerAwakeFromLoad
+0x00007ff6f0b8f4fa (Unity) AwakeFromLoadQueue::PersistentManagerAwakeFromLoad
+0x00007ff6f0b1e86e (Unity) PersistentManager::IntegrateAllThreadedObjects
+0x00007ff6f0b1f287 (Unity) PersistentManager::LoadAndIntegrateAllPreallocatedObjects
+0x00007ff6f0b22813 (Unity) PersistentManager::ReadObject
+0x00007ff6f21aacc1 (Unity) WritePreviews
+0x00007ff6f21a4b7e (Unity) PreviewImporter::GenerateAssetData
+0x00007ff6f22b87a9 (Unity) ImportToObjects
+0x00007ff6f22b7618 (Unity) AssetImportWorker::Import
+0x00007ff6f2216d9f (Unity) <lambda_77c748ffdfab40a7d87ea62709a69e39>::operator()
+0x00007ff6f22e2132 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
+0x00007ff6f22e4290 (Unity) asio::detail::win_iocp_io_service::do_one
+0x00007ff6f22e7a1e (Unity) asio::io_service::run
+0x00007ff6f225dc10 (Unity) RunAssetImportWorkerClientV2
+0x00007ff6f225dc60 (Unity) RunAssetImporterV2
+0x00007ff6f176fed6 (Unity) Application::InitializeProject
+0x00007ff6f20ea372 (Unity) WinMain
+0x00007ff6f3f5f436 (Unity) __scrt_common_main_seh
+0x00007ffcce227034 (KERNEL32) BaseThreadInitThunk
+0x00007ffccfcc2651 (ntdll) RtlUserThreadStart
+

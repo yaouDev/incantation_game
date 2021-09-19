@@ -168,16 +168,9 @@ public class EffectState : MonoBehaviour
     {
         //the bool does things in other scripts
     }
-
-    private void Slow()
-    {
-        //start particles
-
-        
-    }
 }
 
 public enum Effect
 {
-    bleed, burn, freeze, slow
+    bleed, burn, freeze, slow, voidalAffliction
 }

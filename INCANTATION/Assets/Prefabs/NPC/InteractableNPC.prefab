@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3511619050178175957}
   m_Layer: 0
   m_Name: InteractableNPC
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   - {fileID: 3267885162307209197}
   offset: 0
   runOnlyOnce: 0
+  hasParticles: 0
 --- !u!1001 &187169187331237419
 PrefabInstance:
   m_ObjectHideFlags: 0
