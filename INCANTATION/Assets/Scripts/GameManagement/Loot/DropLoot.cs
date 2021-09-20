@@ -6,26 +6,57 @@ public class DropLoot : MonoBehaviour
 {
     public GameObject itemPickup;
 
-    public Item[] commonLoot = new Item[0];
-    public Item[] uncommonLoot = new Item[0];
-    public Item[] rareLoot = new Item[0];
-    public Item[] mythicLoot = new Item[0];
-    public Item[] legendaryLoot = new Item[0];
+    public List<Item> drops = new List<Item>();
 
-    private Dictionary<Rarity, Item[]> drops = new Dictionary<Rarity, Item[]>();
+    private List<Item> commonLoot = new List<Item>();
+    private List<Item> uncommonLoot = new List<Item>();
+    private List<Item> rareLoot = new List<Item>();
+    private List<Item> mythicLoot = new List<Item>();
+    private List<Item> legendaryLoot = new List<Item>();
+
+    private Dictionary<Rarity, List<Item>> nullCheck = new Dictionary<Rarity, List<Item>>();
 
     private void Start()
     {
-        AddToDrops(Rarity.common, commonLoot);
-        AddToDrops(Rarity.uncommon, uncommonLoot);
-        AddToDrops(Rarity.rare, rareLoot);
-        AddToDrops(Rarity.mythic, mythicLoot);
-        AddToDrops(Rarity.legendary, legendaryLoot);
+        foreach (Item i in drops)
+        {
+            switch (i.rarity)
+            {
+                case Rarity.common:
+                    commonLoot.Add(i);
+                    print(commonLoot);
+                    break;
+                case Rarity.uncommon:
+                    uncommonLoot.Add(i);
+                    break;
+                case Rarity.rare:
+                    rareLoot.Add(i);
+                    break;
+                case Rarity.mythic:
+                    mythicLoot.Add(i);
+                    break;
+                case Rarity.legendary:
+                    legendaryLoot.Add(i);
+                    break;
+                case Rarity.special:
+                    legendaryLoot.Add(i);
+                    Debug.Log("Special... nice..!");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        AddToNullCheck(Rarity.common, commonLoot);
+        AddToNullCheck(Rarity.uncommon, uncommonLoot);
+        AddToNullCheck(Rarity.rare, rareLoot);
+        AddToNullCheck(Rarity.mythic, mythicLoot);
+        AddToNullCheck(Rarity.legendary, legendaryLoot);
     }
 
     public Item Drop(Vector3 location)
     {
-        if (commonLoot.Length == 0 && uncommonLoot.Length == 0 && rareLoot.Length == 0 && mythicLoot.Length == 0 && legendaryLoot.Length == 0)
+        if (nullCheck.Keys.Count <= 0f)
         {
             Debug.LogWarning("No loot set for " + gameObject.name);
             return null;
@@ -37,7 +68,7 @@ public class DropLoot : MonoBehaviour
         {
             rarity = LootCalculator.instance.Calculcate();
         }
-        while (!drops.ContainsKey(rarity));
+        while (!nullCheck.ContainsKey(rarity));
 
         ItemPickup lootInstance = Instantiate(itemPickup, location, itemPickup.transform.localRotation).GetComponent<ItemPickup>();
 
@@ -69,17 +100,17 @@ public class DropLoot : MonoBehaviour
         return lootInstance.item;
     }
 
-    private Item FindLoot(Item[] array)
+    private Item FindLoot(List<Item> array)
     {
-        int index = Random.Range(0, array.Length);
+        int index = Random.Range(0, array.Count);
         return array[index];
     }
 
-    private void AddToDrops(Rarity rarity, Item[] table)
+    private void AddToNullCheck(Rarity rarity, List<Item> table)
     {
-        if (table.Length > 0)
+        if (table.Count > 0)
         {
-            drops.Add(rarity, table);
+            nullCheck.Add(rarity, table);
         }
     }
 }

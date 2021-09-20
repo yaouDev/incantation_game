@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 1e624e1a997d8411ebe498d51d9dcc6d, type: 3}
   sprite: {fileID: 21300000, guid: b6e0510b98b514e078dd461313dcd347, type: 3}
   isDefaultItem: 0
-  rarity: 0
+  rarity: 2
   equipSlot: 0
   armorModifer: 0
   damageModifier: 0
@@ -31,3 +31,8 @@ MonoBehaviour:
   lightOuterRange: 1
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   lightOffset: {x: 0, y: 0, z: 0}
+  useSingleColor: 0
+  useTripleColor: 0
+  mainColor: {r: 1, g: 1, b: 1, a: 1}
+  secondaryColor: {r: 1, g: 1, b: 1, a: 1}
+  tertiaryColor: {r: 1, g: 1, b: 1, a: 1}

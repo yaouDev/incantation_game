@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHitParticles: {fileID: 7821723392942215340}
+  effectState: {fileID: 0}
   maxHealth:
     baseValue: 1000
     minValue: 0
@@ -590,7 +591,6 @@ MonoBehaviour:
   projectileSpeed: 5
   projectileDamage: 35
   projectileSpace: 10
-  moveSpeed: 5
   spinInterval: 0
 --- !u!114 &9002552754240719321
 MonoBehaviour:

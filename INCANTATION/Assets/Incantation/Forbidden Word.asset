@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7fa158a051d064b84a127b98ed6897, type: 3}
+  m_Name: Forbidden Word
+  m_EditorClassIdentifier: 
+  name: Forbidden Word
+  description: Don't say it!!
+  faction: 0
+  trigger: frick
+  radialIndicator: {fileID: 8165262973573925054, guid: 0051a117c983f1540bb39aede07a5402, type: 3}
+  radius: 3

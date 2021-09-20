@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Scorch Ground", menuName = "Incantation/Scorch Ground")]
 public class Incantation_ScorchGround : Incantation
 {
     public GameObject scorch;

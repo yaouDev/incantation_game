@@ -387,13 +387,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPickup: {fileID: 2990571061493820872, guid: f1303bb02d1b48343bdc3c8f82af9193, type: 3}
-  commonLoot:
-  - {fileID: 11400000, guid: c6583ebd5d795cb46b5a0f5a26800225, type: 2}
-  uncommonLoot: []
-  rareLoot: []
-  mythicLoot: []
-  legendaryLoot:
+  drops:
   - {fileID: 11400000, guid: aac2ab4d810db9346a561599b6926575, type: 2}
+  - {fileID: 11400000, guid: 42779cf64613a124484b5177e2d68557, type: 2}
+  - {fileID: 11400000, guid: 1e976f900f06feb45afd2b4e0ca1903f, type: 2}
+  - {fileID: 11400000, guid: 5a05866b3c256be4893d516ad2480584, type: 2}
+  - {fileID: 11400000, guid: 825b6c47572e9454da2d7f6d68db7497, type: 2}
+  - {fileID: 11400000, guid: a27dd4809fad8bb4db7bfe6b62a33357, type: 2}
+  - {fileID: 11400000, guid: c6583ebd5d795cb46b5a0f5a26800225, type: 2}
 --- !u!114 &2532824683328772002
 MonoBehaviour:
   m_ObjectHideFlags: 0

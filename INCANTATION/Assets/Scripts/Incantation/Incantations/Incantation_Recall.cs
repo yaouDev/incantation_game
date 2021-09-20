@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Recall", menuName = "Incantation/Recall")]
 public class Incantation_Recall : Incantation
 {
     [SerializeField] private GameObject recallPoint;

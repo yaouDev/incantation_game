@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300362, guid: 95d22684aba5646d79a26b3287a692b6, type: 3}
   sprite: {fileID: 21300538, guid: 95d22684aba5646d79a26b3287a692b6, type: 3}
   isDefaultItem: 0
-  rarity: 0
+  rarity: 3
   equipSlot: 3
   armorModifer: 0
   damageModifier: 0

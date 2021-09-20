@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manualAttackFreeze: 0
   hook: {fileID: 341243730731075646, guid: b381201dfe139bf45bfd931441c6ad21, type: 3}
-  hookSpeed: 10
+  hookSpeed: 30
   hookGFX: {fileID: 21300000, guid: 8f03d65eca65243d0963f648c2e9824a, type: 3}
   hookDamage: 0

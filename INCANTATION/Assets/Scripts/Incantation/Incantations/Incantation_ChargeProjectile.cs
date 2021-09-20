@@ -58,7 +58,6 @@ public class Incantation_ChargeProjectile : Incantation
         if (normalizedTimer <= 1f && canCast)
         {
             normalizedTimer += Time.deltaTime / timeToFullCharge;
-            print(normalizedTimer);
         }
     }
 

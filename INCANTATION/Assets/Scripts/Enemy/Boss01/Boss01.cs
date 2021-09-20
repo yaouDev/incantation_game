@@ -82,10 +82,6 @@ public class Boss01 : MonoBehaviour
 
             if (isAwake)
             {
-                //Move
-                Vector2 distance = player.transform.position - gameObject.transform.position;
-                rb.MovePosition(rb.position + distance * (stats.movementSpeed.GetValue() / 10f) * Time.fixedDeltaTime);
-
                 if (normalizedTimer <= 1f)
                 {
                     normalizedTimer += Time.deltaTime / attackInterval;

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e527346909eb29845bd6579f60903e47, type: 3}
+  m_Name: Recall
+  m_EditorClassIdentifier: 
+  name: Recall
+  description: Places a point in the world to where you shall return
+  faction: 0
+  trigger: recall
+  recallPoint: {fileID: 6488784405354362372, guid: 94290c72edc7e1f46b008497b4e80ed9, type: 3}

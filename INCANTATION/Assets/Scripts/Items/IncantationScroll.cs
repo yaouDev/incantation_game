@@ -5,17 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Incantation Scroll", menuName = "Inventory/Consumable/Incantation Scroll")]
 public class IncantationScroll : Consumable
 {
-    public GameObject incantationObject;
-    private Incantation incantation;
+    public Incantation incantation;
+
     public override void Use()
     {
-        if(incantationObject == null)
+        if(incantation == null)
         {
             Debug.Log("Empty Incantation Scroll!");
             return;
         }
-
-        incantation = incantationObject.GetComponent<Incantation>();
 
         //add cool text popup
         if (!IncantationManager.instance.GetUnlockedIncantations().ContainsValue(incantation))

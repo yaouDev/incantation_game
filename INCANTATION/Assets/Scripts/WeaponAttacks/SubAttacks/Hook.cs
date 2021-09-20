@@ -41,14 +41,14 @@ public class Hook : Projectile
             {
                 rb.velocity = Vector2.zero;
                 distance = gameObject.transform.position - player.transform.position;
-                player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + (player.GetComponent<PlayerMovement>().GetMovement() / 10f) + distance * (projectileVelocity / grabDivider) * Time.fixedDeltaTime);
+                player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + (distance * Time.deltaTime));
             }
 
-            print(stuckTimer);
+            Debug.Log(stuckTimer);
 
-            distanceCheck1 = Vector2.Distance(gameObject.transform.position, player.transform.position);
+            distanceCheck1 = (gameObject.transform.position - player.transform.position).sqrMagnitude;
 
-            if (distanceCheck2 - distanceCheck1 <= 0.01f)
+            if (distanceCheck2 - distanceCheck1 <= 0.5f)
             {
                 stuckTimer -= Time.deltaTime;
             }

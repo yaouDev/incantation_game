@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Incantation : MonoBehaviour
+public abstract class Incantation : ScriptableObject
 {
     new public string name;
     public string description;

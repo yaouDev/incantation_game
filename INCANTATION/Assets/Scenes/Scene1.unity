@@ -11318,21 +11318,53 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2ac3d31844f7dfb4296edc985ab04c68, type: 2}
     - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: allIncantations.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: allIncantations.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7b58c0738414f74eb4decee8022ea72, type: 2}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: allIncantations.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 704789af57d8b204fa9dba2a81cccc03, type: 2}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: allIncantations.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 67279310808d37f40927fb508261702e, type: 2}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: allIncantations.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: f47466904c2c6b24cba3453bc5f5fb84, type: 2}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: allIncantations.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 49cc95afa0ebc1c47b6f40eb1237729a, type: 2}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
       propertyPath: startingIncantations.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
       propertyPath: incantationContainers.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
       propertyPath: startingIncantations.Array.data[2]
       value: 
       objectReference: {fileID: 8519100579952103652, guid: 37b0b342aad429c45be4d58ee25294f1, type: 3}
     - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: startingIncantations.Array.data[3]
+      value: 
+      objectReference: {fileID: 5424831169793176345, guid: 99950ced06b1c404098a04d11bc0467f, type: 3}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
       propertyPath: incantationContainers.Array.data[4]
       value: 
       objectReference: {fileID: 8519100579952103652, guid: 37b0b342aad429c45be4d58ee25294f1, type: 3}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: incantationContainers.Array.data[5]
+      value: 
+      objectReference: {fileID: 5424831169793176345, guid: 99950ced06b1c404098a04d11bc0467f, type: 3}
     - target: {fileID: 1576452121499354033, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
       propertyPath: weapon
       value: 
@@ -15586,7 +15618,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab153adac48a9c241bd9c7be76de8588, type: 2}
+  - {fileID: 2100000, guid: 15603fb536b773d4ba5f40063df25e33, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35613,6 +35645,10 @@ PrefabInstance:
       propertyPath: attackInterval
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2822974603028950165, guid: 6333407546111cc428d42d1109c5d240, type: 3}
+      propertyPath: projectileDamage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3210607434331504243, guid: 6333407546111cc428d42d1109c5d240, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -35729,6 +35765,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.24083209
       objectReference: {fileID: 0}
+    - target: {fileID: 9002552754240719321, guid: 6333407546111cc428d42d1109c5d240, type: 3}
+      propertyPath: drops.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002552754240719321, guid: 6333407546111cc428d42d1109c5d240, type: 3}
+      propertyPath: drops.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c6583ebd5d795cb46b5a0f5a26800225, type: 2}
+    - target: {fileID: 9002552754240719321, guid: 6333407546111cc428d42d1109c5d240, type: 3}
+      propertyPath: drops.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a27dd4809fad8bb4db7bfe6b62a33357, type: 2}
     - target: {fileID: 9002552754240719321, guid: 6333407546111cc428d42d1109c5d240, type: 3}
       propertyPath: rareLoot.Array.size
       value: 1

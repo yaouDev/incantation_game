@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Void
-  m_Shader: {fileID: -6465566751694194690, guid: d795c48c3e322ae44bd548d5e2c3b859, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: dc9fa605c1bd9e749bb31d53bd156c9a, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,20 +19,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_27120aef9f20449ca1025b0b78f90961:
+    - Texture2D_a9bfeb7ea97144d8b158cd84c20bdbc4:
         m_Texture: {fileID: 2800000, guid: 74520a9b4fd2262438bb37bbbd6b06f9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture2D_862454687d5a442686b7fc2058e978d2:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_d89b51ef389c44fb8c23a18d6495f8b3:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bc35c3330dc3d254396c46f4393fe2f2, type: 3}
+    - _SampleTexture2D_78475e29191b4212aa0789e3cc93c741_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 74520a9b4fd2262438bb37bbbd6b06f9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -48,11 +40,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_0bb63b849124425a8d5d4704a4cc5380: 1
-    - Vector1_1116511580494f45b0d3dc72e2277432: 1
-    - Vector1_219fc73d019342c19d7d210a2773cadb: 0.5
-    - Vector1_be2b8e81bd414af4b30b88aed037c52b: 0.3
-    m_Colors:
-    - Color_5889dff2a9f9435a87f2a5e2b4d4deaf: {r: 1, g: 1, b: 1, a: 0}
-    - Color_c47556ba86f7489292b309e12ff7bc77: {r: 0, g: 0, b: 0, a: 0}
+    - Vector1_2a8c1dbf7d5a40218ff0d92de14d6207: 0.33
+    - Vector1_a123046237c14e98bb45b4349ac78ffa: 500
+    - Vector1_c6f2539a735f4a84a358b9e88956493d: 0.08
+    m_Colors: []
   m_BuildTextureStacks: []

@@ -56,6 +56,8 @@ public class Projectile : MonoBehaviour
                 enemy.TakeDamage(damage);
             }
 
+            enemy.effectState.ApplyEffect(Effect.voidalAffliction, 3f);
+
             collidedEnemies.Add(enemy.gameObject);
         }
 

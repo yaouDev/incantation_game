@@ -10,19 +10,23 @@ public class EffectState : MonoBehaviour
     public bool isBleeding;
     public bool isBurning;
     public bool isFrozen;
+    public bool isAfflicted;
 
     private float bleedTimer;
     private float burnTimer;
     private float freezeTimer;
+    private float afflictionTimer;
 
     [Header("Particles")]
     public ParticleSystem bloodParticles;
     public ParticleSystem fireParticles;
+    public ParticleSystem afflictionParticles;
 
     public SpriteRenderer spriteRenderer;
     private CharacterStats stats;
     private Rigidbody2D rb;
 
+    //if damage is instansiated by a different source with a different value, the most recent instance will change all remaining damage
     private int bleedDamage;
     private int burnDamage;
 
@@ -43,6 +47,9 @@ public class EffectState : MonoBehaviour
 
             ParticleSystem.ShapeModule fireShape = fireParticles.shape;
             fireShape.radius = spriteRenderer.bounds.size.magnitude / 3f;
+
+            ParticleSystem.ShapeModule voidShape = afflictionParticles.shape;
+            voidShape.radius = spriteRenderer.bounds.size.magnitude / 3f;
         }
     }
 
@@ -67,9 +74,18 @@ public class EffectState : MonoBehaviour
             case Effect.slow:
                 SetSlow(duration, modifier);
                 break;
+            case Effect.voidalAffliction:
+                afflictionTimer = duration;
+                SetAffliction();
+                break;
             default:
                 break;
         }
+    }
+
+    public void ApplyEffect(Effect effect, float duration)
+    {
+        ApplyEffect(effect, duration, 0);
     }
 
     private void FixedUpdate()
@@ -82,6 +98,7 @@ public class EffectState : MonoBehaviour
         {
             isBleeding = false;
             CancelInvoke("Bleed");
+            bloodParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         if (burnTimer > 0f)
@@ -92,6 +109,7 @@ public class EffectState : MonoBehaviour
         {
             isBurning = false;
             CancelInvoke("Burn");
+            fireParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         if (freezeTimer > 0f)
@@ -107,13 +125,24 @@ public class EffectState : MonoBehaviour
                 spriteRenderer.color = Color.white;
             }
         }
+
+        if (afflictionTimer > 0f)
+        {
+            afflictionTimer -= Time.deltaTime;
+        }
+        else
+        {
+            isAfflicted = false;
+            CancelInvoke("Afflict");
+            afflictionParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     private void SetBleed()
     {
         bloodParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        ParticleSystem.MainModule bloodMain = bloodParticles.main;
-        bloodMain.duration = bleedTimer;
+        //ParticleSystem.MainModule bloodMain = bloodParticles.main;
+        //bloodMain.duration = bleedTimer;
         bloodParticles.Play();
         if (!isBleeding)
         {
@@ -128,12 +157,12 @@ public class EffectState : MonoBehaviour
     private void SetBurn()
     {
         fireParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        ParticleSystem.MainModule fireMain = fireParticles.main;
-        fireMain.duration = burnTimer;
+        //ParticleSystem.MainModule fireMain = fireParticles.main;
+        //fireMain.duration = burnTimer;
         fireParticles.Play();
         if (!isBurning)
         {
-            InvokeRepeating("Burn", 0.5f, 0.5f);
+            InvokeRepeating("Burn", 0.25f, 0.5f);
             isBurning = true;
         }
     }
@@ -154,6 +183,23 @@ public class EffectState : MonoBehaviour
         stats.StartCoroutine(stats.StatDrain(stats.movementSpeed, modifier, duration));
     }
 
+    private void SetAffliction()
+    {
+        afflictionParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        //ParticleSystem.MainModule afflictionMain = afflictionParticles.main;
+        //afflictionMain.duration = afflictionTimer;
+        afflictionParticles.Play();
+        if (!isAfflicted)
+        {
+            InvokeRepeating("Afflict", 0.125f, 0.25f);
+            isAfflicted = true;
+        }
+
+        int modifier = stats.movementSpeed.GetValue() / 2;
+        stats.StartCoroutine(stats.StatDrain(stats.movementSpeed, modifier, afflictionTimer));
+    }
+
+    //Attacks are all referenced from InvokeRepeating
     private void Bleed()
     {
         stats.TakeDamage(bleedDamage);
@@ -167,6 +213,12 @@ public class EffectState : MonoBehaviour
     private void Freeze()
     {
         //the bool does things in other scripts
+    }
+
+    private void Afflict()
+    {
+        //hard coded to avoid super op things
+        stats.TakeDamage(stats.GetCurrentHealth() / 100);
     }
 }
 
