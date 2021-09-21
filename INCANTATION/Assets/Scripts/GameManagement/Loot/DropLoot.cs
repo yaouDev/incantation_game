@@ -24,7 +24,6 @@ public class DropLoot : MonoBehaviour
             {
                 case Rarity.common:
                     commonLoot.Add(i);
-                    print(commonLoot);
                     break;
                 case Rarity.uncommon:
                     uncommonLoot.Add(i);
