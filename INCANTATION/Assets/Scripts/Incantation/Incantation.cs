@@ -9,8 +9,3 @@ public abstract class Incantation : ScriptableObject
 
     public abstract void Cast();
 }
-
-public enum Faction
-{
-    one, two, three, four
-}

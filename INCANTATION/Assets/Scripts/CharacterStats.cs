@@ -17,9 +17,6 @@ public abstract class CharacterStats : MonoBehaviour
     public delegate void OnDamageTaken();
     public OnDamageTaken onDamageTakenCallback;
 
-    public bool isBoosted { get; private set; }
-    public bool isDrained { get; private set; }
-
     protected List<Stat> buffableStats = new List<Stat>();
     public Stat damage;
     public Stat armor;
@@ -152,7 +149,6 @@ public abstract class CharacterStats : MonoBehaviour
     public IEnumerator StatBoost(Stat stat, int modifier, float duration)
     {
         stat.AddModifier(modifier);
-        isBoosted = true;
 
         float normalizedTime = 0f;
         while(normalizedTime <= 1f)
@@ -162,13 +158,11 @@ public abstract class CharacterStats : MonoBehaviour
         }
 
         stat.RemoveModifier(modifier);
-        isBoosted = false;
     }
 
     public IEnumerator StatDrain(Stat stat, int modifier, float duration)
     {
         stat.AddModifier(-modifier);
-        isDrained = true;
 
         float normalizedTime = 0f;
         while (normalizedTime <= 1f)
@@ -178,7 +172,6 @@ public abstract class CharacterStats : MonoBehaviour
         }
 
         stat.RemoveModifier(-modifier);
-        isDrained = false;
     }
 
     public int GetCurrentHealth()

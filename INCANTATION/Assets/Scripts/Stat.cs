@@ -9,6 +9,7 @@ public class Stat
     [SerializeField] private int minValue;
     [SerializeField] private int maxValue = 9999;
 
+
     private List<int> modifiers = new List<int>();
 
     public int GetValue()
@@ -56,6 +57,7 @@ public class Stat
         if(modifier != 0)
         {
             modifiers.Add(modifier);
+            Debug.Log(modifiers);
         }
     }
 

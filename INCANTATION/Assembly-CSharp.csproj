@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Items\Consumable.cs" />
      <Compile Include="Assets\Scripts\Enemy\SpriteFlash.cs" />
      <Compile Include="Assets\Scripts\Player\Attacking\ChargeCombat.cs" />
+     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ForbiddenWord.cs" />
      <Compile Include="Assets\Scripts\Incantation\Incantations\RecallPoint.cs" />
      <Compile Include="Assets\Scripts\Items\Weapon.cs" />
      <Compile Include="Assets\Scripts\Archive\DetectReflection.cs" />
@@ -102,6 +103,7 @@
      <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_DropTable.cs" />
      <Compile Include="Assets\Scripts\UI\PopUp.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\RadialIndicator.cs" />
      <Compile Include="Assets\Scripts\GameManagement\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\WeaponAttacks\ScanCombat.cs" />
      <Compile Include="Assets\Scripts\UI\UIFollowGameObject.cs" />
@@ -124,8 +126,9 @@
      <Compile Include="Assets\Scripts\Items\Item.cs" />
      <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-     <Compile Include="Assets\Scripts\RadialIndicator.cs" />
-     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ForbiddenWord.cs" />
+     <Compile Include="Assets\Scripts\Faction.cs" />
+     <Compile Include="Assets\Scripts\Ghosting.cs" />
+     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_SpeedBoost.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Unity/Unity Engine/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
