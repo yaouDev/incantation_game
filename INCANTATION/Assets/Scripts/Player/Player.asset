@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Reemon
   characterClassification: {fileID: -375271474893414053, guid: 3c83d75ab21e92f4492ea21d4db97f31, type: 3}
-  dialogGFX: {fileID: -2914667059110482874, guid: 05d2cadae994b1548a38f8670d9ca312, type: 3}
+  dialogGFX: {fileID: 21300000, guid: 24dffdc320b86bf42b0da121e4bc417f, type: 3}

@@ -1490,7 +1490,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 3435b0abce41e9b4b9ac8932ca2ce3ed, type: 3}
+    - sprite: {fileID: 21300000, guid: 02defc916ac2380489432cce1dfbaa2d, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4769,7 +4769,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab153adac48a9c241bd9c7be76de8588, type: 2}
+  - {fileID: 2100000, guid: 95b9b75a8b4bb3241a24ec8f5df86ef0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Maron
   characterClassification: {fileID: -375271474893414053, guid: e302244589de2d846b1f0c579b947588, type: 3}
-  dialogGFX: {fileID: 21300526, guid: 95d22684aba5646d79a26b3287a692b6, type: 3}
-  faction: 3
+  dialogGFX: {fileID: 21300000, guid: 9f9464f92991ec74f8ef6ad5eabef292, type: 3}
+  faction: {fileID: 11400000, guid: 3d17fe6751df18e4da9846be1b8028ba, type: 2}

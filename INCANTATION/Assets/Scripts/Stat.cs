@@ -57,7 +57,6 @@ public class Stat
         if(modifier != 0)
         {
             modifiers.Add(modifier);
-            Debug.Log(modifiers);
         }
     }
 
