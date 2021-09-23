@@ -12,14 +12,17 @@ public class NPCInteractable : Interactable
     [SerializeField] private float interactInterval = 0.5f;
     private float timer;
 
+    private DialogManager dm;
+
     private void Start()
     {
         InitializeInteractable();
+        dm = DialogManager.instance;
     }
 
     private void FixedUpdate()
     {
-        if(timer > 0f)
+        if (timer > 0f)
         {
             timer -= Time.deltaTime;
         }
@@ -27,14 +30,15 @@ public class NPCInteractable : Interactable
 
     public void Talk()
     {
-        if (DialogManager.instance.isConversing)
+        if (dm.isConversing)
         {
-            DialogManager.instance.DisplayNextSentence();
+            dm.DisplayNextSentence();
         }
         else
         {
-            DialogManager.instance.StartDialog(dialog);
+            dm.StartDialog(dialog);
         }
+
     }
 
     public override void Interact()

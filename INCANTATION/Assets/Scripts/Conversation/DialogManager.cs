@@ -12,6 +12,7 @@ public class DialogManager : MonoBehaviour
     public Image speakerImage;
 
     public Animator animator;
+    public Animator choiceAnimator;
 
     private Dialog[] dialogs;
     private Queue<string> sentences;
@@ -20,6 +21,8 @@ public class DialogManager : MonoBehaviour
     [ReadOnly] public bool isConversing;
 
     private int currentDialog;
+
+    public Choice choice;
 
     private void Awake()
     {
@@ -60,7 +63,7 @@ public class DialogManager : MonoBehaviour
 
         if (sentences.Count == 0)
         {
-            if (currentDialog < dialogs.Length - 1)
+            if (currentDialog < dialogs.Length - 1 && !dialogs[currentDialog].isEnd)
             {
                 currentDialog++;
                 SetSentences();
@@ -72,6 +75,15 @@ public class DialogManager : MonoBehaviour
             }
         }
 
+        if (dialogs[currentDialog].hasChoice)
+        {
+            Choice();
+        }
+        else
+        {
+            choiceAnimator.SetBool("IsOpen", false);
+        }
+
         string sentence = sentences.Dequeue();
         StopCoroutine(TypeSentence(sentence));
         StartCoroutine(TypeSentence(sentence));
@@ -80,7 +92,7 @@ public class DialogManager : MonoBehaviour
     private void SetSentences()
     {
         //set up the speaker
-        if(dialogs[currentDialog].speaker == null)
+        if (dialogs[currentDialog].speaker == null)
         {
             dialogs[currentDialog].speaker = PlayerManager.instance.character;
         }
@@ -114,6 +126,7 @@ public class DialogManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
 
         //reset manager
+        currentDialog = 0;
 
         Debug.Log("End of conversation");
     }
@@ -123,5 +136,35 @@ public class DialogManager : MonoBehaviour
         //audio
         AudioClip clip = character.characterClassification.GetVoiceline();
         GetComponent<AudioSource>().PlayOneShot(clip);
+    }
+
+    private void Choice()
+    {
+        choiceAnimator.SetBool("IsOpen", true);
+
+        choice.isChoosing = true;
+
+        string[] choiceText = new string[dialogs[currentDialog].choices.Length];
+
+        for (int i = 0; i < dialogs[currentDialog].choices.Length; i++)
+        {
+            choiceText[i] = dialogs[currentDialog].choices[i];
+        }
+
+        choice.SetChoice(choiceText);
+    }
+
+    public void Choose(int selection)
+    {
+        Dialog dialog = dialogs[currentDialog];
+        int jump = dialog.jumps[selection];
+
+        if (jump > 0)
+        {
+            currentDialog = jump;
+            SetSentences();
+        }
+
+        choice.isChoosing = false;
     }
 }

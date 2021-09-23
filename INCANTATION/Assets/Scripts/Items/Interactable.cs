@@ -16,6 +16,8 @@ public class Interactable : MonoBehaviour
     public Text interactTextObject;
     public string interactText = "INTERACT";
 
+    public bool isInteractable = true;
+
     public virtual void Interact()
     {
         //This method is meant to be overwritten
@@ -44,7 +46,6 @@ public class Interactable : MonoBehaviour
     
     void Update()
     {
-
         //poor performance???
         //currently picks up all items
         //float distance = (player.transform.position - interactionTransform.position).sqrMagnitude;
@@ -53,7 +54,7 @@ public class Interactable : MonoBehaviour
         {
             closest = gameObject;
         }
-        else if (distance > radius)
+        else if (distance > radius && isInteractable)
         {
             if (closest == gameObject)
             {
@@ -61,7 +62,7 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        if (closest == gameObject)
+        if (closest == gameObject && isInteractable)
         {
 
             if(interactTextObject != null)

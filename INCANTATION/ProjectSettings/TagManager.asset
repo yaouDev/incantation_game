@@ -74,12 +74,15 @@ TagManager:
   - name: PlayerAttack
     uniqueID: 754158753
     locked: 0
-  - name: Foreground
-    uniqueID: 1315101725
-    locked: 0
   - name: Auxillary
     uniqueID: 3631059537
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PlayerIsNeverInfront
+    uniqueID: 2333535403
+    locked: 0
+  - name: Foreground
+    uniqueID: 1315101725
     locked: 0
