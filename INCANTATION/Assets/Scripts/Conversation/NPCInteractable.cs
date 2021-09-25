@@ -30,15 +30,17 @@ public class NPCInteractable : Interactable
 
     public void Talk()
     {
-        if (dm.isConversing)
+        if (!dm.isChoosing)
         {
-            dm.DisplayNextSentence();
+            if (dm.isConversing)
+            {
+                dm.DisplayNextSentence();
+            }
+            else
+            {
+                dm.StartDialog(dialog);
+            }
         }
-        else
-        {
-            dm.StartDialog(dialog);
-        }
-
     }
 
     public override void Interact()

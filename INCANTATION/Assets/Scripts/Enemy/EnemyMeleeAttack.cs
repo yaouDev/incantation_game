@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
+//using Pathfinding;
 
 public class EnemyMeleeAttack : MonoBehaviour
 {
     public float noticeRange = 3f;
-    private AIPath aipath;
+    //private AIPath aipath;
 
     public GameObject attackPoint;
     public float attackRange = 1.1f;
@@ -23,15 +23,18 @@ public class EnemyMeleeAttack : MonoBehaviour
     private bool isAttacking;
 
     private Rigidbody2D rb;
+    private EnemyMovement movement;
 
     private void Start()
     {
         player = PlayerManager.instance.player;
         stats = GetComponent<EnemyStats>();
         rb = GetComponent<Rigidbody2D>();
-        aipath = GetComponent<AIPath>();
-        aipath.canMove = false;
-        aipath.canSearch = false;
+        movement = GetComponent<EnemyMovement>();
+
+        //aipath = GetComponent<AIPath>();
+        //aipath.canMove = false;
+        //aipath.canSearch = false;
     }
 
     // Update is called once per frame
@@ -67,8 +70,9 @@ public class EnemyMeleeAttack : MonoBehaviour
     private void Stop()
     {
         rb.velocity = Vector3.zero;
-        aipath.canMove = false;
-        aipath.canSearch = false;
+        movement.isMobile = false;
+        //aipath.canMove = false;
+        //aipath.canSearch = false;
     }
 
     private IEnumerator PrepareAttack()
@@ -76,17 +80,19 @@ public class EnemyMeleeAttack : MonoBehaviour
         isAttacking = true;
 
         //attack animation
+        movement.isMobile = false;
 
         float normalizedTime = 0f;
         while (normalizedTime <= 1f)
         {
             normalizedTime += Time.deltaTime / lag;
             rb.velocity = Vector2.zero;
-            aipath.canMove = false;
+            //aipath.canMove = false;
             yield return null;
         }
 
-        aipath.canMove = true;
+        //aipath.canMove = true;
+        movement.isMobile = true;
 
         Attack();
 

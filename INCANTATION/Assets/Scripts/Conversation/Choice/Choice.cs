@@ -9,11 +9,16 @@ public class Choice : MonoBehaviour
     public Color selectionColor;
     public Color unselectedColor;
 
-    public bool isChoosing;
-
     private int selectedIndex;
     private float selectionTimer;
     private float selectionInterval = 0.25f;
+
+    private DialogManager dm;
+
+    private void Start()
+    {
+        dm = DialogManager.instance;
+    }
 
     public void SetChoice(string[] str)
     {
@@ -34,7 +39,7 @@ public class Choice : MonoBehaviour
             selectionTimer -= Time.deltaTime;
         }
 
-        if (isChoosing && selectionTimer <= 0f)
+        if (dm.isChoosing && selectionTimer <= 0f)
         {
             //selection
             if (Input.GetAxis("Horizontal") > 0)
@@ -60,8 +65,10 @@ public class Choice : MonoBehaviour
 
             if (Input.GetButtonDown("Interact"))
             {
-                DialogManager.instance.Choose(selectedIndex);
+                dm.Choose(selectedIndex);
             }
+
+            //print("choosing");
         }
     }
 

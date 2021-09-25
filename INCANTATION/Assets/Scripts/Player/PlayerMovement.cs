@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Animator animator;
-    public float pickupRadius = 5f;
+    //public float pickupRadius = 5f;
 
     private Camera cam;
     private Animator[] equipmentAnimators;

@@ -13,12 +13,14 @@ public class EnemySleep : MonoBehaviour
     private GameObject player;
     private EnemyStats stats;
     private Rigidbody2D rb;
+    private EnemyMovement movement;
 
     private void Start()
     {
         player = PlayerManager.instance.player;
         stats = GetComponent<EnemyStats>();
         rb = GetComponent<Rigidbody2D>();
+        movement = GetComponent<EnemyMovement>();
     }
 
     private void Update()
@@ -39,6 +41,7 @@ public class EnemySleep : MonoBehaviour
     public void FreezeMovement()
     {
         rb.velocity = Vector2.zero;
+        //movement.isMobile = false;
     }
 
     private IEnumerator WakeUp()
@@ -55,6 +58,7 @@ public class EnemySleep : MonoBehaviour
         Debug.Log(gameObject.name + " woke up!");
         isAwake = true;
         wakingUp = false;
+        movement.isMobile = true;
     }
 
     private void OnDrawGizmosSelected()

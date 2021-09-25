@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Player\Attacking\ChargeCombat.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ForbiddenWord.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\RecallPoint.cs" />
+    <Compile Include="Assets\Scripts\Conversation\Choice\Choice.cs" />
     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
     <Compile Include="Assets\Scripts\Archive\DetectReflection.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\AutomaticProjectileCombat.cs" />
@@ -138,7 +139,7 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\Conversation\Choice\Choice.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

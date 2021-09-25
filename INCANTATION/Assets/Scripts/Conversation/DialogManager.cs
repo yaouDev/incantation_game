@@ -21,6 +21,7 @@ public class DialogManager : MonoBehaviour
     [ReadOnly] public bool isConversing;
 
     private int currentDialog;
+    [ReadOnly] public bool isChoosing;
 
     public Choice choice;
 
@@ -142,7 +143,7 @@ public class DialogManager : MonoBehaviour
     {
         choiceAnimator.SetBool("IsOpen", true);
 
-        choice.isChoosing = true;
+        isChoosing = true;
 
         string[] choiceText = new string[dialogs[currentDialog].choices.Length];
 
@@ -156,15 +157,20 @@ public class DialogManager : MonoBehaviour
 
     public void Choose(int selection)
     {
-        Dialog dialog = dialogs[currentDialog];
-        int jump = dialog.jumps[selection];
-
-        if (jump > 0)
+        if (isChoosing)
         {
-            currentDialog = jump;
-            SetSentences();
-        }
+            Dialog dialog = dialogs[currentDialog];
+            int jump = dialog.jumps[selection];
 
-        choice.isChoosing = false;
+            if (jump > 0)
+            {
+                currentDialog = jump;
+                SetSentences();
+            }
+
+            DisplayNextSentence();
+
+            isChoosing = false;
+        }
     }
 }
