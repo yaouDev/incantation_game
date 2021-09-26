@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 7731899624787563154}
   - component: {fileID: 3953288704016677914}
   - component: {fileID: 8601177334524392246}
+  - component: {fileID: 6460665888162227310}
   - component: {fileID: 2822974603028950165}
   - component: {fileID: 9002552754240719321}
   - component: {fileID: 5784599291827202206}
@@ -572,6 +573,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.8125, y: 1.5}
   m_Direction: 0
+--- !u!114 &6460665888162227310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7731899624787563150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9b8a49c437e594e81293c6e26f404f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAggressive: 0
+  avoidsPlayer: 0
+  isMobile: 0
+  stayAtPosTime: 2
+  timerRadius: 15
+  walkArea: {x: 2, y: 2}
+  minimumWalkDistance: {x: 3, y: 3}
+  tbd: {fileID: 0}
 --- !u!114 &2822974603028950165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,11 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPickup: {fileID: 2990571061493820872, guid: f1303bb02d1b48343bdc3c8f82af9193, type: 3}
-  commonLoot: []
-  uncommonLoot: []
-  rareLoot: []
-  mythicLoot: []
-  legendaryLoot: []
+  drops: []
 --- !u!114 &5784599291827202206
 MonoBehaviour:
   m_ObjectHideFlags: 0

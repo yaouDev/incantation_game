@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
     public bool avoidsPlayer;
     public bool isMobile;
     private Rigidbody2D rb;
-    private GameObject target;
     private EnemyStats stats;
 
     //Destination
@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     public float stayAtPosTime = 2f;
     private float stayTimer;
     public float timerRadius = 15f;
+    public float passiveMoveSpeed = 0.035f;
 
     public Vector2 walkArea = new Vector2(2f, 2f);
     public Vector2 minimumWalkDistance = new Vector2(3f, 3f);
@@ -26,11 +27,17 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform player;
 
+    [Header("Pathfinding")]
+    public Transform tbd;
+    private AIPath aiPath;
+    private AIDestinationSetter aiDestination;
+
     private void Start()
     {
-        target = PlayerManager.instance.player;
         stats = GetComponent<EnemyStats>();
         rb = GetComponent<Rigidbody2D>();
+        aiPath = GetComponent<AIPath>();
+        aiDestination = GetComponent<AIDestinationSetter>();
 
         //ensures that it doesn't walk outside of the designated area
         walkArea -= minimumWalkDistance;
@@ -42,17 +49,24 @@ public class EnemyMovement : MonoBehaviour
         enroute = true;
 
         player = PlayerManager.instance.player.transform;
+
+        //Setup
+        
     }
 
     private void FixedUpdate()
     {
-        if (isMobile)
+        aiPath.maxSpeed = stats.movementSpeed.GetValue() / 10f;
+
+        if (isMobile && enroute)
         {
-            if (enroute)
-            {
-                Move(destination);
-            }
+            aiPath.canMove = true;
         }
+        else
+        {
+            aiPath.canMove = false;
+        }
+
 
         if (avoidsPlayer)
         {
@@ -61,6 +75,7 @@ public class EnemyMovement : MonoBehaviour
                 isAggressive = false;
             }
 
+            /*
             float x = NormalizeValue(transform.position.x - player.position.x);
             float y = NormalizeValue(transform.position.y - player.position.y);
 
@@ -68,17 +83,25 @@ public class EnemyMovement : MonoBehaviour
 
             print(direction);
 
-            destination = (Vector2)transform.position + direction;
+            destination = (Vector2)transform.position + direction;*/
         }
 
         //VVV if enemy is close enough to its destination and what radius that is
         if (isAggressive)
         {
-            destination = player.position;
+            //destination = player.position;
+            enroute = true;
+            stayTimer = 0f;
+            aiDestination.target = player;
         }
         
-        if (!isAggressive && !avoidsPlayer)
+        if (!isAggressive && !avoidsPlayer && isMobile)
         {
+            if (aiDestination.target != null)
+            {
+                aiDestination.target = null;
+            }
+
             float enterDistance = destination.sqrMagnitude - transform.position.sqrMagnitude;
             if (enterDistance <= timerRadius && enterDistance >= 0 || enterDistance > -timerRadius && enterDistance < 0)
             {
@@ -98,6 +121,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 enroute = true;
             }
+            
+            Move(destination);
         }
     }
 
@@ -125,12 +150,15 @@ public class EnemyMovement : MonoBehaviour
         return value < 0 ? -1 : 1;
     }
 
+    
     private void Move(Vector2 targetPos)
     {
-        float damp = (targetPos.normalized.sqrMagnitude - transform.position.normalized.sqrMagnitude) + 1f;
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, stats.movementSpeed.GetValue() / 500f * damp);
+        //float damp = (targetPos.normalized.sqrMagnitude - transform.position.normalized.sqrMagnitude) + 1f;
+        //transform.position = Vector2.MoveTowards(transform.position, targetPos, stats.movementSpeed.GetValue() / 500f * damp);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, passiveMoveSpeed);
 
         /*
+        //VV blocky
         Vector2 movement;
 
         movement.x = NormalizeValue(targetPos.x - transform.position.x);

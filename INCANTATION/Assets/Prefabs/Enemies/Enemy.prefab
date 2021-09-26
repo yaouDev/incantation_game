@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 166092470}
   - component: {fileID: 166092471}
   - component: {fileID: 166092472}
+  - component: {fileID: 2541587023388990746}
   - component: {fileID: 8524776830909271718}
   - component: {fileID: 8171276725013307346}
   - component: {fileID: 2532824683328772002}
@@ -301,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.5
+  radius: 2
   height: 2
   repathRate: 0.5
   canSearch: 1
@@ -352,6 +353,27 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &2541587023388990746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660236019095451824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9b8a49c437e594e81293c6e26f404f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAggressive: 0
+  avoidsPlayer: 0
+  isMobile: 0
+  stayAtPosTime: 2
+  timerRadius: 15
+  passiveMoveSpeed: 0.035
+  walkArea: {x: 10, y: 10}
+  minimumWalkDistance: {x: 3, y: 3}
+  tbd: {fileID: 0}
 --- !u!114 &8524776830909271718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +432,7 @@ MonoBehaviour:
   wakeUpTime: 1
   noticeRange: 5
   isAwake: 0
+  aggressiveOnWakeUp: 0
 --- !u!1 &2782888509397080365
 GameObject:
   m_ObjectHideFlags: 0

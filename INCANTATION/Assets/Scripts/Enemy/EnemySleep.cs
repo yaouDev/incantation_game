@@ -8,6 +8,7 @@ public class EnemySleep : MonoBehaviour
     public float noticeRange = 5f;
 
     public bool isAwake;
+    public bool aggressiveOnWakeUp;
     private bool wakingUp;
 
     private GameObject player;
@@ -27,8 +28,6 @@ public class EnemySleep : MonoBehaviour
     {
         if (!isAwake)
         {
-            FreezeMovement();
-
             float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
             if (distance <= noticeRange && !isAwake && !wakingUp || stats.GetCurrentHealth() != stats.maxHealth.GetValue() && !isAwake && !wakingUp)
             {
@@ -36,12 +35,6 @@ public class EnemySleep : MonoBehaviour
                 StartCoroutine(WakeUp());
             }
         }
-    }
-
-    public void FreezeMovement()
-    {
-        rb.velocity = Vector2.zero;
-        //movement.isMobile = false;
     }
 
     private IEnumerator WakeUp()
@@ -53,6 +46,11 @@ public class EnemySleep : MonoBehaviour
         {
             normalizedTime += Time.deltaTime / wakeUpTime;
             yield return null;
+        }
+
+        if (aggressiveOnWakeUp)
+        {
+            movement.isAggressive = true;
         }
 
         Debug.Log(gameObject.name + " woke up!");
