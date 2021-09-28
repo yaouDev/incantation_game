@@ -207,6 +207,11 @@ public class EffectState : MonoBehaviour
 
     private void Burn()
     {
+        if(burnDamage < 1)
+        {
+            burnDamage = 1;
+        }
+
         stats.TakeDamage(burnDamage);
     }
 
@@ -217,8 +222,15 @@ public class EffectState : MonoBehaviour
 
     private void Afflict()
     {
+        int afflictionDamage = stats.GetCurrentHealth() / 100;
+
+        if (afflictionDamage < 1)
+        {
+            afflictionDamage = 1;
+        }
+
         //hard coded to avoid super op things
-        stats.TakeDamage(stats.GetCurrentHealth() / 100);
+        stats.TakeDamage(afflictionDamage);
     }
 }
 

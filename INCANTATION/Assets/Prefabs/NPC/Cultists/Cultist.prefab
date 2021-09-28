@@ -218,16 +218,49 @@ MonoBehaviour:
   player: {fileID: 0}
   playerManager: {fileID: 0}
   interactTextObject: {fileID: 123265711549760450}
-  interactText: TALK
+  interactText:
+    m_TableReference:
+      m_TableCollectionName: GUID:86c74f2f3a97a5f4b97aeafcd25c22bf
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  isInteractable: 1
   thisCharacter: {fileID: 0}
   dialog:
   - speaker: {fileID: 11400000, guid: 93b673ba87d434b48964befad50e54e9, type: 2}
     sentences:
-    - hey
+    - m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    isEnd: 0
+    hasChoice: 0
+    choices: []
+    jumps: 000000000000000000000000
   - speaker: {fileID: 0}
     sentences:
-    - what's up
+    - m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    isEnd: 0
+    hasChoice: 0
+    choices: []
+    jumps: 000000000000000000000000
   interactInterval: 0
+  references:
+    version: 1
 --- !u!95 &123265710246203164
 Animator:
   serializedVersion: 3

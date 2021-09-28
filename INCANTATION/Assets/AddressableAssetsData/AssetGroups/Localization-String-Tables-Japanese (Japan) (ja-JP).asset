@@ -32,6 +32,16 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja-JP
+  - m_GUID: 5b2692258c7e4744499756d25b8fd6bb
+    m_Address: Interaction Table_ja-JP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja-JP
+  - m_GUID: dd4e59bf2ec04af4b88c2afae2beb0d5
+    m_Address: Menu Table_ja-JP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja-JP
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 82da5435ae33261449744f9b49a48640, type: 2}
   m_SchemaSet:

@@ -101,8 +101,19 @@ MonoBehaviour:
   player: {fileID: 0}
   playerManager: {fileID: 0}
   interactTextObject: {fileID: 7872257399717203576}
-  interactText: INTERACT
+  interactText:
+    m_TableReference:
+      m_TableCollectionName: GUID:86c74f2f3a97a5f4b97aeafcd25c22bf
+    m_TableEntryReference:
+      m_KeyId: 74423455744
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  isInteractable: 1
   item: {fileID: 0}
+  references:
+    version: 1
 --- !u!1001 &2895761986381176505
 PrefabInstance:
   m_ObjectHideFlags: 0

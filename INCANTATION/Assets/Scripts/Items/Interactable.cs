@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization;
 
 [System.Serializable]
 public class Interactable : MonoBehaviour
@@ -14,7 +15,7 @@ public class Interactable : MonoBehaviour
     private static GameObject closest;
 
     public Text interactTextObject;
-    public string interactText = "INTERACT";
+    public LocalizedString interactText;
 
     public bool isInteractable = true;
 
@@ -38,7 +39,7 @@ public class Interactable : MonoBehaviour
 
         if (interactTextObject != null)
         {
-            interactTextObject.text = "PRESS " + "<size=20><color=yellow>E</color></size>" + " TO " + interactText;
+            interactTextObject.text = interactText.GetLocalizedString();
             interactTextObject.enabled = false;
         }
     }

@@ -29,12 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (!gameManager.isInputEnabled)
         {
-            Stop();
             return;
-        }*/
+        }
+
 
         if (frozen)
         {
