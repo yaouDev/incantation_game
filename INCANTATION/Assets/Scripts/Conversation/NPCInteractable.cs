@@ -30,7 +30,7 @@ public class NPCInteractable : Interactable
 
     public void Talk()
     {
-        if (!dm.isChoosing)
+        if (!dm.isChoosing && dialog.Length > 0)
         {
             if (dm.isConversing)
             {

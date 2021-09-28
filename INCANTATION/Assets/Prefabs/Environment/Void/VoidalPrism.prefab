@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4538121524824843212}
   - component: {fileID: 4538121524824843202}
   - component: {fileID: 4538121524824843203}
+  - component: {fileID: 2771787990867216547}
   m_Layer: 0
   m_Name: VoidalPrism
   m_TagString: Untagged
@@ -186,6 +187,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &2771787990867216547
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4538121524824843213}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.3, y: 1.3}
+  m_Direction: 0
 --- !u!1 &4538121525008893716
 GameObject:
   m_ObjectHideFlags: 0

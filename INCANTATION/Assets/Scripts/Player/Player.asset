@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd6bddf83e8ed743b9eb3bf09512134, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  name: Reemon
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:cf20a2944ac97b0438691c3a6ce89cb6
+    m_TableEntryReference:
+      m_KeyId: 5775282176
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   characterClassification: {fileID: -375271474893414053, guid: 3c83d75ab21e92f4492ea21d4db97f31, type: 3}
   dialogGFX: {fileID: 21300000, guid: 24dffdc320b86bf42b0da121e4bc417f, type: 3}
+  references:
+    version: 1

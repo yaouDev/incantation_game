@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization;
 
 public class DialogManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class DialogManager : MonoBehaviour
     public Animator choiceAnimator;
 
     private Dialog[] dialogs;
-    private Queue<string> sentences;
+    private Queue<LocalizedString> sentences;
 
     private PlayerManager pm;
     [ReadOnly] public bool isConversing;
@@ -39,7 +40,7 @@ public class DialogManager : MonoBehaviour
 
     void Start()
     {
-        sentences = new Queue<string>();
+        sentences = new Queue<LocalizedString>();
         pm = PlayerManager.instance;
     }
 
@@ -85,7 +86,7 @@ public class DialogManager : MonoBehaviour
             choiceAnimator.SetBool("IsOpen", false);
         }
 
-        string sentence = sentences.Dequeue();
+        LocalizedString sentence = sentences.Dequeue();
         StopCoroutine(TypeSentence(sentence));
         StartCoroutine(TypeSentence(sentence));
     }
@@ -100,21 +101,23 @@ public class DialogManager : MonoBehaviour
 
         Character speaker = dialogs[currentDialog].speaker;
 
-        nameText.text = speaker.name;
+        nameText.text = speaker.name.GetLocalizedString();
         speakerImage.sprite = speaker.dialogGFX;
         sentences.Clear();
 
-        foreach (string sentence in dialogs[currentDialog].sentences)
+        foreach (LocalizedString sentence in dialogs[currentDialog].sentences)
         {
             sentences.Enqueue(sentence);
         }
     }
 
-    IEnumerator TypeSentence(string sentence)
+    IEnumerator TypeSentence(LocalizedString sentence)
     {
         dialogText.text = "";
 
-        foreach (char letter in sentence.ToCharArray())
+        string typedSentence = sentence.GetLocalizedString();
+
+        foreach (char letter in typedSentence.ToCharArray())
         {
             dialogText.text += letter;
             yield return null;
@@ -149,7 +152,7 @@ public class DialogManager : MonoBehaviour
 
         for (int i = 0; i < dialogs[currentDialog].choices.Length; i++)
         {
-            choiceText[i] = dialogs[currentDialog].choices[i];
+            choiceText[i] = dialogs[currentDialog].choices[i].GetLocalizedString();
         }
 
         choice.SetChoice(choiceText);
