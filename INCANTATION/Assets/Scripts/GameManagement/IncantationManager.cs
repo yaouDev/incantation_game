@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IncantationManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class IncantationManager : MonoBehaviour
 
     private Message message = new Message();
     private GameManager gameManager;
+
+    public Text guess;
 
     // Start is called before the first frame update
     void Start()
@@ -175,6 +178,14 @@ public class IncantationManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public List<string> GetUnlockedTriggers()
+    {
+        List<string> result = new List<string>(unlockedIncantations.Keys);
+        result.AddRange(equipmentIncantations.Keys);
+
+        return result;
     }
 
     private void OnDrawGizmosSelected()

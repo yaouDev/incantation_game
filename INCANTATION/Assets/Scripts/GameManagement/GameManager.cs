@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public Text playerIncantationText;
     public float playerTextDuration = 2f;
     public GameObject incantationPanel;
+    public Autofill inputFieldAutofill;
 
     private float panelTimer = 0f;
 
@@ -77,14 +78,23 @@ public class GameManager : MonoBehaviour
                 chatBox.text = "";
                 chatBox.gameObject.SetActive(false);
                 incantationManager.checkMessages();
+                inputFieldAutofill.ClearResults();
             }
         }
         else
         {
-            if(!chatBox.isFocused && Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                chatBox.gameObject.SetActive(true);
-                chatBox.ActivateInputField();
+                if (chatBox.isFocused)
+                {
+                    //doesnt workVVVV
+                    chatBox.gameObject.SetActive(false);
+                }
+                else
+                {
+                    chatBox.gameObject.SetActive(true);
+                    chatBox.ActivateInputField();
+                }
             }
         }
 

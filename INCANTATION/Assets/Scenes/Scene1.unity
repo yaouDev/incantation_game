@@ -799,6 +799,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4395524178956561409, guid: b7460eeae695fba4fbb5c955595e4dac, type: 3}
   m_PrefabInstance: {fileID: 252477169}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &258129719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 258129720}
+  - component: {fileID: 258129722}
+  - component: {fileID: 258129721}
+  m_Layer: 5
+  m_Name: IncantationGuesses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &258129720
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258129719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2001579942}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &258129721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258129719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: -400
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!222 &258129722
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258129719}
+  m_CullTransparentMesh: 1
 --- !u!1001 &287915957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5475,6 +5546,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1473256447}
     - target: {fileID: 1576452121499353993, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: inputFieldAutofill
+      value: 
+      objectReference: {fileID: 1298303489}
+    - target: {fileID: 1576452121499353993, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
       propertyPath: playerIncantationText
       value: 
       objectReference: {fileID: 1557234377}
@@ -5546,6 +5621,10 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 2ac3d31844f7dfb4296edc985ab04c68, type: 2}
+    - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
+      propertyPath: guess
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1576452121499353999, guid: 7af3e3cd2f0e1c842aff54bbf27bd11c, type: 3}
       propertyPath: allIncantations.Array.size
       value: 6
@@ -5666,6 +5745,26 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1012966445931834724, guid: 2969c7ac8af589943a8cedee95eed5af, type: 3}
   m_PrefabInstance: {fileID: 1837092277}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1298303485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6414605699594775285, guid: ad946640c901f46429cf06bb708016d2, type: 3}
+  m_PrefabInstance: {fileID: 1557234373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1298303489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298303485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd329efc8bc3a140adc648dc50370ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 1557234378}
+  resultsParent: {fileID: 258129720}
+  prefab: {fileID: 810921122180708694, guid: 66719a5c4ea35d44cb92b12ddccb7e4d, type: 3}
 --- !u!1001 &1377781715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6796,7 +6895,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6414605699594775283, guid: ad946640c901f46429cf06bb708016d2, type: 3}
   m_PrefabInstance: {fileID: 1557234373}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1298303485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
