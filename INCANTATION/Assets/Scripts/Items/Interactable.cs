@@ -37,6 +37,11 @@ public class Interactable : MonoBehaviour
         playerManager = PlayerManager.instance;
         player = playerManager.player.transform;
 
+        RefreshText();
+    }
+
+    public void RefreshText()
+    {
         if (interactTextObject != null)
         {
             interactTextObject.text = interactText.GetLocalizedString();

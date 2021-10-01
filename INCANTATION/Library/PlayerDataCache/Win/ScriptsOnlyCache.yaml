@@ -3,10 +3,9 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AnimationsOverrider
     - Attack_Bow
-    - Attack_Grab
     - Attack_Spin
+    - Attack_Swing
     - Autofill
-    - Boss01
     - CameraFollow
     - CameraManager
     - Character
@@ -14,22 +13,21 @@ ScriptsOnlyBuild:
     - Choice
     - ColliderTriggerAttack
     - DamagePopUp
+    - DetectSplash
     - DialogManager
     - DropLoot
     - EffectState
     - EnemyMeleeAttack
     - EnemyMovement
-    - EnemyProjectile
     - EnemySleep
     - EnemyStats
     - Equipment
     - EquipmentLight
     - EquipmentManager
+    - Essence
     - Faction
     - GameManager
-    - Ghosting
     - Healthbar
-    - Hook
     - IncantationManager
     - IncantationScroll
     - Incantation_DropTable
@@ -38,6 +36,7 @@ ScriptsOnlyBuild:
     - Incantation_ScorchGround
     - Incantation_SpeedBoost
     - Incantation_TestRed
+    - Interactable
     - Inventory
     - InventorySlot
     - InventoryUI
@@ -45,7 +44,6 @@ ScriptsOnlyBuild:
     - LootCalculator
     - MouseManager
     - NPC
-    - NPCInteractable
     - PauseMenu
     - PlayerCombatManager
     - PlayerManager
@@ -80,7 +78,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
-    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -112,6 +109,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Localization.Locale
     - UnityEngine.Localization.Settings.LocalizationSettings
     - UnityEngine.Localization.SmartFormat.PersistentVariables.VariablesGroupAsset
+    - UnityEngine.Localization.Tables.SharedTableData
     - UnityEngine.Localization.VariantsPropertyDriver
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -147,6 +145,7 @@ ScriptsOnlyBuild:
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Experimental.Rendering.Universal.Light2D
     - UnityEngine.Experimental.Rendering.Universal.Renderer2DData
+    - UnityEngine.Experimental.Rendering.Universal.ShadowCaster2D
     - UnityEngine.Rendering.Universal.Bloom
     - UnityEngine.Rendering.Universal.PostProcessData
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
@@ -185,7 +184,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/Scene1.unity:
+    Assets/Scenes/SampleScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -210,9 +209,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
+    - Class: 84
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -245,11 +242,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1820}
     - Class: 114
-      Script: {instanceID: 1992}
-    - Class: 114
       Script: {instanceID: 2028}
-    - Class: 114
-      Script: {instanceID: 2182}
     - Class: 114
       Script: {instanceID: 2322}
     - Class: 114
@@ -269,13 +262,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3086}
-    - Class: 114
       Script: {instanceID: 3222}
     - Class: 114
-      Script: {instanceID: 3276}
-    - Class: 114
-      Script: {instanceID: 3342}
+      Script: {instanceID: 3340}
     - Class: 114
       Script: {instanceID: 3410}
     - Class: 114
@@ -291,11 +280,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3726}
     - Class: 114
+      Script: {instanceID: 3784}
+    - Class: 114
       Script: {instanceID: 3888}
     - Class: 114
       Script: {instanceID: 4018}
     - Class: 114
-      Script: {instanceID: 4054}
+      Script: {instanceID: 4060}
     - Class: 114
       Script: {instanceID: 4296}
     - Class: 114
@@ -315,123 +306,111 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4716}
     - Class: 114
-      Script: {instanceID: 4884}
+      Script: {instanceID: 4882}
     - Class: 114
-      Script: {instanceID: 5042}
+      Script: {instanceID: 5040}
     - Class: 114
-      Script: {instanceID: 5074}
+      Script: {instanceID: 5072}
     - Class: 114
-      Script: {instanceID: 5160}
+      Script: {instanceID: 5158}
     - Class: 114
-      Script: {instanceID: 5196}
+      Script: {instanceID: 5194}
     - Class: 114
-      Script: {instanceID: 5298}
+      Script: {instanceID: 5296}
     - Class: 114
-      Script: {instanceID: 5316}
+      Script: {instanceID: 5314}
     - Class: 114
-      Script: {instanceID: 5462}
+      Script: {instanceID: 5460}
     - Class: 114
-      Script: {instanceID: 5608}
+      Script: {instanceID: 5572}
     - Class: 114
-      Script: {instanceID: 5628}
+      Script: {instanceID: 5626}
     - Class: 114
-      Script: {instanceID: 5762}
+      Script: {instanceID: 5760}
     - Class: 114
-      Script: {instanceID: 5800}
+      Script: {instanceID: 5798}
     - Class: 114
-      Script: {instanceID: 5862}
+      Script: {instanceID: 5860}
+    - Class: 114
+      Script: {instanceID: 5880}
     - Class: 114
       Script: {instanceID: 5882}
     - Class: 114
-      Script: {instanceID: 5884}
+      Script: {instanceID: 5964}
     - Class: 114
-      Script: {instanceID: 5966}
-    - Class: 114
-      Script: {instanceID: 6050}
+      Script: {instanceID: 6208}
     - Class: 114
       Script: {instanceID: 6210}
     - Class: 114
-      Script: {instanceID: 6212}
+      Script: {instanceID: 6234}
     - Class: 114
-      Script: {instanceID: 6232}
+      Script: {instanceID: 6314}
     - Class: 114
-      Script: {instanceID: 6236}
+      Script: {instanceID: 6326}
     - Class: 114
-      Script: {instanceID: 6262}
+      Script: {instanceID: 6430}
     - Class: 114
-      Script: {instanceID: 6316}
+      Script: {instanceID: 6570}
     - Class: 114
-      Script: {instanceID: 6328}
+      Script: {instanceID: 6714}
     - Class: 114
-      Script: {instanceID: 6432}
-    - Class: 114
-      Script: {instanceID: 6474}
-    - Class: 114
-      Script: {instanceID: 6572}
-    - Class: 114
-      Script: {instanceID: 6716}
+      Script: {instanceID: 6722}
     - Class: 114
       Script: {instanceID: 6724}
     - Class: 114
-      Script: {instanceID: 6726}
+      Script: {instanceID: 6736}
     - Class: 114
-      Script: {instanceID: 6738}
+      Script: {instanceID: 6912}
     - Class: 114
-      Script: {instanceID: 6914}
+      Script: {instanceID: 7012}
     - Class: 114
-      Script: {instanceID: 7014}
+      Script: {instanceID: 7020}
     - Class: 114
-      Script: {instanceID: 7022}
+      Script: {instanceID: 7038}
     - Class: 114
-      Script: {instanceID: 7040}
+      Script: {instanceID: 7046}
     - Class: 114
-      Script: {instanceID: 7048}
+      Script: {instanceID: 7096}
     - Class: 114
-      Script: {instanceID: 7098}
+      Script: {instanceID: 7148}
     - Class: 114
-      Script: {instanceID: 7150}
+      Script: {instanceID: 7174}
     - Class: 114
-      Script: {instanceID: 7176}
+      Script: {instanceID: 7204}
     - Class: 114
-      Script: {instanceID: 7206}
+      Script: {instanceID: 7262}
     - Class: 114
-      Script: {instanceID: 7264}
+      Script: {instanceID: 7276}
     - Class: 114
-      Script: {instanceID: 7278}
+      Script: {instanceID: 7340}
     - Class: 114
-      Script: {instanceID: 7342}
+      Script: {instanceID: 7464}
     - Class: 114
-      Script: {instanceID: 7466}
+      Script: {instanceID: 7528}
     - Class: 114
-      Script: {instanceID: 7530}
+      Script: {instanceID: 7616}
     - Class: 114
-      Script: {instanceID: 7618}
+      Script: {instanceID: 7726}
     - Class: 114
-      Script: {instanceID: 7660}
+      Script: {instanceID: 7746}
     - Class: 114
-      Script: {instanceID: 7728}
+      Script: {instanceID: 7770}
     - Class: 114
-      Script: {instanceID: 7748}
+      Script: {instanceID: 7826}
     - Class: 114
-      Script: {instanceID: 7772}
+      Script: {instanceID: 7884}
     - Class: 114
-      Script: {instanceID: 7828}
+      Script: {instanceID: 7926}
     - Class: 114
-      Script: {instanceID: 7866}
+      Script: {instanceID: 8132}
     - Class: 114
-      Script: {instanceID: 7886}
+      Script: {instanceID: 8210}
     - Class: 114
-      Script: {instanceID: 7928}
+      Script: {instanceID: 8240}
     - Class: 114
-      Script: {instanceID: 8134}
-    - Class: 114
-      Script: {instanceID: 8206}
-    - Class: 114
-      Script: {instanceID: 8212}
+      Script: {instanceID: 8242}
     - Class: 114
       Script: {instanceID: 8244}
-    - Class: 114
-      Script: {instanceID: 8246}
     - Class: 114
       Script: {instanceID: 8324}
     - Class: 114
@@ -445,11 +424,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 8684}
     - Class: 114
+      Script: {instanceID: 8772}
+    - Class: 114
       Script: {instanceID: 8956}
-    - Class: 114
-      Script: {instanceID: 8986}
-    - Class: 114
-      Script: {instanceID: 9102}
     - Class: 114
       Script: {instanceID: 9136}
     - Class: 114
@@ -464,8 +441,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9444}
     - Class: 114
       Script: {instanceID: 9526}
-    - Class: 114
-      Script: {instanceID: 40498}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -479,6 +454,8 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 210
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -1923,6 +1900,12 @@ ScriptsOnlyBuild:
     className: Attack_Swing
   - hash:
       serializedVersion: 2
+      Hash: 7ca5e0d80efa7f4ed5b10a0f4a262635
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SettingsMenu
+  - hash:
+      serializedVersion: 2
       Hash: a81d4c2c1cf3ad164d277d927a193679
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -2209,13 +2192,7 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyMeleeAttack
-  - hash:
-      serializedVersion: 2
-      Hash: a92369289b8bc3884d7b301c630f362c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SettingsMenu
   platform: 5
   scenePathNames:
-  - Assets/Scenes/Scene1.unity
-  playerPath: D:/GitHub/INCANTATION_GAME/INCANTATION/Builds/INCANTATION.exe
+  - Assets/Scenes/SampleScene.unity
+  playerPath: D:/GitHub/INCANTATION_GAME/INCANTATION/Builds/sampleTestFullMenu/INCANTATION.exe

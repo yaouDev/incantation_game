@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     public static bool isPaused;
 
     public GameObject pauseMenuUI;
+    public GameObject pauseMenuSelectables;
+    public GameObject settingsMenu;
     private float storedTimeScale;
 
     private GameManager gm;
@@ -35,6 +37,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        settingsMenu.SetActive(false);
         Time.timeScale = storedTimeScale;
         isPaused = false;
         gm.isInputEnabled = true;
@@ -43,6 +46,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
+        pauseMenuSelectables.SetActive(true);
         storedTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         isPaused = true;

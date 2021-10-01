@@ -37,6 +37,10 @@ MonoBehaviour:
     m_Address: Assets/Localization/Tables/Menu/Menu Table Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: 9a8c234167f74e840ae73cb60df488b0
+    m_Address: Assets/Localization/Tables/IncantationUI/IncantationUI Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 82da5435ae33261449744f9b49a48640, type: 2}
   m_SchemaSet:

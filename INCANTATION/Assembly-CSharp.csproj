@@ -123,6 +123,7 @@
     <Compile Include="Assets\Scripts\Incantation\Scorch.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Swing.cs" />
+    <Compile Include="Assets\Scripts\UI\SettingsMenu.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\SubAttacks\Hook.cs" />
     <Compile Include="Assets\Scripts\GameManagement\MouseManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStats.cs" />
@@ -142,7 +143,6 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\UI\SettingsMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
