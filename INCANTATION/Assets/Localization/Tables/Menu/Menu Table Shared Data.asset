@@ -20,11 +20,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 54622146560
-    m_Key: OPTIONS
+    m_Key: SETTINGS
     m_Metadata:
       m_Items: []
   - m_Id: 85827768320
     m_Key: MAIN MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1067612662124544
+    m_Key: BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1069716202049536
+    m_Key: MUSIC VOLUME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1070104854646784
+    m_Key: SFX VOLUME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1070618807881728
+    m_Key: RESOLUTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1070689859391488
+    m_Key: LANGUAGE
     m_Metadata:
       m_Items: []
   m_Metadata:

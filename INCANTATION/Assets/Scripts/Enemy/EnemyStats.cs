@@ -12,9 +12,11 @@ public class EnemyStats : CharacterStats
     public int baseMovementSpeed = 50;
 
     public SpriteFlash whiteHit;
-    [ReadOnly] public bool isDead;
 
     private DropLoot loot;
+
+    [Header("ReadOnly")]
+    public bool isDead;
 
     private void Awake()
     {

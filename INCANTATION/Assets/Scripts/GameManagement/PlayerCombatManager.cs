@@ -19,12 +19,14 @@ public class PlayerCombatManager : MonoBehaviour
     public LayerMask enemyLayers;
 
     public float baseWeaponOffset = 1.5f;
-    [ReadOnly] public float currentWeaponOffset;
 
     public Transform attackPoint;
     public Sprite defaultAttackPointGFX;
     public GameObject player;
     public PlayerStats playerStats;
+
+    [Header("ReadOnly")]
+    public float currentWeaponOffset;
 
     private void Awake()
     {

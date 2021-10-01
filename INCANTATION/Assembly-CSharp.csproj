@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Conversation\Choice\Choice.cs" />
     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
     <Compile Include="Assets\Scripts\Archive\DetectReflection.cs" />
+    <Compile Include="Assets\Scripts\Archive\Autocomplete.cs" />
     <Compile Include="Assets\Scripts\Player\Attacking\AutomaticProjectileCombat.cs" />
     <Compile Include="Assets\Scripts\Items\Essence.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ScorchGround.cs" />
@@ -84,7 +85,6 @@
     <Compile Include="Assets\Scripts\Rotate.cs" />
     <Compile Include="Assets\Scripts\GameManagement\Loot\LootCalculator.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\ProjectileCombat.cs" />
-    <Compile Include="Assets\Scripts\Utility\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\Animations\AnimationsOverrider.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
@@ -136,13 +136,13 @@
     <Compile Include="Assets\Scripts\NPC\Character.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantation.cs" />
     <Compile Include="Assets\Scripts\Ghosting.cs" />
+    <Compile Include="Assets\Scripts\Utility\Autofill.cs" />
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\Archive\Autocomplete.cs" />
-    <Compile Include="Assets\Scripts\Utility\Autofill.cs" />
+    <Compile Include="Assets\Scripts\UI\SettingsMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

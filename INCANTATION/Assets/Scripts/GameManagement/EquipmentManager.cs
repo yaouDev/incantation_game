@@ -9,8 +9,7 @@ public class EquipmentManager : MonoBehaviour
 
     //look more into this laterVVV
     public Equipment[] defaultItems;
-    [ReadOnly]
-    public Equipment[] currentEquipment;
+    
     public GameObject currentWeaponAttack;
 
     public GameObject[] equipmentObjects;
@@ -34,6 +33,9 @@ public class EquipmentManager : MonoBehaviour
     public Transform attackPoint;
 
     private PlayerCombatManager pcm;
+
+    [Header("ReadOnly")]
+    public Equipment[] currentEquipment;
 
     private void Awake()
     {

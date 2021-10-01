@@ -19,12 +19,14 @@ public class DialogManager : MonoBehaviour
     private Queue<LocalizedString> sentences;
 
     private PlayerManager pm;
-    [ReadOnly] public bool isConversing;
 
     private int currentDialog;
-    [ReadOnly] public bool isChoosing;
 
     public Choice choice;
+
+    [Header("ReadOnly")]
+    public bool isChoosing;
+    public bool isConversing;
 
     private void Awake()
     {

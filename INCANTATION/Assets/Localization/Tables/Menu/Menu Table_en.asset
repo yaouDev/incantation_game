@@ -23,11 +23,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 54622146560
-    m_Localized: OPTIONS
+    m_Localized: SETTINGS
     m_Metadata:
       m_Items: []
   - m_Id: 85827768320
     m_Localized: MAIN MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1067612662124544
+    m_Localized: BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1069716202049536
+    m_Localized: MUSIC VOLUME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1070104854646784
+    m_Localized: EFFECT VOLUME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1070618807881728
+    m_Localized: RESOLUTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1070689859391488
+    m_Localized: LANGUAGE
     m_Metadata:
       m_Items: []
   references:
