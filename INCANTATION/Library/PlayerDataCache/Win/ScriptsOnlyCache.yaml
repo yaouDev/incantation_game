@@ -3,9 +3,10 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AnimationsOverrider
     - Attack_Bow
+    - Attack_Grab
     - Attack_Spin
-    - Attack_Swing
     - Autofill
+    - Boss01
     - CameraFollow
     - CameraManager
     - Character
@@ -13,21 +14,22 @@ ScriptsOnlyBuild:
     - Choice
     - ColliderTriggerAttack
     - DamagePopUp
-    - DetectSplash
     - DialogManager
     - DropLoot
     - EffectState
     - EnemyMeleeAttack
     - EnemyMovement
+    - EnemyProjectile
     - EnemySleep
     - EnemyStats
     - Equipment
     - EquipmentLight
     - EquipmentManager
-    - Essence
     - Faction
     - GameManager
+    - Ghosting
     - Healthbar
+    - Hook
     - IncantationManager
     - IncantationScroll
     - Incantation_DropTable
@@ -36,7 +38,6 @@ ScriptsOnlyBuild:
     - Incantation_ScorchGround
     - Incantation_SpeedBoost
     - Incantation_TestRed
-    - Interactable
     - Inventory
     - InventorySlot
     - InventoryUI
@@ -44,6 +45,7 @@ ScriptsOnlyBuild:
     - LootCalculator
     - MouseManager
     - NPC
+    - NPCInteractable
     - PauseMenu
     - PlayerCombatManager
     - PlayerManager
@@ -109,8 +111,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Localization.Locale
     - UnityEngine.Localization.Settings.LocalizationSettings
     - UnityEngine.Localization.SmartFormat.PersistentVariables.VariablesGroupAsset
-    - UnityEngine.Localization.Tables.SharedTableData
-    - UnityEngine.Localization.VariantsPropertyDriver
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -145,7 +145,6 @@ ScriptsOnlyBuild:
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Experimental.Rendering.Universal.Light2D
     - UnityEngine.Experimental.Rendering.Universal.Renderer2DData
-    - UnityEngine.Experimental.Rendering.Universal.ShadowCaster2D
     - UnityEngine.Rendering.Universal.Bloom
     - UnityEngine.Rendering.Universal.PostProcessData
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
@@ -184,7 +183,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/SceneOne.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -209,7 +208,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 84
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -234,37 +235,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1648}
     - Class: 114
-      Script: {instanceID: 1650}
+      Script: {instanceID: 1654}
     - Class: 114
-      Script: {instanceID: 1656}
+      Script: {instanceID: 1686}
     - Class: 114
-      Script: {instanceID: 1688}
+      Script: {instanceID: 1818}
     - Class: 114
-      Script: {instanceID: 1820}
+      Script: {instanceID: 1990}
     - Class: 114
-      Script: {instanceID: 2028}
+      Script: {instanceID: 2026}
     - Class: 114
-      Script: {instanceID: 2322}
+      Script: {instanceID: 2180}
     - Class: 114
-      Script: {instanceID: 2498}
+      Script: {instanceID: 2320}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2496}
     - Class: 114
-      Script: {instanceID: 2884}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2944}
+      Script: {instanceID: 2882}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2942}
     - Class: 114
-      Script: {instanceID: 3030}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 3078}
+      Script: {instanceID: 3028}
     - Class: 114
-      Script: {instanceID: 3082}
+      Script: {instanceID: 3076}
+    - Class: 114
+      Script: {instanceID: 3080}
+    - Class: 114
+      Script: {instanceID: 3084}
+    - Class: 114
+      Script: {instanceID: 3158}
     - Class: 114
       Script: {instanceID: 3222}
     - Class: 114
-      Script: {instanceID: 3340}
+      Script: {instanceID: 3276}
+    - Class: 114
+      Script: {instanceID: 3342}
     - Class: 114
       Script: {instanceID: 3410}
     - Class: 114
@@ -280,11 +289,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3726}
     - Class: 114
-      Script: {instanceID: 3784}
-    - Class: 114
       Script: {instanceID: 3888}
     - Class: 114
       Script: {instanceID: 4018}
+    - Class: 114
+      Script: {instanceID: 4054}
     - Class: 114
       Script: {instanceID: 4060}
     - Class: 114
@@ -322,7 +331,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5460}
     - Class: 114
-      Script: {instanceID: 5572}
+      Script: {instanceID: 5606}
     - Class: 114
       Script: {instanceID: 5626}
     - Class: 114
@@ -338,17 +347,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5964}
     - Class: 114
+      Script: {instanceID: 6048}
+    - Class: 114
       Script: {instanceID: 6208}
     - Class: 114
       Script: {instanceID: 6210}
     - Class: 114
+      Script: {instanceID: 6230}
+    - Class: 114
       Script: {instanceID: 6234}
+    - Class: 114
+      Script: {instanceID: 6260}
     - Class: 114
       Script: {instanceID: 6314}
     - Class: 114
       Script: {instanceID: 6326}
     - Class: 114
       Script: {instanceID: 6430}
+    - Class: 114
+      Script: {instanceID: 6472}
     - Class: 114
       Script: {instanceID: 6570}
     - Class: 114
@@ -390,6 +407,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7616}
     - Class: 114
+      Script: {instanceID: 7658}
+    - Class: 114
       Script: {instanceID: 7726}
     - Class: 114
       Script: {instanceID: 7746}
@@ -398,19 +417,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7826}
     - Class: 114
+      Script: {instanceID: 7864}
+    - Class: 114
       Script: {instanceID: 7884}
     - Class: 114
       Script: {instanceID: 7926}
     - Class: 114
       Script: {instanceID: 8132}
     - Class: 114
-      Script: {instanceID: 8210}
+      Script: {instanceID: 8204}
     - Class: 114
-      Script: {instanceID: 8240}
+      Script: {instanceID: 8210}
     - Class: 114
       Script: {instanceID: 8242}
     - Class: 114
       Script: {instanceID: 8244}
+    - Class: 114
+      Script: {instanceID: 8246}
     - Class: 114
       Script: {instanceID: 8324}
     - Class: 114
@@ -424,9 +447,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 8684}
     - Class: 114
-      Script: {instanceID: 8772}
-    - Class: 114
       Script: {instanceID: 8956}
+    - Class: 114
+      Script: {instanceID: 8986}
+    - Class: 114
+      Script: {instanceID: 9102}
     - Class: 114
       Script: {instanceID: 9136}
     - Class: 114
@@ -454,8 +479,6 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
-      Script: {instanceID: 0}
-    - Class: 210
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -518,12 +541,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
-  - hash:
-      serializedVersion: 2
-      Hash: a306e12d896ddcca949923c805691027
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: InputField
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -836,6 +853,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: a306e12d896ddcca949923c805691027
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: InputField
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1552,7 +1575,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: c8c5e65e9fb858572516474d6e2102bc
+      Hash: 950c7b5fe4dfbe5f4582d8666ba4f443
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenu
@@ -2194,5 +2217,5 @@ ScriptsOnlyBuild:
     className: EnemyMeleeAttack
   platform: 5
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: D:/GitHub/INCANTATION_GAME/INCANTATION/Builds/sampleTestFullMenu/INCANTATION.exe
+  - Assets/Scenes/SceneOne.unity
+  playerPath: D:/GitHub/INCANTATION_GAME/INCANTATION/Builds/lastTest/INCANTATION.exe
