@@ -47,6 +47,18 @@ MonoBehaviour:
     m_Key: LANGUAGE
     m_Metadata:
       m_Items: []
+  - m_Id: 1426988866457600
+    m_Key: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1427394560512000
+    m_Key: NEW GAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1427434901327872
+    m_Key: LOAD GAME
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

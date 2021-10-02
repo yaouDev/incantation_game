@@ -50,5 +50,17 @@ MonoBehaviour:
     m_Localized: LANGUAGE
     m_Metadata:
       m_Items: []
+  - m_Id: 1426988866457600
+    m_Localized: EXIT GAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1427394560512000
+    m_Localized: NEW GAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1427434901327872
+    m_Localized: LOAD GAME
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

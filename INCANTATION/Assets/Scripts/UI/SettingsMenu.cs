@@ -94,7 +94,7 @@ public class SettingsMenu : MonoBehaviour
 
             Debug.Log("Added language: " + availableLanguage);
 
-            if (languages[i].LocaleName == currentLanguage)
+            if (languages[i].Identifier.Code == currentLanguage)
             {
                 currentLanguageIndex = i;
                 Debug.Log("CURRENT LANUAGE WAS FOUND TO BE: " + languages[i].LocaleName);
