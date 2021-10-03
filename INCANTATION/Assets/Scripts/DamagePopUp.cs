@@ -5,23 +5,89 @@ using UnityEngine.UI;
 
 public class DamagePopUp : MonoBehaviour
 {
-    public Text text;
-    public Outline textOutline;
+    private Text[] popUps;
+
     public float duration = 2f;
-    public UIFollowGameObject UIFollow;
+    public float raiseFactor = 0.01f;
+    public float fadeOut = 0.98f;
+    public bool selfDestruct;
+    public GameObject followTarget;
+    public Vector3 originalOffset = new Vector3(0f, 0f, 0f);
 
-    //public float fade = 0.001f;
-
-    private void Awake()
+    private void Start()
     {
-        UIFollow.offset = new Vector3(UIFollow.offset.x + Random.Range(-1f, 1f), UIFollow.offset.y + Random.Range(0, 0.5f));
-        Destroy(gameObject, duration);
+        popUps = gameObject.GetComponentsInChildren<Text>();
+
+        foreach (Text text in popUps)
+        {
+            if(followTarget != null)
+            {
+                text.GetComponent<UIFollowGameObject>().target = followTarget;
+            }
+            text.text = "";
+            text.enabled = false;
+            SetPosition(text);
+        }
     }
 
-    private void Update()
+    public void Pop(Color color, int damage)
     {
-        text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - 0.002f);
-        textOutline.effectColor = new Color(textOutline.effectColor.r, textOutline.effectColor.g, textOutline.effectColor.b, text.color.a - 0.002f);
-        UIFollow.offset = new Vector3(UIFollow.offset.x, UIFollow.offset.y + 0.01f);
+        Text popper = null;
+
+        for (int i = 0; i < popUps.Length; i++)
+        {
+            if (!popUps[i].enabled)
+            {
+                popper = popUps[i];
+                popUps[i].enabled = true;
+                break;
+            }
+
+            //if all popups are in use, recycle the first one
+            if (i == popUps.Length - 1 && popUps[i].enabled)
+            {
+                popper = popUps[0];
+                SetPosition(popper);
+                Debug.Log("Damage Pop Up recycled on " + gameObject.name);
+            }
+        }
+
+        if (popper == null)
+        {
+            Debug.Log("Popper was null on " + gameObject.transform.parent.name);
+        }
+
+        popper.text = "-" + damage;
+        popper.color = color;
+
+        if (selfDestruct)
+        {
+            Destroy(gameObject, duration);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        foreach (Text t in popUps)
+        {
+            Outline textOutline = t.GetComponent<Outline>();
+            UIFollowGameObject follow = t.GetComponent<UIFollowGameObject>();
+
+            t.color = new Color(t.color.r, t.color.g, t.color.b, t.color.a * fadeOut);
+            textOutline.effectColor = new Color(textOutline.effectColor.r, textOutline.effectColor.g, textOutline.effectColor.b, t.color.a * fadeOut);
+            follow.offset = new Vector3(follow.offset.x, follow.offset.y + raiseFactor);
+
+            if (t.color.a <= 0.1f)
+            {
+                t.enabled = false;
+                SetPosition(t);
+            }
+        }
+    }
+
+    private void SetPosition(Text text)
+    {
+        //reset position with randoms
+        text.GetComponent<UIFollowGameObject>().offset = new Vector3(originalOffset.x + Random.Range(-1f, 1f), originalOffset.y + Random.Range(0, 0.5f));
     }
 }

@@ -8,11 +8,11 @@ public abstract class CharacterStats : MonoBehaviour
 
     public EffectState effectState;
 
+    public DamagePopUp damagePopUp;
+
     public Stat maxHealth;
     protected int currentHealth;
     protected Rigidbody2D rb;
-
-    public GameObject damagePopUp;
 
     public delegate void OnDamageTaken();
     public OnDamageTaken onDamageTakenCallback;
@@ -63,7 +63,7 @@ public abstract class CharacterStats : MonoBehaviour
             color = Color.yellow;
         }
 
-        DamagePopUp(color, damage);
+        damagePopUp.Pop(color, damage);
 
         CheckIfDead();
 
@@ -93,17 +93,6 @@ public abstract class CharacterStats : MonoBehaviour
         {
             Die();
         }
-    }
-
-    public void DamagePopUp(Color color, int damage)
-    {
-        damagePopUp.GetComponent<DamagePopUp>().text.text = "-" + damage;
-        //damagePopUp.GetComponent<DamagePopUp>().text.enabled = false;
-        DamagePopUp popUpInstance = Instantiate(damagePopUp, transform.position, transform.rotation).GetComponent<DamagePopUp>();
-        popUpInstance.text.gameObject.GetComponent<UIFollowGameObject>().target = gameObject;
-        popUpInstance.text.color = color;
-        //VVV excessive??
-        popUpInstance.text.enabled = true;
     }
 
     //Overload with knockback float
