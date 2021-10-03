@@ -44,6 +44,12 @@ public class DialogManager : MonoBehaviour
     {
         sentences = new Queue<LocalizedString>();
         pm = PlayerManager.instance;
+
+        //enable UI if disabled
+        if (!dialogText.transform.parent.parent.gameObject.activeSelf)
+        {
+            dialogText.transform.parent.parent.gameObject.SetActive(true);
+        }
     }
 
     public void StartDialog(Dialog[] dialog)

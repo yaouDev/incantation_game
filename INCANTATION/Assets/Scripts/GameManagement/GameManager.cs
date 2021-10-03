@@ -39,8 +39,7 @@ public class GameManager : MonoBehaviour
 
     private float panelTimer = 0f;
 
-    public Text popUpMainText;
-    public Text popUpSubText;
+    public Text incantationNameText;
     public GameObject popUpParent;
 
     public Color playerColor;
@@ -146,6 +145,7 @@ public class GameManager : MonoBehaviour
 
         newMessage.textObject.text = newMessage.text;
         newMessage.textObject.color = MessageTypeColor(messageType);
+        newMessage.textObject.enabled = true;
 
         mainPanel.SetActive(true);
         panelTimer += playerTextDuration;
@@ -213,12 +213,12 @@ public class GameManager : MonoBehaviour
         text.text = "";
     }
 
-    public void TextPopUp(string mainText, string subText)
+    public void TextPopUp(string subText)
     {
-        StartCoroutine(TextPopUpIE(mainText, subText));
+        StartCoroutine(TextPopUpIE(subText));
     }
 
-    private IEnumerator TextPopUpIE(string mainText, string subText)
+    private IEnumerator TextPopUpIE(string subText)
     {
         if (popUpParent.GetComponent<PopUp>().timeRemaining > 0f)
         {
@@ -229,8 +229,7 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
         }
-        popUpMainText.text = mainText.ToUpper();
-        popUpSubText.text = subText.ToUpper();
+        incantationNameText.text = subText.ToUpper();
         popUpParent.SetActive(true);
         popUpParent.GetComponent<PopUp>().Pop();
     }

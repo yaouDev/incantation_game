@@ -51,7 +51,7 @@ public class EnemyStats : CharacterStats
         if(loot != null)
         {
             Item drop = loot.Drop(gameObject.transform.position);
-            Debug.Log("You got a " + drop.rarity + "!" + " " + drop.name);
+            Debug.Log("You got a " + drop.rarity + "!" + " " + drop.name.GetLocalizedString());
         }
 
         //VVV change later to instant

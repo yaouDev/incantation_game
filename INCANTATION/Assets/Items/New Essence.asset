@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55276db12f68fd48bc948b6c695f96e, type: 3}
   m_Name: New Essence
   m_EditorClassIdentifier: 
-  name: New Essence
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b66a192f62c8c00439124f426e966575
+    m_TableEntryReference:
+      m_KeyId: 9176862720
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   icon: {fileID: 21300000, guid: 007b0d1a0a0cffa4d979daadc29a95cc, type: 3}
   sprite: {fileID: 21300000, guid: 007b0d1a0a0cffa4d979daadc29a95cc, type: 3}
   isDefaultItem: 0
@@ -24,5 +32,18 @@ MonoBehaviour:
   attackSpeedModifier: 0
   specialIncantation: 
   animatorOverride: []
+  turnOnLight: 0
+  lightIntensity: 1
+  lightInnerRange: 0
+  lightOuterRange: 1
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightOffset: {x: 0, y: 0, z: 0}
+  useSingleColor: 0
+  useTripleColor: 0
+  mainColor: {r: 1, g: 1, b: 1, a: 1}
+  secondaryColor: {r: 1, g: 1, b: 1, a: 1}
+  tertiaryColor: {r: 1, g: 1, b: 1, a: 1}
   essenceType: 1
   cooldown: 10
+  references:
+    version: 1

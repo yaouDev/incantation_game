@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5cce9e46fc95e242857d2f94fd47bc1, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  name: Sword
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b66a192f62c8c00439124f426e966575
+    m_TableEntryReference:
+      m_KeyId: 9176862720
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   icon: {fileID: 21300000, guid: 8d67254e1d0716944860469e57d3462b, type: 3}
   sprite: {fileID: 21300000, guid: 8d67254e1d0716944860469e57d3462b, type: 3}
   isDefaultItem: 0
@@ -44,3 +52,5 @@ MonoBehaviour:
   weaponAttack: {fileID: 1166542820942056943, guid: 78c5bb6ed4d901843aa8bf216fc30eef, type: 3}
   knockbackPower: 0
   knockbackPlayerPower: 0
+  references:
+    version: 1

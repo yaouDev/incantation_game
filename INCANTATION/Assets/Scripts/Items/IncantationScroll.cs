@@ -19,7 +19,7 @@ public class IncantationScroll : Consumable
         if (!IncantationManager.instance.GetUnlockedIncantations().ContainsValue(incantation))
         {
             IncantationManager.instance.AddIncantation(incantation);
-            GameManager.instance.TextPopUp("You learnt a new Incantation!", incantation.name);
+            GameManager.instance.TextPopUp(incantation.name);
             base.Use();
         }
         else if (IncantationManager.instance.GetUnlockedIncantations().ContainsValue(incantation))

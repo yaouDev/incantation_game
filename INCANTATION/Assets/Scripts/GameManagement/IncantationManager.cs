@@ -18,8 +18,6 @@ public class IncantationManager : MonoBehaviour
     private Message message = new Message();
     private GameManager gameManager;
 
-    public Text guess;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +29,16 @@ public class IncantationManager : MonoBehaviour
             {
                 allIncantations.Add(i);
             }
+
+            AddIncantation(i);
         }
 
         //for dev use?
+        /*
         foreach (Incantation i in allIncantations)
         {
             AddIncantation(i);
-        }
+        }*/
     }
 
     private void Awake()
@@ -86,6 +87,12 @@ public class IncantationManager : MonoBehaviour
     //ADD/REMOVE INCANTATION
     public void AddIncantation(Incantation incantation)
     {
+        if (unlockedIncantations.ContainsKey(incantation.trigger))
+        {
+            Debug.Log("You already know that incantation");
+            return;
+        }
+
         if (FindTrigger(incantation.trigger))
         {
             unlockedIncantations.Add(incantation.trigger, incantation);
@@ -95,6 +102,8 @@ public class IncantationManager : MonoBehaviour
         {
             Debug.Log("No such incantation in database");
         }
+
+        GameManager.instance.TextPopUp(incantation.name);
     }
 
     public void AddEquipmentIncantation(string trigger)

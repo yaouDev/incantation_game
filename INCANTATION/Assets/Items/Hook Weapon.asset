@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5cce9e46fc95e242857d2f94fd47bc1, type: 3}
   m_Name: Hook Weapon
   m_EditorClassIdentifier: 
-  name: Hook Weapon
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b66a192f62c8c00439124f426e966575
+    m_TableEntryReference:
+      m_KeyId: 9176862720
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   isDefaultItem: 0
@@ -43,3 +51,5 @@ MonoBehaviour:
   weaponAttack: {fileID: 7514270568223276651, guid: 84a84c64ac735e64084e6f884d5d2547, type: 3}
   knockbackPower: 0
   knockbackPlayerPower: 0
+  references:
+    version: 1

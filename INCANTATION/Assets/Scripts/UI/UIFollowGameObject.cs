@@ -13,11 +13,6 @@ public class UIFollowGameObject : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-
-        if(target == null)
-        {
-            Debug.Log("The target of " + gameObject.name + " is null!");
-        }
     }
 
     private void Update()

@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Items\Essence.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ScorchGround.cs" />
     <Compile Include="Assets\Scripts\Conversation\Dialog.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\GameManagement\PlayerCombatManager.cs" />
     <Compile Include="Assets\Scripts\EquipmentLight.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
@@ -143,7 +144,7 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_Learn.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.Localization;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject{
 
-    new public string name = "New Item";
+    new public LocalizedString name;
     public Sprite icon = null;
     public Sprite sprite = null;
     public bool isDefaultItem = false;
@@ -13,7 +14,7 @@ public class Item : ScriptableObject{
     {
         //Something happens here
 
-        Debug.Log("Using " + name);
+        Debug.Log("Using " + name.GetLocalizedString());
     }
 
     public void RemoveFromInventory()

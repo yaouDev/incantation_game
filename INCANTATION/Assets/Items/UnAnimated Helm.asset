@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c73b80db2269d34d873531145838caa, type: 3}
   m_Name: UnAnimated Helm
   m_EditorClassIdentifier: 
-  name: UnAnmated Helm
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b66a192f62c8c00439124f426e966575
+    m_TableEntryReference:
+      m_KeyId: 9176862720
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   icon: {fileID: 21300000, guid: 7cefe9e9e8c984bbd9ff43235be8f54f, type: 3}
   sprite: {fileID: 21300000, guid: 7cefe9e9e8c984bbd9ff43235be8f54f, type: 3}
   isDefaultItem: 0
@@ -35,3 +43,5 @@ MonoBehaviour:
   mainColor: {r: 1, g: 1, b: 1, a: 1}
   secondaryColor: {r: 1, g: 1, b: 1, a: 1}
   tertiaryColor: {r: 1, g: 1, b: 1, a: 1}
+  references:
+    version: 1
