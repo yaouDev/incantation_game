@@ -15,6 +15,9 @@ public class SetRelativeLayer : MonoBehaviour
 
     private void Awake()
     {
+        this.enabled = false;
+        Debug.LogWarning("Set Layer pressent on " + gameObject.name);
+
         if (hasParticles)
         {
             pr = GetComponent<ParticleSystemRenderer>();
