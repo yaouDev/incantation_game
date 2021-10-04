@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 1012966445627424192}
   - component: {fileID: 1012966445627424195}
   - component: {fileID: 1012966445627424198}
-  - component: {fileID: 3011171702752712930}
   m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
@@ -267,23 +266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1012966445644998432}
   chest: {fileID: 1012966445642967599}
---- !u!114 &3011171702752712930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012966445627424252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 0
 --- !u!1 &1012966445642967599
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +279,6 @@ GameObject:
   - component: {fileID: 1012966445642967603}
   - component: {fileID: 1012966445642967602}
   - component: {fileID: 1012966445642967597}
-  - component: {fileID: 992252719061076709}
   m_Layer: 9
   m_Name: Chest
   m_TagString: Untagged
@@ -417,23 +398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideControllers: []
   overrider: {fileID: 1012966445642967602}
---- !u!114 &992252719061076709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012966445642967599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 0
 --- !u!1 &1012966445644998435
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +571,7 @@ GameObject:
   - component: {fileID: 1012966445931834721}
   - component: {fileID: 1012966445931834727}
   - component: {fileID: 1012966445931834726}
-  - component: {fileID: 3625136081406477230}
+  - component: {fileID: 2818364242662427273}
   m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
@@ -727,24 +691,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideControllers: []
   overrider: {fileID: 1012966445931834727}
---- !u!114 &3625136081406477230
-MonoBehaviour:
+--- !u!210 &2818364242662427273
+SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012966445931834723}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 1012966445931834721}
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1012966446079988009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1051,6 @@ GameObject:
   - component: {fileID: 1012966446752725500}
   - component: {fileID: 1012966446752725503}
   - component: {fileID: 1012966446752725502}
-  - component: {fileID: 5702553119823964016}
   m_Layer: 9
   m_Name: Legs
   m_TagString: Untagged
@@ -1214,23 +1170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideControllers: []
   overrider: {fileID: 1012966446752725503}
---- !u!114 &5702553119823964016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012966446752725496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 0
 --- !u!1 &1012966446781375337
 GameObject:
   m_ObjectHideFlags: 0

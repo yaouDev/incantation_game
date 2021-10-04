@@ -9,6 +9,7 @@ public class Hook : Projectile
     private GameObject hookedObject;
     public bool fetch;
     public float killDistance = 3f;
+    public float destroyDistance = 100f;
 
     public float fetchDivider = 20f;
     public float grabDivider = 10f;
@@ -69,6 +70,14 @@ public class Hook : Projectile
         //LineRenderer
         lr.SetPosition(0, PlayerCombatManager.instance.weapon.transform.position);
         lr.SetPosition(1, gameObject.transform.position);
+
+        //Destroy if line is too far
+        float relativeDistanceX = lr.GetPosition(1).x - lr.GetPosition(0).x;
+        float relativeDistanceY = lr.GetPosition(1).y - lr.GetPosition(0).y;
+        if (relativeDistanceX > destroyDistance || relativeDistanceY > destroyDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

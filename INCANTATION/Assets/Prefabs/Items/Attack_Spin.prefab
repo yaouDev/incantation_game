@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 930638171}
   - component: {fileID: 930638173}
   - component: {fileID: 930638172}
-  - component: {fileID: 4795480558101660055}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -4805,23 +4804,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &4795480558101660055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930638170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 1
 --- !u!1 &5944582023827808540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4837,7 +4819,6 @@ GameObject:
   - component: {fileID: 5878991268684101856}
   - component: {fileID: 7045438935282515037}
   - component: {fileID: 8382594209290123060}
-  - component: {fileID: 4307517717289052770}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -9821,25 +9802,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.5, y: 0.2}
   m_Direction: 0
---- !u!114 &4307517717289052770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5944582023827808540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 5944582023827808543}
-  - {fileID: 7408879207667451748}
-  offset: -1
-  runOnlyOnce: 0
-  hasParticles: 1
 --- !u!1 &5944582024077921919
 GameObject:
   m_ObjectHideFlags: 0

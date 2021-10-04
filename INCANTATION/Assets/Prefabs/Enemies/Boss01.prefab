@@ -260,7 +260,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5162912128063630331}
   - component: {fileID: 601161961377551685}
-  - component: {fileID: 2886083888798120569}
   m_Layer: 3
   m_Name: GFX
   m_TagString: Untagged
@@ -333,24 +332,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &2886083888798120569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570026971249216506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 601161961377551685}
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 0
 --- !u!1 &6546439697402393363
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,8 +552,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.8125, y: 1.5}
+  m_Offset: {x: 0, y: -0.2}
+  m_Size: {x: 1.02, y: 1.5760522}
   m_Direction: 0
 --- !u!114 &6460665888162227310
 MonoBehaviour:
@@ -926,6 +907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4636a65fae6fc5b4bbadbe36c387601d, type: 3}
+--- !u!4 &8273376023670900021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8023715147394256085, guid: 4636a65fae6fc5b4bbadbe36c387601d, type: 3}
+  m_PrefabInstance: {fileID: 2128260622263536096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1870175691216685141 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 323462179274801589, guid: 4636a65fae6fc5b4bbadbe36c387601d, type: 3}
@@ -937,11 +923,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b0cb6ec80855140b46517392403ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &8273376023670900021 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8023715147394256085, guid: 4636a65fae6fc5b4bbadbe36c387601d, type: 3}
-  m_PrefabInstance: {fileID: 2128260622263536096}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2357402648943762822
 PrefabInstance:
   m_ObjectHideFlags: 0

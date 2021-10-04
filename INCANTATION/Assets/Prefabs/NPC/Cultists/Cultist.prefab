@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 123265710246203154}
   - component: {fileID: 123265710246203155}
   - component: {fileID: 123265710246203164}
-  - component: {fileID: 123265710246203159}
   - component: {fileID: 2656320494007118869}
+  - component: {fileID: 7420020707228379599}
   m_Layer: 0
   m_Name: Cultist
   m_TagString: Untagged
@@ -280,24 +280,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &123265710246203159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123265710246203165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 123265710246203154}
-  offset: -1
-  runOnlyOnce: 0
-  hasParticles: 0
 --- !u!61 &2656320494007118869
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -324,6 +306,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.033924, y: 0.44578362}
   m_EdgeRadius: 0
+--- !u!210 &7420020707228379599
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123265710246203165}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &123265711549760451
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +423,6 @@ GameObject:
   - component: {fileID: 6713527626388007860}
   - component: {fileID: 7060732833665385531}
   - component: {fileID: 452230569616119711}
-  - component: {fileID: 1329368280553054784}
   m_Layer: 0
   m_Name: Haircut
   m_TagString: Untagged
@@ -446,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4495100598725333520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123265710246203153}
@@ -522,21 +514,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1329368280553054784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4495100598725333520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 452230569616119711}
-  offset: -2
-  runOnlyOnce: 0
-  hasParticles: 0

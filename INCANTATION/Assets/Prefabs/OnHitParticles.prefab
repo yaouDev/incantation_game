@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7018001554271944123}
   - component: {fileID: 6407375029028310308}
   - component: {fileID: 2529031776569683567}
-  - component: {fileID: 4444336823376897445}
   m_Layer: 3
   m_Name: OnHitParticles
   m_TagString: Untagged
@@ -4863,20 +4862,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &4444336823376897445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4566412511227574864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 1

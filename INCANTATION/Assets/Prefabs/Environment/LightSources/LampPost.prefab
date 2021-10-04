@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3257803185221934157}
   - component: {fileID: 8271578562996132044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GFXOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,9 +125,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5008100830719550486}
   - component: {fileID: 5008100830719550481}
-  - component: {fileID: 5008100830719550480}
   - component: {fileID: 258742614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,24 +198,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5008100830719550480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5008100830719550487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 5008100830719550481}
-  offset: -1
-  runOnlyOnce: 1
-  hasParticles: 0
 --- !u!61 &258742614
 BoxCollider2D:
   m_ObjectHideFlags: 0

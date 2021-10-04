@@ -64,7 +64,7 @@
     <Compile Include="Assets\Scripts\GameManagement\IncantationManager.cs" />
     <Compile Include="Assets\Scripts\HeadHitbox.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_TestRed.cs" />
-    <Compile Include="Assets\Scripts\SetRelativeLayer.cs" />
+    <Compile Include="Assets\Scripts\Archive\SetRelativeLayer.cs" />
     <Compile Include="Assets\Scripts\DamagePopUp.cs" />
     <Compile Include="Assets\Scripts\Conversation\NPCInteractable.cs" />
     <Compile Include="Assets\Scripts\Items\Consumable.cs" />
@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Incantation\Incantations\Incantation_ScorchGround.cs" />
     <Compile Include="Assets\Scripts\Conversation\Dialog.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_Learn.cs" />
     <Compile Include="Assets\Scripts\GameManagement\PlayerCombatManager.cs" />
     <Compile Include="Assets\Scripts\EquipmentLight.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
@@ -111,7 +112,7 @@
     <Compile Include="Assets\Scripts\UI\Healthbar.cs" />
     <Compile Include="Assets\Scripts\WeaponAttacks\Attack_Bow.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInterfaceSlot.cs" />
-    <Compile Include="Assets\Scripts\SetHeadBehindChest.cs" />
+    <Compile Include="Assets\Scripts\Archive\SetHeadBehindChest.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySleep.cs" />
     <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_DropTable.cs" />
     <Compile Include="Assets\Scripts\UI\PopUp.cs" />
@@ -144,7 +145,6 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\GameManagement\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
-    <Compile Include="Assets\Scripts\Incantation\Incantations\Dev use\Incantation_Learn.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

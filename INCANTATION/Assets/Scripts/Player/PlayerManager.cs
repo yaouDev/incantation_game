@@ -22,10 +22,4 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject player;
     public Character character;
-    public Vector3 playerCenter;
-
-    private void Start()
-    {
-        playerCenter = new Vector3(player.transform.position.x, player.transform.position.y + 1);
-    }
 }

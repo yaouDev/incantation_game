@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7722742895026528316}
   - component: {fileID: 1305230625158944099}
   - component: {fileID: 2026813089911769084}
-  - component: {fileID: 3479274045000950376}
   m_Layer: 3
   m_Name: VoidalAfflictionParticles
   m_TagString: Untagged
@@ -4815,23 +4814,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &3479274045000950376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553816712742904111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: -1
-  runOnlyOnce: 0
-  hasParticles: 1
 --- !u!1 &2482964628410833034
 GameObject:
   m_ObjectHideFlags: 0
@@ -4843,7 +4825,6 @@ GameObject:
   - component: {fileID: 1032456349768762786}
   - component: {fileID: 1308156224380785505}
   - component: {fileID: 1966012646765024190}
-  - component: {fileID: 466600516204033432}
   m_Layer: 3
   m_Name: FireParticles
   m_TagString: Untagged
@@ -9638,23 +9619,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &466600516204033432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2482964628410833034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: -1
-  runOnlyOnce: 0
-  hasParticles: 1
 --- !u!1 &3160045616779332541
 GameObject:
   m_ObjectHideFlags: 0
@@ -9721,7 +9685,6 @@ GameObject:
   - component: {fileID: 4447144505103293391}
   - component: {fileID: 7090181721572592098}
   - component: {fileID: 3213848344342384002}
-  - component: {fileID: 4335258910846160737}
   m_Layer: 3
   m_Name: BloodParticles
   m_TagString: Untagged
@@ -14515,20 +14478,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &4335258910846160737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7006224541099694400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: -1
-  runOnlyOnce: 0
-  hasParticles: 1

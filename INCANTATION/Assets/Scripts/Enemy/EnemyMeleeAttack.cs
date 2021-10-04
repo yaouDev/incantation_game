@@ -52,6 +52,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
             if (isAwake)
             {
+                //Vector2 direction = new Vector2(player.transform.position.x, player.transform.position.y) - rb.position;
                 Vector2 direction = new Vector2(player.transform.position.x, player.transform.position.y) - rb.position;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 

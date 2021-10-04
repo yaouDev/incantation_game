@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 730728989941812929}
   - component: {fileID: 730728989941812930}
   - component: {fileID: 730728989941812931}
-  - component: {fileID: 730728989941812928}
   m_Layer: 8
   m_Name: GFX
   m_TagString: Untagged
@@ -111,24 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1384286, y: 0.62586045}
   m_EdgeRadius: 0
---- !u!114 &730728989941812928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730728989941812934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 730728989941812930}
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 0
 --- !u!1 &730728990400779260
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +121,6 @@ GameObject:
   - component: {fileID: 730728990400779263}
   - component: {fileID: 730728990400779257}
   - component: {fileID: 730728990400779262}
-  - component: {fileID: 8252465586031834995}
   m_Layer: 8
   m_Name: ParticlesPetals
   m_TagString: Untagged
@@ -4936,23 +4916,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &8252465586031834995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730728990400779260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: -3
-  runOnlyOnce: 1
-  hasParticles: 1
 --- !u!1 &730728990517441664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4964,7 +4927,6 @@ GameObject:
   - component: {fileID: 730728990517441667}
   - component: {fileID: 730728990517441677}
   - component: {fileID: 730728990517441666}
-  - component: {fileID: 7134118258275655612}
   m_Layer: 8
   m_Name: ParticlesFlower
   m_TagString: Untagged
@@ -9760,23 +9722,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &7134118258275655612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730728990517441664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: -10
-  runOnlyOnce: 1
-  hasParticles: 1
 --- !u!1 &730728990794405681
 GameObject:
   m_ObjectHideFlags: 0

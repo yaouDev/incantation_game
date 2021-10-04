@@ -272,7 +272,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.7}
   m_Size: {x: 1.8125, y: 1.5}
   m_Direction: 0
 --- !u!114 &166092470
@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 8050444487534868528}
   - component: {fileID: 3784909438206642522}
   - component: {fileID: 225308210234247475}
+  - component: {fileID: 814891914023776105}
   m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
@@ -534,6 +535,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &814891914023776105
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782888509397080365}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5605898513579893188
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +557,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4314790783468667333}
   - component: {fileID: 8363378008507858811}
-  - component: {fileID: 561803581431050459}
   m_Layer: 3
   m_Name: GFX
   m_TagString: Untagged
@@ -617,24 +629,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &561803581431050459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5605898513579893188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 8363378008507858811}
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 0
 --- !u!1 &5844801881286663937
 GameObject:
   m_ObjectHideFlags: 0

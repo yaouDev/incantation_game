@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3815025967432390852}
+  - component: {fileID: 2348529265102245787}
   m_Layer: 0
   m_Name: Tree1
   m_TagString: Untagged
@@ -32,6 +33,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &2348529265102245787
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815025967432390853}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &3815025967594722439
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,8 +55,7 @@ GameObject:
   - component: {fileID: 3815025967594722438}
   - component: {fileID: 3815025967594722440}
   - component: {fileID: 3815025967594722441}
-  - component: {fileID: 3400190188298414487}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +70,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3815025967594722439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3815025968870837201}
@@ -1514,7 +1525,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 3435b0abce41e9b4b9ac8932ca2ce3ed, type: 3}
+    - sprite: {fileID: 21300000, guid: 6f7ebbc155378e248b2def9977e00280, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4811,8 +4822,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -102841197
-  m_SortingLayer: -3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4839,23 +4850,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &3400190188298414487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3815025967594722439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers: []
-  offset: 0
-  runOnlyOnce: 0
-  hasParticles: 1
 --- !u!1 &3815025967655793790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4867,7 +4861,6 @@ GameObject:
   - component: {fileID: 3815025967655793760}
   - component: {fileID: 3815025967655793761}
   - component: {fileID: 3815025967655793762}
-  - component: {fileID: 3815025967655793763}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -4966,24 +4959,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31299782, y: 0.6847211}
   m_EdgeRadius: 0
---- !u!114 &3815025967655793763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3815025967655793790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dac27354769bb443905be0a68a3e5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  renderers:
-  - {fileID: 3815025967655793761}
-  offset: 0
-  runOnlyOnce: 1
-  hasParticles: 0
 --- !u!1 &3815025968870836270
 GameObject:
   m_ObjectHideFlags: 0
@@ -5008,7 +4983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3815025968870836270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.3, z: 0}
+  m_LocalPosition: {x: 0, y: -3.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3815025967594722438}
