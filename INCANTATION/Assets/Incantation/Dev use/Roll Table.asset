@@ -12,7 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d759b5c5137d7488241a1e44a97f2d, type: 3}
   m_Name: Roll Table
   m_EditorClassIdentifier: 
-  name: Roll Table
-  description: Rolls the loot calculator
-  faction: 0
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b2538f9944c98e547998f3d38eb508f4
+    m_TableEntryReference:
+      m_KeyId: 7331368960
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:3d202e0a2cfc1b245a7eff6349aab1c3
+    m_TableEntryReference:
+      m_KeyId: 9940226048
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  faction: {fileID: 0}
   trigger: roll
+  references:
+    version: 1

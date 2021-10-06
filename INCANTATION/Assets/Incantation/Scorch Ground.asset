@@ -12,8 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b19e01551622a04880f82b65a53c0c6, type: 3}
   m_Name: Scorch Ground
   m_EditorClassIdentifier: 
-  name: Scorch Ground
-  description: Scorches the Ground
-  faction: 0
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b2538f9944c98e547998f3d38eb508f4
+    m_TableEntryReference:
+      m_KeyId: 47114342400
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:3d202e0a2cfc1b245a7eff6349aab1c3
+    m_TableEntryReference:
+      m_KeyId: 86859567104
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  faction: {fileID: 0}
   trigger: scorch
   scorch: {fileID: 5077946784568385834, guid: fe5ea78e539e81a4d80fda7a4692d63a, type: 3}
+  references:
+    version: 1

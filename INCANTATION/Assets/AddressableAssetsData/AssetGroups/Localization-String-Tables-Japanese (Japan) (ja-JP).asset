@@ -47,8 +47,28 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja-JP
-  - m_GUID: 2534e090143cae54c8a988df1b46289c
-    m_Address: Items Table_ja-JP
+  - m_GUID: 2d95cca247f8fe5438124f87de6f7417
+    m_Address: Item Names Table_ja-JP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja-JP
+  - m_GUID: cbfd1c20897e0b545b7da9feb1ecacb9
+    m_Address: Generic Item Descriptions Table_ja-JP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja-JP
+  - m_GUID: b0ec7950bafb730478dc515a282aa097
+    m_Address: Specific Item Descriptions Table_ja-JP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja-JP
+  - m_GUID: dd9b51a61c5a1484e9966b40bc845705
+    m_Address: Incantation Names Table_ja-JP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja-JP
+  - m_GUID: b260980eee64dee4e9b0a7f1769ecb03
+    m_Address: Incantation Descriptions Table_ja-JP
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja-JP

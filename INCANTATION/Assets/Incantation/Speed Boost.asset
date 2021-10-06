@@ -12,9 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6259b2f936c26a04c97dd06ec90557fd, type: 3}
   m_Name: Speed Boost
   m_EditorClassIdentifier: 
-  name: Speed Boost
-  description: Boosts your speed for a while
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b2538f9944c98e547998f3d38eb508f4
+    m_TableEntryReference:
+      m_KeyId: 111652098048
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:3d202e0a2cfc1b245a7eff6349aab1c3
+    m_TableEntryReference:
+      m_KeyId: 149514080256
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   faction: {fileID: 0}
   trigger: boost
   modifier: 100
   duration: 5
+  references:
+    version: 1

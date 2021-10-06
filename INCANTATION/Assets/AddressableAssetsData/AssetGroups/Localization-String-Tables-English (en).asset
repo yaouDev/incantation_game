@@ -47,8 +47,28 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
-  - m_GUID: a62a98ef5bf68cd4fb676805542bc176
-    m_Address: Items Table_en
+  - m_GUID: 9361aba79ae2d61498a80b50433c62f6
+    m_Address: Item Names Table_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 84e48cd78d8e3ba4896e092b32d4f7b9
+    m_Address: Generic Item Descriptions Table_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 7303b0d00e3976f4b9225bb3c280bbd9
+    m_Address: Specific Item Descriptions Table_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 71e5535c08830fd4fa2094ec43581620
+    m_Address: Incantation Names Table_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: e284b84f06d6ed141996fb6bf0588dec
+    m_Address: Incantation Descriptions Table_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

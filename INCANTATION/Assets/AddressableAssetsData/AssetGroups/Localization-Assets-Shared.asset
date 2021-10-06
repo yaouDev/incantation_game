@@ -41,8 +41,28 @@ MonoBehaviour:
     m_Address: Assets/Localization/Tables/IncantationUI/IncantationUI Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
-  - m_GUID: b66a192f62c8c00439124f426e966575
-    m_Address: Assets/Localization/Tables/Items/Items Table Shared Data.asset
+  - m_GUID: 3e05ec832aa13044fa9e6cd481d8480d
+    m_Address: Assets/Localization/Tables/Items/Item Names Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 7e2fda730af1d9844a883d536be89a73
+    m_Address: Assets/Localization/Tables/Items/Generic Item Descriptions Table Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 58566a1796d3a4b43b67688004ad7c2c
+    m_Address: Assets/Localization/Tables/Items/Specific Item Descriptions Table
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: b2538f9944c98e547998f3d38eb508f4
+    m_Address: Assets/Localization/Tables/Incantations/Incantation Names Table Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 3d202e0a2cfc1b245a7eff6349aab1c3
+    m_Address: Assets/Localization/Tables/Incantations/Incantation Descriptions Table
+      Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
   m_ReadOnly: 1

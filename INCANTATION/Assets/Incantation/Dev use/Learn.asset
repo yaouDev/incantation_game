@@ -12,8 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8131a91769c9a4686e8aaab8c8d17e, type: 3}
   m_Name: Learn
   m_EditorClassIdentifier: 
-  name: Learn
-  description: Learn the loaded incantation
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b2538f9944c98e547998f3d38eb508f4
+    m_TableEntryReference:
+      m_KeyId: 7331368960
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:3d202e0a2cfc1b245a7eff6349aab1c3
+    m_TableEntryReference:
+      m_KeyId: 9940226048
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   faction: {fileID: 0}
   trigger: learn
   toBeLearnt: {fileID: 11400000, guid: 49cc95afa0ebc1c47b6f40eb1237729a, type: 2}
+  references:
+    version: 1

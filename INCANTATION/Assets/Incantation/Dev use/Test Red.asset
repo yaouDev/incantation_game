@@ -12,7 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b6eb44e9f6e0e408207b04ab5a4af6, type: 3}
   m_Name: Test Red
   m_EditorClassIdentifier: 
-  name: Test Red
-  description: Turn the background color red
-  faction: 0
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b2538f9944c98e547998f3d38eb508f4
+    m_TableEntryReference:
+      m_KeyId: 7331368960
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:3d202e0a2cfc1b245a7eff6349aab1c3
+    m_TableEntryReference:
+      m_KeyId: 9940226048
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  faction: {fileID: 0}
   trigger: red
+  references:
+    version: 1

@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name:
     m_TableReference:
-      m_TableCollectionName: GUID:b66a192f62c8c00439124f426e966575
+      m_TableCollectionName: GUID:3e05ec832aa13044fa9e6cd481d8480d
     m_TableEntryReference:
-      m_KeyId: 9176862720
+      m_KeyId: 52776652800
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:7e2fda730af1d9844a883d536be89a73
+    m_TableEntryReference:
+      m_KeyId: 18047815680
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

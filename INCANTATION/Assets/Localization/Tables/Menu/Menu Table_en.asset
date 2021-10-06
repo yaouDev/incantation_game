@@ -62,5 +62,9 @@ MonoBehaviour:
     m_Localized: LOAD GAME
     m_Metadata:
       m_Items: []
+  - m_Id: 2903231373758464
+    m_Localized: INCANTATIONS
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

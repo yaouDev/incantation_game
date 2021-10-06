@@ -59,6 +59,10 @@ MonoBehaviour:
     m_Key: LOAD GAME
     m_Metadata:
       m_Items: []
+  - m_Id: 2903231373758464
+    m_Key: INCANTATIONS
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

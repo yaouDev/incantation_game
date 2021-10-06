@@ -12,9 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7fa158a051d064b84a127b98ed6897, type: 3}
   m_Name: Forbidden Word
   m_EditorClassIdentifier: 
-  name: Forbidden Word
-  description: Don't say it!!
-  faction: 0
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:b2538f9944c98e547998f3d38eb508f4
+    m_TableEntryReference:
+      m_KeyId: 259299987456
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:3d202e0a2cfc1b245a7eff6349aab1c3
+    m_TableEntryReference:
+      m_KeyId: 487499485184
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  faction: {fileID: 0}
   trigger: frick
   radialIndicator: {fileID: 8165262973573925054, guid: 0051a117c983f1540bb39aede07a5402, type: 3}
   radius: 3
+  references:
+    version: 1

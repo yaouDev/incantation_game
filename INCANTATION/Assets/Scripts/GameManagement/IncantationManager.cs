@@ -103,7 +103,7 @@ public class IncantationManager : MonoBehaviour
             Debug.Log("No such incantation in database");
         }
 
-        GameManager.instance.TextPopUp(incantation.name);
+        GameManager.instance.TextPopUp(incantation.name.GetLocalizedString());
     }
 
     public void AddEquipmentIncantation(string trigger)
@@ -174,6 +174,33 @@ public class IncantationManager : MonoBehaviour
     public Dictionary<string, Incantation> GetUnlockedIncantations()
     {
         return unlockedIncantations;
+    }
+
+    public Dictionary<string, Incantation> GetEquipmentIncantations()
+    {
+        return equipmentIncantations;
+    }
+
+    public List<Incantation> GetAllIncantations()
+    {
+        List<Incantation> fetching = new List<Incantation>();
+        allIncantations.ForEach(fetching.Add);
+        //fetching.Sort();
+        return fetching;
+    }
+
+    public List<Incantation> GetAllIncantations(int forceLength)
+    {
+        List<Incantation> fetching = GetAllIncantations();
+
+        print("forceLength: " + forceLength);
+
+        while(fetching.Count < forceLength)
+        {
+            fetching.Add(null);
+        }
+
+        return fetching;
     }
 
     public bool FindTrigger(string str)
