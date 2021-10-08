@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             if (i == (int)EquipmentSlot.weapon)
             {
                 i++;
+                return;
             }
             equipmentAnimators[i].SetFloat("Speed", movement.sqrMagnitude);
         }

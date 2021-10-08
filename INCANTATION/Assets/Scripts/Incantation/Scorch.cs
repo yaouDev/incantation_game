@@ -5,8 +5,9 @@ using UnityEngine;
 public class Scorch : MonoBehaviour
 {
     public int damage = 1;
-    public float interval = 1f;
+    public float applicationInterval = 1f;
     public float radius = 1f;
+    public float burnDuration = 5f;
     public float lifetime;
 
     private float lifeTimer;
@@ -14,12 +15,12 @@ public class Scorch : MonoBehaviour
 
     private void Trigger()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(gameObject.transform.position, radius, LayerMask.GetMask("Enemy"));
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(gameObject.transform.position, radius);
         foreach(Collider2D collider in hitEnemies)
         {
             if(collider.gameObject.TryGetComponent(out EnemyStats enemy))
             {
-                enemy.TakeDamage(damage);
+                enemy.effectState.ApplyEffect(Effect.burn, burnDuration, damage);
             }
         }
     }
@@ -28,7 +29,7 @@ public class Scorch : MonoBehaviour
     {
         if(normalizedTimer <= 1f)
         {
-            normalizedTimer += Time.deltaTime / interval;
+            normalizedTimer += Time.deltaTime / applicationInterval;
         }
         else
         {

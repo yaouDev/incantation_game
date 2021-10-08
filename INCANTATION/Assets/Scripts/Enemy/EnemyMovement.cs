@@ -19,6 +19,9 @@ public class EnemyMovement : MonoBehaviour
     private float stayTimer;
     public float timerRadius = 15f;
     public float passiveMoveSpeed = 0.035f;
+    private float stuckValue = 1f;
+    private float stuckTimer;
+    private Vector2 stuckPosition;
 
     public Vector2 walkArea = new Vector2(2f, 2f);
     public Vector2 minimumWalkDistance = new Vector2(3f, 3f);
@@ -27,10 +30,10 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform player;
 
-    [Header("Pathfinding")]
-    public Transform tbd;
     private AIPath aiPath;
     private AIDestinationSetter aiDestination;
+
+    public Animator animator;
 
     private void Start()
     {
@@ -93,6 +96,7 @@ public class EnemyMovement : MonoBehaviour
             enroute = true;
             stayTimer = 0f;
             aiDestination.target = player;
+            Animate(player.position - transform.position);
         }
         
         if (!isAggressive && !avoidsPlayer && isMobile)
@@ -121,8 +125,21 @@ public class EnemyMovement : MonoBehaviour
             {
                 enroute = true;
             }
+
+            if(Vector3.Distance(transform.position, stuckPosition) < 0.02f)
+            {
+                stuckTimer -= Time.deltaTime;
+            }
+
+            if (stuckTimer <= 0f)
+            {
+                CalculateDestination();
+            }
+
+            stuckPosition = transform.position;
             
             Move(destination);
+            Animate(destination - (Vector2)transform.position);
         }
     }
 
@@ -137,6 +154,7 @@ public class EnemyMovement : MonoBehaviour
 
         Vector2 newDestination = new Vector2(x, y);
 
+        stuckTimer = stuckValue;
         destination = newDestination;
     }
 
@@ -176,6 +194,17 @@ public class EnemyMovement : MonoBehaviour
         {
             rb.MovePosition(rb.position + movement * (moveSpeed / 10) * Time.fixedDeltaTime);
         }*/
+    }
+
+    private void Animate(Vector2 movement)
+    {
+        if (movement != Vector2.zero)
+        {
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+        }
+
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void OnDrawGizmosSelected()

@@ -25,6 +25,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     private Rigidbody2D rb;
     private EnemyMovement movement;
 
+    public Vector2 centerOffset;
+
     private void Start()
     {
         player = PlayerManager.instance.player;
@@ -44,7 +46,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
         if (!stats.isDead)
         {
-            float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
+            float distance = Vector3.Distance(player.transform.position, gameObject.transform.position + (Vector3)centerOffset);
             if (distance <= attackRange && !isAttacking)
             {
                 StartCoroutine(PrepareAttack());
@@ -53,12 +55,12 @@ public class EnemyMeleeAttack : MonoBehaviour
             if (isAwake)
             {
                 //Vector2 direction = new Vector2(player.transform.position.x, player.transform.position.y) - rb.position;
-                Vector2 direction = new Vector2(player.transform.position.x, player.transform.position.y) - rb.position;
+                Vector2 direction = (Vector2)player.transform.position - (rb.position + centerOffset);
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-                attackPoint.transform.localPosition = player.transform.position;
+                //attackPoint.transform.localPosition = player.transform.position;
                 attackPoint.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
-                attackPoint.transform.localPosition = Vector3.ClampMagnitude(direction, attackOffset);
+                attackPoint.transform.localPosition = (Vector3)centerOffset + Vector3.ClampMagnitude(direction, attackOffset);
             }
         }
         else
@@ -67,6 +69,8 @@ public class EnemyMeleeAttack : MonoBehaviour
         }
         
     }
+
+    //why is the attackpoint center on object center
 
     private void Stop()
     {
@@ -86,7 +90,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         float normalizedTime = 0f;
         while (normalizedTime <= 1f)
         {
-            normalizedTime += Time.deltaTime / lag;
+            normalizedTime += Time.deltaTime / lag * stats.attackSpeed.GetValue();
             rb.velocity = Vector2.zero;
             //aipath.canMove = false;
             yield return null;
@@ -112,7 +116,23 @@ public class EnemyMeleeAttack : MonoBehaviour
         if (hitPlayer.gameObject.TryGetComponent(out PlayerStats player))
         {
             player.TakeDamage(stats.damage.GetValue(), knockbackPower, transform);
+            GetComponent<EnemyMovement>().animator.SetTrigger("Attack");
             Debug.Log(gameObject.name + " hit player");
         }
+    }
+
+    //change bat collision to shadow, hitbox remains on bat
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+
+        Vector2 position = rb != null ? rb.position : (Vector2)transform.position;
+
+        Gizmos.DrawWireSphere(position + centerOffset, 0.25f);
+
+        Gizmos.color = Color.white;
+
+        Gizmos.DrawWireSphere(attackPoint.transform.position, attackRange);
     }
 }

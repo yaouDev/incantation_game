@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 123265710246203165, guid: f2f6a8d59e5610f42b4082c1b52a5c55, type: 3}
       propertyPath: m_Name
-      value: Cultist (2)
+      value: Cultist (2) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2656320494007118869, guid: f2f6a8d59e5610f42b4082c1b52a5c55, type: 3}
       propertyPath: m_Size.y
@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2656320494007118869, guid: f2f6a8d59e5610f42b4082c1b52a5c55, type: 3}
       propertyPath: m_Offset.y
-      value: -1.2737284
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7060732833665385531, guid: f2f6a8d59e5610f42b4082c1b52a5c55, type: 3}
       propertyPath: m_Controller

@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4bcecde96e26147921f76dc7ca2815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
-  interval: 2
+  damage: 20
+  applicationInterval: 0.5
   radius: 5
+  burnDuration: 5
   lifetime: 10
