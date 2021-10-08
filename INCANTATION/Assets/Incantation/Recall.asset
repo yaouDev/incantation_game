@@ -30,7 +30,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  faction: {fileID: 0}
+  faction: {fileID: 11400000, guid: 3d17fe6751df18e4da9846be1b8028ba, type: 2}
   trigger: recall
   recallPoint: {fileID: 6488784405354362372, guid: 94290c72edc7e1f46b008497b4e80ed9, type: 3}
   references:

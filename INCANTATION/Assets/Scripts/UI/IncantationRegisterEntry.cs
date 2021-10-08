@@ -35,9 +35,9 @@ public class IncantationRegisterEntry : MonoBehaviour
         {
             faction = newFaction;
 
-            nameText.color = faction.factionColor;
-            descText.color = faction.factionColor;
-            triggerText.color = faction.factionColor;
+            nameText.color = faction.color;
+            descText.color = faction.color;
+            triggerText.color = faction.color;
         }
     }
 }

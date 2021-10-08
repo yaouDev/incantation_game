@@ -72,6 +72,16 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja-JP
+  - m_GUID: 661abf99eab33e349bb249f78d371cb6
+    m_Address: Faction Names Table_ja-JP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja-JP
+  - m_GUID: c1361a302ebdba041b25f7c446566ad5
+    m_Address: Faction Descriptions Table_ja-JP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja-JP
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 82da5435ae33261449744f9b49a48640, type: 2}
   m_SchemaSet:

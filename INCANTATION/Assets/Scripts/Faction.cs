@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [CreateAssetMenu(fileName = "Unnamed Faction", menuName = "Faction")]
 public class Faction : ScriptableObject
 {
-    public string factionName;
-    public string factionDescription;
-    public Color factionColor;
-    public Sprite factionDialogPanel;
+    public new LocalizedString name;
+    public LocalizedString description;
+    public Color color;
+    public Sprite dialogPanel;
 }

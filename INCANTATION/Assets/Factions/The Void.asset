@@ -12,7 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c85affd685b223418b0df66335399ab, type: 3}
   m_Name: The Void
   m_EditorClassIdentifier: 
-  factionName: The Void
-  factionDescription: ...
-  factionColor: {r: 0, g: 0, b: 0, a: 1}
-  factionDialogPanel: {fileID: 0}
+  name:
+    m_TableReference:
+      m_TableCollectionName: GUID:25f64a636454b3243af132224f295fca
+    m_TableEntryReference:
+      m_KeyId: 10221244416
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:6169704d412a1bc438e04c21a77a738a
+    m_TableEntryReference:
+      m_KeyId: 1534825582592
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  color: {r: 0, g: 0, b: 0, a: 1}
+  dialogPanel: {fileID: 0}
+  references:
+    version: 1

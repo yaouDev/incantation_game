@@ -185,7 +185,8 @@ public class IncantationManager : MonoBehaviour
     {
         List<Incantation> fetching = new List<Incantation>();
         allIncantations.ForEach(fetching.Add);
-        //fetching.Sort();
+        IncantationComparator ic = new IncantationComparator();
+        fetching.Sort(ic);
         return fetching;
     }
 

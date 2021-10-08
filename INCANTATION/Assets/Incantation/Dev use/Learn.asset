@@ -30,7 +30,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  faction: {fileID: 0}
+  faction: {fileID: 11400000, guid: 8188c90ce89e8c843900023cb0ac44b7, type: 2}
   trigger: learn
   toBeLearnt: {fileID: 11400000, guid: 49cc95afa0ebc1c47b6f40eb1237729a, type: 2}
   references:

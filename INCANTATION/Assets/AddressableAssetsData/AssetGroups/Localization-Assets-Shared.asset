@@ -65,6 +65,15 @@ MonoBehaviour:
       Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: 25f64a636454b3243af132224f295fca
+    m_Address: Assets/Localization/Tables/Factions/Faction Names Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 6169704d412a1bc438e04c21a77a738a
+    m_Address: Assets/Localization/Tables/Factions/Faction Descriptions Table Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 82da5435ae33261449744f9b49a48640, type: 2}
   m_SchemaSet:
