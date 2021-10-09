@@ -25,6 +25,8 @@ public class InventoryUI : MonoBehaviour
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
 
+            PlayerCombatManager.instance.clickIsAttack = true;
+
             //VVV cursor related
             if (GameManager.instance.integrateCursor)
             {

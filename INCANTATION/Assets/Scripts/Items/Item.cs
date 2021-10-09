@@ -6,6 +6,7 @@ public class Item : ScriptableObject{
 
     new public LocalizedString name;
     public LocalizedString description;
+    public Faction faction;
     public Sprite icon = null;
     public Sprite sprite = null;
     public bool isDefaultItem = false;

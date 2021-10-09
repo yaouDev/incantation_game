@@ -25,6 +25,8 @@ public class PlayerCombatManager : MonoBehaviour
     public GameObject player;
     public PlayerStats playerStats;
 
+    public bool clickIsAttack = true;
+
     [Header("ReadOnly")]
     public float currentWeaponOffset;
 

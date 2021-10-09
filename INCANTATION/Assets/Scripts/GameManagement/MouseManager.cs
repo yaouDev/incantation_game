@@ -76,6 +76,7 @@ public class MouseManager : MonoBehaviour
             }
         }*/
 
+        /*
         if (EventSystem.current.IsPointerOverGameObject())
         {
             gameManager.isInputEnabled = false;
@@ -83,7 +84,7 @@ public class MouseManager : MonoBehaviour
         else
         {
             gameManager.isInputEnabled = true;
-        }
+        }*/
 
         if (!lockPos)
         {

@@ -52,7 +52,7 @@ public abstract class WeaponAttack : MonoBehaviour
     protected bool canAttack()
     {
         //VV insert more conditions
-        if (GameManager.instance.isInputEnabled && damageTimer <= 0f || manualAttackFreeze)
+        if (pcm.clickIsAttack && GameManager.instance.isInputEnabled && damageTimer <= 0f || manualAttackFreeze)
         {
             return true;
         }

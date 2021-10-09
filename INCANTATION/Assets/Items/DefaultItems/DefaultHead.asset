@@ -12,10 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c73b80db2269d34d873531145838caa, type: 3}
   m_Name: DefaultHead
   m_EditorClassIdentifier: 
-  name: Default Head
+  name:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  faction: {fileID: 0}
   icon: {fileID: 0}
   sprite: {fileID: 0}
-  isDefaultItem: 0
+  isDefaultItem: 1
   rarity: 0
   equipSlot: 0
   armorModifer: 0
@@ -36,3 +54,5 @@ MonoBehaviour:
   mainColor: {r: 1, g: 1, b: 1, a: 1}
   secondaryColor: {r: 1, g: 1, b: 1, a: 1}
   tertiaryColor: {r: 1, g: 1, b: 1, a: 1}
+  references:
+    version: 1

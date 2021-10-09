@@ -30,13 +30,14 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  faction: {fileID: 0}
   icon: {fileID: 21300000, guid: 2bdecf417b5b54840940d4533904a24a, type: 3}
   sprite: {fileID: 21300000, guid: 2bdecf417b5b54840940d4533904a24a, type: 3}
   isDefaultItem: 0
   rarity: 0
   equipSlot: 3
   armorModifer: 0
-  damageModifier: 40
+  damageModifier: 400
   moveSpeedModifier: 0
   attackSpeedModifier: 5
   specialIncantation: 
