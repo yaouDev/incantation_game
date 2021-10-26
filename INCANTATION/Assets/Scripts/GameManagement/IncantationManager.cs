@@ -96,7 +96,7 @@ public class IncantationManager : MonoBehaviour
         if (FindTrigger(incantation.trigger))
         {
             unlockedIncantations.Add(incantation.trigger, incantation);
-            Debug.Log("Added " + incantation.name);
+            Debug.Log("Added " + incantation.name.GetLocalizedString());
         }
         else
         {

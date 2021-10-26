@@ -1,3 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,7 +16,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 
     [SerializeField] private float timeToShowInfo = 1f;
-    private float showTimer;
+    private CancellationTokenSource cts = null;
 
     Item item;
 
@@ -94,8 +98,19 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    private void HoverBox()
+    private async Task HoverBox(float duration, CancellationToken token)
     {
+        var end = Time.time + duration;
+        while(Time.time < end)
+        {
+            if (token.IsCancellationRequested)
+            {
+                return;
+            }
+
+            await Task.Yield();
+        }
+
         hover.SetActive(true);
         SetHoverText(item.name.GetLocalizedString(), item.description.GetLocalizedString());
     }
@@ -119,16 +134,14 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    async void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
         if (item != null)
         {
-            //showTimer -= Time.deltaTime;
+            cts = new CancellationTokenSource();
+            CancellationToken token = cts.Token;
 
-            //if (showTimer <= 0f)
-            //{
-                HoverBox();
-            //}
+            await HoverBox(timeToShowInfo, token);
         }
 
 
@@ -136,12 +149,16 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if(cts != null)
+        {
+            cts.Cancel();
+            cts.Dispose();
+        }
         DisableHover();
     }
 
     public void DisableHover()
     {
-        showTimer = timeToShowInfo;
         hover.SetActive(false);
     }
 }
