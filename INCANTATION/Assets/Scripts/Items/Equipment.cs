@@ -41,6 +41,22 @@ public class Equipment : Item
     {
         base.Use();
 
+        if(EquipmentManager.instance.currentEquipment[(int)equipSlot] != null && !EquipmentManager.instance.currentEquipment[(int)equipSlot].isDefaultItem)
+        {
+            if (EquipmentManager.instance.currentEquipment[(int)equipSlot] == this)
+            {
+                Debug.Log("Trying to equip identical item");
+                return;
+            }
+
+            Replace();
+            return;
+        }
+
+        Inventory.instance.Remove(this);
+        EquipmentManager.instance.Equip(this);
+
+        /*
         for (int i = 0; i < Inventory.instance.inventoryItems.Length; i++)
         {
             if (Inventory.instance.inventoryItems[i] == this)
@@ -54,11 +70,22 @@ public class Equipment : Item
                 EquipmentManager.instance.Equip(this);
                 return;
             }
-        }
+        }*/
+    }
 
+    private void Replace()
+    {
+        Inventory.instance.Remove(this);
+        Equipment oldItem = EquipmentManager.instance.Unequip((int)equipSlot);
+        Inventory.instance.Add(oldItem);
+        EquipmentManager.instance.Equip(this);
+    }
+
+    public void UnequipToInventory()
+    {
         for (int i = 0; i < Inventory.instance.equipment.Length; i++)
         {
-            if(Inventory.instance.equipment[i] == this && !Inventory.instance.isFull)
+            if (Inventory.instance.equipment[i] == this && !Inventory.instance.isFull)
             {
                 Inventory.instance.equipment[(int)equipSlot] = null;
                 EquipmentManager.instance.Unequip((int)equipSlot);

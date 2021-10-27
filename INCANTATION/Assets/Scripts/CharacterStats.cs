@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public abstract class CharacterStats : MonoBehaviour
@@ -135,6 +136,7 @@ public abstract class CharacterStats : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
+    /*
     public IEnumerator StatBoost(Stat stat, int modifier, float duration)
     {
         stat.AddModifier(modifier);
@@ -144,6 +146,19 @@ public abstract class CharacterStats : MonoBehaviour
         {
             normalizedTime += Time.deltaTime / duration;
             yield return null;
+        }
+
+        stat.RemoveModifier(modifier);
+    }*/
+
+    public async Task StatBoost(Stat stat, int modifier, float duration)
+    {
+        stat.AddModifier(modifier);
+
+        var end = Time.time + duration;
+        while (Time.time < end)
+        {
+            await Task.Yield();
         }
 
         stat.RemoveModifier(modifier);

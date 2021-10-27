@@ -14,6 +14,16 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach(InventorySlot slot in equipmentSlots)
+        {
+            slot.slotType = SlotType.equipment;
+        }
+
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            slot.slotType = SlotType.inventory;
+        }
+
         inventory = Inventory.instance;
         inventory.onItemChangedCallback += UpdateUI;
     }

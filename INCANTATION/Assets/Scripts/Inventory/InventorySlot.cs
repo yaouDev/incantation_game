@@ -14,12 +14,12 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Text nameText;
     public Text descText;
 
-
     [SerializeField] private float timeToShowInfo = 1f;
     private CancellationTokenSource cts = null;
 
+    [Header("ReadOnly")]
+    public SlotType slotType;
     Item item;
-
 
     private void FixedUpdate()
     {
@@ -94,7 +94,16 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (item != null)
         {
-            item.Use();
+            if(slotType == SlotType.equipment)
+            {
+                //unequip
+                Equipment equipment = (Equipment)item;
+                equipment.UnequipToInventory();
+            }
+            else
+            {
+                item.Use();
+            }
         }
     }
 
@@ -161,4 +170,9 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         hover.SetActive(false);
     }
+}
+
+public enum SlotType
+{
+    inventory, equipment
 }

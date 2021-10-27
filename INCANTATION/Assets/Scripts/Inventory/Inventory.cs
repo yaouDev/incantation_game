@@ -45,6 +45,7 @@ public class Inventory : MonoBehaviour
 
     public bool Add(Item item)
     {
+        //unable to equip with full inventory?
         if (isFull)
         {
             Debug.Log("Inventory is full.");

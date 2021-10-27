@@ -1,52 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Ghosting : MonoBehaviour
 {
-    public float delay;
-    private float delayTimer;
-    public GameObject ghost;
-    public PlayerStats playerStats;
-    public float movementSpeedThreshold;
-    private static TrailRenderer trailRenderer;
+    //public float delay;
+    //public GameObject ghost;
+    //public PlayerStats playerStats;
+    //public float movementSpeedThreshold;
+    private TrailRenderer trailRenderer;
+    //private Sprite sprite;
 
-    private static float effectTimer;
+    //[Header("Read Only")]
+    //public float effectTimer;
 
     private void Start()
     {
-        delayTimer = delay;
-        trailRenderer = transform.parent.Find("Ghosting").GetComponent<TrailRenderer>();
+        trailRenderer = GetComponent<TrailRenderer>();
+        //sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
-    private void FixedUpdate()
+    public async Task SetTrail(float duration)
     {
-        if (effectTimer > 0f)
-        {
-            effectTimer -= Time.deltaTime;
-
-            if (delayTimer > 0f)
-            {
-                delayTimer -= Time.deltaTime;
-            }
-            else
-            {
-                GameObject ghostInstance = Instantiate(ghost, PlayerManager.instance.player.transform.position, transform.rotation);
-                ghostInstance.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
-
-                delayTimer = delay;
-                Destroy(ghostInstance, 1f);
-            }
-        }
-        else
-        {
-            trailRenderer.enabled = false;
-        }
-    }
-
-    public static void SetTrail(float duration)
-    {
-        effectTimer += duration;
         trailRenderer.enabled = true;
+
+        var end = Time.time + duration;
+        while (Time.time < end)
+        {
+            await Task.Yield();
+        }
+
+        trailRenderer.enabled = false;
+    }
+
+    public IEnumerator Trail(float duration)
+    {
+        trailRenderer.enabled = true;
+
+        var end = Time.time + duration;
+        while(Time.time < end)
+        {
+            yield return null;
+        }
+
+        trailRenderer.enabled = false;
     }
 }

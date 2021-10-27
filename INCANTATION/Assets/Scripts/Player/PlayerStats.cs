@@ -79,14 +79,15 @@ public class PlayerStats : CharacterStats
         }
     }
 
-    private void EssenceAction()
+    private async void EssenceAction()
     {
         switch (essenceType)
         {
             case EssenceType.none:
                 break;
             case EssenceType.speed:
-                StartCoroutine(StatBoost(movementSpeed, 100, 5f));
+                await StatBoost(movementSpeed, 100, 5f);
+                //StartCoroutine(StatBoost(movementSpeed, 100, 5f));
                 Debug.Log("Speed up!");
                 break;
             default:

@@ -1441,6 +1441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2012703421504233622}
   - component: {fileID: 6306242248272872796}
+  - component: {fileID: 8532036258841171531}
   m_Layer: 6
   m_Name: Ghosting
   m_TagString: Untagged
@@ -1569,6 +1570,20 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &8532036258841171531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175508971668170546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c789490c5385e0f45a2dfb09d595ff1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
+  movementSpeedThreshold: 0
 --- !u!1001 &1012966447272043278
 PrefabInstance:
   m_ObjectHideFlags: 0

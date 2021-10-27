@@ -90,12 +90,22 @@ public class EquipmentManager : MonoBehaviour
     {
         int slotIndex = (int)newItem.equipSlot;
 
+        //if youre trying to equip the same item
+        if(newItem == currentEquipment[slotIndex])
+        {
+            Debug.Log("Trying to equip identical item");
+            return;
+        }
+
         Equipment oldItem = Unequip(slotIndex);
 
         if (onEquipmentChanged != null)
         {
             onEquipmentChanged.Invoke(newItem, oldItem);
         }
+
+        //put in inventory equip interface
+        inventory.equipment[slotIndex] = newItem;
 
         if (inventory.onItemChangedCallback != null)
         {
