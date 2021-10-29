@@ -276,7 +276,7 @@ public class EquipmentManager : MonoBehaviour
 
         if (inventory.isFull)
         {
-            Debug.Log("Cannot unequip; inventory was full");
+            Debug.Log("Cannot unequip; inventory was full; might be Replace() in Equipment");
         }
         return null;
     }

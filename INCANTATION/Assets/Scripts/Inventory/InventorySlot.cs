@@ -94,7 +94,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (item != null)
         {
-            if(slotType == SlotType.equipment)
+            if (slotType == SlotType.equipment)
             {
                 //unequip
                 Equipment equipment = (Equipment)item;
@@ -110,9 +110,9 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private async Task HoverBox(float duration, CancellationToken token)
     {
         var end = Time.time + duration;
-        while(Time.time < end)
+        while (Time.time < end)
         {
-            if (token.IsCancellationRequested)
+            if (token.IsCancellationRequested || item == null)
             {
                 return;
             }
@@ -158,7 +158,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(cts != null)
+        if (cts != null && !cts.IsCancellationRequested)
         {
             cts.Cancel();
             cts.Dispose();

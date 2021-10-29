@@ -604,7 +604,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1151,7 +1151,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1454162931487741906, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162932252131482, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162931827508391, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162930285263421, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162930429951242, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162931892434775, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162932022231316, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162930757666027, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162930429171888, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
+    - {fileID: 1454162931561989672, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 24a8a5f906ef1e44b8c7ae8321d4645f, type: 3}
 --- !u!4 &8755925687188666002 stripped
 Transform:

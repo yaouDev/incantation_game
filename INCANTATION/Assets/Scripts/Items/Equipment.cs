@@ -76,8 +76,7 @@ public class Equipment : Item
     private void Replace()
     {
         Inventory.instance.Remove(this);
-        Equipment oldItem = EquipmentManager.instance.Unequip((int)equipSlot);
-        Inventory.instance.Add(oldItem);
+        EquipmentManager.instance.Unequip((int)equipSlot);
         EquipmentManager.instance.Equip(this);
     }
 

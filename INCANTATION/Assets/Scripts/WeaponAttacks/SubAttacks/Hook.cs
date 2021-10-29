@@ -22,6 +22,8 @@ public class Hook : Projectile
 
     private LineRenderer lr;
 
+    private float current = 0f;
+
     private void Start()
     {
         player = PlayerManager.instance.player;
@@ -41,8 +43,11 @@ public class Hook : Projectile
             else
             {
                 rb.velocity = Vector2.zero;
-                distance = gameObject.transform.position - player.transform.position;
-                player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + (distance * Time.deltaTime));
+                //distance = gameObject.transform.position - player.transform.position;
+                //player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + (distance * Time.deltaTime));
+                current = Mathf.MoveTowards(current, 10f, Time.fixedDeltaTime / 10f);
+                //player.GetComponent<Rigidbody2D>().MovePosition(velocity);
+                player.GetComponent<Rigidbody2D>().position = Vector2.Lerp(player.GetComponent<Rigidbody2D>().position, transform.position, current);
             }
 
             Debug.Log(stuckTimer);
